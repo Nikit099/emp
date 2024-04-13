@@ -1,10 +1,16 @@
+'use client'
 import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
+  function handleCkick(){
+    console.log('fdf');
+  }
   return (
     <main className={styles.main}>
       <div className={styles.description}>
+            
+        <button onClick={() => handleCkick()} > ttooooot yaaaa</button>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>app/page.js</code>
@@ -17,6 +23,7 @@ export default function Home() {
           >
             By{" "}
             <Image
+              
               src="/vercel.svg"
               alt="Vercel Logo"
               className={styles.vercelLogo}
