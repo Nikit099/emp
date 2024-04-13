@@ -31,15 +31,17 @@ export default function Dashboard() {
         setFlagBlock(!flagBlock);
     }
     
-    const [groupeName, setGroupeName] = useState('Группа')
-    const [inputValue, setInputValue] = useState('');
-    function changeGroupeName() {
-        setGroupeName(inputValue);
-        setInputValue('')
-    }
+    //const [groupeName, setGroupeName] = useState('Группа')
+    const [inputValueGroupeName, setInputValueGroupeName] = useState('');
+    // function changeGroupeName(e) {
+    //     if (e.key === 'Enter') {
+    //         setGroupeName(inputValueGroupeName);
+    //         setInputValueGroupeName('')
+    //     }
+    // }
 
-    const handleInputChange = (event) => {
-      setInputValue(event.target.value);
+    const handleInputChangeGroupeName = (event) => {
+      setInputValueGroupeName(event.target.value);
     };
 
     return (
@@ -69,10 +71,10 @@ export default function Dashboard() {
                         <input
                             className="main__title"
                             type="text"
-                            value={inputValue}
-                            onChange={handleInputChange}
-                            placeholder={groupeName}
-                            onClick={changeGroupeName}
+                            value={inputValueGroupeName}
+                            onChange={handleInputChangeGroupeName}
+                            placeholder='Ваше имя группы'
+                            //onKeyDown={changeGroupeName}
                         />
                         <div className="main__search">
                             <input className="main__search_input"

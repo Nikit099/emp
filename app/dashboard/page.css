@@ -121,6 +121,15 @@ body {
     border: 0px;
 }
 
+.main__title::placeholder {
+    color:#888888;
+}
+
+.main__title:focus {
+    border: none;
+    outline: none;
+}
+
 .main__search {
     position: relative;
     display: flex;
