@@ -8,7 +8,7 @@ import { Line } from "react-chartjs-2";
 
 import './page.css';
 import Image from 'next/image';
-import magnifyingGlass from '../../public/magnifying-glass.svg';
+import magnifyingGlass from '../../public/dashboard/search.svg';
 import arrowBack from '../../public/dashboard/arrow_back.svg';
 import plus from '../../public/dashboard/plus.svg';
 import arrowShowDown from '../../public/dashboard/arrow_show_down.svg';
@@ -16,23 +16,31 @@ import deleteDashboard from '../../public/dashboard/delete.svg';
 import arrowShowUp from '../../public/dashboard/arrow_show_up.svg';
 import calendar from '../../public/dashboard/calendar.svg';
 import emojiSick from '../../public/dashboard/emoji_sick.png';
-import m from '../../public/dashboard/.svg';
 
 
 
 export default function Dashboard() {
 
     const [flagGroupe, setFlagGroupe] = useState(true)
-    const [flagBlock, setFlagBlock] = useState(true)
-
     function changeArrowGroupe() {
         setFlagGroupe(!flagGroupe);
     }
-
+    
+    const [flagBlock, setFlagBlock] = useState(true)
     function changeArrowBlock() {
         setFlagBlock(!flagBlock);
     }
     
+    const [groupeName, setGroupeName] = useState('Группа')
+    const [inputValue, setInputValue] = useState('');
+    function changeGroupeName() {
+        setGroupeName(inputValue);
+        setInputValue('')
+    }
+
+    const handleInputChange = (event) => {
+      setInputValue(event.target.value);
+    };
 
     return (
     <>
@@ -58,7 +66,14 @@ export default function Dashboard() {
             <div className="main__block">
                 <div className="main__sides">
                     <div className="main__block_left">
-                        <span className="main__title">Группа 1</span>
+                        <input
+                            className="main__title"
+                            type="text"
+                            value={inputValue}
+                            onChange={handleInputChange}
+                            placeholder={groupeName}
+                            onClick={changeGroupeName}
+                        />
                         <div className="main__search">
                             <input className="main__search_input"
                                    type="search"
