@@ -1,0 +1,817 @@
+/* @font-face {
+    font-family: "Inter";
+    src: url(../fonts/Inter.ttf);
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(../fonts/Montserrat.ttf);
+} */
+
+html {
+    margin: 0px auto;
+    max-width: 1350px;
+}
+
+body {
+    margin: 0px auto;
+    background: #F8F8F8;
+}
+
+.container {
+    position: absolute;
+    display: flex;
+    justify-content:space-between;
+}
+
+aside {
+    overflow: auto;
+    height: 100dvh;
+    margin: 0px 30px 0px 2vw;
+    padding-left: 50px;
+    padding-right: 20px;
+    direction: rtl;
+}
+
+aside > * {
+    direction: ltr;
+}
+
+::-webkit-scrollbar {
+    width: 13px;
+    margin-left: 10px;
+    
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #D7EADD;
+  border-radius: 7px; 
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F8F8F8;
+}
+
+.aside__header {
+    position: fixed;
+    margin-top: 31px;
+    z-index: 2;
+}
+
+.aside__magnifying-glass {
+    position: absolute;
+    top: 19px;
+    left: 19px;
+
+}
+
+.search {
+    width: 569px;
+    height: 57px;
+    border-radius: 21px;
+    background: #FEFEFE;    
+    box-shadow: 2px 4px 13px 0px rgba(138, 138, 138, 0.25);
+    border-width: 0px;
+    padding-left: 51px;
+
+    color: #888;
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.aside__plant-carts {
+    margin-top: 130px;
+}
+
+
+.plant-cart {
+    
+    position: relative;
+    margin-top: 35px;
+    width: 569px;
+    height: 216px;
+    border-radius: 13px;
+    background: #E9F3ED;
+    cursor: pointer;
+}
+.plant-cart:hover{
+    background: #D3E7DB;
+    transition: 0.2s;
+}
+.choosedPlant_card{
+    background: #D3E7DB;
+    position: relative;
+    margin-top: 35px;
+    width: 569px;
+    height: 216px;
+    border-radius: 13px;
+    cursor: pointer;
+
+}
+.choosedPlant_card .top{
+    background: #BFDFC9;
+    width: 195px;
+    height: 139px;
+    border-radius: 16px 16px 95px 0px;
+
+}
+.plant-cart:hover .top{
+    transition: 0.2s;
+    background: #BFDFC9;
+}
+
+.plant-cart .top {
+    width: 195px;
+    height: 139px;
+    border-radius: 16px 16px 95px 0px;
+    background: #D7EADD;
+}
+
+.plant-cart:not(:hover){
+    background: #E9F3ED;
+    transition: 0.2s;
+}
+.plant-cart:not(:hover) .top{
+    transition: 0.2s;
+    background: #D7EADD;
+}
+
+
+.plant-small {
+    position: absolute;
+    top: 20px;
+    left: -6px;
+}
+
+.plant-cart dl {
+    position: absolute;
+    top: 29px;
+    left: 212px;
+    margin: 0px;
+}
+
+ .typePlant {
+    color: #498553;
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 17px;
+}
+
+ .titlePlant {
+    margin-left: 0px;
+    color: #6A6D6C;
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.plant-cart .fire {
+    position: absolute;
+    top: 173px;
+    left: 391px;
+}
+
+.plant-cart .sunrise {
+    position: absolute;
+    top: 173px;
+    left: 436px;
+}
+
+.plant-cart .drops {
+    position: absolute;
+    top: 173px;
+    left: 481px;
+}
+
+.main {
+    width: 667px;
+    background: #E9F3ED;
+    max-height: 100dvh;
+    overflow-y: hidden;
+    
+}
+
+.main__header {
+    position: relative;
+}
+
+.top-green-block {
+    width: 469.877px;
+    height: 295.143px;
+    transform: rotate(-0.262deg);
+    border-radius: 0px 20px 175px 0px;
+    background: #D7EADD;   
+}
+
+.button-back {
+    display: none;
+}
+
+.arrow-left {
+    display: none;
+}
+
+
+.plant-large {
+    position: absolute;
+    z-index: 1;
+    top: 65px;
+    left: 660px;
+
+}
+
+.main__header dl {
+    position: absolute;
+    top: 61px;
+    left: 551px;
+    margin: 0px;
+}
+
+.main__header dt {
+    color: #A1A7A4;
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 18px;
+}
+
+.main__header dd {
+    margin-left: 0px;
+    color: #498553;
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 30px;
+}
+
+.bottom-white-block {
+    position: relative;
+    width: 667px;
+    height: 100dvh;
+    border-radius: 60px 60px 0px 0px;
+    background: #FEFEFE;
+    margin-top: 145px;
+}
+
+.bottom-white-block dl {
+    position: absolute;
+    margin: 0px;
+    top: 150px;
+    left: 98px;
+}
+
+.bottom-white-block dl dt {
+    color: #498553;
+    font-family: "Montserrat";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;   
+    margin-bottom: 18px; 
+}
+
+.bottom-white-block dl dd {
+    color: #A8A8A8;
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.35px;
+    margin-left: 0px;    
+}
+
+.bottom-white-block .icons {
+    position: absolute;
+    top: 148px;
+    left: 441px;
+    display: flex;
+    gap:20px;
+}
+
+.bottom-white-block .hide-icons{
+    display: none;
+}
+
+.noChoosedB {
+    position: absolute;
+    background-color: #D7EADD;
+    border-radius: 38px;
+    width: 440px;
+    height: 58px;
+    border: 0px;
+    top: 402px;
+    left: 113px;
+}
+
+ .noChoosedP {
+    color: #498553;
+    text-align: center;
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+.choosedB {
+    position: absolute;
+    background-color: #498553;
+    border-radius: 38px;
+    width: 440px;
+    height: 58px;
+    border: 0px;
+    top: 402px;
+    left: 113px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.choosedB:hover{
+    background-color: #457c4e;
+
+}
+
+.choosedP {
+    color: #f2f2f2;
+    text-align: center;
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+@media (max-width:1420px) {
+
+    .search {
+        width: 40vw;
+    }
+
+    .aside__plant-carts {
+        width: 40vw;
+    }
+
+    .plant-cart {
+        width: 40vw;
+    }
+
+    .plant-cart label{
+        width: 40vw;
+    }
+
+    .plant-cart dd {
+        padding: 0px 10px 0px 0px;
+        font-size: 12px;
+    }
+
+    .plant-cart .fire {
+        left: 27vw;
+    }
+    
+    .plant-cart .sunrise {
+        left: 30vw;
+    }
+    
+    .plant-cart .drops {
+        left: 33vw;
+    }
+
+    .main {
+        width: 45vw;
+    }
+
+    .main__header dl {
+        left: 36vw;
+    }
+
+    .plant-large {
+        left: 45vw;
+        height: 450px;
+    }
+
+    .top-green-block {
+        width: 30vw;
+    }
+
+    .bottom-white-block {
+        width: 45vw;
+    }
+
+    .bottom-white-block .icons {
+        left: 30vw;
+    }
+
+    .bottom-white-block dl {
+        left: 7vw
+    }
+
+    .bottom-white-block button {
+        width: 30vw;
+    }
+}
+
+@media (max-width: 1223px) {
+    .bottom-white-block button {
+        width: 28vw;
+    }
+    
+    .plant-large {
+        height: 450px;
+        top: 100px;
+    
+    }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        position: absolute;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        width: 100vw;
+    }
+
+    .aside {
+        display: none;
+        margin: 0px 0px 0px 0px;
+    }
+
+    .main__header dl {
+        z-index: 2;
+    }
+
+    .button-back {
+        display: inline-block;
+        position: absolute;
+        top: 17px;
+        left: 20px;
+        width: 52px;
+        height: 35px;
+        border-radius: 21px;
+        background: #498553;
+        z-index: 1;
+        border-width: 0;
+
+    }
+
+
+    .arrow-left {
+        display: inline-block;
+        position: absolute;
+        top: -1px;
+        left: 10px;
+        width: 30px;
+        z-index: 2;
+    }
+
+    .plant-large {
+        top: 100px;
+        left: 20vw;
+    }
+
+    .bottom-white-block {
+        margin: 145px 0px 0px 0px;
+    }
+
+    .bottom-white-block button {
+        top: 30dvh;
+        left: 90px;
+    }
+
+}
+
+@media (max-width: 930px) {
+
+    .container {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main {
+        width: 310px;
+    }
+
+    .button-back {
+        display: inline-block;
+        position: absolute;
+        top: 17px;
+        left: 20px;
+        width: 32px;
+        height: 25px;
+        border-radius: 21px;
+        background: #498553;
+        z-index: 1;
+        border-width: 0;
+
+    }
+
+    .arrow-left {
+        display: inline-block;
+        position: absolute;
+        top: 0.5px;
+        left: 5px;
+        width: 20px;
+        z-index: 2;
+    }
+    
+    .plant-large {
+        height: 250px;
+        width: 250px;
+        left: 30vw;
+    }
+    
+   
+    
+    .main__header dl {
+        top: 66px;
+        left: 219px;
+    }
+
+    .main__header dt {
+        color: #A1A7A4;
+        font-family: Inter;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        margin: 0px 0px 13px 0px;
+    }
+
+    .main__header dd {
+        color: #498553;
+        font-family: Inter;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        margin: 0px 0px 24px 0px;
+    }
+
+    .main__header--hide {
+        display: none;
+    }
+
+    .top-green-block {
+        width: 178px;
+        height: 157px;
+        border-radius: 0px 0px 95px 0px;
+    }
+
+    .bottom-white-block {
+        width: 310px;
+        height: 50.6vh;
+        border-radius: 60px 60px 0px 0px;
+    }
+
+    .bottom-white-block dl {
+        top: 70px;
+        left: 20px;
+        margin: 0px 0px 0px 0px;
+    }
+
+    .bottom-white-block dl dt {
+        color: #498553;
+        font-size: 16px;
+    }
+
+    .bottom-white-block dl dd {
+        color: #585858;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.25px;
+    }
+
+    .bottom-white-block .icons {
+        display: none;
+    }
+
+    .bottom-white-block .hide-icons{
+        display: inline-block;
+        position: absolute;
+        top: 73px;
+        left: 225px;
+    }
+
+    .fire{
+        width: 17px;
+        height: 17px;
+    }
+
+    .sunrise{ 
+        widows: 19px;
+        height: 18px;
+    }
+
+    .drops{
+        width: 17px;
+        height: 18px;
+    }
+
+    .bottom-white-block button {
+        position: absolute;
+        top: 248px;
+        left: 42px;
+        width: 235px;
+        height: 30.977px;
+    }
+
+    .bottom-white-block button p {
+        text-align: center;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin: 8px;
+    }
+
+    .aside {
+        width: 310px;
+        padding: 0px 0px 0px 0px
+    }
+
+
+    .aside__header {
+        width: 310px;
+    }
+
+    .search {
+        width: 280px;
+        margin: 0px 0px 0px 20px;
+    }
+
+    .aside__magnifying-glass {
+        left: 40px;
+    }
+
+    .aside__plant-carts {
+        display: flex;
+        flex-direction: column ;
+        justify-content: center;
+        align-items: center;
+        width: 310px;
+    }
+
+    .plant-cart{
+        width: 280px;
+        height: 107px;
+        border-radius: 14px;
+    }
+
+    .plant-cart label{
+        width: 280px;
+        height: 107px;
+        border-radius: 14px;
+    }
+
+    .plant-cart .top{
+        width: 86px;
+        height: 76px;
+        border-radius: 14px 0px 95px 0px;        
+    }
+  
+    .plant-cart dl {
+        top: 14px;
+        left: 103px;
+    }
+
+    .typePlant {
+        color: #498553;
+        font-family: Montserrat;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin: 0px 0px 12px 0px;
+    }
+
+    .titlePlant {
+        color: #6A6D6C;
+        font-family: Inter;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .span-hide {
+        display: none;
+    }
+
+    .plant-small {
+        position: absolute;
+        width: 102.355px;
+        height: 93.308px;
+        top: 10px;
+        left: -5px;
+    }
+
+    .plant-cart .fire{
+        position: absolute;
+        top: 83px;
+        left: 193px;
+        z-index: 3;
+    }
+
+    .plant-cart .sunrise{ 
+        position: absolute;
+        top: 83px; 
+        left: 218px;   
+
+        z-index: 3;
+    }
+
+    .plant-cart .drops{
+        position: absolute;
+        top: 83px;
+        left: 244px;
+
+        z-index: 3;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .plant-large {
+        left: 25vw;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .plant-large {
+        left: 15vw;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .plant-large {
+        left: 8vw;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .plant-large {
+        left: 0vw;
+    }
+}
+
+@media screen and (min-width: 937px)
+              and (max-height: 900px) {
+   
+    .main__header--hide{
+        display: none;
+    }
+
+    .main__header dl {
+        z-index: 2;
+    }
+
+    .button-back {
+        z-index: 2;
+    }
+
+    .bottom-white-block{
+        margin-top: 10vh;
+        
+    }
+
+    .bottom-white-block dl {
+        top: 90px;
+    }
+
+    .bottom-white-block .icons {
+        top: 90px;
+    }
+
+    .bottom-white-block button {
+        top: 35vh;
+    }
+
+    .plant-large{
+        top: -20px;
+        height: 450px;
+    }
+
+}
+
+@media screen and (max-width: 1420px) 
+              and (min-width: 1421px)
+              and (max-height: 900px) {
+
+              }
