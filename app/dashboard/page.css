@@ -117,6 +117,17 @@ body {
     color: #555555;
     white-space: nowrap;
     margin: 0 0 0 32px;
+    background-color:#E6F1EB;
+    border: 0px;
+}
+
+.main__title::placeholder {
+    color:#888888;
+}
+
+.main__title:focus {
+    border: none;
+    outline: none;
 }
 
 .main__search {
