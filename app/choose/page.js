@@ -6,28 +6,16 @@ import PlantCard from "../ui/choose/plantCard";
 import RightSide from "../ui/choose/rightSide";
 import magnifyyingGlass from "@/public/choose/magnifying-glass.svg"
 import Image from "next/image";
+import { useCountStore, usePlantsStore } from '../store/zustand';
+import usePersist from '../store/usePersist';
+import {  useSearchStore } from "../store/zustand";
 
-const typePlants = [
-    {id: 1,
-     type: "Dracena Fr.",
-     title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз."
-    },
-    {id: 2,
-        type: "Melaniya So.",
-        title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз."
-    },
-    {id: 3,
-    type: "Notik Ne",
-    title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз."
-    },
-    {id: 4,
-        type: "Dodus Ne",
-        title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз."
-    },
-]
 
 export default function Choose() {
-    const [search, setSearch] = useState('')
+    const search = usePersist(useSearchStore, (state) => state.search);
+    const setSearch = useSearchStore((state) => state.setSearch);
+    const typePlants = usePlantsStore((state) => state.typePlants);
+
     const [serchTypePlants, setSearchTypePlants] = useState(typePlants)
     const [choosedPlant, setChoosedPlant] = useState('')
     const [choosedId, setChoosedId] = useState(null)
@@ -46,6 +34,10 @@ export default function Choose() {
         setChoosedPlant(plant)
         setChoosedId(id)
       }
+
+
+      const {  inc, dec } = useCountStore();
+      const count = usePersist(useCountStore, (state) => state.count);
     return (
         
         <div className="container">
@@ -55,7 +47,10 @@ export default function Choose() {
                     src={magnifyyingGlass}
                     className="aside__magnifying-glass"
                     alt={`magnifyying-glass`} />
-                    <Search handleChange={handleChange} search={search} placeholder={"Тип растения"}/>
+                    <Search stl={'search'} handleChange={handleChange}  placeholder={"Тип растения"}/>
+                    {/* <div className='mom'>{count}</div>
+                    <button onClick={inc}> Плюсик </button>
+                    <button onClick={dec}> Минусик </button> */}
                 </header>
                 <div className="aside__plant-carts">
                     {

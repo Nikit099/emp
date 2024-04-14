@@ -292,7 +292,9 @@ aside > * {
     letter-spacing: 0.35px;
     margin-left: 0px;    
 }
-
+.mom{
+    color: black
+}
 .bottom-white-block .icons {
     position: absolute;
     top: 148px;
