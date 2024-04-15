@@ -1,0 +1,40 @@
+.plant {
+    background-color: #E6F1EB;
+}
+
+.wrapper_plant {
+    margin: 0 auto;
+    max-width: 1440px;
+    width: 100%;
+}
+
+.header_plant {
+    max-width: 1145px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.header_plant__container {
+    display: flex;
+    flex-direction: row;
+}
+
+.header_plant__left {
+    display: flex;
+    flex-direction: row;
+}
+
+.header_plant__parameters {
+    display: flex;
+    flex-direction: row;
+}
+
+.parameter {
+    display: flex;
+    flex-direction: column;
+}
+
+.header_plant__right {
+
+}
