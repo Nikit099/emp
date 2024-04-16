@@ -12,12 +12,13 @@
     max-width: 1145px;
     width: 100%;
     margin: 0 auto;
-    padding: 60px 0;
+    padding: 60px 10px;
 }
 
 .header_plant__container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .header_plant__left {
@@ -28,6 +29,8 @@
 .header_plant__parameters {
     display: flex;
     flex-direction: row;
+    gap: 30px;
+    margin: 0 0 0 30px;
 }
 
 .parameter {
@@ -35,6 +38,29 @@
     flex-direction: column;
 }
 
+.parameter__title {
+    margin: 0 0 15px 0;
+}
+
+.parameter__parameter {
+    text-align: center;
+}
+
 .header_plant__right {
 
+}
+
+.norms_plant {
+    max-width: 1145px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.norms_plant__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.line {
+    display: flex;
 }

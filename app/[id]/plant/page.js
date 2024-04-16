@@ -132,7 +132,9 @@ export default function Plant() {
                             </div>
                         </div>
                         <div className="norms_plant__right">
-                            <div className="norms_plant__plant"></div>
+                            <Image className="norms_plant__plant"
+                                   src={plant}
+                                   alt='Растение'></Image>
                         </div>
                     </div>
                 </div>
