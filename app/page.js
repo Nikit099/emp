@@ -12,6 +12,8 @@ import { usePlantsStore, useSearchStore } from "@/app/store/zustand";
 import Search from "./ui/search";
 import usePersist from "./store/usePersist";
 import { useEffect, useState } from "react";
+import Emotion from "./scripts/emotion";
+import Link from "next/link";
 
 export default function Main() {
   const plants = usePlantsStore((state) => state.plants);
@@ -30,6 +32,7 @@ useEffect(() => {
       
 }, [search]);
 
+// console.log();
   return (
     <>
      <header className="header">
@@ -51,6 +54,7 @@ useEffect(() => {
                     src={smileFace}
                     alt="smile face"/>
           </div>
+          <Link href={'/choose'}>
           <button className="header__button">
                <Image className="plus"
                     src={plus}
@@ -59,10 +63,11 @@ useEffect(() => {
                     src={branch}
                     alt="branch"/>
           </button>
+          </Link>
      </header>
      <main className="main">
       {
-          plants.map(e => e.alert == true ).includes(true) && <AlertPlants serchPlants={serchPlants}/>
+          plants.map(e => e.alert === true ).includes(true) && <AlertPlants serchPlants={serchPlants}/>
       }
           <MyPlants serchPlants={serchPlants}/>
      </main>

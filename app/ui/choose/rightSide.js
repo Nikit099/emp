@@ -4,7 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-export default function RightSide({choosedPlant}) {
+export default function RightSide({choosedPlant, createPlant, typeId}) {
+
+
 
     return (
 
@@ -72,7 +74,7 @@ export default function RightSide({choosedPlant}) {
                              
                             choosedPlant ?
                             <Link href='/' > 
-                            <button className="choosedB">
+                            <button onClick={() => createPlant( typeId)} className="choosedB">
                             <p className="choosedP">Подтвердить выбор</p>
                             </button>
                             </Link>
