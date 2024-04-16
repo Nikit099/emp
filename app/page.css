@@ -1309,3 +1309,20 @@ html {
         height: 14px;
     }
 }   
+.sliderMain{
+    display: flex;
+    gap: 49px;
+    display: flex;
+    transition-duration: 400ms;
+    transition-timing-function: ease;
+}
+.mContainer{
+    width: 1050px;
+}
+.window{
+    height: 100%;
+    width: 100%;
+    padding: 25px 11px 20px 25px;
+
+    overflow: hidden;
+}

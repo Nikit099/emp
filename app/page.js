@@ -67,7 +67,7 @@ useEffect(() => {
      </header>
      <main className="main">
       {
-          plants.map(e => e.alert === true ).includes(true) && <AlertPlants serchPlants={serchPlants}/>
+          plants.map(e => e.alert === true ).includes(true) && <AlertPlants plants={plants} serchPlants={serchPlants}/>
       }
           <MyPlants serchPlants={serchPlants}/>
      </main>

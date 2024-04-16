@@ -173,7 +173,7 @@ export const usePlantsStore = create(
                 name: 'Vasia',
                 typeId: 2,
                 recomendate: "Полейте через 2 часа",
-                alert: false,
+                alert: true,
                 emotion: "good",
                 img: ''
             },
@@ -182,7 +182,7 @@ export const usePlantsStore = create(
                 name: 'Tanya',
                 typeId: 4,
                 recomendate: "Полейте через 3 часа",
-                alert: false,
+                alert: true,
                 emotion: "good",
                 img: ''
             },
@@ -191,7 +191,25 @@ export const usePlantsStore = create(
                 name: 'Tanya',
                 typeId: 3,
                 recomendate: "Полейте через 3 часа",
-                alert: false,
+                alert: true,
+                emotion: "good",
+                img: ''
+            },
+            {
+                id: 325,
+                name: 'Tanya',
+                typeId: 3,
+                recomendate: "Полейте через 3 часа",
+                alert: true,
+                emotion: "good",
+                img: ''
+            },
+            {
+                id: 999,
+                name: 'Tanya',
+                typeId: 3,
+                recomendate: "Полейте через 3 часа",
+                alert: true,
                 emotion: "good",
                 img: ''
             },
