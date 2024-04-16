@@ -14,7 +14,8 @@ import {  useSearchStore } from "../store/zustand";
 export default function Choose() {
     const search = usePersist(useSearchStore, (state) => state.search);
     const setSearch = useSearchStore((state) => state.setSearch);
-    const typePlants = usePlantsStore((state) => state.typePlants);
+    // const typePlants = usePlantsStore((state) => state.typePlants);
+    const {  typePlants, incPlant } = usePlantsStore();
 
     const [serchTypePlants, setSearchTypePlants] = useState(typePlants)
     const [choosedPlant, setChoosedPlant] = useState('')
@@ -35,7 +36,18 @@ export default function Choose() {
         setChoosedId(id)
       }
 
-
+      function createPlant(typeId){
+        const newPlant = {
+            id: Date.now(),
+            name: 'Kira',
+            typeId: typeId,
+            recomendate: `У ааа всё хорошо`,
+            alert: false,
+            img: ''
+        }
+        console.log(newPlant);
+        incPlant(newPlant)
+      }
       const {  inc, dec } = useCountStore();
       const count = usePersist(useCountStore, (state) => state.count);
     return (
@@ -64,7 +76,7 @@ export default function Choose() {
 
                 </div>
             </aside>
-            <RightSide choosedPlant={choosedPlant} />
+            <RightSide  typeId={choosedId} createPlant={createPlant} choosedPlant={choosedPlant} />
         </div>
     ) 
     }
