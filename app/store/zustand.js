@@ -209,7 +209,7 @@ export const usePlantsStore = create(
                 name: 'Tanya',
                 typeId: 3,
                 recomendate: "Полейте через 3 часа",
-                alert: true,
+                alert: false,
                 emotion: "good",
                 img: ''
             },

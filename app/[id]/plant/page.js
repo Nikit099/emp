@@ -15,6 +15,11 @@ export default function Plant() {
     <>
         <div className="plant">
             <div className="wrapper_plant">
+                <div className="plant__backgraund_circles">
+                    <div className="circle_1"></div>
+                    <div className="circle_2"></div>
+                    <div className="circle_3"></div>
+                </div>
                 <div className="header_plant">
                     <div className="header_plant__container">
                         <div className="header_plant__left">
@@ -182,8 +187,8 @@ export default function Plant() {
                             </div>
                             <div className="footer_plant__right">
                                 <div className="footer_plant__right_title_block">
-                                        <span className="footer_plant__right_title" >Темы</span>
-                                    </div>
+                                    <span className="footer_plant__right_title" >Темы</span>
+                                </div>
                                     <div className="footer_plant__right_radio_block">
                                         <form className="footer_plant__right_radio_form">
                                             <label>
@@ -239,6 +244,36 @@ export default function Plant() {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="wrapper_mobile_plant">
+                <div className="top_mobile_plant">
+                    <div className="top_mobile_plant__left">
+                        <Image className="norms_plant__plant"
+                                   src={plant}
+                                   alt='Растение'></Image>
+                    </div>
+                    <div className="top_mobile_plant__right">
+                        <div className="header_plant__parameters">
+                            <div className="parameter">
+                                    <span className="parameter__title">Температура воздуха</span>
+                                    <span className="parameter__parameter">25 C</span>
+                                </div>
+                                <div className="parameter">
+                                    <span className="parameter__title">Влажность воздуха</span>
+                                    <span className="parameter__parameter">64%</span>
+                                </div>
+                                <div className="parameter">
+                                    <span className="parameter__title">Влажность почвы</span>
+                                    <span className="parameter__parameter">25%</span>
+                                </div>
+                                <div className="parameter">
+                                    <span className="parameter__title">Освещение</span>
+                                    <span className="parameter__parameter">257 Lux</span>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div className="bottom_mobile_plant"></div>
             </div>
         </div>
     </>

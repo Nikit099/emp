@@ -10,7 +10,7 @@ export default function RightSide({choosedPlant, createPlant, typeId}) {
 
     return (
 
-            <main className="main">
+            <main className="main_choose">
                         
             <Image
                     src={plantLarge}
