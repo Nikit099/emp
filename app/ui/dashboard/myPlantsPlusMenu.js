@@ -1,6 +1,6 @@
-import PlantDashboard from "./plant";
+import PlantDashboardPlusMenu from "./plantDashboardPlusMenu";
 
-export default function MyPlants({serchPlants, closePlantChoose}) {
+export default function MyPlantsPlusMenu({serchPlants, closePlantChoose}) {
     
     return (
         <section className="pots">
@@ -8,7 +8,7 @@ export default function MyPlants({serchPlants, closePlantChoose}) {
         <div className="points">
         {
             serchPlants.map( (e) => 
-            !e.alert && <Plant key={e.id} 
+            !e.alert && <PlantDashboardPlusMenu key={e.id} 
                                         id={e.id} 
                                         recomendate={e.recomendate} 
                                         name={e.name} 
