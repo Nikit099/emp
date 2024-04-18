@@ -404,6 +404,7 @@ body {
     height: 81px;
     border-radius: 21px;
     background-color: #E6F1EB;
+    cursor: pointer;
 }
 
 .section__title {

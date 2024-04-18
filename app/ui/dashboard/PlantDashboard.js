@@ -1,93 +1,21 @@
-'use client';
+import calendar from '@/public/dashboard/calendar.svg';
+import emojiSick from '@/public/dashboard/emoji_sick.png'
+import arrowShowDown from '@/public/dashboard/arrow_show_down.svg';
+import arrowShowUp from '@/public/dashboard/arrow_show_up.svg';
 
-import React, { useState } from 'react';
-
+import Image from "next/image";
 import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
-import PlantDashboard from '../ui/dashboard/PlantDashboard';
+import flagGroupe from '@/app/dashboard/page.js';
+import flagBlock from '@/app/dashboard/page.js';
+import changeArrowBlock from '@/app/dashboard/page.js';
+import deleteDashboard from '@/app/dashboard/page.js';
 
-import './page.css';
-import Image from 'next/image';
-import magnifyingGlass from '../../public/dashboard/search.svg';
-import arrowBack from '../../public/dashboard/arrow_back.svg';
-import plus from '../../public/dashboard/plus.svg';
-import arrowShowDown from '../../public/dashboard/arrow_show_down.svg';
-import deleteDashboard from '../../public/dashboard/delete.svg';
-import arrowShowUp from '../../public/dashboard/arrow_show_up.svg';
-import calendar from '../../public/dashboard/calendar.svg';
-import emojiSick from '../../public/dashboard/emoji_sick.png';
-
-
-
-export default function Dashboard() {
-
-    const [flagGroupe, setFlagGroupe] = useState(true)
-    function changeArrowGroupe() {
-        setFlagGroupe(!flagGroupe);
-    }
-    
-    const [flagBlock, setFlagBlock] = useState(true)
-    function changeArrowBlock() {
-        setFlagBlock(!flagBlock);
-    }
-    
-    
-    const [inputValueGroupeName, setInputValueGroupeName] = useState('');
-    
-
-    const handleInputChangeGroupeName = (event) => {
-      setInputValueGroupeName(event.target.value);
-    };
+export default function PlantDashboard () {
 
     return (
-    <>
-    <body>
-    <header className="header">
-        <div className="header__container">
-            <div className="header__back">
-                <Image className="header__back_arrow" src={arrowBack} alt=""/>
-                <button className="header__home_button">
-                    Главная
-                </button>
-            </div>
-            <div className="header__search">
-                <input className="header__search_input"
-                       type="search"
-                       placeholder="Поиск по группам" />
-                <Image className="header__search_img" src={magnifyingGlass} alt='лупа'/>
-            </div>
-        </div>
-    </header>
-    <main className=".main">
-        <div className="main__container">
-            <div className="main__block">
-                <div className="main__sides">
-                    <div className="main__block_left">
-                        <input
-                            className="main__title"
-                            type="text"
-                            value={inputValueGroupeName}
-                            onChange={handleInputChangeGroupeName}
-                            placeholder='Ваше имя группы'
-                        />
-                        <div className="main__search">
-                            <input className="main__search_input"
-                                   type="search"
-                                   placeholder="Поиск по растениям" />
-                            <Image className="main__search_img" src={magnifyingGlass} alt='лупа'/>
-                        </div>
-                        <div className="main__add">
-                            <Image className="main__plus" src={plus} alt="добавить растение"/>
-                        </div>
-                            <Image className={"main__show"} src={ flagGroupe ? arrowShowUp : arrowShowDown } alt="развернуть группу" onClick={changeArrowGroupe}/>
-                        
-                    </div>
-                    <div className="main__block_right">
-                        <Image className="main__delete" src={deleteDashboard} alt="удалить группу"/>
-                    </div>
-                </div>
-                <section className={ flagGroupe ? "dashboard" : "dashboard--hidden"}>
+        <section className={ flagGroupe ? "dashboard" : "dashboard--hidden"}>
                     <div className="dashboard__container">
                         <div className="dashboard__header">
                             <div className="dashboard__header_left">
@@ -363,24 +291,6 @@ export default function Dashboard() {
                         </div>
                     </div>
                 </div>
-                </section>
-                
-            </div>
-        </div>
-    </main>
-    <section className="section">
-        <div className="section__container">
-            <div className="section__block">
-                <span className="section__title">
-                    Новая группа
-                </span>
-            </div>
-        </div>
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        
-    </script>
-</body>
-    </>    
-    ) }
+            </section>
+    )
+}
