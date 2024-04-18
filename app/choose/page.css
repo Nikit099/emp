@@ -215,7 +215,7 @@ aside > * {
     display: none;
 }
 
-.arrow-left {
+.header_arrow-left {
     display: none;
 }
 
@@ -471,7 +471,7 @@ aside > * {
     }
 
 
-    .arrow-left {
+    .header_arrow-left {
         display: inline-block;
         position: absolute;
         top: -1px;
@@ -521,7 +521,7 @@ aside > * {
 
     }
 
-    .arrow-left {
+    .header_arrow-left {
         display: inline-block;
         position: absolute;
         top: 0.5px;

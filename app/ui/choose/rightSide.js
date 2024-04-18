@@ -21,10 +21,10 @@ export default function RightSide({choosedPlant, createPlant, typeId}) {
                     <button className="button-back">
                     <Image
                     src={arrowLeft}
-                    className="arrow-left"
+                    className="header_arrow-left"
                     alt={`arrow-left`}
                     />
-                        <img className="arrow-left" src="./media/arrow-left.svg" alt="arrow" />
+                        <img className="header_arrow-left" src="./media/arrow-left.svg" alt="arrow" />
                     </button>
                     <div className="top-green-block"></div>
                     <dl>
