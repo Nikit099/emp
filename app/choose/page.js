@@ -14,9 +14,7 @@ import {  useSearchStore } from "../store/zustand";
 export default function Choose() {
     const search = usePersist(useSearchStore, (state) => state.search);
     const setSearch = useSearchStore((state) => state.setSearch);
-    // const typePlants = usePlantsStore((state) => state.typePlants);
     const {  typePlants, incPlant } = usePlantsStore();
-
     const [serchTypePlants, setSearchTypePlants] = useState(typePlants)
     const [choosedPlant, setChoosedPlant] = useState('')
     const [choosedId, setChoosedId] = useState(null)
@@ -45,7 +43,6 @@ export default function Choose() {
             alert: false,
             img: ''
         }
-        console.log(newPlant);
         incPlant(newPlant)
       }
       const {  inc, dec } = useCountStore();
