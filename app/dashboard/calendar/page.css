@@ -1,0 +1,115 @@
+.calendar__container {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.calendar__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 37px 10px 0 10px;
+    max-width: 1350px;
+    width: 100%;
+    min-width: 613px;
+    height: auto;
+    border-radius: 21px;
+    background-color: #f8f8f8;
+}
+
+.calendar__sides {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 15px 10px 15px 10px;
+    
+}
+
+.calendar__block_left {
+    display: flex;
+    align-items: center;
+}
+
+.calendar__title {
+    font-family: 'Montserrat';
+    font-size: 24px;
+    color: #555555;
+    white-space: nowrap;
+    margin: 0 0 0 32px;
+    border: 0px;
+}
+
+.calendar__title::placeholder {
+    color:#888888;
+}
+
+.calendar__title:focus {
+    border: none;
+    outline: none;
+}
+
+.calendar__buttons_block {
+    position: relative;
+    display: flex;
+    margin: 0 0 0 32px;
+}
+
+.calendar__block__radio {
+    display: flex;
+}
+
+.calendar__block__radio input {
+    z-index: 2;
+    display: none;
+}
+
+.calendar__radio-1 {
+    border-bottom-left-radius: 20px;
+}
+
+.calendar__radio-2 {
+    
+}
+
+.calendar__block__castom-radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+    width: 105px;
+    height: 35px;
+    
+    background-color: #E6F1EB;
+    
+    font-family: 'Inter';
+    font-size: 16px;
+    
+    color: #555555;
+}
+
+.calendar__block__radio input:checked + .calendar__block__castom-radio {
+    display: flex;
+    background-color: #D7EADD;
+}
+
+.calendar__button_ical {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #498553;
+    color: #f8f8f8;
+    border-radius: 12px;
+    min-width: 50px;
+    height: 50px;
+    margin: 0 0 0 31px;
+    cursor: pointer;
+}
+
+.calendar__block_right {
+    display: flex;
+}
+
+.calendar__delete {
+    cursor: pointer;
+}

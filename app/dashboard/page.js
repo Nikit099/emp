@@ -8,6 +8,7 @@ import { Line } from "react-chartjs-2";
 import PlantDashboard from '../ui/dashboard/PlantDashboard';
 import PlantChoose from '../ui/dashboard/PlantChoose';
 import Problems from '../ui/dashboard/problems';
+import Calendar from '../ui/dashboard/calendar';
 
 import './page.css';
 import Image from 'next/image';
@@ -69,22 +70,37 @@ export default function Dashboard() {
     const closeProblems = () => {
         setIsVisibleProblems(false);
     };
+
+    //
     
+    const [isVisibleCalendar, setIsVisibleCalendar] = useState(false);
+
+    const openCalendar = () => {
+        setIsVisibleCalendar(true);
+    };
+
+    const closeCalendar = () => {
+        setIsVisibleCalendar(false);
+    };
 
     return (
     <>
+    {isVisibleCalendar && <Calendar closeCalendar={closeCalendar}/>}
     {isVisibleProblems && <Problems/>}
     {isVisiblePlantChoose && <PlantChoose closePlantChoose={closePlantChoose}/>}
-    <div className={isVisiblePlantChoose || isVisibleProblems ? 'body--blured' : 'body'}
+    <div className={isVisiblePlantChoose || 
+                    isVisibleProblems || 
+                    isVisibleCalendar ? 'body--blured' : 'body'}
          onClick={() => {isVisiblePlantChoose ? closePlantChoose() : console.log();
-                         isVisibleProblems ? closeProblems() : console.log()}} >
-    <header className="header">
+                         isVisibleProblems ? closeProblems() : console.log();
+                         isVisibleCalendar ? closeCalendar() : console.log();}} >
+    <header>
         <div className="header__container">
             <div className="header__back">
                 <Image className="header__back_arrow" src={arrowBack} alt=""/>
-                <Link className="header__home_button"
+                <Link className=""
                       href='/'>
-                    Главная
+                        <div className="header__home_button">Главная</div>
                 </Link>
             </div>
             <div className="header__search">
@@ -132,7 +148,8 @@ export default function Dashboard() {
                 <PlantDashboard flagGroupe={flagGroupe} 
                                 flagBlock={flagBlock} 
                                 changeArrowBlock={changeArrowBlock} 
-                                openProblems={openProblems}/>
+                                openProblems={openProblems}
+                                openCalendar={openCalendar}/>
             </div>
         </div>
     </main>
