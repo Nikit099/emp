@@ -271,27 +271,27 @@ export const usePlantsStore = create(
         ],
         castomNorms: [
             {
-               id: 48294,
-               plantId: 97856,
-               temperature: {
-                high: 29,
-                low: 10,
-                },
-                illumination: {
+                id: 48294,
+                plantId: 97856,
+                temperature: {
                     high: 29,
                     low: 10,
-                },
-                humidity: {
-                    min: 43
-                },
-                airHum:{
-                    min: 30
-                }
-                },
-                {
-                    id: 4363,
-                    plantId: 55353,
-                    temperature: {
+                    },
+                    illumination: {
+                        high: 29,
+                        low: 10,
+                    },
+                    humidity: {
+                        min: 43
+                    },
+                    airHum:{
+                        min: 30
+                    }
+            },
+            {
+                id: 4363,
+                plantId: 55353,
+                temperature: {
                      high: 29,
                      low: 10,
                      },
@@ -305,7 +305,7 @@ export const usePlantsStore = create(
                      airHum:{
                          min: 30
                      }
-                     },
+            },
                 
         ],
         incPlant: (newPlant) => set((state ) => ({ plants: [...state.plants, newPlant] })),
@@ -316,4 +316,6 @@ export const usePlantsStore = create(
 )
   
 )
-
+export const useSetNorms = create( (set) => ({
+    
+  }))

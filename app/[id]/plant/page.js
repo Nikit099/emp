@@ -1,12 +1,14 @@
 import Image from "next/image";
 import './page.css'
+import plant from '@/public/plant/plant.png';
 
 import arrowBack from '@/public/plant/arrow-back.svg';
 import arrowLeftCircle from '@/public/plant/arrow-left-circle.svg';
 import checkCircle from '@/public/plant/check-circle.svg';
 import graph from '@/public/plant/graph.png';
 import pen from '@/public/plant/pen.svg';
-
+import questionCircle from '@/public/plant/question-circle.svg'
+import rotate from '@/public/plant/rotate.svg';
 import SetNorms from "@/app/ui/plant/setNorms";
 
 export default function Plant() {
