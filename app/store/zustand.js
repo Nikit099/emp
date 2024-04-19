@@ -179,33 +179,15 @@ export const usePlantsStore = create(
             },
             {
                 id: 9756,
-                name: 'Tanya',
+                name: 'Frosya',
                 typeId: 4,
                 recomendate: "Полейте через 3 часа",
-                alert: true,
+                alert: false,
                 emotion: "good",
                 img: ''
             },
             {
                 id: 97856,
-                name: 'Tanya',
-                typeId: 3,
-                recomendate: "Полейте через 3 часа",
-                alert: true,
-                emotion: "good",
-                img: ''
-            },
-            {
-                id: 325,
-                name: 'Tanya',
-                typeId: 3,
-                recomendate: "Полейте через 3 часа",
-                alert: true,
-                emotion: "good",
-                img: ''
-            },
-            {
-                id: 999,
                 name: 'Tanya',
                 typeId: 3,
                 recomendate: "Полейте через 3 часа",
@@ -287,6 +269,45 @@ export const usePlantsStore = create(
                 
             },
         ],
+        castomNorms: [
+            {
+                id: 48294,
+                plantId: 97856,
+                temperature: {
+                    high: 29,
+                    low: 10,
+                    },
+                    illumination: {
+                        high: 29,
+                        low: 10,
+                    },
+                    humidity: {
+                        min: 43
+                    },
+                    airHum:{
+                        min: 30
+                    }
+            },
+            {
+                id: 4363,
+                plantId: 55353,
+                temperature: {
+                     high: 29,
+                     low: 10,
+                     },
+                     illumination: {
+                         high: 29,
+                         low: 10,
+                     },
+                     humidity: {
+                         min: 43
+                     },
+                     airHum:{
+                         min: 30
+                     }
+            },
+                
+        ],
         incPlant: (newPlant) => set((state ) => ({ plants: [...state.plants, newPlant] })),
 
     }
@@ -295,4 +316,6 @@ export const usePlantsStore = create(
 )
   
 )
-
+export const useSetNorms = create( (set) => ({
+    
+  }))
