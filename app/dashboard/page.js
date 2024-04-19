@@ -6,9 +6,13 @@ import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 import PlantDashboard from '../ui/dashboard/PlantDashboard';
+import PlantChoose from '../ui/dashboard/PlantChoose';
+import Problems from '../ui/dashboard/problems';
 
 import './page.css';
 import Image from 'next/image';
+import Link from "next/link";
+
 import magnifyingGlass from '../../public/dashboard/search.svg';
 import arrowBack from '../../public/dashboard/arrow_back.svg';
 import plus from '../../public/dashboard/plus.svg';
@@ -26,30 +30,62 @@ export default function Dashboard() {
     function changeArrowGroupe() {
         setFlagGroupe(!flagGroupe);
     }
+
+    //
     
     const [flagBlock, setFlagBlock] = useState(true)
     function changeArrowBlock() {
         setFlagBlock(!flagBlock);
     }
     
+    //
     
     const [inputValueGroupeName, setInputValueGroupeName] = useState('');
     
-
     const handleInputChangeGroupeName = (event) => {
       setInputValueGroupeName(event.target.value);
     };
 
+    //
+
+    const [isVisiblePlantChoose, setIsVisiblePlantChoose] = useState(false);
+
+    const openPlantChoose = () => {
+        setIsVisiblePlantChoose(true);
+    };
+
+    const closePlantChoose = () => {
+        setIsVisiblePlantChoose(false);
+    };
+
+    //
+
+    const [isVisibleProblems, setIsVisibleProblems] = useState(false);
+
+    const openProblems = () => {
+        setIsVisibleProblems(true);
+    };
+
+    const closeProblems = () => {
+        setIsVisibleProblems(false);
+    };
+    
+
     return (
     <>
-    <body>
+    {isVisibleProblems && <Problems/>}
+    {isVisiblePlantChoose && <PlantChoose closePlantChoose={closePlantChoose}/>}
+    <div className={isVisiblePlantChoose || isVisibleProblems ? 'body--blured' : 'body'}
+         onClick={() => {isVisiblePlantChoose ? closePlantChoose() : console.log();
+                         isVisibleProblems ? closeProblems() : console.log()}} >
     <header className="header">
         <div className="header__container">
             <div className="header__back">
                 <Image className="header__back_arrow" src={arrowBack} alt=""/>
-                <button className="header__home_button">
+                <Link className="header__home_button"
+                      href='/'>
                     Главная
-                </button>
+                </Link>
             </div>
             <div className="header__search">
                 <input className="header__search_input"
@@ -70,15 +106,21 @@ export default function Dashboard() {
                             value={inputValueGroupeName}
                             onChange={handleInputChangeGroupeName}
                             placeholder='Ваше имя группы'
+                            maxLength={16}
+                            
                         />
                         <div className="main__search">
                             <input className="main__search_input"
-                                   type="search"
+                                   
                                    placeholder="Поиск по растениям" />
                             <Image className="main__search_img" src={magnifyingGlass} alt='лупа'/>
                         </div>
-                        <div className="main__add">
-                            <Image className="main__plus" src={plus} alt="добавить растение"/>
+                        <div className="main__add"
+                             onClick={openPlantChoose}>
+                            <Image className="main__plus" 
+                                   src={plus} 
+                                   alt="добавить растение"
+                                    />
                         </div>
                             <Image className={"main__show"} src={ flagGroupe ? arrowShowUp : arrowShowDown } alt="развернуть группу" onClick={changeArrowGroupe}/>
                         
@@ -87,284 +129,10 @@ export default function Dashboard() {
                         <Image className="main__delete" src={deleteDashboard} alt="удалить группу"/>
                     </div>
                 </div>
-                <section className={ flagGroupe ? "dashboard" : "dashboard--hidden"}>
-                    <div className="dashboard__container">
-                        <div className="dashboard__header">
-                            <div className="dashboard__header_left">
-                                <span className="dashboard__title">Любава</span>
-                                <span className="dashboard__weigh">23кг</span>
-                                <button className="dashboard__button">
-                                    Возникшие проблемы
-                                </button>
-                                <div className="dashboard__calendar">
-                                    <Image className="calendar" src={calendar} alt="календарь"/>
-                                </div>
-                                <Image className="dashboard__show" src={ flagBlock ? arrowShowUp : arrowShowDown} alt="свернуть дашборд" onClick={changeArrowBlock}/>
-                            </div>
-                            <div className="dashboard__header_right">
-                                <Image className="dashboard__delete" src={deleteDashboard} alt="удалить дашборд"/>
-                            </div>
-                        </div>
-                    <div className={flagBlock ? "dashboard__blocks" : "dashboard__blocks--hidden"}>
-                        <div className="block">
-                            <div className="block__header">
-                                <div className="block__header-left">
-                                    <div className="block__title">
-                                        Освещение
-                                    </div>
-                                    <div className="block__parameter">
-                                        772Lux
-                                    </div>
-                                    <div className="block__emotion">
-                                        <Image className="" src={emojiSick} alt=""/>
-                                    </div>
-                                </div>
-                                <div className="block__header-right">
-                                    <div className="block__radio">
-                                        <label>
-                                            <input id='radio-1' className="day" name="radio" type="radio" />
-                                            <div className="block__castom-radio radio-1">
-                                                День
-                                            </div> 
-                                        </label>
-                                        <label>
-                                            <input id='radio-2' className="week" name="radio" type="radio"/>
-                                            <div className="block__castom-radio radio-2">
-                                                Неделя
-                                            </div> 
-                                        </label>
-                                        <label>
-                                            <input id='radio-3' className="month" name="radio" type="radio"/>
-                                            <div className="block__castom-radio radio-3">
-                                                Месяц
-                                            </div> 
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="block__graph" id='myChart'> 
-                                <Line data={{
-                                        labels: ['1 января', '2 января', '3 января', '4 января'],
-                                        datasets: [{
-                                            label: 'My First Dataset',
-                                            data: [65, 59, 80, 81, 56, 55, 40],
-                                            fill: false,
-                                            borderColor: 'rgb(73, 133, 83)',
-                                            tension: 0.4,
-                                                   },
-                                                   {
-                                            label: 'Norms',
-                                            data: [60, 60, 60, 60],
-                                            borderColor: 'rgb(178,34,34)',
-                                            tension: 0.4,
-                                                   }
-                                                  ],
-                                            }}
-                                        options={{
-                                            responsive: true,
-                                            maintainAspectRatio: true,
-                                            plugins: {
-                                                legend: {
-                                                    display: false,
-                                                    labels: {
-                                                        //color: 'rgb(255, 99, 132)'
-                                                    }
-                                                }
-                                            }
-                                        }}>
-                                </Line>
-                            </div>
-                        </div>
-                        <div className="block">
-                            <div className="block__header">
-                                <div className="block__header-left">
-                                    <div className="block__title">
-                                        Освещение
-                                    </div>
-                                    <div className="block__parameter">
-                                        772Lux
-                                    </div>
-                                    <div className="block__emotion">
-                                        <Image className="" src={emojiSick} alt=""/>
-                                    </div>
-                                </div>
-                                <div className="block__header-right">
-                                    <div className="block__radio">
-                                        <label>
-                                            <input id='radio-1' className="day" name="radio" type="radio" />
-                                            <div className="block__castom-radio radio-1">
-                                                День
-                                            </div> 
-                                        </label>
-                                        <label>
-                                            <input id='radio-2' className="week" name="radio" type="radio"/>
-                                            <div className="block__castom-radio radio-2">
-                                                Неделя
-                                            </div> 
-                                        </label>
-                                        <label>
-                                            <input id='radio-3' className="month" name="radio" type="radio"/>
-                                            <div className="block__castom-radio radio-3">
-                                                Месяц
-                                            </div> 
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="block__graph" id='myChart'> 
-                                <Line data={{
-                                        labels: ['1 января', '2 января', '3 января', '4 января'],
-                                        datasets: [{
-                                            label: 'My First Dataset',
-                                            data: [65, 59, 80, 81, 56, 55, 40],
-                                            fill: false,
-                                            borderColor: 'rgb(73, 133, 83)',
-                                            tension: 0.4
-                                        }],
-                                            }}
-                                        options={{
-                                            responsive: true,
-                                            maintainAspectRatio: true,
-                                            plugins: {
-                                                legend: {
-                                                    display: false,
-                                                    labels: {
-                                                        //color: 'rgb(255, 99, 132)'
-                                                    }
-                                                }
-                                            }
-                                        }}>
-                                </Line>
-                            </div>
-                        </div>
-                        <div className="block">
-                            <div className="block__header">
-                                <div className="block__header-left">
-                                    <div className="block__title">
-                                        Освещение
-                                    </div>
-                                    <div className="block__parameter">
-                                        772Lux
-                                    </div>
-                                    <div className="block__emotion">
-                                        <Image className="" src={emojiSick} alt=""/>
-                                    </div>
-                                </div>
-                                <div className="block__header-right">
-                                    <div className="block__radio">
-                                        <label>
-                                            <input id='radio-1' className="day" name="radio" type="radio" />
-                                            <div className="block__castom-radio radio-1">
-                                                День
-                                            </div> 
-                                        </label>
-                                        <label>
-                                            <input id='radio-2' className="week" name="radio" type="radio"/>
-                                            <div className="block__castom-radio radio-2">
-                                                Неделя
-                                            </div> 
-                                        </label>
-                                        <label>
-                                            <input id='radio-3' className="month" name="radio" type="radio"/>
-                                            <div className="block__castom-radio radio-3">
-                                                Месяц
-                                            </div> 
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="block__graph" id='myChart'> 
-                                <Line data={{
-                                        labels: ['1 января', '2 января', '3 января', '4 января'],
-                                        datasets: [{
-                                            label: 'My First Dataset',
-                                            data: [65, 59, 80, 81, 56, 55, 40],
-                                            fill: false,
-                                            borderColor: 'rgb(73, 133, 83)',
-                                            tension: 0.4
-                                        }],
-                                            }}
-                                        options={{
-                                            responsive: true,
-                                            maintainAspectRatio: true,
-                                            plugins: {
-                                                legend: {
-                                                    display: false,
-                                                    labels: {
-                                                        //color: 'rgb(255, 99, 132)'
-                                                    }
-                                                }
-                                            }
-                                        }}>
-                                </Line>
-                            </div>
-                        </div>
-                        <div className="block">
-                            <div className="block__header">
-                                <div className="block__header-left">
-                                    <div className="block__title">
-                                        Освещение
-                                    </div>
-                                    <div className="block__parameter">
-                                        772Lux
-                                    </div>
-                                    <div className="block__emotion">
-                                        <Image className="" src={emojiSick} alt=""/>
-                                    </div>
-                                </div>
-                                <div className="block__header-right">
-                                    <div className="block__radio">
-                                        <label>
-                                            <input id='radio-1' className="day" name="radio" type="radio" />
-                                            <div className="block__castom-radio radio-1">
-                                                День
-                                            </div> 
-                                        </label>
-                                        <label>
-                                            <input id='radio-2' className="week" name="radio" type="radio"/>
-                                            <div className="block__castom-radio radio-2">
-                                                Неделя
-                                            </div> 
-                                        </label>
-                                        <label>
-                                            <input id='radio-3' className="month" name="radio" type="radio"/>
-                                            <div className="block__castom-radio radio-3">
-                                                Месяц
-                                            </div> 
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="block__graph" id='myChart'> 
-                                <Line data={{
-                                        labels: ['1 января', '2 января', '3 января', '4 января'],
-                                        datasets: [{
-                                            label: 'My First Dataset',
-                                            data: [65, 59, 80, 81, 56, 55, 40],
-                                            fill: false,
-                                            borderColor: 'rgb(73, 133, 83)',
-                                            tension: 0.4
-                                        }],
-                                            }}
-                                        options={{
-                                            responsive: true,
-                                            maintainAspectRatio: true,
-                                            plugins: {
-                                                legend: {
-                                                    display: false,
-                                                    labels: {
-                                                        //color: 'rgb(255, 99, 132)'
-                                                    }
-                                                }
-                                            }
-                                        }}>
-                                </Line>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </section>
-                
+                <PlantDashboard flagGroupe={flagGroupe} 
+                                flagBlock={flagBlock} 
+                                changeArrowBlock={changeArrowBlock} 
+                                openProblems={openProblems}/>
             </div>
         </div>
     </main>
@@ -381,6 +149,6 @@ export default function Dashboard() {
     <script>
         
     </script>
-</body>
+</div>
     </>    
     ) }
