@@ -11,6 +11,8 @@ import Problems from '../ui/dashboard/problems';
 
 import './page.css';
 import Image from 'next/image';
+import Link from "next/link";
+
 import magnifyingGlass from '../../public/dashboard/search.svg';
 import arrowBack from '../../public/dashboard/arrow_back.svg';
 import plus from '../../public/dashboard/plus.svg';
@@ -80,9 +82,10 @@ export default function Dashboard() {
         <div className="header__container">
             <div className="header__back">
                 <Image className="header__back_arrow" src={arrowBack} alt=""/>
-                <button className="header__home_button">
+                <Link className="header__home_button"
+                      href='/'>
                     Главная
-                </button>
+                </Link>
             </div>
             <div className="header__search">
                 <input className="header__search_input"
