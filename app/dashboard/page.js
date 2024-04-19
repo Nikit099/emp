@@ -7,6 +7,7 @@ import { Line } from "react-chartjs-2";
 
 import PlantDashboard from '../ui/dashboard/PlantDashboard';
 import PlantChoose from '../ui/dashboard/PlantChoose';
+import Problems from '../ui/dashboard/problems';
 
 import './page.css';
 import Image from 'next/image';
@@ -57,13 +58,24 @@ export default function Dashboard() {
 
     //
 
+    const [isVisibleProblems, setIsVisibleProblems] = useState(false);
+
+    const openProblems = () => {
+        setIsVisibleProblems(true);
+    };
+
+    const closeProblems = () => {
+        setIsVisibleProblems(false);
+    };
     
 
     return (
     <>
+    {isVisibleProblems && <Problems/>}
     {isVisiblePlantChoose && <PlantChoose closePlantChoose={closePlantChoose}/>}
-    <div className={isVisiblePlantChoose ? 'body--blured' : 'body'}
-         onClick={isVisiblePlantChoose ? closePlantChoose : console.log()} >
+    <div className={isVisiblePlantChoose || isVisibleProblems ? 'body--blured' : 'body'}
+         onClick={() => {isVisiblePlantChoose ? closePlantChoose() : console.log();
+                         isVisibleProblems ? closeProblems() : console.log()}} >
     <header className="header">
         <div className="header__container">
             <div className="header__back">
@@ -91,6 +103,8 @@ export default function Dashboard() {
                             value={inputValueGroupeName}
                             onChange={handleInputChangeGroupeName}
                             placeholder='Ваше имя группы'
+                            maxLength={16}
+                            
                         />
                         <div className="main__search">
                             <input className="main__search_input"
@@ -98,11 +112,12 @@ export default function Dashboard() {
                                    placeholder="Поиск по растениям" />
                             <Image className="main__search_img" src={magnifyingGlass} alt='лупа'/>
                         </div>
-                        <div className="main__add">
+                        <div className="main__add"
+                             onClick={openPlantChoose}>
                             <Image className="main__plus" 
                                    src={plus} 
                                    alt="добавить растение"
-                                   onClick={openPlantChoose} />
+                                    />
                         </div>
                             <Image className={"main__show"} src={ flagGroupe ? arrowShowUp : arrowShowDown } alt="развернуть группу" onClick={changeArrowGroupe}/>
                         
@@ -111,7 +126,10 @@ export default function Dashboard() {
                         <Image className="main__delete" src={deleteDashboard} alt="удалить группу"/>
                     </div>
                 </div>
-                <PlantDashboard flagGroupe={flagGroupe} flagBlock={flagBlock} changeArrowBlock={changeArrowBlock} />
+                <PlantDashboard flagGroupe={flagGroupe} 
+                                flagBlock={flagBlock} 
+                                changeArrowBlock={changeArrowBlock} 
+                                openProblems={openProblems}/>
             </div>
         </div>
     </main>

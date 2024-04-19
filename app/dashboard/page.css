@@ -120,6 +120,7 @@ a {
 }
 
 .main__title {
+    max-width: 200px;
     font-family: 'Montserrat';
     font-size: 24px;
     color: #555555;
@@ -445,6 +446,8 @@ a {
     height: auto;
     border-radius: 21px;
     background-color: #f8f8f8;
+    box-shadow: 0px 4px 14.1px rgba(0, 0, 0, 0.25);
+
 }
 
 .plantchoose__sides {
@@ -605,6 +608,103 @@ a {
 
 /*PLANT CHOOSE/ MY PLANTS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
+.side_panel {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1;
+}
+
+.side_panel__container {
+    position: fixed;
+    background-color: #F8F8F8;
+    width: 443px;
+    height: 100vh;
+}
+
+.side_panel__header {
+    display: flex;
+    align-items: center;
+    height: 58px;
+    width: 444px;
+    background-color: #569A62;
+    color:#F8F8F8;
+    font-family: 'Inter';
+    font-size: 24px;
+}
+
+.side_panel__title {
+    margin: 0 0 0 17px;
+}
+
+.messagebox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 45px 0 0 15px;
+}
+
+.messagebox__graph_block {
+    width: 396px;
+    height: 228px;
+    background: #F8F8F8;
+    box-shadow: 0px 1px 9.4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+.messagebox__graph_title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #555555;
+    margin: 10px 0 0 10px;
+}
+
+.messagebox__graph {
+
+}
+
+.messagebox__message_block {
+    font-family: 'Inter';
+    font-size: 14px;
+    color: #555555;
+    margin: 25px 0 0 0;
+}
+
+.messagebox__message {    
+    width: 348px;
+    height: 92px;
+    background: #F8F8F8;
+    box-shadow: 0px 1px 9.4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.messagebox__message_title {
+    width: 338px;
+    height: 27px;
+    background: #E6F1EB;
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px 0 0 10px;
+}
+
+.messagebox__message_description {
+    padding: 10px 0 0 10px;
+}
+
+.messagebox__hr {
+    width: 400px;
+    height: 6px;
+    background: #D7EADD;
+    border-radius: 10px;
+    margin: 50px 0 0 0;
+}
+
+/*PROBLEMS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 @media (max-width: 1260px) {
     .block {

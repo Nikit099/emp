@@ -1,4 +1,4 @@
-import PlantDashboard from "./plant";
+import Plant from "./plant";
 
 export default function MyPlants({serchPlants, closePlantChoose}) {
     

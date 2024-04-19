@@ -4,13 +4,18 @@ import arrowShowDown from '@/public/dashboard/arrow_show_down.svg';
 import arrowShowUp from '@/public/dashboard/arrow_show_up.svg';
 import deleteDashboard from '@/public/dashboard/delete.svg';
 
+
 import Image from "next/image";
 import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 import '@/app/dashboard/page.css';
 
-export default function PlantDashboard ({ flagGroupe, flagBlock, changeArrowBlock }) {
+export default function PlantDashboard ({ flagGroupe, 
+                                          flagBlock, 
+                                          changeArrowBlock, 
+                                          openProblems }) {
+
 
     return (
         <section className={ flagGroupe ? "dashboard" : "dashboard--hidden"}>
@@ -18,8 +23,10 @@ export default function PlantDashboard ({ flagGroupe, flagBlock, changeArrowBloc
                         <div className="dashboard__header">
                             <div className="dashboard__header_left">
                                 <span className="dashboard__title">Любава</span>
+                                
                                 <span className="dashboard__weigh">23кг</span>
-                                <button className="dashboard__button">
+                                <button className="dashboard__button"
+                                        onClick={openProblems}>
                                     Возникшие проблемы
                                 </button>
                                 <div className="dashboard__calendar">
