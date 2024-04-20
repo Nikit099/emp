@@ -21,37 +21,42 @@ export default function PlantDashboard ({ flagGroupe,
 
 
     const [chartData, setChartData] = useState({
-        labels: ['1 января', '2 января', '3 января', '4 января', '5 января'],
+        labels: ['1 января', '2 января', '3 января', '4 января', '5 января',],
         datasets: [{
-            data: [65, 59, 80, 81, 56],
+            data: [65, 39, 40, 70, 50,],
             borderColor: 'rgb(73, 133, 83)',
             tension: 0.4,
-        }, {
-            label: 'Norms',
-            data: [60, 60, 60, 60],
-            borderColor: 'rgb(178, 34, 34)',
-            tension: 0.4,
-        }]
+        },]
         });
 
         useEffect(() => {
             const interval = setInterval(() => {
-              // Генерация случайных данных
-              const newData = {
-                labels: chartData.labels.map((label, index) => `${index + 1} января`), // Используем те же метки, что и у текущих данных
-                datasets: chartData.datasets.map(dataset => ({
-                  ...dataset,
-                  data: dataset.data.map(() => Math.floor(Math.random() * 100)) // Генерация случайных чисел от 0 до 100
-                }))
-              };
+                // Проверяем последнюю метку в массиве
+                const lastLabel = chartData.labels[chartData.labels.length - 1];
+                
+                // Проверяем, достигли ли мы '31 января'
+                if (lastLabel === '31 января') {
+                    clearInterval(interval); // Останавливаем интервал
+                    return;
+                }
         
-              setChartData(newData);
+                // Генерация случайных данных
+                const newLabels = [...chartData.labels, `${chartData.labels.length + 1} января`]; // Создаем новый массив меток, добавляя новую метку
+        
+                const newData = {
+                    labels: newLabels,
+                    datasets: chartData.datasets.map(dataset => ({
+                        ...dataset,
+                        data: [...dataset.data, Math.floor(Math.random() * 100)] // Добавляем новое случайное значение в массив data для новой метки
+                    }))
+                };
+                
+                setChartData(newData);
             }, 1000); // Обновляем данные каждую секунду
+                
+            return () => clearInterval(interval); // Очищаем интервал при размонтировании компонента или при достижении '31 января'
+        }, [chartData]); // Зависимость от chartData, чтобы перезапустить интервал при изменении данных
         
-            return () => clearInterval(interval); // Очищаем интервал при размонтировании компонента
-          }, [chartData]); // Зависимость от chartData, чтобы перезапустить интервал при изменении данных
-        
-
     return (
         <section className={ flagGroupe ? "dashboard" : "dashboard--hidden"}>
                     <div className="dashboard__container">

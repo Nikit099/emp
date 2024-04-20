@@ -710,12 +710,15 @@ a {
 /*PROBLEMS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 .calendar__container {
+    position: relative;
     display: flex;
     justify-content: center;
-    
+    z-index: 1;
 }
 
 .calendar__block {
+    position: fixed;
+    top: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -767,19 +770,12 @@ a {
 
 .calendar__block__radio {
     display: flex;
+    gap: 20px;
 }
 
 .calendar__block__radio input {
     z-index: 2;
     display: none;
-}
-
-.calendar__radio-1 {
-    border-bottom-left-radius: 20px;
-}
-
-.calendar__radio-2 {
-    
 }
 
 .calendar__block__castom-radio {
@@ -789,19 +785,20 @@ a {
     
     cursor: pointer;
     width: 105px;
-    height: 35px;
+    height: 50px;
+    border-radius: 11px;
     
-    background-color: #E6F1EB;
+    background-color: #569A62;
     
     font-family: 'Inter';
     font-size: 16px;
     
-    color: #555555;
+    color: #f8f8f8;
 }
 
 .calendar__block__radio input:checked + .calendar__block__castom-radio {
     display: flex;
-    background-color: #D7EADD;
+    background-color: #498553;
 }
 
 .calendar__button_ical {
@@ -814,6 +811,7 @@ a {
     min-width: 50px;
     height: 50px;
     margin: 0 0 0 31px;
+    padding: 0 10px;
     cursor: pointer;
 }
 
