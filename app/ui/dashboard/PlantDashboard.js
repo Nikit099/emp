@@ -5,19 +5,20 @@ import arrowShowUp from '@/public/dashboard/arrow_show_up.svg';
 import deleteDashboard from '@/public/dashboard/delete.svg';
 
 import React, { useState, useEffect } from 'react';
-
 import Image from "next/image";
-
 import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 import '@/app/dashboard/page.css';
 
+import { usePlantsStore } from "@/app/store/zustand";
+
 export default function PlantDashboard ({ flagGroupe, 
                                           flagBlock, 
                                           changeArrowBlock, 
                                           openProblems,
-                                          openCalendar }) {
+                                          openCalendar,
+                                          name }) {
 
 
     const [chartData, setChartData] = useState({
@@ -62,7 +63,7 @@ export default function PlantDashboard ({ flagGroupe,
                     <div className="dashboard__container">
                         <div className="dashboard__header">
                             <div className="dashboard__header_left">
-                                <span className="dashboard__title">Любава</span>
+                                <span className="dashboard__title">{name}</span>
                                 
                                 <span className="dashboard__weigh">23кг</span>
                                 <button className="dashboard__button"

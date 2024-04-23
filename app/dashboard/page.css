@@ -92,6 +92,7 @@ a {
 
 .main__container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     
 }
@@ -101,9 +102,9 @@ a {
     flex-direction: column;
     justify-content: center;
     margin: 37px 10px 0 10px;
-    max-width: 1350px;
+    /* max-width: 1350px;
     width: 100%;
-    min-width: 613px;
+    min-width: 613px; */
     height: auto;
     border-radius: 21px;
     background-color: #E6F1EB;
@@ -530,6 +531,16 @@ a {
 }
 
 /*PLANT CHOOSE^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+.plantchoose__pots {
+
+}
+
+.plantchoose__points {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .plantchoose__myplants_points {
     display: flex;

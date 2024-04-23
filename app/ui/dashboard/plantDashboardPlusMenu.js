@@ -1,7 +1,6 @@
 import Image from "next/image";
 import potsSmileFace from "@/public/main/pots-smile-face.svg"
-import potsPlant from "@/public/main/pots-plant.svg"
-import Link from "next/link";
+import potsPlant from "@/public/main/pots-plant.svg";
 import { usePlantsStore } from "@/app/store/zustand";
 import Emotion from "@/app/scripts/emotion";
 
@@ -9,9 +8,7 @@ export default function PlantDashboardPlusMenu({name, recomendate, typeId, id, e
      const typePlants = usePlantsStore((state) => state.typePlants);
      
     return (
-     <Link
-     href={`#`}
-     onClick={closePlantChoose}>
+     <div>
         <div className="plantchoose__myplants_point-1">
             
              <div className="plantchoose__myplants_top"></div>
@@ -42,7 +39,7 @@ export default function PlantDashboardPlusMenu({name, recomendate, typeId, id, e
              </div>
              <div className="plantchoose__myplants_graf"></div>
         </div>
-        </Link>
+        </div>
 
     )
 }

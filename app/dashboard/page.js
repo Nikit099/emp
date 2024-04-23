@@ -5,10 +5,11 @@ import React, { useState } from 'react';
 import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
-import PlantDashboard from '../ui/dashboard/PlantDashboard';
+import PlantDashboard from '../ui/dashboard/plantDashboard';
 import PlantChoose from '../ui/dashboard/PlantChoose';
 import Problems from '../ui/dashboard/problems';
 import Calendar from '../ui/dashboard/calendar';
+import Groupe from '../ui/dashboard/groupe';
 
 import './page.css';
 import Image from 'next/image';
@@ -23,30 +24,37 @@ import arrowShowUp from '../../public/dashboard/arrow_show_up.svg';
 import calendar from '../../public/dashboard/calendar.svg';
 import emojiSick from '../../public/dashboard/emoji_sick.png';
 
+import { useGroupe } from '../store/zustand';
+
 
 
 export default function Dashboard() {
+
+    const [inputValueGroupeName, setInputValueGroupeName] = useState('');
+
+    const handleInputChangeGroupeName = (event) => {
+        setInputValueGroupeName(event.target.value);
+    };                                
+
+    
 
     const [flagGroupe, setFlagGroupe] = useState(true)
     function changeArrowGroupe() {
         setFlagGroupe(!flagGroupe);
     }
-
-    //
+    /*groupe.js^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
     
+
+    const setNameGroupe = useGroupe((state) => state.setNameGroupe);
+
+    const handleSetNameGroupe = (nameGroupe) => {setNameGroupe(nameGroupe)}
+
+    /*Сохранение имени^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
     const [flagBlock, setFlagBlock] = useState(true)
     function changeArrowBlock() {
         setFlagBlock(!flagBlock);
     }
-    
-    //
-    
-    const [inputValueGroupeName, setInputValueGroupeName] = useState('');
-    
-    const handleInputChangeGroupeName = (event) => {
-      setInputValueGroupeName(event.target.value);
-    };
-
     //
 
     const [isVisiblePlantChoose, setIsVisiblePlantChoose] = useState(false);
@@ -81,6 +89,14 @@ export default function Dashboard() {
 
     const closeCalendar = () => {
         setIsVisibleCalendar(false);
+    };
+
+    //
+
+    const { names, addGroupe } = useGroupe();
+
+    const addNewGroupe = () => {
+      addGroupe('new Groupe'); // Используем метод addGroupe для обновления состояния
     };
 
     return (
@@ -151,11 +167,12 @@ export default function Dashboard() {
                                 openProblems={openProblems}
                                 openCalendar={openCalendar}/>
             </div>
+            {names.map((name) => (<Groupe openPlantChoose={openPlantChoose}/>))}
         </div>
     </main>
     <section className="section">
         <div className="section__container">
-            <div className="section__block">
+            <div className="section__block" onClick={addNewGroupe}>
                 <span className="section__title">
                     Новая группа
                 </span>
