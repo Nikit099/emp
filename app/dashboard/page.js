@@ -6,7 +6,7 @@ import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 import PlantDashboard from '../ui/dashboard/plantDashboard';
-import PlantChoose from '../ui/dashboard/PlantChoose';
+import PlantChoose from '../ui/dashboard/choose';
 import Problems from '../ui/dashboard/problems';
 import Calendar from '../ui/dashboard/calendar';
 import Groupe from '../ui/dashboard/groupe';

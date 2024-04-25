@@ -330,6 +330,7 @@ export const useGroupe = create( (set) => ({
                                                     ...state.names,
                                                     {id: Date.now(), name: newGroupe}
                                                    ],
-    setNameGroupe: (nameGroupe) => set({names: [...state.nemes, {names: nameGroupe}]})
-}))
-}))
+                                                })),
+    setNameGroupe: (nameGroupe) => set({names: [...state.nemes, {names: nameGroupe}]}),
+    
+})); 
