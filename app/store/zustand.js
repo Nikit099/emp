@@ -320,17 +320,25 @@ export const useSetNorms = create( (set) => ({
     
   }))
 
-export const useGroupe = create( (set) => ({
-    names: [],
-    id: [],
-    blockId: [],
-    blockName: [],
-    isVisible: true,
-    addGroupe: (newGroupe) => set(state => ({names: [
-                                                    ...state.names,
-                                                    {id: Date.now(), name: newGroupe}
-                                                   ],
-                                                })),
-    setNameGroupe: (nameGroupe) => set({names: [...state.nemes, {names: nameGroupe}]}),
-    
-})); 
+  export const useGroupe = create(
+    persist(
+        (set) => ({
+            names: [],
+            id: [],
+            blockId: [],
+            blockName: [],
+            isVisible: true,
+            addGroupe: (newGroupe) => set(state => ({
+                names: [
+                    ...state.names,
+                    { id: Date.now(), name: newGroupe }
+                ]
+            })),
+            setNameGroupe: (nameGroupe) => set(state => ({ names: [...state.names, { name: nameGroupe }] }))
+        }),
+        {
+            name: 'groupe',
+            getStorage: () => localStorage,
+        }
+    )
+);

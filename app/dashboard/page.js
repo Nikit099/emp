@@ -167,7 +167,9 @@ export default function Dashboard() {
                                 openProblems={openProblems}
                                 openCalendar={openCalendar}/>
             </div>
+            <>
             {names.map((name) => (<Groupe openPlantChoose={openPlantChoose}/>))}
+            </>
         </div>
     </main>
     <section className="section">
