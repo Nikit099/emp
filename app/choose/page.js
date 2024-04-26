@@ -13,6 +13,8 @@ import {  useSearchStore } from "../store/zustand";
 
 export default function Choose() {
     const search = usePersist(useSearchStore, (state) => state.search);
+
+    
     const setSearch = useSearchStore((state) => state.setSearch);
     const {  typePlants, incPlant } = usePlantsStore();
     const [serchTypePlants, setSearchTypePlants] = useState(typePlants)

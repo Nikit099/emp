@@ -7,11 +7,33 @@ import pen from '@/public/plant/pen.svg';
 import LineNorms from "./lineNorms";
 import { usePlantsStore } from "@/app/store/zustand";
 import { usePathname } from 'next/navigation';
+import { useState } from "react";
 
 export default function SetNorms() {
     const castomNorms = usePlantsStore((state) => state.castomNorms);
     const pathname = usePathname()
-    console.log(pathname);
+    function getUrlID(){
+        let plantId = ''
+        for (let i = 1; i < pathname.length; i++ ){
+            if(pathname[i] !== '/'){
+                plantId = plantId + pathname[i]
+            }
+            else{
+                break
+            }
+        }
+      return  plantId 
+    }
+    function findNorms(){
+        let norms
+        norms = castomNorms.find(e => {
+            if (e.plantId ==  getUrlID()){
+                return e
+            }
+            } )
+            return norms
+    }
+
     return (
 
         <div className="norms_plant">
@@ -24,68 +46,15 @@ export default function SetNorms() {
                            alt='Дополнительная информация'></Image>
                 </div>
                 <div className="norms_plant__main_block">
-                    {/* {
-                        castomNorms.map(i => {
-                            i.filter(elem => elem.plantId === )
-                        } )
-                    } */}
-                    <LineNorms />
+                    {
+                        findNorms().norms.map( (elem) =>
+                            <LineNorms name={elem.name} min={elem.min} max={elem.max} />
 
+                        )
+                    }
 
-                    <div className="line">
-                        <div className="line__title">Влажность воздуха</div>
-                        <div className="line__parameter">10 - 30 %</div>
-                        <div className="line__reset">
-                            <Image className="line__reset_img"
-                                   src={rotate}
-                                   alt='Отменить'></Image>
-                        </div>
-                        <div className="line__input_block">
-                            <form className="line__form">
-                                <Image className="line__pen"
-                                       src={pen}
-                                       alt='Редактировать'></Image>
-                                <input className="line__input"
-                                    placeholder="Введите значение от - до"></input>
-                            </form>
-                        </div>
-                    </div>
-                    <div className="line">
-                        <div className="line__title">Влажность почвы</div>
-                        <div className="line__parameter">10 - 30 %</div>
-                        <div className="line__reset">
-                            <Image className="line__reset_img"
-                                    src={rotate}
-                                    alt='Отменить'></Image>
-                        </div>
-                        <div className="line__input_block">
-                            <form className="line__form">
-                                <Image className="line__pen"
-                                       src={pen}
-                                       alt='Редактировать'></Image>
-                                <input className="line__input"
-                                    placeholder="Введите значение от - до"></input>
-                            </form>
-                        </div>
-                    </div>
-                    <div className="line">
-                        <div className="line__title line__title_lighting">Освещение</div>
-                        <div className="line__parameter">10 - 30 Lux</div>
-                        <div className="line__reset">
-                            <Image className="line__reset_img"
-                                   src={rotate}
-                                   alt='Отменить'></Image>
-                        </div>
-                        <div className="line__input_block">
-                            <form className="line__form">
-                                <Image className="line__pen"
-                                       src={pen}
-                                       alt='Редактировать'></Image>
-                                <input className="line__input"
-                                    placeholder="Введите значение от - до"></input>
-                            </form>
-                        </div>
-                    </div>
+                  
+                    
                 </div>
             </div>
             <div className="norms_plant__right">

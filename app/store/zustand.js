@@ -272,39 +272,52 @@ export const usePlantsStore = create(
         castomNorms: [
             {
                 id: 48294,
-                plantId: 97856,
-                temperature: {
-                    high: 29,
-                    low: 10,
+                plantId: 9756,
+                norms: [
+                    {
+                    name: 'temperature',
+                    max: 29,
+                    min: 10,
                     },
-                    illumination: {
-                        high: 29,
-                        low: 10,
+                     {
+                        name: 'illumination',
+                        max: 29,
+                        min: 10,
                     },
-                    humidity: {
+                     {
+                        name:'humidity',
                         min: 43
                     },
-                    airHum:{
+                    {
+                        name: 'airHum',
                         min: 30
                     }
+                ]
+                    
+                    
             },
             {
                 id: 4363,
-                plantId: 55353,
-                temperature: {
-                     high: 29,
-                     low: 10,
-                     },
-                     illumination: {
-                         high: 29,
-                         low: 10,
-                     },
-                     humidity: {
-                         min: 43
-                     },
-                     airHum:{
-                         min: 30
-                     }
+                plantId: 97856,
+                norms: [{
+                    name: 'temperature',
+                    max: 29,
+                    min: 10,
+                    },
+                     {
+                        name: 'illumination',
+                        max: 19,
+                        min: 20,
+                    },
+                     {
+                        name:'humidity',
+                        min: 64
+                    },
+                    {
+                        name: 'airHum',
+                        min: 85
+                    }
+                ]
             },
                 
         ],
@@ -317,5 +330,15 @@ export const usePlantsStore = create(
   
 )
 export const useSetNorms = create( (set) => ({
-    
+    test: [{
+        sup: 3,
+        nop: 54
+    },
+    {
+        sup: 5,
+        nop: 99
+    }],
+    setTest: (sup) => set((state) => ({
+        test: test.map(elem => elem.sup === sup ? {...elem, sup: sup} : elem)
+    }))
   }))

@@ -32,7 +32,9 @@ useEffect(() => {
       
 }, [search]);
 
-// console.log();
+
+
+
   return (
     <>
     <div className="wrapper_main">
