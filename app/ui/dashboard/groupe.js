@@ -95,7 +95,9 @@ export default function Groupe({openPlantChoose,
                 </div>
                 <>
                 {
-                    dashboardBlocks.map((e) => <PlantDashboard key={e.id}/>)
+                    dashboardBlocks.map((e) => <PlantDashboard key={e.id}
+                                                                />)
+                    
                 }
                 </>
             </div>

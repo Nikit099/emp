@@ -107,7 +107,7 @@ export default function Dashboard() {
     function handleAddBlock() {
         const newBlock = { name: '', id: Date.now(), groupeId: []};
         addBlock(newBlock);
-        console.log('я работаю');
+        console.log(dashboardBlocks);
     }
 
     //добавление блока ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -357,7 +357,7 @@ export const useGroupe = create(
                     ...state.dashboardGroupes, newGroupe
                 ]
             })),
-            setTest: (sup) => set((state) => ({test: test.map(e => e.sup === sup ? {...e, sup: sup}: e)}))
+            //setTest: (sup) => set((state) => ({test: test.map(e => e.sup === sup ? {...e, sup: sup}: e)}))
         }),    
 );
 
