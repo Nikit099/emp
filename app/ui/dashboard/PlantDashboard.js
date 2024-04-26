@@ -14,8 +14,6 @@ import '@/app/dashboard/page.css';
 import { usePlantsStore } from "@/app/store/zustand";
 
 export default function PlantDashboard ({ flagGroupe, 
-                                          flagBlock, 
-                                          changeArrowBlock, 
                                           openProblems,
                                           openCalendar,
                                           name }) {
@@ -58,6 +56,16 @@ export default function PlantDashboard ({ flagGroupe,
             return () => clearInterval(interval); // Очищаем интервал при размонтировании компонента или при достижении '31 января'
         }, [chartData]); // Зависимость от chartData, чтобы перезапустить интервал при изменении данных
         
+
+    /*Фейковые данные^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+    const [flagBlock, setFlagBlock] = useState(true)
+    function changeArrowBlock() {
+        setFlagBlock(!flagBlock);
+    }
+   /*Раскрытие блока^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+
     return (
         <section className={ flagGroupe ? "dashboard" : "dashboard--hidden"}>
                     <div className="dashboard__container">

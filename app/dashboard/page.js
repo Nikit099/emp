@@ -24,7 +24,10 @@ import arrowShowUp from '../../public/dashboard/arrow_show_up.svg';
 import calendar from '../../public/dashboard/calendar.svg';
 import emojiSick from '../../public/dashboard/emoji_sick.png';
 
+import { usePlantsStore } from '../store/zustand';
 import { useGroupe } from '../store/zustand';
+import { useBlock } from '../store/zustand';
+import usePersist from '../store/usePersist';
 
 
 
@@ -36,13 +39,17 @@ export default function Dashboard() {
         setInputValueGroupeName(event.target.value);
     };                                
 
-    
-
     const [flagGroupe, setFlagGroupe] = useState(true)
     function changeArrowGroupe() {
         setFlagGroupe(!flagGroupe);
     }
-    /*groupe.js^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+    const [flagBlock, setFlagBlock] = useState(true)
+    function changeArrowBlock() {
+        setFlagBlock(!flagBlock);
+    }
+    //
+    /*можно удалять. работает для примера^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
     
 
     const setNameGroupe = useGroupe((state) => state.setNameGroupe);
@@ -51,11 +58,7 @@ export default function Dashboard() {
 
     /*Сохранение имени^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
-    const [flagBlock, setFlagBlock] = useState(true)
-    function changeArrowBlock() {
-        setFlagBlock(!flagBlock);
-    }
-    //
+
 
     const [isVisiblePlantChoose, setIsVisiblePlantChoose] = useState(false);
 
@@ -93,17 +96,28 @@ export default function Dashboard() {
 
     //
 
-    const { names, addGroupe } = useGroupe();
+    const { addGroupe, dashboardGroupes } = useGroupe();
+    function handleAddGroupe() {
+        const newGroupe = { name: '', id: Date.now(), plantsId: []};
+        addGroupe(newGroupe);
+    }  
+    //добавление группы ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    const addNewGroupe = () => {
-      addGroupe('new Groupe'); // Используем метод addGroupe для обновления состояния
-    };
+    const { addBlock, dashboardBlocks } = useBlock();
+    function handleAddBlock() {
+        const newBlock = { name: '', id: Date.now(), groupeId: []};
+        addBlock(newBlock);
+        console.log('я работаю');
+    }
+
+    //добавление блока ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     return (
     <>
     {isVisibleCalendar && <Calendar closeCalendar={closeCalendar}/>}
     {isVisibleProblems && <Problems/>}
-    {isVisiblePlantChoose && <PlantChoose closePlantChoose={closePlantChoose}/>}
+    {isVisiblePlantChoose && <PlantChoose closePlantChoose={closePlantChoose}
+                                          handleAddBlock={handleAddBlock}/>}
     <div className={isVisiblePlantChoose || 
                     isVisibleProblems || 
                     isVisibleCalendar ? 'body--blured' : 'body'}
@@ -167,14 +181,24 @@ export default function Dashboard() {
                                 openProblems={openProblems}
                                 openCalendar={openCalendar}/>
             </div>
-            <>
-            {names.map((name) => (<Groupe openPlantChoose={openPlantChoose}/>))}
-            </>
+            
+            {/* {names.map((name) => (<Groupe openPlantChoose={openPlantChoose}/>))} */}
+            {
+                dashboardGroupes.map((e) => <Groupe key={e.id} 
+                                                    name={e.name} 
+                                                    plantsId={e.plantsId} 
+                                                    openPlantChoose={openPlantChoose}
+                                                    flagGroupe={flagGroupe}  
+                                                    openProblems={openProblems}
+                                                    openCalendar={openCalendar}
+                                                    dashboardBlocks={dashboardBlocks}
+                                                    />)
+            }
         </div>
     </main>
     <section className="section">
         <div className="section__container">
-            <div className="section__block" onClick={addNewGroupe}>
+            <div className="section__block" onClick={handleAddGroupe}>
                 <span className="section__title">
                     Новая группа
                 </span>

@@ -540,6 +540,8 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    max-height: 60vh;
+    overflow: auto;
 }
 
 .plantchoose__myplants_points {
@@ -558,6 +560,7 @@ a {
     margin: 20px 20px;
     border-radius: 20px;
     background: #E9F3ED; 
+    cursor: pointer;
 }
 
 .plantchoose__myplants_top {

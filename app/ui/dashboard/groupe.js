@@ -8,11 +8,22 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 
 import { usePlantsStore } from '@/app/store/zustand';
+import { useBlock } from '@/app/store/zustand';
 import { useGroupe } from '@/app/store/zustand';
 import PlantDashboard from './plantDashboard';
+import PlantDashboardPlusMenu from './plantDashboardPlusMenu';
 
 
-export default function Groupe({openPlantChoose, name}) {
+export default function Groupe({openPlantChoose, 
+                                name, 
+                                plantsId, 
+                                flagBlock, 
+                                changeArrowBlock, 
+                                openProblems,
+                                openCalendar,
+                                groupeBlocks,
+                                dashboardBlocks,
+                                newBlockId}) {
 
 
     const [inputValueGroupeName, setInputValueGroupeName] = useState('');
@@ -28,11 +39,8 @@ export default function Groupe({openPlantChoose, name}) {
         setFlagGroupe(!flagGroupe);
     }
 
-    /*Открытие/закрытие группы^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+    /*Открытие/закрытие группы^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
-    
-        
-    /*Добавление блока^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
     const setNameGroupe = useGroupe((state) => state.setNameGroupe);
 
@@ -40,7 +48,9 @@ export default function Groupe({openPlantChoose, name}) {
 
     /*Сохранение имени^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
-    
+    const { plant } = usePlantsStore();
+        
+    /*Добавление блока^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
     /*Удаление группы^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
@@ -84,7 +94,9 @@ export default function Groupe({openPlantChoose, name}) {
                     </div>
                 </div>
                 <>
-                
+                {
+                    dashboardBlocks.map((e) => <PlantDashboard key={e.id}/>)
+                }
                 </>
             </div>
         </>
