@@ -4,17 +4,66 @@ import arrowShowDown from '@/public/dashboard/arrow_show_down.svg';
 import arrowShowUp from '@/public/dashboard/arrow_show_up.svg';
 import deleteDashboard from '@/public/dashboard/delete.svg';
 
-
+import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 import '@/app/dashboard/page.css';
 
+import { usePlantsStore } from "@/app/store/zustand";
+
 export default function PlantDashboard ({ flagGroupe, 
-                                          flagBlock, 
-                                          changeArrowBlock, 
-                                          openProblems }) {
+                                          openProblems,
+                                          openCalendar,
+                                          name }) {
+
+
+    const [chartData, setChartData] = useState({
+        labels: ['1 января', '2 января', '3 января', '4 января', '5 января',],
+        datasets: [{
+            data: [65, 39, 40, 70, 50,],
+            borderColor: 'rgb(73, 133, 83)',
+            tension: 0.4,
+        },]
+        });
+
+        useEffect(() => {
+            const interval = setInterval(() => {
+                // Проверяем последнюю метку в массиве
+                const lastLabel = chartData.labels[chartData.labels.length - 1];
+                
+                // Проверяем, достигли ли мы '31 января'
+                if (lastLabel === '31 января') {
+                    clearInterval(interval); // Останавливаем интервал
+                    return;
+                }
+        
+                // Генерация случайных данных
+                const newLabels = [...chartData.labels, `${chartData.labels.length + 1} января`]; // Создаем новый массив меток, добавляя новую метку
+        
+                const newData = {
+                    labels: newLabels,
+                    datasets: chartData.datasets.map(dataset => ({
+                        ...dataset,
+                        data: [...dataset.data, Math.floor(Math.random() * 100)] // Добавляем новое случайное значение в массив data для новой метки
+                    }))
+                };
+                
+                setChartData(newData);
+            }, 1000); // Обновляем данные каждую секунду
+                
+            return () => clearInterval(interval); // Очищаем интервал при размонтировании компонента или при достижении '31 января'
+        }, [chartData]); // Зависимость от chartData, чтобы перезапустить интервал при изменении данных
+        
+
+    /*Фейковые данные^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+    const [flagBlock, setFlagBlock] = useState(true)
+    function changeArrowBlock() {
+        setFlagBlock(!flagBlock);
+    }
+   /*Раскрытие блока^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 
     return (
@@ -22,14 +71,15 @@ export default function PlantDashboard ({ flagGroupe,
                     <div className="dashboard__container">
                         <div className="dashboard__header">
                             <div className="dashboard__header_left">
-                                <span className="dashboard__title">Любава</span>
+                                <span className="dashboard__title">{name}</span>
                                 
                                 <span className="dashboard__weigh">23кг</span>
                                 <button className="dashboard__button"
                                         onClick={openProblems}>
                                     Возникшие проблемы
                                 </button>
-                                <div className="dashboard__calendar">
+                                <div className="dashboard__calendar"
+                                     onClick={openCalendar}>
                                     <Image className="calendar" src={calendar} alt="календарь"/>
                                 </div>
                                 <Image className="dashboard__show" src={ flagBlock ? arrowShowUp : arrowShowDown} alt="свернуть дашборд" onClick={changeArrowBlock}/>
@@ -76,24 +126,8 @@ export default function PlantDashboard ({ flagGroupe,
                                 </div>
                             </div>
                             <div className="block__graph" id='myChart'> 
-                                <Line data={{
-                                        labels: ['1 января', '2 января', '3 января', '4 января'],
-                                        datasets: [{
-                                            label: 'My First Dataset',
-                                            data: [65, 59, 80, 81, 56, 55, 40],
-                                            fill: false,
-                                            borderColor: 'rgb(73, 133, 83)',
-                                            tension: 0.4,
-                                                   },
-                                                   {
-                                            label: 'Norms',
-                                            data: [60, 60, 60, 60],
-                                            borderColor: 'rgb(178,34,34)',
-                                            tension: 0.4,
-                                                   }
-                                                  ],
-                                            }}
-                                        options={{
+                                <Line data={chartData}
+                                      options={{
                                             responsive: true,
                                             maintainAspectRatio: true,
                                             plugins: {
@@ -146,7 +180,7 @@ export default function PlantDashboard ({ flagGroupe,
                             </div>
                             <div className="block__graph" id='myChart'> 
                                 <Line data={{
-                                        labels: ['1 января', '2 января', '3 января', '4 января'],
+                                        labels: ['1 января', '2 января', '3 января', '4 января', '5 января'],
                                         datasets: [{
                                             label: 'My First Dataset',
                                             data: [65, 59, 80, 81, 56, 55, 40],

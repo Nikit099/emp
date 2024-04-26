@@ -11,7 +11,8 @@ import usePersist from "@/app/store/usePersist";
 import { useEffect, useState } from "react";
 
 
-export default function PlantChoose ({closePlantChoose}) {
+export default function PlantChoose ({closePlantChoose,
+                                      handleAddBlock,}) {
     
     const plants = usePlantsStore((state) => state.plants);
     const setSearch = useSearchStore((state) => state.setSearch);
@@ -53,7 +54,8 @@ export default function PlantChoose ({closePlantChoose}) {
                 </div>
             </div>
             <><MyPlantsPlusMenu serchPlants={serchPlants}
-                        closePlantChoose={closePlantChoose}/></>
+                                closePlantChoose={closePlantChoose}
+                                handleAddBlock={handleAddBlock}/></>
         </div>
     </div>
     </>

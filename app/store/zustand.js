@@ -342,3 +342,38 @@ export const useSetNorms = create( (set) => ({
         test: test.map(elem => elem.sup === sup ? {...elem, sup: sup} : elem)
     }))
   }))
+
+export const useGroupe = create(
+    
+        (set) => ({
+            dashboardGroupes: [
+                {name: 'name 1',
+                 id: 1,
+                 plantsId: [], 
+                },
+            ],
+            addGroupe: (newGroupe) => set(state => ({
+                dashboardGroupes: [
+                    ...state.dashboardGroupes, newGroupe
+                ]
+            })),
+            setTest: (sup) => set((state) => ({test: test.map(e => e.sup === sup ? {...e, sup: sup}: e)}))
+        }),    
+);
+
+export const useBlock = create(
+    (set) => ({
+        dashboardBlocks: [
+            {
+                name: 'name 0',
+                id: 3330,
+                groupesId: [],
+            },
+        ],
+        addBlock: (newBlock) => set(state => ({
+            dashboardBlocks: [
+                ...state.dashboardBlocks, newBlock
+            ]
+        }))
+    })
+)

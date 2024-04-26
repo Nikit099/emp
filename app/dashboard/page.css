@@ -34,8 +34,8 @@ a {
     cursor: pointer;
 }
 
-
 .header__home_button {
+    display: flex;
     font-family: 'Inter';
     color: #FCFDFC;
     width: 119px;
@@ -44,6 +44,9 @@ a {
     background-color: #498553;
     border: 0;
     margin: 0px 0px 0px 30px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     cursor: pointer;
 }
 
@@ -89,6 +92,7 @@ a {
 
 .main__container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     
 }
@@ -98,9 +102,9 @@ a {
     flex-direction: column;
     justify-content: center;
     margin: 37px 10px 0 10px;
-    max-width: 1350px;
+    /* max-width: 1350px;
     width: 100%;
-    min-width: 613px;
+    min-width: 613px; */
     height: auto;
     border-radius: 21px;
     background-color: #E6F1EB;
@@ -528,7 +532,19 @@ a {
 
 /*PLANT CHOOSE^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
-.pots .points {
+.plantchoose__pots {
+
+}
+
+.plantchoose__points {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 60vh;
+    overflow: auto;
+}
+
+.plantchoose__myplants_points {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -537,16 +553,17 @@ a {
     
 }
 
-.point-1 {
+.plantchoose__myplants_point-1 {
     position: relative;
     width: 412px;
     height: 228px;
     margin: 20px 20px;
     border-radius: 20px;
     background: #E9F3ED; 
+    cursor: pointer;
 }
 
-.top {
+.plantchoose__myplants_top {
     position: absolute;
     width: 195px;
     height: 139px;
@@ -554,28 +571,28 @@ a {
     background: #D7EADD;
 }
 
-.pots__plant {
+.plantchoose__myplants_pots__plant {
     position: absolute;
     z-index: 1;
     top: 8px;
     left: -6px;
 }
 
-.pots__plant-face{
+.plantchoose__myplants_pots__plant-face{
     position: absolute;
     z-index: 2;
     top: 128px;
     left: 74px;
 }
 
-.pots__dl {
+.plantchoose__myplants_pots__dl {
     position: absolute;
     top:22px;
     left:212px;
     margin: 0px;
 }
 
-.pots__dt {
+.plantchoose__myplants_pots__dt {
     color: #498553;
     font-family: "Montserrat";
     font-size: 16px;
@@ -585,7 +602,7 @@ a {
     margin-bottom: 7px;
 }
 
-.pots__dd-1 {
+.plantchoose__myplants_pots__dd-1 {
     color: #888;
     font-family: "Inter";
     font-size: 14px;
@@ -596,7 +613,7 @@ a {
     margin-bottom: 7px;
 }
 
-.pots__dd-2 {
+.plantchoose__myplants_pots__dd-2 {
     color: #888;
     font-family: "Inter";
     font-size: 14px;
@@ -705,6 +722,123 @@ a {
 }
 
 /*PROBLEMS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+.calendar__container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+.calendar__block {
+    position: fixed;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 37px 10px 0 10px;
+    max-width: 1350px;
+    width: 100%;
+    min-width: 613px;
+    height: auto;
+    border-radius: 21px;
+    background-color: #f8f8f8;
+}
+
+.calendar__sides {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 15px 10px 15px 10px;
+    
+}
+
+.calendar__block_left {
+    display: flex;
+    align-items: center;
+}
+
+.calendar__title {
+    font-family: 'Montserrat';
+    font-size: 24px;
+    color: #555555;
+    white-space: nowrap;
+    margin: 0 0 0 32px;
+    border: 0px;
+}
+
+.calendar__title::placeholder {
+    color:#888888;
+}
+
+.calendar__title:focus {
+    border: none;
+    outline: none;
+}
+
+.calendar__buttons_block {
+    position: relative;
+    display: flex;
+    margin: 0 0 0 32px;
+}
+
+.calendar__block__radio {
+    display: flex;
+    gap: 20px;
+}
+
+.calendar__block__radio input {
+    z-index: 2;
+    display: none;
+}
+
+.calendar__block__castom-radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+    width: 105px;
+    height: 50px;
+    border-radius: 11px;
+    
+    background-color: #569A62;
+    
+    font-family: 'Inter';
+    font-size: 16px;
+    
+    color: #f8f8f8;
+}
+
+.calendar__block__radio input:checked + .calendar__block__castom-radio {
+    display: flex;
+    background-color: #498553;
+}
+
+.calendar__button_ical {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #498553;
+    color: #f8f8f8;
+    border-radius: 12px;
+    min-width: 50px;
+    height: 50px;
+    margin: 0 0 0 31px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.calendar__block_right {
+    display: flex;
+}
+
+.calendar__delete {
+    cursor: pointer;
+}
+
+/*CALENDAR^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
 
 @media (max-width: 1260px) {
     .block {
