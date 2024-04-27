@@ -52,10 +52,6 @@ export default function Dashboard() {
     /*можно удалять. работает для примера^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
     
 
-    const setNameGroupe = useGroupe((state) => state.setNameGroupe);
-
-    const handleSetNameGroupe = (nameGroupe) => {setNameGroupe(nameGroupe)}
-
     /*Сохранение имени^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 
@@ -101,15 +97,8 @@ export default function Dashboard() {
         const newGroupe = { name: '', id: Date.now(), plantsId: []};
         addGroupe(newGroupe);
     }  
+
     //добавление группы ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    const { addBlock, dashboardBlocks } = useBlock();
-    function handleAddBlock() {
-        const newBlock = { name: '', id: Date.now(), groupeId: []};
-        addBlock(newBlock);
-        console.log(dashboardBlocks);
-    }
-
     //добавление блока ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     return (
@@ -117,7 +106,7 @@ export default function Dashboard() {
     {isVisibleCalendar && <Calendar closeCalendar={closeCalendar}/>}
     {isVisibleProblems && <Problems/>}
     {isVisiblePlantChoose && <PlantChoose closePlantChoose={closePlantChoose}
-                                          handleAddBlock={handleAddBlock}/>}
+                                          />}
     <div className={isVisiblePlantChoose || 
                     isVisibleProblems || 
                     isVisibleCalendar ? 'body--blured' : 'body'}
@@ -186,13 +175,13 @@ export default function Dashboard() {
             {
                 dashboardGroupes.map((e) => <Groupe key={e.id} 
                                                     name={e.name} 
+                                                    id={e.id}
                                                     plantsId={e.plantsId} 
                                                     openPlantChoose={openPlantChoose}
                                                     flagGroupe={flagGroupe}  
                                                     openProblems={openProblems}
                                                     openCalendar={openCalendar}
-                                                    dashboardBlocks={dashboardBlocks}
-                                                    />)
+                                                    dashboardGroupes={dashboardGroupes}/>)
             }
         </div>
     </main>

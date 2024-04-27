@@ -15,7 +15,8 @@ import PlantDashboardPlusMenu from './plantDashboardPlusMenu';
 
 
 export default function Groupe({openPlantChoose, 
-                                name, 
+                                name,
+                                id, 
                                 plantsId, 
                                 flagBlock, 
                                 changeArrowBlock, 
@@ -23,7 +24,10 @@ export default function Groupe({openPlantChoose,
                                 openCalendar,
                                 groupeBlocks,
                                 dashboardBlocks,
-                                newBlockId}) {
+                                newBlockId,
+                                handleDeleteGroupe,
+                                dashboardGroupes,
+                                }) {
 
 
     const [inputValueGroupeName, setInputValueGroupeName] = useState('');
@@ -51,6 +55,8 @@ export default function Groupe({openPlantChoose,
     const { plant } = usePlantsStore();
         
     /*Добавление блока^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+    const { deleteGroupe } = useGroupe();
 
     /*Удаление группы^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
@@ -90,14 +96,15 @@ export default function Groupe({openPlantChoose,
                         
                     </div>
                     <div className="main__block_right">
-                        <Image className="main__delete" src={deleteDashboard} alt="удалить группу"/>
+                        <Image className="main__delete" 
+                                src={deleteDashboard} 
+                                alt="удалить группу"
+                                onClick={() => deleteGroupe(id)}/>
                     </div>
                 </div>
                 <>
                 {
-                    dashboardBlocks.map((e) => <PlantDashboard key={e.id}
-                                                                />)
-                    
+                    dashboardGroupes.map((e, index) => <PlantDashboard key={`${e.id}_${index}`} name={e.name} />)
                 }
                 </>
             </div>

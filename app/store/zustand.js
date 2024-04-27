@@ -347,9 +347,10 @@ export const useGroupe = create(
     
         (set) => ({
             dashboardGroupes: [
-                {name: 'name 1',
-                 id: 1,
-                 plantsId: [], 
+                {
+                    name: 'name 1',
+                    id: 1,
+                    plantsId: [], 
                 },
             ],
             addGroupe: (newGroupe) => set(state => ({
@@ -357,23 +358,16 @@ export const useGroupe = create(
                     ...state.dashboardGroupes, newGroupe
                 ]
             })),
-            //setTest: (sup) => set((state) => ({test: test.map(e => e.sup === sup ? {...e, sup: sup}: e)}))
+            deleteGroupe: (groupeId) => set(state => ({
+                dashboardGroupes: 
+                    state.dashboardGroupes.filter(groupe => groupe.id !== groupeId)
+            })),
+            // addBlock: 
+            // setTest: (plantId) => set((state) => ({
+            //     dashboardGroupes: 
+            //         state.dashboardGroupes.map(
+            //             groupe => groupe.plantId === plantId ? {...groupe, plantId: plantId} : groupe)
+            // }))
         }),    
 );
 
-export const useBlock = create(
-    (set) => ({
-        dashboardBlocks: [
-            {
-                name: 'name 0',
-                id: 3330,
-                groupesId: [],
-            },
-        ],
-        addBlock: (newBlock) => set(state => ({
-            dashboardBlocks: [
-                ...state.dashboardBlocks, newBlock
-            ]
-        }))
-    })
-)
