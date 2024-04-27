@@ -357,23 +357,6 @@ export const useGroupe = create(
                     ...state.dashboardGroupes, newGroupe
                 ]
             })),
-            setTest: (sup) => set((state) => ({test: test.map(e => e.sup === sup ? {...e, sup: sup}: e)}))
+            setPlantId: (id, dashId) => set((state) => ({dashboardGroupes: dashboardGroupes.map(e => e.id === dashId ? {...e, plantsId: [...plantsId, id]} : e)}))
         }),    
 );
-
-export const useBlock = create(
-    (set) => ({
-        dashboardBlocks: [
-            {
-                name: 'name 0',
-                id: 3330,
-                groupesId: [],
-            },
-        ],
-        addBlock: (newBlock) => set(state => ({
-            dashboardBlocks: [
-                ...state.dashboardBlocks, newBlock
-            ]
-        }))
-    })
-)

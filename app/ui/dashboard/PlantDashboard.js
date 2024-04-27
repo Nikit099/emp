@@ -11,7 +11,6 @@ import { Line } from "react-chartjs-2";
 
 import '@/app/dashboard/page.css';
 
-import { usePlantsStore } from "@/app/store/zustand";
 
 export default function PlantDashboard ({ flagGroupe, 
                                           openProblems,

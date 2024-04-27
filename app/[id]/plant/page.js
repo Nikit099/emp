@@ -10,6 +10,7 @@ import pen from '@/public/plant/pen.svg';
 import questionCircle from '@/public/plant/question-circle.svg'
 import rotate from '@/public/plant/rotate.svg';
 import SetNorms from "@/app/ui/plant/setNorms";
+import Seeds from "@/app/ui/plant/seeds";
 
 export default function Plant() {
 
@@ -129,29 +130,7 @@ export default function Plant() {
                                             </label>
                                         </form>
                                     </div>
-                                    <div className="footer_plant__right_bottom">
-                                        <div className="footer_plant__right_bottom_input_block">
-                                            <form className="footer_plant__right_bottom_form">
-                                                <Image className="footer_plant__right_bottom_pen"
-                                                    src={pen}
-                                                    alt='Редактировать'></Image>
-                                                <input className="footer_plant__right_bottom_input"
-                                                    placeholder="Введите новое имя питомца"></input>
-                                                <Image className="footer_plant__right_check"
-                                                    src={checkCircle}
-                                                    alt='Подтверждение'></Image>
-                                            </form>
-                                        </div>
-                                        <div className="footer_plant__right_bottom_plant_type">
-                                            <button>Смена вида растения</button>
-                                        </div>
-                                        <div className="footer_plant__right_bottom_delete">
-                                            <button>Удалить растение</button>   
-                                        </div>
-                                        <div className="footer_plant__right_bottom_go_out">
-                                            <button>Выйти из аккаунта</button>
-                                        </div>
-                                    </div>
+                                <Seeds/>
                             </div>
                         </div>
                     </div>

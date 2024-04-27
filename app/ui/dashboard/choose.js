@@ -53,9 +53,9 @@ export default function PlantChoose ({closePlantChoose,
                            onClick={closePlantChoose}/>
                 </div>
             </div>
-            <><MyPlantsPlusMenu serchPlants={serchPlants}
+            <MyPlantsPlusMenu serchPlants={serchPlants}
                                 closePlantChoose={closePlantChoose}
-                                handleAddBlock={handleAddBlock}/></>
+                                handleAddBlock={handleAddBlock}/>
         </div>
     </div>
     </>

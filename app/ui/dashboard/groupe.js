@@ -16,6 +16,7 @@ import PlantDashboardPlusMenu from './plantDashboardPlusMenu';
 
 export default function Groupe({openPlantChoose, 
                                 name, 
+                                id,
                                 plantsId, 
                                 flagBlock, 
                                 changeArrowBlock, 
@@ -93,11 +94,7 @@ export default function Groupe({openPlantChoose,
                         <Image className="main__delete" src={deleteDashboard} alt="удалить группу"/>
                     </div>
                 </div>
-                <>
-                {
-                    dashboardBlocks.map((e) => <PlantDashboard key={e.id}/>)
-                }
-                </>
+                
             </div>
         </>
     )

@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
-import PlantDashboard from '../ui/dashboard/plantDashboard';
+import PlantDashboard from '@/app/ui/dashboard/plantDashboard';
 import PlantChoose from '../ui/dashboard/choose';
 import Problems from '../ui/dashboard/problems';
 import Calendar from '../ui/dashboard/calendar';
@@ -103,11 +103,8 @@ export default function Dashboard() {
     }  
     //добавление группы ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    const { addBlock, dashboardBlocks } = useBlock();
-    function handleAddBlock() {
-        const newBlock = { name: '', id: Date.now(), groupeId: []};
-        addBlock(newBlock);
-        console.log('я работаю');
+    function handleAddBlock(id) {
+
     }
 
     //добавление блока ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -182,16 +179,15 @@ export default function Dashboard() {
                                 openCalendar={openCalendar}/>
             </div>
             
-            {/* {names.map((name) => (<Groupe openPlantChoose={openPlantChoose}/>))} */}
             {
                 dashboardGroupes.map((e) => <Groupe key={e.id} 
+                                                    id={e.id}
                                                     name={e.name} 
                                                     plantsId={e.plantsId} 
                                                     openPlantChoose={openPlantChoose}
                                                     flagGroupe={flagGroupe}  
                                                     openProblems={openProblems}
                                                     openCalendar={openCalendar}
-                                                    dashboardBlocks={dashboardBlocks}
                                                     />)
             }
         </div>

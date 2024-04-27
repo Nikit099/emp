@@ -1,7 +1,7 @@
 import Image from "next/image";
 import potsSmileFace from "@/public/main/pots-smile-face.svg"
 import potsPlant from "@/public/main/pots-plant.svg";
-import { usePlantsStore } from "@/app/store/zustand";
+import { useGroupe, usePlantsStore } from "@/app/store/zustand";
 import Emotion from "@/app/scripts/emotion";
 
 export default function PlantDashboardPlusMenu({name, 
@@ -9,13 +9,12 @@ export default function PlantDashboardPlusMenu({name,
                                                 typeId, 
                                                 id, 
                                                 emotion, 
-                                                closePlantChoose,
                                                 handleAddBlock}) {
      const typePlants = usePlantsStore((state) => state.typePlants);
-     
-    return (
+     const setPlantId = useGroupe((state) => state.setPlantId)
+     return (
      <div>
-        <div className="plantchoose__myplants_point-1" onClick={handleAddBlock}>
+        <div className="plantchoose__myplants_point-1" onClick={() => setPlantId(id)}>
             
              <div className="plantchoose__myplants_top"></div>
              <Image className="plantchoose__myplants_pots__plant"
