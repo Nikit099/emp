@@ -104,7 +104,7 @@ export default function Groupe({openPlantChoose,
                 </div>
                 <>
                 {
-                    dashboardGroupes.map((e, index) => <PlantDashboard key={`${e.id}_${index}`} name={e.name} />)
+                    dashboardGroupes.map((e, index) => <PlantDashboard key={e.id} plantsId={e.plantsId} />)
                 }
                 </>
             </div>

@@ -13,7 +13,7 @@ export default function MyPlantsPlusMenu({serchPlants,
         <div className="plantchoose__points">
         {
             plants.map( (e) => <PlantDashboardPlusMenu key={e.id} 
-                                                     id={e.id} 
+                                                     plantId={e.id} 
                                                     recomendate={e.recomendate} 
                                                     name={e.name} 
                                                     typeId={e.typeId} 
