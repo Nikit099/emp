@@ -362,20 +362,23 @@ export const useGroupe = create(
                 dashboardGroupes: 
                     state.dashboardGroupes.filter(groupe => groupe.id !== groupeId)
             })),
-            addBlock: (plantId) => set((state) => ({
-                dashboardGroupes: state.dashboardGroupes.map(groupe => {
-                    // Проверяем, содержится ли plantId уже в plantsId данной группы
-                    if (groupe.plantsId.includes(plantId)) {
-                        // Если содержится, возвращаем группу без изменений
-                        return groupe;
-                    } else {
-                        // Если не содержится, добавляем его в массив plantsId группы
-                        return {
-                            ...groupe,
-                            plantsId: [...groupe.plantsId, plantId]
-                        };
-                    }
-                })
-            }))
+            addBlock: (plantId, groupeId) => set((state) => {
+                const filteredGroups = state.dashboardGroupes.filter(groupe => groupe.id == groupeId);
+                return {
+                    dashboardGroupes: filteredGroups.map(groupe => {
+                        // Проверяем, содержится ли plantId уже в plantsId данной группы
+                        if (groupe.plantsId.includes(plantId)) {
+                            // Если содержится, возвращаем группу без изменений
+                            return groupe;
+                        } else {
+                            // Если не содержится, добавляем его в массив plantsId группы
+                            return {
+                                ...groupe,
+                                plantsId: [...groupe.plantsId, plantId]
+                            };
+                        }
+                    })
+                };
+            })            
         }),    
 );

@@ -14,10 +14,12 @@ export default function PlantDashboardPlusMenu({name,
      const typePlants = usePlantsStore((state) => state.typePlants);
      
      const {addBlock, dashboardGroupes} = useGroupe();
+     const groupeId = dashboardGroupes.id;
 
+     
     return (
      <div>
-        <div className="plantchoose__myplants_point-1" onClick={() => {console.log(dashboardGroupes); addBlock(plantId); console.log(plantId, dashboardGroupes)}}>
+        <div className="plantchoose__myplants_point-1" onClick={(e) => {console.log(e.id); addBlock(plantId, groupeId); console.log(plantId, dashboardGroupes)}}>
             
              <div className="plantchoose__myplants_top"></div>
              <Image className="plantchoose__myplants_pots__plant"
