@@ -2,9 +2,12 @@ import Image from "next/image";
 import notifyPlant from "@/public/main/notify-plant.svg"
 import snow from "@/public/main/snow.svg"
 import plantFaceSick from "@/public/main/plant-face-sick.svg"
+import Link from "next/link";
 
-export default function AlPlant({name, recomendate, emotion}) {
+export default function AlPlant({name, recomendate, emotion, id}) {
     return (
+     <Link
+     href={`/${id}/plant`}>
 <div className="point-1">
                     <div className="dot"></div>
                     <div className="top-rectangl"></div>
@@ -36,5 +39,6 @@ export default function AlPlant({name, recomendate, emotion}) {
                               alt="drops"/> */}
                     </div>
                </div>
+               </Link>
     )
 }

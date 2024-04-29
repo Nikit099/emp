@@ -3,17 +3,18 @@ import Image from 'next/image';
 
 import checkCircle from '@/public/plant/check-circle.svg';
 import pen from '@/public/plant/pen.svg';
-export default function Seeds() {
+import Link from 'next/link';
+export default function Seeds({namePlant, submitNamePlant, setNamePlant, id}) {
     
     return (
 
         <div className="footer_plant__right_bottom">
             <div className="footer_plant__right_bottom_input_block">
-                <form className="footer_plant__right_bottom_form">
+                <form onSubmit={(e) => submitNamePlant(e)} className="footer_plant__right_bottom_form">
                     <Image className="footer_plant__right_bottom_pen"
                         src={pen}
                         alt='Редактировать'></Image>
-                    <input className="footer_plant__right_bottom_input"
+                    <input onChange={(e) => setNamePlant(e.target.value)} value={namePlant} className="footer_plant__right_bottom_input"
                         placeholder="Введите новое имя питомца"></input>
                     <Image className="footer_plant__right_check"
                         src={checkCircle}
@@ -21,7 +22,7 @@ export default function Seeds() {
                 </form>
             </div>
             <div className="footer_plant__right_bottom_plant_type">
-            <Link href={'/choose'}> <button>Смена вида растения</button> </Link>
+            <Link href={`/choose/${id}`}> <button>Смена вида растения</button> </Link>
             </div>
             <div className="footer_plant__right_bottom_delete">
                 <button>Удалить растение</button>   

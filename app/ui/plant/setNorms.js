@@ -2,32 +2,19 @@
 import Image from "next/image";
 import plant from '@/public/plant/plant.png';
 import questionCircle from '@/public/plant/question-circle.svg'
-import rotate from '@/public/plant/rotate.svg';
-import pen from '@/public/plant/pen.svg';
 import LineNorms from "./lineNorms";
 import { usePlantsStore } from "@/app/store/zustand";
 import { usePathname } from 'next/navigation';
 import { useState } from "react";
 
-export default function SetNorms() {
+export default function SetNorms({id}) {
     const castomNorms = usePlantsStore((state) => state.castomNorms);
     const pathname = usePathname()
-    function getUrlID(){
-        let plantId = ''
-        for (let i = 1; i < pathname.length; i++ ){
-            if(pathname[i] !== '/'){
-                plantId = plantId + pathname[i]
-            }
-            else{
-                break
-            }
-        }
-      return  plantId 
-    }
+    
     function findNorms(){
         let norms
         norms = castomNorms.find(e => {
-            if (e.plantId ==  getUrlID()){
+            if (e.plantId ==  id){
                 return e
             }
             } )
@@ -48,7 +35,7 @@ export default function SetNorms() {
                 <div className="norms_plant__main_block">
                     {
                         findNorms().norms.map( (elem) =>
-                            <LineNorms name={elem.name} min={elem.min} max={elem.max} />
+                            <LineNorms key={elem.id} name={elem.name} min={elem.min} max={elem.max} />
 
                         )
                     }

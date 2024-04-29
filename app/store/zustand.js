@@ -196,7 +196,8 @@ export const usePlantsStore = create(
                 img: ''
             },
         ],
-        date: [
+        
+        data: [
             {
                 id: 89,
                 plantId:97856 ,
@@ -209,7 +210,9 @@ export const usePlantsStore = create(
                 watering: false,
                 temperature: 22,
                 illumination: 78,
+                airHum: 45,
                 // measurmentsDate: 
+                
                 
             },
             {
@@ -224,11 +227,13 @@ export const usePlantsStore = create(
                 watering: false,
                 temperature: 22,
                 illumination: 78,
+                airHum: 45,
+
                 
             },
             {
                 id: 67,
-                plantId:97856 ,
+                plantId:6345 ,
                 humidity: 44,
                 daysHum: 4,
                 dateHum: null,
@@ -238,24 +243,12 @@ export const usePlantsStore = create(
                 watering: false,
                 temperature: 22,
                 illumination: 78,
+                airHum: 45,
+
                 
             },
             {
                 id: 56,
-                plantId:55353 ,
-                humidity: 44,
-                daysHum: 4,
-                dateHum: null,
-                daysSpr: null,
-                dateSpr: null,
-                spraing: false,
-                watering: false,
-                temperature: 22,
-                illumination: 78,
-                
-            },
-            {
-                id: 45,
                 plantId:13543 ,
                 humidity: 44,
                 daysHum: 4,
@@ -266,6 +259,24 @@ export const usePlantsStore = create(
                 watering: false,
                 temperature: 22,
                 illumination: 78,
+                airHum: 45,
+
+                
+            },
+            {
+                id: 45,
+                plantId:55353 ,
+                humidity: 44,
+                daysHum: 4,
+                dateHum: null,
+                daysSpr: null,
+                dateSpr: null,
+                spraing: false,
+                watering: false,
+                temperature: 22,
+                illumination: 78,
+                airHum: 45,
+
                 
             },
         ],
@@ -321,7 +332,9 @@ export const usePlantsStore = create(
             },
                 
         ],
+        changeName: (newName, plantId) => set((state) => ({plants: state.plants.map(e => e.id === plantId ? {...e, name: newName} : e)}) ), 
         incPlant: (newPlant) => set((state ) => ({ plants: [...state.plants, newPlant] })),
+        changeTypePlant: (typeId, plantId) => set((state) => ({plants: state.plants.map(e => e.id == plantId ? {...e, typeId: typeId} : e)}))
 
     }
     
@@ -329,27 +342,15 @@ export const usePlantsStore = create(
 )
   
 )
-export const useSetNorms = create( (set) => ({
-    test: [{
-        sup: 3,
-        nop: 54
-    },
-    {
-        sup: 5,
-        nop: 99
-    }],
-    setTest: (sup) => set((state) => ({
-        test: test.map(elem => elem.sup === sup ? {...elem, sup: sup} : elem)
-    }))
-  }))
 
 export const useGroupe = create(
     
         (set) => ({
             dashboardGroupes: [
-                {name: 'name 1',
-                 id: 1,
-                 plantsId: [], 
+                {
+                    name: 'name 1',
+                    id: 1,
+                    plantsId: [], 
                 },
             ],
             addGroupe: (newGroupe) => set(state => ({
@@ -357,6 +358,10 @@ export const useGroupe = create(
                     ...state.dashboardGroupes, newGroupe
                 ]
             })),
-            setPlantId: (id, dashId) => set((state) => ({dashboardGroupes: dashboardGroupes.map(e => e.id === dashId ? {...e, plantsId: [...plantsId, id]} : e)}))
+            deleteGroupe: (groupeId) => set(state => ({
+                dashboardGroupes: 
+                    state.dashboardGroupes.filter(groupe => groupe.id !== groupeId)
+            })),
+            setPlantId: (id, groupeId) => set((state) => ({dashboardGroupes: dashboardGroupes.map(e => e.id === groupeId ? {...e, plantsId: [...plantsId, id]} : e)}))
         }),    
 );

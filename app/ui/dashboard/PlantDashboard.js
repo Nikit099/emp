@@ -70,7 +70,7 @@ export default function PlantDashboard ({ flagGroupe,
                     <div className="dashboard__container">
                         <div className="dashboard__header">
                             <div className="dashboard__header_left">
-                                <span className="dashboard__title">{name}</span>
+                                <span className="dashboard__title">plantDashboard.js</span>
                                 
                                 <span className="dashboard__weigh">23кг</span>
                                 <button className="dashboard__button"

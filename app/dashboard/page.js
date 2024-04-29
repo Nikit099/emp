@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
-import PlantDashboard from '@/app/ui/dashboard/plantDashboard';
+import PlantDashboard from '@/app/ui/dashboard/PlantDashboard';
 import PlantChoose from '../ui/dashboard/choose';
 import Problems from '../ui/dashboard/problems';
 import Calendar from '../ui/dashboard/calendar';
@@ -52,10 +52,6 @@ export default function Dashboard() {
     /*можно удалять. работает для примера^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
     
 
-    const setNameGroupe = useGroupe((state) => state.setNameGroupe);
-
-    const handleSetNameGroupe = (nameGroupe) => {setNameGroupe(nameGroupe)}
-
     /*Сохранение имени^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 
@@ -101,12 +97,8 @@ export default function Dashboard() {
         const newGroupe = { name: '', id: Date.now(), plantsId: []};
         addGroupe(newGroupe);
     }  
+
     //добавление группы ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    function handleAddBlock(id) {
-
-    }
-
     //добавление блока ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     return (
@@ -114,7 +106,7 @@ export default function Dashboard() {
     {isVisibleCalendar && <Calendar closeCalendar={closeCalendar}/>}
     {isVisibleProblems && <Problems/>}
     {isVisiblePlantChoose && <PlantChoose closePlantChoose={closePlantChoose}
-                                          handleAddBlock={handleAddBlock}/>}
+                                          />}
     <div className={isVisiblePlantChoose || 
                     isVisibleProblems || 
                     isVisibleCalendar ? 'body--blured' : 'body'}
@@ -188,7 +180,7 @@ export default function Dashboard() {
                                                     flagGroupe={flagGroupe}  
                                                     openProblems={openProblems}
                                                     openCalendar={openCalendar}
-                                                    />)
+                                                    dashboardGroupes={dashboardGroupes}/>)
             }
         </div>
     </main>

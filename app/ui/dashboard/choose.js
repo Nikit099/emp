@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 
 
 export default function PlantChoose ({closePlantChoose,
-                                      handleAddBlock,}) {
+                                        addBlock}) {
     
     const plants = usePlantsStore((state) => state.plants);
     const setSearch = useSearchStore((state) => state.setSearch);
@@ -55,7 +55,8 @@ export default function PlantChoose ({closePlantChoose,
             </div>
             <MyPlantsPlusMenu serchPlants={serchPlants}
                                 closePlantChoose={closePlantChoose}
-                                handleAddBlock={handleAddBlock}/>
+                                addBlock={addBlock}
+                                />
         </div>
     </div>
     </>

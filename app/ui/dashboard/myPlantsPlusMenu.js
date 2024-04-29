@@ -3,7 +3,7 @@ import { usePlantsStore } from "@/app/store/zustand";
 
 export default function MyPlantsPlusMenu({serchPlants, 
                                           closePlantChoose,
-                                          handleAddBlock,}) {
+                                          addBlock,}) {
     
     const { plants } = usePlantsStore();
 
@@ -19,7 +19,8 @@ export default function MyPlantsPlusMenu({serchPlants,
                                                     typeId={e.typeId} 
                                                     emotion={e.emotion}
                                                     closePlantChoose={closePlantChoose}
-                                                    handleAddBlock={handleAddBlock} /> 
+                                                    addBlock={addBlock}
+                                                     /> 
         )
         }
         {
