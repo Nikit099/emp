@@ -362,10 +362,10 @@ export const useGroupe = create(
                 dashboardGroupes: 
                     state.dashboardGroupes.filter(groupe => groupe.id !== groupeId)
             })),
-            addBlock: (plantId, groupeId) => set((state) => {
-                const filteredGroups = state.dashboardGroupes.filter(groupe => groupe.id === groupeId);
-                return {
-                    dashboardGroupes: filteredGroups.map(groupe => {
+            addBlock: (plantId, groupId) => set((state) => ({
+                dashboardGroupes: state.dashboardGroupes.map(groupe => {
+                    // Проверяем, является ли текущая группа выбранной
+                    if (groupe.id === groupId) {
                         // Проверяем, содержится ли plantId уже в plantsId данной группы
                         if (groupe.plantsId.includes(plantId)) {
                             // Если содержится, возвращаем группу без изменений
@@ -377,8 +377,11 @@ export const useGroupe = create(
                                 plantsId: [...groupe.plantsId, plantId]
                             };
                         }
-                    })
-                };
-            })            
+                    } else {
+                        // Если текущая группа не выбрана, возвращаем ее без изменений
+                        return groupe;
+                    }
+                })
+            }))            
         }),    
 );
