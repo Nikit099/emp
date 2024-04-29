@@ -51,15 +51,15 @@ export default function Dashboard() {
     //
     /*можно удалять. работает для примера^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
     
-
-    /*Сохранение имени^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-
-
-
+    const {addBlock, addGroupe, dashboardGroupes } = useGroupe();
+    const currentGroupesIds = dashboardGroupes.map(e => e.id);
+    const [currentGroupeId, setCurrentGroupeId] = useState();
     const [isVisiblePlantChoose, setIsVisiblePlantChoose] = useState(false);
 
-    const openPlantChoose = () => {
+    const openPlantChoose = (groupeId) => {
         setIsVisiblePlantChoose(true);
+        console.log('currentGroupesIds:', currentGroupesIds, 'currentGroupeId:', currentGroupeId)
+        setCurrentGroupeId(groupeId)
     };
 
     const closePlantChoose = () => {
@@ -92,7 +92,6 @@ export default function Dashboard() {
 
     //
 
-    const { addGroupe, dashboardGroupes } = useGroupe();
     function handleAddGroupe() {
         const newGroupe = { name: '', id: Date.now(), plantsId: []};
         addGroupe(newGroupe);
@@ -101,13 +100,14 @@ export default function Dashboard() {
     //добавление группы ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     //добавление блока ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+    
+
     return (
     <>
     {isVisibleCalendar && <Calendar closeCalendar={closeCalendar}/>}
     {isVisibleProblems && <Problems/>}
-    {isVisiblePlantChoose && <PlantChoose closePlantChoose={closePlantChoose}
-                                          />}
-    <div className={isVisiblePlantChoose || 
+    
+    <div className={ 
                     isVisibleProblems || 
                     isVisibleCalendar ? 'body--blured' : 'body'}
          onClick={() => {isVisiblePlantChoose ? closePlantChoose() : console.log();
@@ -173,14 +173,17 @@ export default function Dashboard() {
             
             {
                 dashboardGroupes.map((e) => <Groupe key={e.id} 
-                                                    id={e.id}
+                                                    groupeId={e.id}
                                                     name={e.name} 
                                                     plantsId={e.plantsId} 
                                                     openPlantChoose={openPlantChoose}
                                                     flagGroupe={flagGroupe}  
                                                     openProblems={openProblems}
                                                     openCalendar={openCalendar}
-                                                    dashboardGroupes={dashboardGroupes}/>)
+                                                    dashboardGroupes={dashboardGroupes}
+                                                    isVisiblePlantChoose={isVisiblePlantChoose}
+                                                    closePlantChoose={closePlantChoose}
+                                                    currentGroupeId={currentGroupeId}/>)
             }
         </div>
     </main>

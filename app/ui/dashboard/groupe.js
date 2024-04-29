@@ -12,11 +12,12 @@ import { useBlock } from '@/app/store/zustand';
 import { useGroupe } from '@/app/store/zustand';
 import PlantDashboard from './PlantDashboard';
 import PlantDashboardPlusMenu from './plantDashboardPlusMenu';
+import PlantChoose from './choose';
 
 
 export default function Groupe({openPlantChoose, 
                                 name,
-                                id, 
+                                groupeId, 
                                 plantsId, 
                                 flagBlock, 
                                 changeArrowBlock, 
@@ -27,6 +28,9 @@ export default function Groupe({openPlantChoose,
                                 newBlockId,
                                 handleDeleteGroupe,
                                 dashboardGroupes,
+                                isVisiblePlantChoose,
+                                closePlantChoose,
+                                currentGroupeId,
                                 }) {
 
 
@@ -62,6 +66,11 @@ export default function Groupe({openPlantChoose,
 
     return(
         <>
+        {isVisiblePlantChoose && <PlantChoose   closePlantChoose={closePlantChoose} 
+                                                groupeId={groupeId}
+                                                currentGroupeId={currentGroupeId} />
+                
+        }
             <div className="main__block">
                 <div className="main__sides">
                     <div className="main__block_left">
@@ -83,7 +92,7 @@ export default function Groupe({openPlantChoose,
                                    alt='лупа'/>
                         </div>
                         <div className="main__add"
-                             onClick={openPlantChoose}>
+                             onClick={() => openPlantChoose(groupeId)}>
                             <Image className="main__plus" 
                                    src={plus} 
                                    alt="добавить растение"
@@ -99,7 +108,7 @@ export default function Groupe({openPlantChoose,
                         <Image className="main__delete" 
                                 src={deleteDashboard} 
                                 alt="удалить группу"
-                                onClick={() => deleteGroupe(id)}/>
+                                onClick={() => deleteGroupe(groupeId)}/>
                     </div>
                 </div>
                 <>

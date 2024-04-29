@@ -363,7 +363,7 @@ export const useGroupe = create(
                     state.dashboardGroupes.filter(groupe => groupe.id !== groupeId)
             })),
             addBlock: (plantId, groupeId) => set((state) => {
-                const filteredGroups = state.dashboardGroupes.filter(groupe => groupe.id == groupeId);
+                const filteredGroups = state.dashboardGroupes.filter(groupe => groupe.id === groupeId);
                 return {
                     dashboardGroupes: filteredGroups.map(groupe => {
                         // Проверяем, содержится ли plantId уже в plantsId данной группы

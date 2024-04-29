@@ -3,6 +3,8 @@ import Image from 'next/image';
 
 import MyPlantsPlusMenu from '@/app/ui/dashboard/myPlantsPlusMenu';
 
+
+
 import deleteDashboard from '@/public/dashboard/delete.svg';
 import magnifyingGlass from '@/public/dashboard/search.svg';
 
@@ -12,7 +14,9 @@ import { useEffect, useState } from "react";
 
 
 export default function PlantChoose ({closePlantChoose,
-                                        addBlock}) {
+                                        addBlock,
+                                        currentGroupeId,
+                                        groupeId}) {
     
     const plants = usePlantsStore((state) => state.plants);
     const setSearch = useSearchStore((state) => state.setSearch);
@@ -56,7 +60,8 @@ export default function PlantChoose ({closePlantChoose,
             <MyPlantsPlusMenu serchPlants={serchPlants}
                                 closePlantChoose={closePlantChoose}
                                 addBlock={addBlock}
-                                />
+                                groupeId={groupeId}
+                                currentGroupeId={currentGroupeId}/>
         </div>
     </div>
     </>
