@@ -334,7 +334,8 @@ export const usePlantsStore = create(
         ],
         changeName: (newName, plantId) => set((state) => ({plants: state.plants.map(e => e.id === plantId ? {...e, name: newName} : e)}) ), 
         incPlant: (newPlant) => set((state ) => ({ plants: [...state.plants, newPlant] })),
-        changeTypePlant: (typeId, plantId) => set((state) => ({plants: state.plants.map(e => e.id == plantId ? {...e, typeId: typeId} : e)}))
+        changeTypePlant: (typeId, plantId) => set((state) => ({plants: state.plants.map(e => e.id == plantId ? {...e, typeId: typeId} : e)})),
+        deletPlant: (plantId) => set((state) => ({plants: state.plants.filter(e => e.id != plantId) }))
 
     }
     
