@@ -56,15 +56,15 @@ export default function Dashboard() {
     const [currentGroupeId, setCurrentGroupeId] = useState();
     const [isVisiblePlantChoose, setIsVisiblePlantChoose] = useState(false);
 
-    const openPlantChoose = (groupeId) => {
-        setIsVisiblePlantChoose(true);
-        console.log('currentGroupesIds:', currentGroupesIds, 'currentGroupeId:', currentGroupeId)
-        setCurrentGroupeId(groupeId)
-    };
+    // const openPlantChoose = (groupeId) => {
+    //     setIsVisiblePlantChoose(true);
+    //     console.log('currentGroupesIds:', currentGroupesIds, 'currentGroupeId:', currentGroupeId)
+    //     setCurrentGroupeId(groupeId)
+    // };
 
-    const closePlantChoose = () => {
-        setIsVisiblePlantChoose(false);
-    };
+    // const closePlantChoose = () => {
+    //     setIsVisiblePlantChoose(false);
+    // };
 
     //
 
@@ -133,61 +133,20 @@ export default function Dashboard() {
     </header>
     <main className=".main">
         <div className="main__container">
-            <div className="main__block">
-                <div className="main__sides">
-                    <div className="main__block_left">
-                        <input
-                            className="main__title"
-                            type="text"
-                            value={inputValueGroupeName}
-                            onChange={handleInputChangeGroupeName}
-                            placeholder='Ваше имя группы'
-                            maxLength={16}
-                            
-                        />
-                        <div className="main__search">
-                            <input className="main__search_input"
-                                   
-                                   placeholder="Поиск по растениям" />
-                            <Image className="main__search_img" src={magnifyingGlass} alt='лупа'/>
-                        </div>
-                        <div className="main__add"
-                             onClick={openPlantChoose}>
-                            <Image className="main__plus" 
-                                   src={plus} 
-                                   alt="добавить растение"
-                                    />
-                        </div>
-                            <Image className={"main__show"} src={ flagGroupe ? arrowShowUp : arrowShowDown } alt="развернуть группу" onClick={changeArrowGroupe}/>
-                        
-                    </div>
-                    <div className="main__block_right">
-                        <Image className="main__delete" src={deleteDashboard} alt="удалить группу"/>
-                    </div>
-                </div>
-                <PlantDashboard flagGroupe={flagGroupe} 
-                                flagBlock={flagBlock} 
-                                changeArrowBlock={changeArrowBlock} 
-                                openProblems={openProblems}
-                                openCalendar={openCalendar}/>
-            </div>
-            
             {
-                dashboardGroupes.map(e => <Groupe key={e.id} 
+                dashboardGroupes.map((e, index) => <Groupe   key={e.id} 
                                                     groupeId={e.id}
                                                     name={e.name} 
-                                                    plantsId={e.plantsId} 
-                                                    openPlantChoose={openPlantChoose}
+                                                    plantsId={e.plantsId}
+                                                    groupeIndex={index} 
                                                     flagGroupe={flagGroupe}  
                                                     openProblems={openProblems}
                                                     openCalendar={openCalendar}
                                                     dashboardGroupes={dashboardGroupes}
                                                     isVisiblePlantChoose={isVisiblePlantChoose}
-                                                    closePlantChoose={closePlantChoose}
                                                     currentGroupeId={currentGroupeId}
                                                     flagBlock={flagBlock} 
-                                                    changeArrowBlock={changeArrowBlock} 
-                                                    />)
+                                                    changeArrowBlock={changeArrowBlock} />)
             }
         </div>
     </main>

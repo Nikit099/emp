@@ -17,7 +17,9 @@ export default function PlantDashboard ({ flagGroupe,
                                           openProblems,
                                           openCalendar,
                                           plantsId,
-                                          name }) {
+                                          plantId,
+                                          name,
+                                           }) {
 
 
     const [chartData, setChartData] = useState({
@@ -60,7 +62,7 @@ export default function PlantDashboard ({ flagGroupe,
 
     /*Фейковые данные^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
-    const [flagBlock, setFlagBlock] = useState(true)
+    const [flagBlock, setFlagBlock] = useState(false)
     function changeArrowBlock() {
         setFlagBlock(!flagBlock);
     }

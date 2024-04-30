@@ -15,7 +15,7 @@ import PlantDashboardPlusMenu from './plantDashboardPlusMenu';
 import PlantChoose from './choose';
 
 
-export default function Groupe({openPlantChoose, 
+export default function Groupe({ 
                                 name,
                                 groupeId, 
                                 plantsId, 
@@ -27,11 +27,8 @@ export default function Groupe({openPlantChoose,
                                 dashboardBlocks,
                                 newBlockId,
                                 handleDeleteGroupe,
-                                dashboardGroupes,
-                                isVisiblePlantChoose,
-                                closePlantChoose,
-                                currentGroupeId,
                                 getPlantsExceptInDashboard,
+                                groupeIndex,
                                 }) {
 
 
@@ -57,7 +54,20 @@ export default function Groupe({openPlantChoose,
 
     /*Сохранение имени^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
-    const { plant } = usePlantsStore();
+    const {addBlock, addGroupe, dashboardGroupes } = useGroupe();
+    const currentGroupesIds = dashboardGroupes.map(e => e.id);
+    const [currentGroupeId, setCurrentGroupeId] = useState();
+    const [isVisiblePlantChoose, setIsVisiblePlantChoose] = useState(false);
+
+    const openPlantChoose = (groupeId) => {
+        setIsVisiblePlantChoose(true);
+        console.log('currentGroupesIds:', currentGroupesIds, 'currentGroupeId:', currentGroupeId)
+        setCurrentGroupeId(groupeId)
+    };
+
+    const closePlantChoose = () => {
+        setIsVisiblePlantChoose(false);
+    };
         
     /*Добавление блока^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
@@ -70,6 +80,8 @@ export default function Groupe({openPlantChoose,
         {isVisiblePlantChoose && <PlantChoose   closePlantChoose={closePlantChoose} 
                                                 groupeId={groupeId}
                                                 currentGroupeId={currentGroupeId}
+                                                getPlantsExceptInDashboard={getPlantsExceptInDashboard}
+                                                groupeIndex={groupeIndex}
                                                  />
                 
         }

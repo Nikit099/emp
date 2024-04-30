@@ -17,7 +17,8 @@ export default function PlantChoose ({closePlantChoose,
                                         addBlock,
                                         currentGroupeId,
                                         groupeId,
-                                        }) {
+                                        getPlantsExceptInDashboard,
+                                        groupeIndex,}) {
     
     const plants = usePlantsStore((state) => state.plants);
     const setSearch = useSearchStore((state) => state.setSearch);
@@ -62,7 +63,9 @@ export default function PlantChoose ({closePlantChoose,
                                 closePlantChoose={closePlantChoose}
                                 addBlock={addBlock}
                                 groupeId={groupeId}
-                                currentGroupeId={currentGroupeId}/>
+                                currentGroupeId={currentGroupeId}
+                                getPlantsExceptInDashboard={getPlantsExceptInDashboard}
+                                groupeIndex={groupeIndex}/>
         </div>
     </div>
     </>

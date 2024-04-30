@@ -12,6 +12,7 @@ export default function PlantDashboardPlusMenu({name,
                                                 closePlantChoose,
                                                 groupeId,
                                                 currentGroupeId,
+                                                
                                                 }) {
      const typePlants = usePlantsStore((state) => state.typePlants);
      
