@@ -16,7 +16,8 @@ import { useEffect, useState } from "react";
 export default function PlantChoose ({closePlantChoose,
                                         addBlock,
                                         currentGroupeId,
-                                        groupeId}) {
+                                        groupeId,
+                                        }) {
     
     const plants = usePlantsStore((state) => state.plants);
     const setSearch = useSearchStore((state) => state.setSearch);

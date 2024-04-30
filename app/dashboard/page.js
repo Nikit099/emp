@@ -101,6 +101,7 @@ export default function Dashboard() {
     //добавление блока ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     
+    
 
     return (
     <>
@@ -172,7 +173,7 @@ export default function Dashboard() {
             </div>
             
             {
-                dashboardGroupes.map((e) => <Groupe key={e.id} 
+                dashboardGroupes.map(e => <Groupe key={e.id} 
                                                     groupeId={e.id}
                                                     name={e.name} 
                                                     plantsId={e.plantsId} 
@@ -183,7 +184,10 @@ export default function Dashboard() {
                                                     dashboardGroupes={dashboardGroupes}
                                                     isVisiblePlantChoose={isVisiblePlantChoose}
                                                     closePlantChoose={closePlantChoose}
-                                                    currentGroupeId={currentGroupeId}/>)
+                                                    currentGroupeId={currentGroupeId}
+                                                    flagBlock={flagBlock} 
+                                                    changeArrowBlock={changeArrowBlock} 
+                                                    />)
             }
         </div>
     </main>

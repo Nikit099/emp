@@ -10,11 +10,13 @@ import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 import '@/app/dashboard/page.css';
+import { usePlantsStore } from '@/app/store/zustand';
 
 
 export default function PlantDashboard ({ flagGroupe, 
                                           openProblems,
                                           openCalendar,
+                                          plantsId,
                                           name }) {
 
 
@@ -64,13 +66,18 @@ export default function PlantDashboard ({ flagGroupe,
     }
    /*Раскрытие блока^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
+    const { plants } = usePlantsStore();
+    const plantsNames = plants.map(e => e.name);
+
+   /*Имя блока^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
 
     return (
         <section className={ flagGroupe ? "dashboard" : "dashboard--hidden"}>
                     <div className="dashboard__container">
                         <div className="dashboard__header">
                             <div className="dashboard__header_left">
-                                <span className="dashboard__title">plantDashboard.js</span>
+                                <span className="dashboard__title">{plantsNames}</span>
                                 
                                 <span className="dashboard__weigh">23кг</span>
                                 <button className="dashboard__button"

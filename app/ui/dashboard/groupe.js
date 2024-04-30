@@ -31,6 +31,7 @@ export default function Groupe({openPlantChoose,
                                 isVisiblePlantChoose,
                                 closePlantChoose,
                                 currentGroupeId,
+                                getPlantsExceptInDashboard,
                                 }) {
 
 
@@ -68,7 +69,8 @@ export default function Groupe({openPlantChoose,
         <>
         {isVisiblePlantChoose && <PlantChoose   closePlantChoose={closePlantChoose} 
                                                 groupeId={groupeId}
-                                                currentGroupeId={currentGroupeId} />
+                                                currentGroupeId={currentGroupeId}
+                                                 />
                 
         }
             <div className="main__block">
@@ -113,7 +115,15 @@ export default function Groupe({openPlantChoose,
                 </div>
                 <>
                 {
-                    dashboardGroupes.map((e, index) => <PlantDashboard key={e.id} plantsId={e.plantsId} />)
+                    plantsId.map((e, index) => <PlantDashboard  key={`${e.id}_${index}`} 
+                                                                plantsId={e.plantsId}
+                                                                plantId={e.id}
+                                                                flagGroupe={flagGroupe} 
+                                                                flagBlock={flagBlock} 
+                                                                changeArrowBlock={changeArrowBlock} 
+                                                                openProblems={openProblems}
+                                                                openCalendar={openCalendar}
+                                                                 />)
                 }
                 </>
             </div>
