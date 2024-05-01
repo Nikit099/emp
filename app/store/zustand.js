@@ -382,6 +382,23 @@ export const useGroupe = create(
                         return groupe;
                     }
                 })
-            }))            
+            })),
+            deleteBlock: (plantId, groupId) => set((state) => ({
+                dashboardGroupes: state.dashboardGroupes.map(groupe => {
+                    // Проверяем, является ли текущая группа выбранной
+                    if (groupe.id === groupId) {
+                        // Фильтруем массив plantsId, оставляя только те plantId, которые не равны заданному plantId
+                        const updatedPlantsId = groupe.plantsId.filter(id => id !== plantId);
+                        // Возвращаем обновленную группу с обновленным массивом plantsId
+                        return {
+                            ...groupe,
+                            plantsId: updatedPlantsId
+                        };
+                    } else {
+                        // Если текущая группа не выбрана, возвращаем ее без изменений
+                        return groupe;
+                    }
+                })
+            })),             
         }),    
 );

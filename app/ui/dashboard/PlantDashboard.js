@@ -10,16 +10,16 @@ import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 import '@/app/dashboard/page.css';
-import { usePlantsStore } from '@/app/store/zustand';
+import { useGroupe, usePlantsStore } from '@/app/store/zustand';
 
 
 export default function PlantDashboard ({ flagGroupe, 
                                           openProblems,
                                           openCalendar,
-                                          plantsId,
+                                          plantsIdIndex,
                                           plantId,
-                                          name,
-                                           }) {
+                                          groupeId,
+                                        }) {
 
 
     const [chartData, setChartData] = useState({
@@ -69,9 +69,14 @@ export default function PlantDashboard ({ flagGroupe,
    /*Раскрытие блока^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
     const { plants } = usePlantsStore();
-    const plantsNames = plants.map(e => e.name);
+    const plant = plants.find(plant => plant.id === plantId);
+    const plantName = plant.name;
 
    /*Имя блока^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+   const { deleteBlock } = useGroupe();
+   
+   /*Удаление блока^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 
     return (
@@ -79,7 +84,7 @@ export default function PlantDashboard ({ flagGroupe,
                     <div className="dashboard__container">
                         <div className="dashboard__header">
                             <div className="dashboard__header_left">
-                                <span className="dashboard__title">{plantsNames}</span>
+                                <span className="dashboard__title">{plantName}</span>
                                 
                                 <span className="dashboard__weigh">23кг</span>
                                 <button className="dashboard__button"
@@ -93,7 +98,10 @@ export default function PlantDashboard ({ flagGroupe,
                                 <Image className="dashboard__show" src={ flagBlock ? arrowShowUp : arrowShowDown} alt="свернуть дашборд" onClick={changeArrowBlock}/>
                             </div>
                             <div className="dashboard__header_right">
-                                <Image className="dashboard__delete" src={deleteDashboard} alt="удалить дашборд"/>
+                                <Image className="dashboard__delete" 
+                                        src={deleteDashboard} 
+                                        alt="удалить дашборд"
+                                        onClick={() => {deleteBlock(plantId, groupeId)}}/>
                             </div>
                         </div>
                     <div className={flagBlock ? "dashboard__blocks" : "dashboard__blocks--hidden"}>

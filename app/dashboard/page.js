@@ -134,7 +134,7 @@ export default function Dashboard() {
     <main className=".main">
         <div className="main__container">
             {
-                dashboardGroupes.map((e, index) => <Groupe   key={e.id} 
+                dashboardGroupes.map((e, index) => <Groupe key={e.id} 
                                                     groupeId={e.id}
                                                     name={e.name} 
                                                     plantsId={e.plantsId}

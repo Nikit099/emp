@@ -128,13 +128,14 @@ export default function Groupe({
                 <>
                 {
                     plantsId.map((e, index) => <PlantDashboard  key={`${e.id}_${index}`} 
-                                                                plantsId={e.plantsId}
-                                                                plantId={e.id}
+                                                                plantId={e}
+                                                                plantsIdIndex={index}
                                                                 flagGroupe={flagGroupe} 
                                                                 flagBlock={flagBlock} 
                                                                 changeArrowBlock={changeArrowBlock} 
                                                                 openProblems={openProblems}
                                                                 openCalendar={openCalendar}
+                                                                groupeId={groupeId}
                                                                  />)
                 }
                 </>
