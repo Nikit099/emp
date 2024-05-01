@@ -210,6 +210,11 @@ export const usePlantsStore = create(
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
+                humidityProblems: [{}],
+                temperatureProblems: [{problemsDate: Date.now()}],
+                illuminationProblems: [{}],
+                airHumProblems: [{}],
+
                 // measurmentsDate: 
                 
                 
@@ -227,6 +232,10 @@ export const usePlantsStore = create(
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
+                humidityProblems: [{}],
+                temperatureProblems: [{}],
+                illuminationProblems: [{}],
+                airHumProblems: [{}],
 
                 
             },
@@ -243,6 +252,10 @@ export const usePlantsStore = create(
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
+                humidityProblems: [{}],
+                temperatureProblems: [{}],
+                illuminationProblems: [{}],
+                airHumProblems: [{}],
 
                 
             },
@@ -259,6 +272,10 @@ export const usePlantsStore = create(
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
+                humidityProblems: [{}],
+                temperatureProblems: [{problemsDate: Date.now()}],
+                illuminationProblems: [{}],
+                airHumProblems: [{}],
 
                 
             },
@@ -275,8 +292,10 @@ export const usePlantsStore = create(
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
-
-                
+                humidityProblems: [{ problemsDate: Date.now()}],
+                temperatureProblems: [{}],
+                illuminationProblems: [{}],
+                airHumProblems: [{}],
             },
         ],
         castomNorms: [

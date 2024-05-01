@@ -16,8 +16,6 @@ export default function MyPlantsPlusMenu({serchPlants,
     const plantsInDashboard = dashboardGroupes[groupeIndex]?.plantsId;
     const filteredPlants = plants.filter(plant => !plantsInDashboard?.includes(plant.id));
 
-    console.log("Filtered Plants:", filteredPlants);
-    console.log('plants In Dashboard:', plantsInDashboard);
     return (
         <section className="plantchoose__pots">
         

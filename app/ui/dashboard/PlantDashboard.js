@@ -78,6 +78,15 @@ export default function PlantDashboard ({ flagGroupe,
    
    /*Удаление блока^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
+    const { data } = usePlantsStore();
+    const currentData = data.filter(e => e.plantId == plant.id);
+
+   /*Отображение кнопки проблем ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+
+   /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+   console.log(currentData, currentData.humidityProblems)
 
     return (
         <section className={ flagGroupe ? "dashboard" : "dashboard--hidden"}>
@@ -87,10 +96,41 @@ export default function PlantDashboard ({ flagGroupe,
                                 <span className="dashboard__title">{plantName}</span>
                                 
                                 <span className="dashboard__weigh">23кг</span>
-                                <button className="dashboard__button"
-                                        onClick={openProblems}>
-                                    Возникшие проблемы
-                                </button>
+                                <div>
+                                    {data.map((plantData) => (
+                                        <div key={plantData.id}>
+                                            {/* Проверяем, есть ли у данного растения хотя бы одна проблема */}
+                                            {(
+                                                plantData.humidityProblems.some((problem) => Object.keys(problem).length > 0) ||
+                                                plantData.temperatureProblems.some((problem) => Object.keys(problem).length > 0) ||
+                                                plantData.illuminationProblems.some((problem) => Object.keys(problem).length > 0) ||
+                                                plantData.airHumProblems.some((problem) => Object.keys(problem).length > 0)
+                                            ) && (
+                                                <div>
+                                                    {/* Проверяем, есть ли у данного растения plantId */}
+                                                    {plantData.plantId == plant.id && (
+                                                        <button className="dashboard__button" onClick={openProblems}>
+                                                            Возникшие проблемы
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                                <div>
+                                {(
+                                    currentData.humidityProblems ||
+                                    currentData.temperatureProblems ||
+                                    currentData.illuminationProblems ||
+                                    currentData.airHumProblems
+                                ) ? (
+                                    <button className="dashboard__button" onClick={openProblems}>
+                                        Возникшие проблемы!
+                                    </button>
+                                ) : null}
+
+                                </div>
                                 <div className="dashboard__calendar"
                                      onClick={openCalendar}>
                                     <Image className="calendar" src={calendar} alt="календарь"/>
