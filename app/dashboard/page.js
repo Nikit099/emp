@@ -51,20 +51,20 @@ export default function Dashboard() {
     //
     /*можно удалять. работает для примера^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
     
-
-    /*Сохранение имени^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-
-
-
+    const {addBlock, addGroupe, dashboardGroupes } = useGroupe();
+    const currentGroupesIds = dashboardGroupes.map(e => e.id);
+    const [currentGroupeId, setCurrentGroupeId] = useState();
     const [isVisiblePlantChoose, setIsVisiblePlantChoose] = useState(false);
 
-    const openPlantChoose = () => {
-        setIsVisiblePlantChoose(true);
-    };
+    // const openPlantChoose = (groupeId) => {
+    //     setIsVisiblePlantChoose(true);
+    //     console.log('currentGroupesIds:', currentGroupesIds, 'currentGroupeId:', currentGroupeId)
+    //     setCurrentGroupeId(groupeId)
+    // };
 
-    const closePlantChoose = () => {
-        setIsVisiblePlantChoose(false);
-    };
+    // const closePlantChoose = () => {
+    //     setIsVisiblePlantChoose(false);
+    // };
 
     //
 
@@ -92,7 +92,6 @@ export default function Dashboard() {
 
     //
 
-    const { addGroupe, dashboardGroupes } = useGroupe();
     function handleAddGroupe() {
         const newGroupe = { name: '', id: Date.now(), plantsId: []};
         addGroupe(newGroupe);
@@ -101,13 +100,15 @@ export default function Dashboard() {
     //добавление группы ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     //добавление блока ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+    
+    
+
     return (
     <>
     {isVisibleCalendar && <Calendar closeCalendar={closeCalendar}/>}
     {isVisibleProblems && <Problems/>}
-    {isVisiblePlantChoose && <PlantChoose closePlantChoose={closePlantChoose}
-                                          />}
-    <div className={isVisiblePlantChoose || 
+    
+    <div className={ 
                     isVisibleProblems || 
                     isVisibleCalendar ? 'body--blured' : 'body'}
          onClick={() => {isVisiblePlantChoose ? closePlantChoose() : console.log();
@@ -132,55 +133,20 @@ export default function Dashboard() {
     </header>
     <main className=".main">
         <div className="main__container">
-            <div className="main__block">
-                <div className="main__sides">
-                    <div className="main__block_left">
-                        <input
-                            className="main__title"
-                            type="text"
-                            value={inputValueGroupeName}
-                            onChange={handleInputChangeGroupeName}
-                            placeholder='Ваше имя группы'
-                            maxLength={16}
-                            
-                        />
-                        <div className="main__search">
-                            <input className="main__search_input"
-                                   
-                                   placeholder="Поиск по растениям" />
-                            <Image className="main__search_img" src={magnifyingGlass} alt='лупа'/>
-                        </div>
-                        <div className="main__add"
-                             onClick={openPlantChoose}>
-                            <Image className="main__plus" 
-                                   src={plus} 
-                                   alt="добавить растение"
-                                    />
-                        </div>
-                            <Image className={"main__show"} src={ flagGroupe ? arrowShowUp : arrowShowDown } alt="развернуть группу" onClick={changeArrowGroupe}/>
-                        
-                    </div>
-                    <div className="main__block_right">
-                        <Image className="main__delete" src={deleteDashboard} alt="удалить группу"/>
-                    </div>
-                </div>
-                <PlantDashboard flagGroupe={flagGroupe} 
-                                flagBlock={flagBlock} 
-                                changeArrowBlock={changeArrowBlock} 
-                                openProblems={openProblems}
-                                openCalendar={openCalendar}/>
-            </div>
-            
             {
-                dashboardGroupes.map((e) => <Groupe key={e.id} 
-                                                    id={e.id}
+                dashboardGroupes.map((e, index) => <Groupe key={e.id} 
+                                                    groupeId={e.id}
                                                     name={e.name} 
-                                                    plantsId={e.plantsId} 
-                                                    openPlantChoose={openPlantChoose}
+                                                    plantsId={e.plantsId}
+                                                    groupeIndex={index} 
                                                     flagGroupe={flagGroupe}  
                                                     openProblems={openProblems}
                                                     openCalendar={openCalendar}
-                                                    dashboardGroupes={dashboardGroupes}/>)
+                                                    dashboardGroupes={dashboardGroupes}
+                                                    isVisiblePlantChoose={isVisiblePlantChoose}
+                                                    currentGroupeId={currentGroupeId}
+                                                    flagBlock={flagBlock} 
+                                                    changeArrowBlock={changeArrowBlock} />)
             }
         </div>
     </main>

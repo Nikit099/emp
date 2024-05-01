@@ -10,14 +10,22 @@ export default function PlantDashboardPlusMenu({name,
                                                 plantId, 
                                                 emotion, 
                                                 closePlantChoose,
+                                                groupeId,
+                                                currentGroupeId,
+                                                
                                                 }) {
      const typePlants = usePlantsStore((state) => state.typePlants);
      
      const {addBlock, dashboardGroupes} = useGroupe();
+     const currentGroupesIds = dashboardGroupes.map(e => e.id)
 
     return (
      <div>
-        <div className="plantchoose__myplants_point-1" onClick={() => { addBlock(plantId); console.log(plantId, dashboardGroupes)}}>
+        <div className="plantchoose__myplants_point-1" 
+             onClick={() => {addBlock(plantId, currentGroupeId); console.log('currentGruoupesIds:', currentGroupesIds,
+                                                                                "groupeId:", groupeId, 
+                                                                                'plantId:', plantId, 
+                                                                                "dashboardGroupes:", dashboardGroupes)}}>
             
              <div className="plantchoose__myplants_top"></div>
              <Image className="plantchoose__myplants_pots__plant"
@@ -34,7 +42,7 @@ export default function PlantDashboardPlusMenu({name,
                   <dd className="plantchoose__myplants_pots__dd-2">{recomendate}</dd>
              </dl>
         </div>
-        </div>
+     </div>
 
     )
 }

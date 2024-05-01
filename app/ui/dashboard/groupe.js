@@ -12,11 +12,12 @@ import { useBlock } from '@/app/store/zustand';
 import { useGroupe } from '@/app/store/zustand';
 import PlantDashboard from './PlantDashboard';
 import PlantDashboardPlusMenu from './plantDashboardPlusMenu';
+import PlantChoose from './choose';
 
 
-export default function Groupe({openPlantChoose, 
+export default function Groupe({ 
                                 name,
-                                id, 
+                                groupeId, 
                                 plantsId, 
                                 flagBlock, 
                                 changeArrowBlock, 
@@ -26,7 +27,8 @@ export default function Groupe({openPlantChoose,
                                 dashboardBlocks,
                                 newBlockId,
                                 handleDeleteGroupe,
-                                dashboardGroupes,
+                                getPlantsExceptInDashboard,
+                                groupeIndex,
                                 }) {
 
 
@@ -52,7 +54,20 @@ export default function Groupe({openPlantChoose,
 
     /*Сохранение имени^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
-    const { plant } = usePlantsStore();
+    const {addBlock, addGroupe, dashboardGroupes } = useGroupe();
+    const currentGroupesIds = dashboardGroupes.map(e => e.id);
+    const [currentGroupeId, setCurrentGroupeId] = useState();
+    const [isVisiblePlantChoose, setIsVisiblePlantChoose] = useState(false);
+
+    const openPlantChoose = (groupeId) => {
+        setIsVisiblePlantChoose(true);
+        console.log('currentGroupesIds:', currentGroupesIds, 'currentGroupeId:', currentGroupeId)
+        setCurrentGroupeId(groupeId)
+    };
+
+    const closePlantChoose = () => {
+        setIsVisiblePlantChoose(false);
+    };
         
     /*Добавление блока^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
@@ -62,6 +77,14 @@ export default function Groupe({openPlantChoose,
 
     return(
         <>
+        {isVisiblePlantChoose && <PlantChoose   closePlantChoose={closePlantChoose} 
+                                                groupeId={groupeId}
+                                                currentGroupeId={currentGroupeId}
+                                                getPlantsExceptInDashboard={getPlantsExceptInDashboard}
+                                                groupeIndex={groupeIndex}
+                                                 />
+                
+        }
             <div className="main__block">
                 <div className="main__sides">
                     <div className="main__block_left">
@@ -83,7 +106,7 @@ export default function Groupe({openPlantChoose,
                                    alt='лупа'/>
                         </div>
                         <div className="main__add"
-                             onClick={openPlantChoose}>
+                             onClick={() => openPlantChoose(groupeId)}>
                             <Image className="main__plus" 
                                    src={plus} 
                                    alt="добавить растение"
@@ -99,12 +122,21 @@ export default function Groupe({openPlantChoose,
                         <Image className="main__delete" 
                                 src={deleteDashboard} 
                                 alt="удалить группу"
-                                onClick={() => deleteGroupe(id)}/>
+                                onClick={() => deleteGroupe(groupeId)}/>
                     </div>
                 </div>
                 <>
                 {
-                    dashboardGroupes.map((e, index) => <PlantDashboard key={e.id} plantsId={e.plantsId} />)
+                    plantsId.map((e, index) => <PlantDashboard  key={`${e.id}_${index}`} 
+                                                                plantId={e}
+                                                                plantsIdIndex={index}
+                                                                flagGroupe={flagGroupe} 
+                                                                flagBlock={flagBlock} 
+                                                                changeArrowBlock={changeArrowBlock} 
+                                                                openProblems={openProblems}
+                                                                openCalendar={openCalendar}
+                                                                groupeId={groupeId}
+                                                                 />)
                 }
                 </>
             </div>
