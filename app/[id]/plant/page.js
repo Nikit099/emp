@@ -57,7 +57,7 @@ function submitNamePlant(e) {
                 <div className="footer_plant__wrapper">
                     <div className="footer_plant">
                         <div className="footer_plant__container">
-                            <Chart/>
+                            <Chart id={id}/>
                             
                                 <Seeds id={id} namePlant={namePlant} submitNamePlant={submitNamePlant} setNamePlant={setNamePlant}  />
                             </div>

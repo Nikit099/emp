@@ -17,7 +17,7 @@ export default function PlantDashboardPlusMenu({name,
 
     return (
      <div>
-        <div className="plantchoose__myplants_point-1" onClick={() => {console.log(dashboardGroupes); addBlock(plantId); console.log(plantId, dashboardGroupes)}}>
+        <div className="plantchoose__myplants_point-1" onClick={() => { addBlock(plantId); console.log(plantId, dashboardGroupes)}}>
             
              <div className="plantchoose__myplants_top"></div>
              <Image className="plantchoose__myplants_pots__plant"

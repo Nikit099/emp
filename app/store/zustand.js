@@ -196,7 +196,6 @@ export const usePlantsStore = create(
                 img: ''
             },
         ],
-        
         data: [
             {
                 id: 89,
@@ -286,9 +285,9 @@ export const usePlantsStore = create(
                 plantId: 9756,
                 norms: [
                     {
-                    name: 'temperature',
-                    max: 29,
-                    min: 10,
+                        name: 'temperature',
+                        max: 29,
+                        min: 10,
                     },
                      {
                         name: 'illumination',
@@ -332,10 +331,36 @@ export const usePlantsStore = create(
             },
                 
         ],
+        dayHistory: [
+            {
+                id: 9756,
+                plantId:9756 ,
+                humidityDay: [32, 54, 52, 62, 26, 63],
+                temperatureDay: [12, 54, 78, 32, 34, 73],
+                illuminationDay: [12, 23, 34, 45, 56, 67],
+                airHumDay: [2, 23, 12, 86, 76, 61],
+            },
+            {
+                id: 97856,
+                plantId:9756 ,
+                humidityDay: [32, 54, 52, 62, 26, 63],
+                temperatureDay: [12, 54, 78, 32, 34, 73],
+                illuminationDay: [12, 23, 34, 45, 56, 67],
+                airHumDay: [2, 23, 12, 86, 76, 61],
+            },
+            {
+                id: 6345,
+                plantId:9756 ,
+                humidityDay: [32, 54, 52, 62, 26, 63],
+                temperatureDay: [12, 54, 78, 32, 34, 73],
+                illuminationDay: [12, 23, 34, 45, 56, 67],
+                airHumDay: [2, 23, 12, 86, 76, 61],
+            },
+        ],
         changeName: (newName, plantId) => set((state) => ({plants: state.plants.map(e => e.id === plantId ? {...e, name: newName} : e)}) ), 
         incPlant: (newPlant) => set((state ) => ({ plants: [...state.plants, newPlant] })),
         changeTypePlant: (typeId, plantId) => set((state) => ({plants: state.plants.map(e => e.id == plantId ? {...e, typeId: typeId} : e)})),
-        deletPlant: (plantId) => set((state) => ({plants: state.plants.filter(e => e.id != plantId) }))
+        deletPlant: (plantId) => set((state) => ({plants: state.plants.filter(e => e.id != plantId) })),
 
     }
     

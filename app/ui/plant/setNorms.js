@@ -35,7 +35,7 @@ export default function SetNorms({id}) {
                 <div className="norms_plant__main_block">
                     {
                         findNorms().norms.map( (elem) =>
-                            <LineNorms key={elem.id} name={elem.name} min={elem.min} max={elem.max} />
+                            <LineNorms key={elem.name} name={elem.name} min={elem.min} max={elem.max} />
 
                         )
                     }
