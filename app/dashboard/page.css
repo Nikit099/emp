@@ -637,6 +637,8 @@ a {
     background-color: #F8F8F8;
     width: 443px;
     height: 100vh;
+    top: 0px;
+    right: 0px;
 }
 
 .side_panel__header {

@@ -1,6 +1,10 @@
+import { usePlantsStore } from "@/app/store/zustand"
 
 
 export default function Problems () {
+    
+    const { data } = usePlantsStore();
+
     return (
         <>
             <aside className="side_panel">
