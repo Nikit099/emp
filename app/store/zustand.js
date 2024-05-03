@@ -308,7 +308,7 @@ export const usePlantsStore = create(
                 airHumProblems: [],
             },
         ],
-        castomNorms: [
+        customNorms: [
             {
                 id: 48294,
                 plantId: 9756,
@@ -325,11 +325,13 @@ export const usePlantsStore = create(
                     },
                      {
                         name:'humidity',
-                        min: 43
+                        max: 100,
+                        min: 43,
                     },
                     {
                         name: 'airHum',
-                        min: 30
+                        max: 100,
+                        min: 30,
                     }
                 ]
                     
@@ -337,11 +339,11 @@ export const usePlantsStore = create(
             },
             {
                 id: 4363,
-                plantId: 97856,
+                plantId: 6345,
                 norms: [{
-                    name: 'temperature',
-                    max: 29,
-                    min: 10,
+                        name: 'temperature',
+                        max: 29,
+                        min: 10,
                     },
                      {
                         name: 'illumination',

@@ -1,5 +1,3 @@
-import calendar from '@/public/dashboard/calendar.svg';
-import emojiSick from '@/public/dashboard/emoji_sick.png'
 import arrowShowDown from '@/public/dashboard/arrow_show_down.svg';
 import arrowShowUp from '@/public/dashboard/arrow_show_up.svg';
 import deleteDashboard from '@/public/dashboard/delete.svg';
@@ -18,6 +16,7 @@ import { useGroupe, usePlantsStore } from '@/app/store/zustand';
 
 export default function PlantDashboard ({ flagGroupe,
                                           openCalendar,
+                                          openProblems,
                                           plantsIdIndex,
                                           plantId,
                                           groupeId,
@@ -25,37 +24,6 @@ export default function PlantDashboard ({ flagGroupe,
 
 
                                             
-    const {dayHistory, weekHistory, monthHistory} = usePlantsStore();
-    
-    const [humiditySelectedOption, setHumiditySelectedOption] = useState('day');
-    const humidityDayData = dayHistory.filter(e => e.plantId == plantId)[0]?.humidityDay;
-    const humidityWeekData = weekHistory.filter(e => e.plantId == plantId)[0]?.humidityWeek;
-    const humidityMonthData = monthHistory.filter(e => e.plantId == plantId)[0]?.humidityMonth;
-    const humidityData = humiditySelectedOption === 'day' ? humidityDayData :
-    humiditySelectedOption === 'week' ? humidityWeekData : humidityMonthData;
-
-    const [temperatureSelectedOption, setTemperatureSelectedOption] = useState('day');
-    const temperatureDayData = dayHistory.filter(e => e.plantId == plantId)[0]?.temperatureDay;
-    const temperatureWeekData = weekHistory.filter(e => e.plantId == plantId)[0]?.temperatureWeek;
-    const temperatureMonthData = monthHistory.filter(e => e.plantId == plantId)[0]?.temperatureMonth;
-    const temperatureData = temperatureSelectedOption === 'day' ? temperatureDayData :
-    temperatureSelectedOption === 'week' ? temperatureWeekData : temperatureMonthData;
-
-    const [airHumSelectedOption, setAirHumSelectedOption] = useState('day');
-    const airHumDayData = dayHistory.filter(e => e.plantId == plantId)[0]?.airHumDay;
-    const airHumWeekData = weekHistory.filter(e => e.plantId == plantId)[0]?.airHumWeek;
-    const airHumMonthData = monthHistory.filter(e => e.plantId == plantId)[0]?.airHumMonth;
-    const airHumData = airHumSelectedOption === 'day' ? airHumDayData :
-    airHumSelectedOption === 'week' ? airHumWeekData : airHumMonthData;
-
-    const [illuminationSelectedOption, setIlluminationSelectedOption] = useState('day');
-    const illuminationDayData = dayHistory.filter(e => e.plantId == plantId)[0]?.illuminationDay;
-    const illuminationWeekData = weekHistory.filter(e => e.plantId == plantId)[0]?.illuminationWeek;
-    const illuminationMonthData = monthHistory.filter(e => e.plantId == plantId)[0]?.illuminationMonth;
-    const illuminationData = illuminationSelectedOption === 'day' ? illuminationDayData :
-    illuminationSelectedOption === 'week' ? illuminationWeekData : illuminationMonthData;
-   /*Данные чарта^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-
 
     const [flagBlock, setFlagBlock] = useState(false)
     function changeArrowBlock() {
@@ -79,21 +47,9 @@ export default function PlantDashboard ({ flagGroupe,
 
    /*Отображение кнопки проблем ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
-   const [isVisibleProblems, setIsVisibleProblems] = useState(false);
 
-   const openProblems = () => {
-       setIsVisibleProblems(true);
-   };
-
-   const closeProblems = () => {
-       setIsVisibleProblems(false);
-   };
-
-   /*Отображение проблем^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-
-    return (
+   return (
         <>
-        {isVisibleProblems && <Problems/>}
             <section className={ flagGroupe ? "dashboard" : "dashboard--hidden"}>
                     <div className="dashboard__container">
                         <div className="dashboard__header">
@@ -130,13 +86,13 @@ export default function PlantDashboard ({ flagGroupe,
                             </div>
                         </div>
                     <div className={flagBlock ? "dashboard__blocks" : "dashboard__blocks--hidden"}>
-                        <Chart type={'illumination'}
+                        <Chart  type={'illumination'}
                                 plantId={plantId}/>
-                        <Chart type={'temperature'}
+                        <Chart  type={'temperature'}
                                 plantId={plantId}/>
-                        <Chart type={'humidity'}
+                        <Chart  type={'humidity'}
                                 plantId={plantId}/>
-                        <Chart type={'airHum'}
+                        <Chart  type={'airHum'}
                                 plantId={plantId}/>                        
                     </div>
                 </div>

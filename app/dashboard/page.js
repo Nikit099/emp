@@ -55,12 +55,12 @@ export default function Dashboard() {
     const openProblems = () => {
         setIsVisibleProblems(true);
     };
-
+ 
     const closeProblems = () => {
         setIsVisibleProblems(false);
     };
-
-    //
+ 
+    /*Отображение проблем^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
     
     const [isVisibleCalendar, setIsVisibleCalendar] = useState(false);
 
@@ -88,7 +88,8 @@ export default function Dashboard() {
     return (
     <>
     {isVisibleCalendar && <Calendar closeCalendar={closeCalendar}/>}
-    
+    {isVisibleProblems && <Problems closeProblems={closeProblems}
+                                        />}
     
     <div className={ 
                     isVisibleProblems || 

@@ -1,49 +1,37 @@
 import calendar from '@/public/dashboard/calendar.svg';
 import emojiSick from '@/public/dashboard/emoji_sick.png'
-import arrowShowDown from '@/public/dashboard/arrow_show_down.svg';
-import arrowShowUp from '@/public/dashboard/arrow_show_up.svg';
-import deleteDashboard from '@/public/dashboard/delete.svg';
 
 import { usePlantsStore } from '@/app/store/zustand';
 import React, {useState} from 'react';
 import Image from "next/image";
 import "chart.js/auto";
-import { Line } from "react-chartjs-2";
+import { Line, Utils } from "react-chartjs-2";
 
 export default function Chart ({type,
                                 plantId,
                                 }) {
 
 
-    const {dayHistory, weekHistory, monthHistory} = usePlantsStore();
+    const {dayHistory, weekHistory, monthHistory, customNorms} = usePlantsStore();
 
-    const [humiditySelectedOption, setHumiditySelectedOption] = useState('day');
-    const humidityDayData = dayHistory.filter(e => e.plantId == plantId)[0]?.humidityDay;
-    const humidityWeekData = weekHistory.filter(e => e.plantId == plantId)[0]?.humidityWeek;
-    const humidityMonthData = monthHistory.filter(e => e.plantId == plantId)[0]?.humidityMonth;
-    const humidityData = humiditySelectedOption === 'day' ? humidityDayData :
-    humiditySelectedOption === 'week' ? humidityWeekData : humidityMonthData;
+    const name = {
+        illumination: 'Освещение',
+        temperature: 'Температура',
+        humidity: 'Влажность почвы',
+        airHum: 'Влажность воздуха',
+    };
 
-    const [temperatureSelectedOption, setTemperatureSelectedOption] = useState('day');
-    const temperatureDayData = dayHistory.filter(e => e.plantId == plantId)[0]?.temperatureDay;
-    const temperatureWeekData = weekHistory.filter(e => e.plantId == plantId)[0]?.temperatureWeek;
-    const temperatureMonthData = monthHistory.filter(e => e.plantId == plantId)[0]?.temperatureMonth;
-    const temperatureData = temperatureSelectedOption === 'day' ? temperatureDayData :
-    temperatureSelectedOption === 'week' ? temperatureWeekData : temperatureMonthData;
+    const [typeSelectedOption, setTypeSelectedOption] = useState('day');
+    const typeData = typeSelectedOption === 'day' ? dayHistory.find(e => e.plantId === plantId)?.[`${type}Day`] :
+                     typeSelectedOption === 'week' ? weekHistory.find(e => e.plantId === plantId)?.[`${type}Week`] :
+                     monthHistory.find(e => e.plantId === plantId)?.[`${type}Month`];
 
-    const [airHumSelectedOption, setAirHumSelectedOption] = useState('day');
-    const airHumDayData = dayHistory.filter(e => e.plantId == plantId)[0]?.airHumDay;
-    const airHumWeekData = weekHistory.filter(e => e.plantId == plantId)[0]?.airHumWeek;
-    const airHumMonthData = monthHistory.filter(e => e.plantId == plantId)[0]?.airHumMonth;
-    const airHumData = airHumSelectedOption === 'day' ? airHumDayData :
-    airHumSelectedOption === 'week' ? airHumWeekData : airHumMonthData;
+    const maxDataExtention = (customNorms.find(e => e.plantId == plantId))?.norms.find(e => e.name == type).max
+    const minDataExtention = (customNorms.find(e => e.plantId == plantId))?.norms.find(e => e.name == type).min
+    const maxData = maxDataExtention ? maxDataExtention : 100;
+    const minData = minDataExtention ? minDataExtention : 0;
 
-    const [illuminationSelectedOption, setIlluminationSelectedOption] = useState('day');
-    const illuminationDayData = dayHistory.filter(e => e.plantId == plantId)[0]?.illuminationDay;
-    const illuminationWeekData = weekHistory.filter(e => e.plantId == plantId)[0]?.illuminationWeek;
-    const illuminationMonthData = monthHistory.filter(e => e.plantId == plantId)[0]?.illuminationMonth;
-    const illuminationData = illuminationSelectedOption === 'day' ? illuminationDayData :
-    illuminationSelectedOption === 'week' ? illuminationWeekData : illuminationMonthData;
+
     /*Данные чарта^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
                                     
     return(
@@ -52,7 +40,7 @@ export default function Chart ({type,
             <div className="block__header">
                 <div className="block__header-left">
                     <div className="block__title">
-                        {type}
+                        {name[type]}
                     </div>
                     <div className="block__parameter">
                         772Lux
@@ -66,10 +54,10 @@ export default function Chart ({type,
                         <label>
                             <input  id='radio-1' 
                                     className="day" 
-                                    name={`illumination ${plantId}`} 
+                                    name={`${type} ${plantId}`} 
                                     type="radio"
-                                    checked={illuminationSelectedOption === 'day'}
-                                    onChange={() => setIlluminationSelectedOption('day')}/>
+                                    checked={typeSelectedOption === 'day'}
+                                    onChange={() => setTypeSelectedOption('day')}/>
                             <div className="block__castom-radio radio-1">
                                 День
                             </div> 
@@ -77,9 +65,9 @@ export default function Chart ({type,
                         <label>
                             <input id='radio-2' 
                                     className="week" 
-                                    name={`illumination ${plantId}`}  
+                                    name={`${type} ${plantId}`}  
                                     type="radio"
-                                    onChange={() => setIlluminationSelectedOption('week')}/>
+                                    onChange={() => setTypeSelectedOption('week')}/>
                             <div className="block__castom-radio radio-2">
                                 Неделя
                             </div> 
@@ -87,9 +75,9 @@ export default function Chart ({type,
                         <label>
                             <input id='radio-3' 
                                     className="month" 
-                                    name={`illumination ${plantId}`}  
+                                    name={`${type} ${plantId}`}  
                                     type="radio"
-                                    onChange={() => setIlluminationSelectedOption('month')}/>
+                                    onChange={() => setTypeSelectedOption('month')}/>
                             <div className="block__castom-radio radio-3">
                                 Месяц
                             </div> 
@@ -102,10 +90,22 @@ export default function Chart ({type,
                                 labels: ['1 января', '2 января', '3 января', '4 января', '5 января'],
                                 datasets: [{
                                     label: 'Освещение',
-                                    data: illuminationData,
+                                    data: typeData,
                                     fill: false,
                                     borderColor: 'rgb(73, 133, 83)',
-                                    tension: 0.4
+                                    tension: 0.4,
+                                },{
+                                    label: 'Максимальное нормальное значение',
+                                    data: Array(typeData?.length).fill(maxData) ? Array(typeData?.length).fill(maxData) : 0,
+                                    borderColor: 'rgb(254, 120, 118, 0.3)',
+                                    tension: 0.4,
+                                },{
+                                    label: 'Минимальное нормальное значение',
+                                    data: Array(typeData?.length).fill(minData) ? Array(typeData?.length).fill(minData) : 0,
+                                    borderColor: 'rgb(254, 120, 118, 0.3)',
+                                    tension: 0.4,
+                                    backgroundColor: 'rgb(117, 214, 133, 0.13)',
+                                    fill: '-1'
                                 }],
                             }}
                         options={{
