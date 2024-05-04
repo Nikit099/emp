@@ -82,6 +82,7 @@ export default function Groupe({
                                                 currentGroupeId={currentGroupeId}
                                                 getPlantsExceptInDashboard={getPlantsExceptInDashboard}
                                                 groupeIndex={groupeIndex}
+                                                
                                                  />
                 
         }
@@ -135,8 +136,7 @@ export default function Groupe({
                                                                 changeArrowBlock={changeArrowBlock} 
                                                                 openProblems={openProblems}
                                                                 openCalendar={openCalendar}
-                                                                groupeId={groupeId}
-                                                                 />)
+                                                                groupeId={groupeId} />)
                 }
                 </>
             </div>

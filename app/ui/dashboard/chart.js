@@ -12,7 +12,11 @@ export default function Chart ({type,
                                 }) {
 
 
-    const {dayHistory, weekHistory, monthHistory, customNorms} = usePlantsStore();
+    const {dayHistory, 
+            weekHistory, 
+            monthHistory, 
+            customNorms,
+            data,} = usePlantsStore();
 
     const name = {
         illumination: 'Освещение',
@@ -33,7 +37,14 @@ export default function Chart ({type,
 
 
     /*Данные чарта^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-                                    
+
+    const testData = data.filter(e => e.plantId == plantId)[0]
+    const testCustomNorms = customNorms.filter(e => e.plantId == plantId)[0]
+
+    /*Отображение эмоции^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+    
+    console.log('testData:', testData, 'testCustomNorms:', testCustomNorms)
+
     return(
         <>
         <div className="block">

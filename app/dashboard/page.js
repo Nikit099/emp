@@ -59,8 +59,17 @@ export default function Dashboard() {
     const closeProblems = () => {
         setIsVisibleProblems(false);
     };
- 
+    
     /*Отображение проблем^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+    const {data} = usePlantsStore();
+    function handleAddProblems(plantId) {
+        const currentPlant = data.find(e => e.plantId == plantId)
+        const problemsWithTemperature = currentPlant.temperatureProblems[0];
+        console.log(problemsWithTemperature);
+    }
+
+
+    //добавление проблем ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     
     const [isVisibleCalendar, setIsVisibleCalendar] = useState(false);
 
@@ -88,8 +97,9 @@ export default function Dashboard() {
     return (
     <>
     {isVisibleCalendar && <Calendar closeCalendar={closeCalendar}/>}
-    {isVisibleProblems && <Problems closeProblems={closeProblems}
-                                        />}
+    {isVisibleProblems && <Problems closeProblems={closeProblems}/>}
+
+
     
     <div className={ 
                     isVisibleProblems || 

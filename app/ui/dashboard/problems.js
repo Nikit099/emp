@@ -3,11 +3,52 @@ import plus from '@/public/dashboard/plus.svg';
 import Image from 'next/image';
 
 import { usePlantsStore } from "@/app/store/zustand"
+import ProblemsBlocks from './problemsBlocks';
 
 
-export default function Problems ({closeProblems}) {
+export default function Problems ({closeProblems,}) {
     
-    const { data } = usePlantsStore();
+    const {data} = usePlantsStore();
+
+    const plantsWithProblems = data.filter(e => (
+                                        e.temperatureProblems.length ||
+                                        e.illuminationProblems.length ||
+                                        e.humidityProblems.length ||
+                                        e.airHumProblems.length
+                                    ));
+    
+    const problems = [];
+    for (let e of plantsWithProblems) {
+        if (e.temperatureProblems && e.illuminationProblems && e.humidityProblems && e.airHumProblems) {
+            const temperatureProblemsWithPlantId = e.temperatureProblems.map(problem => ({
+                ...problem,
+                plantId: e.plantId
+            }));
+            const illuminationProblemsWithPlantId = e.illuminationProblems.map(problem => ({
+                ...problem,
+                plantId: e.plantId
+            }));
+            const humidityProblemsWithPlantId = e.humidityProblems.map(problem => ({
+                ...problem,
+                plantId: e.plantId
+            }));
+            const airHumProblemsWithPlantId = e.airHumProblems.map(problem => ({
+                ...problem,
+                plantId: e.plantId
+            }));
+    
+            problems.push(
+                ...temperatureProblemsWithPlantId,
+                ...illuminationProblemsWithPlantId,
+                ...humidityProblemsWithPlantId,
+                ...airHumProblemsWithPlantId
+            );
+        }
+    }
+                                    
+
+    
+ 
 
     return (
         <>
@@ -28,24 +69,22 @@ export default function Problems ({closeProblems}) {
                             </Image>
                         </div>
                     </div>
-                    <div className="messagebox">
-                        <div className="messagebox__graph_block">
-                            <div className="messagebox__graph_title">
-                                Освещение 29.03.2024 - 30.03.2024
-                            </div>
-                            <div className="messagebox__graph"></div>
-                        </div>
-                        <div className="messagebox__message_block">
-                            <div className="messagebox__message">
-                                <div className="messagebox__message_title">
-                                    С 14ч 56мин До 18ч 56мин
-                                </div>
-                                <div className="messagebox__message_description">
-                                    Вам необходимо увеличить дозировку света вашему растению
-                                </div>
-                            </div>
-                        </div>
-                        <div className="messagebox__hr"></div>
+                    <div className='messagebox_wrapper'>
+                        {console.log('plantsWithProblems:', plantsWithProblems, 'problems:', problems)}
+                        {
+                            problems.map((problem, index) => (
+                                <ProblemsBlocks
+                                    key={`${problem.name}-${index}`}
+                                    problem={problem}
+                                    name={problem.name}
+                                    message={problem.message}
+                                    dateStart={problem.dateStart}
+                                    dateEnd={problem.dateEnd}
+                                    plantId={problem.plantId}
+                                />
+                            ))
+                        }
+
                     </div>
                 </div>
             </aside>

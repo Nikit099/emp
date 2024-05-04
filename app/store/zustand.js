@@ -199,21 +199,21 @@ export const usePlantsStore = create(
         data: [
             {
                 id: 89,
-                plantId:97856 ,
-                humidity: 44,
+                plantId:97856,
                 daysHum: 4,
                 dateHum: null,
                 daysSpr: null,
                 dateSpr: null,
                 spraing: false,
                 watering: false,
+                humidity: 44,
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
                 humidityProblems: [],
                 temperatureProblems: [{
                     name: 'Температура',
-                    message: 'Это сообщение об уходе',
+                    message: 'Это сообщение об уходе за Татьяной',
                     dateStart: `${new Date().toISOString()}`,
                     dateEnd: `${new Date().toISOString()}`,
                                     }],
@@ -280,11 +280,21 @@ export const usePlantsStore = create(
                 humidityProblems: [],
                 temperatureProblems: [{
                     name: 'Температура',
-                    message: 'Это сообщение об уходе',
+                    message: 'Это сообщение об уходе за Ниной температура 1',
+                    dateStart: `${new Date().toISOString()}`,
+                    dateEnd: `${new Date().toISOString()}`,
+                                    },{
+                    name: 'Температура',
+                    message: 'Это сообщение об уходе за Ниной температура 2',
                     dateStart: `${new Date().toISOString()}`,
                     dateEnd: `${new Date().toISOString()}`,
                                     }],
-                illuminationProblems: [],
+                illuminationProblems: [{
+                    name: 'Освещение',
+                    message: 'Это сообщение об уходе за Ниной по освещению 3',
+                    dateStart: `${new Date().toISOString()}`,
+                    dateEnd: `${new Date().toISOString()}`,
+                                }],
                 airHumProblems: [],
 
                 
