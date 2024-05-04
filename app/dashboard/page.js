@@ -33,24 +33,6 @@ import usePersist from '../store/usePersist';
 
 export default function Dashboard() {
 
-    const [inputValueGroupeName, setInputValueGroupeName] = useState('');
-
-    const handleInputChangeGroupeName = (event) => {
-        setInputValueGroupeName(event.target.value);
-    };                                
-
-    const [flagGroupe, setFlagGroupe] = useState(true)
-    function changeArrowGroupe() {
-        setFlagGroupe(!flagGroupe);
-    }
-
-    const [flagBlock, setFlagBlock] = useState(true)
-    function changeArrowBlock() {
-        setFlagBlock(!flagBlock);
-    }
-    //
-    /*можно удалять. работает для примера^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-    
     const {addBlock, addGroupe, dashboardGroupes } = useGroupe();
     const currentGroupesIds = dashboardGroupes.map(e => e.id);
     const [currentGroupeId, setCurrentGroupeId] = useState();
@@ -73,12 +55,12 @@ export default function Dashboard() {
     const openProblems = () => {
         setIsVisibleProblems(true);
     };
-
+ 
     const closeProblems = () => {
         setIsVisibleProblems(false);
     };
-
-    //
+ 
+    /*Отображение проблем^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
     
     const [isVisibleCalendar, setIsVisibleCalendar] = useState(false);
 
@@ -106,7 +88,8 @@ export default function Dashboard() {
     return (
     <>
     {isVisibleCalendar && <Calendar closeCalendar={closeCalendar}/>}
-    {isVisibleProblems && <Problems/>}
+    {isVisibleProblems && <Problems closeProblems={closeProblems}
+                                        />}
     
     <div className={ 
                     isVisibleProblems || 
@@ -138,15 +121,12 @@ export default function Dashboard() {
                                                     groupeId={e.id}
                                                     name={e.name} 
                                                     plantsId={e.plantsId}
-                                                    groupeIndex={index} 
-                                                    flagGroupe={flagGroupe}  
+                                                    groupeIndex={index}   
                                                     openProblems={openProblems}
                                                     openCalendar={openCalendar}
                                                     dashboardGroupes={dashboardGroupes}
                                                     isVisiblePlantChoose={isVisiblePlantChoose}
-                                                    currentGroupeId={currentGroupeId}
-                                                    flagBlock={flagBlock} 
-                                                    changeArrowBlock={changeArrowBlock} />)
+                                                    currentGroupeId={currentGroupeId} />)
             }
         </div>
     </main>

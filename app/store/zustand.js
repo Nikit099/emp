@@ -210,6 +210,16 @@ export const usePlantsStore = create(
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
+                humidityProblems: [],
+                temperatureProblems: [{
+                    name: 'Температура',
+                    message: 'Это сообщение об уходе',
+                    dateStart: `${new Date().toISOString()}`,
+                    dateEnd: `${new Date().toISOString()}`,
+                                    }],
+                illuminationProblems: [],
+                airHumProblems: [],
+
                 // measurmentsDate: 
                 
                 
@@ -227,6 +237,10 @@ export const usePlantsStore = create(
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
+                humidityProblems: [],
+                temperatureProblems: [],
+                illuminationProblems: [],
+                airHumProblems: [],
 
                 
             },
@@ -243,6 +257,10 @@ export const usePlantsStore = create(
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
+                humidityProblems: [],
+                temperatureProblems: [],
+                illuminationProblems: [],
+                airHumProblems: [],
 
                 
             },
@@ -259,6 +277,15 @@ export const usePlantsStore = create(
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
+                humidityProblems: [],
+                temperatureProblems: [{
+                    name: 'Температура',
+                    message: 'Это сообщение об уходе',
+                    dateStart: `${new Date().toISOString()}`,
+                    dateEnd: `${new Date().toISOString()}`,
+                                    }],
+                illuminationProblems: [],
+                airHumProblems: [],
 
                 
             },
@@ -275,11 +302,13 @@ export const usePlantsStore = create(
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
-
-                
+                humidityProblems: [],
+                temperatureProblems: [],
+                illuminationProblems: [],
+                airHumProblems: [],
             },
         ],
-        castomNorms: [
+        customNorms: [
             {
                 id: 48294,
                 plantId: 9756,
@@ -296,11 +325,13 @@ export const usePlantsStore = create(
                     },
                      {
                         name:'humidity',
-                        min: 43
+                        max: 100,
+                        min: 43,
                     },
                     {
                         name: 'airHum',
-                        min: 30
+                        max: 100,
+                        min: 30,
                     }
                 ]
                     
@@ -308,11 +339,11 @@ export const usePlantsStore = create(
             },
             {
                 id: 4363,
-                plantId: 97856,
+                plantId: 6345,
                 norms: [{
-                    name: 'temperature',
-                    max: 29,
-                    min: 10,
+                        name: 'temperature',
+                        max: 29,
+                        min: 10,
                     },
                      {
                         name: 'illumination',
@@ -333,7 +364,7 @@ export const usePlantsStore = create(
         ],
         dayHistory: [
             {
-                id: 9756,
+                id: 97356,
                 plantId:9756 ,
                 humidityDay: [32, 54, 52, 62, 26, 63],
                 temperatureDay: [12, 54, 78, 32, 34, 73],
@@ -341,7 +372,7 @@ export const usePlantsStore = create(
                 airHumDay: [2, 23, 12, 86, 76, 61],
             },
             {
-                id: 53,
+                id: 97564,
                 plantId:97856 ,
                 humidityDay: [32, 54, 52, 62, 26, 63],
                 temperatureDay: [12, 54, 78, 32, 34, 73],
@@ -349,12 +380,49 @@ export const usePlantsStore = create(
                 airHumDay: [2, 23, 12, 86, 76, 61],
             },
             {
-                id: 550,
-                plantId:6345 ,
+                id: 92756,
+                plantId: 6345,
                 humidityDay: [32, 54, 52, 62, 26, 63],
                 temperatureDay: [12, 54, 78, 32, 34, 73],
                 illuminationDay: [12, 23, 34, 45, 56, 67],
                 airHumDay: [2, 23, 12, 86, 76, 61],
+            },
+        ],
+        weekHistory: [
+            {
+                id: 43222,
+                plantId: 9756,
+                humidityWeek: [14, 45, 84, 38, 93, 8],
+                temperatureWeek: [54, 39, 4, 39, 39, 8],
+                illuminationWeek: [59, 39, 68, 39, 3, 4],
+                airHumWeek: [93, 18, 34, 4, 4, 4],
+            },
+            {
+                id: 432322,
+                plantId: 6345,
+                humidityWeek: [14, 45, 84, 38, 93, 8],
+                temperatureWeek: [54, 39, 4, 39, 39, 8],
+                illuminationWeek: [59, 39, 68, 39, 3, 4],
+                airHumWeek: [93, 18, 34, 4, 4, 4],
+            },
+
+        ],
+        monthHistory: [
+            {
+                id: 34532,
+                plantId: 9756,
+                humidityMonth: [49, 49, 48, 39, 19, 1],
+                temperatureMonth: [94, 39, 30, 39, 3, 20],
+                illuminationMonth: [95, 2, 59, 59, 30, 18],
+                airHumMonth: [18, 49, 50, 59, 40, 30, 18],
+            },
+            {
+                id: 334532,
+                plantId: 6345,
+                humidityMonth: [49, 49, 48, 39, 19, 1],
+                temperatureMonth: [94, 39, 30, 39, 3, 20],
+                illuminationMonth: [95, 2, 59, 59, 30, 18],
+                airHumMonth: [18, 49, 50, 59, 40, 30, 18],
             },
         ],
         changeName: (newName, plantId) => set((state) => ({plants: state.plants.map(e => e.id === plantId ? {...e, name: newName} : e)}) ), 

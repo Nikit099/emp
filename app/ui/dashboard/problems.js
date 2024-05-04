@@ -1,14 +1,32 @@
+import plus from '@/public/dashboard/plus.svg';
+
+import Image from 'next/image';
+
+import { usePlantsStore } from "@/app/store/zustand"
 
 
-export default function Problems () {
+export default function Problems ({closeProblems}) {
+    
+    const { data } = usePlantsStore();
+
     return (
         <>
             <aside className="side_panel">
                 <div className="side_panel__container">
                     <div className="side_panel__header">
-                        <span className="side_panel__title">
-                            Возникшие проблемы
-                        </span>
+                        <div className='side_panel__header_left'>
+                            <span className="side_panel__title">
+                                Возникшие проблемы
+                            </span>
+                        </div>
+                        <div className='side_panel__header_right'>
+                            <Image className='side_panel__header_close'
+                                    src={plus}
+                                    alt='закрыть'
+                                    onClick={closeProblems}>
+
+                            </Image>
+                        </div>
                     </div>
                     <div className="messagebox">
                         <div className="messagebox__graph_block">

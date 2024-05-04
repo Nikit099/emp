@@ -637,17 +637,29 @@ a {
     background-color: #F8F8F8;
     width: 443px;
     height: 100vh;
+    top: 0px;
+    right: 0px;
 }
 
 .side_panel__header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 58px;
     width: 444px;
     background-color: #569A62;
     color:#F8F8F8;
     font-family: 'Inter';
     font-size: 24px;
+}
+
+.side_panel__header_right {
+    margin: 0 10px 0 0 ;
+}
+
+.side_panel__header_close {
+    transform: rotateZ(45deg);
+    cursor: pointer;
 }
 
 .side_panel__title {
@@ -702,11 +714,11 @@ a {
 }
 
 .messagebox__message_title {
-    width: 338px;
+    width: 348px;
     height: 27px;
     background: #E6F1EB;
     border-radius: 10px 10px 0px 0px;
-    padding: 10px 0 0 10px;
+    padding: 10px 10px 0 10px;
 }
 
 .messagebox__message_description {
