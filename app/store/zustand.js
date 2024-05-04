@@ -341,16 +341,16 @@ export const usePlantsStore = create(
                 airHumDay: [2, 23, 12, 86, 76, 61],
             },
             {
-                id: 97856,
-                plantId:9756 ,
+                id: 53,
+                plantId:97856 ,
                 humidityDay: [32, 54, 52, 62, 26, 63],
                 temperatureDay: [12, 54, 78, 32, 34, 73],
                 illuminationDay: [12, 23, 34, 45, 56, 67],
                 airHumDay: [2, 23, 12, 86, 76, 61],
             },
             {
-                id: 6345,
-                plantId:9756 ,
+                id: 550,
+                plantId:6345 ,
                 humidityDay: [32, 54, 52, 62, 26, 63],
                 temperatureDay: [12, 54, 78, 32, 34, 73],
                 illuminationDay: [12, 23, 34, 45, 56, 67],
@@ -361,7 +361,7 @@ export const usePlantsStore = create(
         incPlant: (newPlant) => set((state ) => ({ plants: [...state.plants, newPlant] })),
         changeTypePlant: (typeId, plantId) => set((state) => ({plants: state.plants.map(e => e.id == plantId ? {...e, typeId: typeId} : e)})),
         deletPlant: (plantId) => set((state) => ({plants: state.plants.filter(e => e.id != plantId) })),
-
+        setCastomNorms: (normId, newNorm) => set((state) => ({castomNorms: state.castomNorms.map(e => e.id === normId ? {...e, norms: newNorm } : {...e})})),
     }
     
 
@@ -388,43 +388,30 @@ export const useGroupe = create(
                 dashboardGroupes: 
                     state.dashboardGroupes.filter(groupe => groupe.id !== groupeId)
             })),
-            addBlock: (plantId, groupId) => set((state) => ({
+            addBlock: (plantId) => set((state) => ({
                 dashboardGroupes: state.dashboardGroupes.map(groupe => {
-                    // Проверяем, является ли текущая группа выбранной
-                    if (groupe.id === groupId) {
-                        // Проверяем, содержится ли plantId уже в plantsId данной группы
-                        if (groupe.plantsId.includes(plantId)) {
-                            // Если содержится, возвращаем группу без изменений
-                            return groupe;
-                        } else {
-                            // Если не содержится, добавляем его в массив plantsId группы
-                            return {
-                                ...groupe,
-                                plantsId: [...groupe.plantsId, plantId]
-                            };
-                        }
-                    } else {
-                        // Если текущая группа не выбрана, возвращаем ее без изменений
+                    // Проверяем, содержится ли plantId уже в plantsId данной группы
+                    if (groupe.plantsId.includes(plantId)) {
+                        // Если содержится, возвращаем группу без изменений
                         return groupe;
-                    }
-                })
-            })),
-            deleteBlock: (plantId, groupId) => set((state) => ({
-                dashboardGroupes: state.dashboardGroupes.map(groupe => {
-                    // Проверяем, является ли текущая группа выбранной
-                    if (groupe.id === groupId) {
-                        // Фильтруем массив plantsId, оставляя только те plantId, которые не равны заданному plantId
-                        const updatedPlantsId = groupe.plantsId.filter(id => id !== plantId);
-                        // Возвращаем обновленную группу с обновленным массивом plantsId
+                    } else {
+                        // Если не содержится, добавляем его в массив plantsId группы
                         return {
                             ...groupe,
-                            plantsId: updatedPlantsId
+                            plantsId: [...groupe.plantsId, plantId]
                         };
-                    } else {
-                        // Если текущая группа не выбрана, возвращаем ее без изменений
-                        return groupe;
                     }
                 })
-            })),             
+            }))
         }),    
 );
+export const authStore = create(
+    (set) => ({
+        isAuth: false,
+        isAuthInProgress: false,
+        login: async (email, password) => {
+            const response = await fetch(pond)
+            set({ fishies: await response.json() })
+          },
+    })
+)

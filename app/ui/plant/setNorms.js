@@ -12,15 +12,15 @@ export default function SetNorms({id}) {
     const pathname = usePathname()
     
     function findNorms(){
-        let norms
-        norms = castomNorms.find(e => {
+        let objNorm
+        objNorm = castomNorms.find(e => {
             if (e.plantId ==  id){
                 return e
             }
             } )
-            return norms
+            return objNorm
     }
-
+    const objNorm = findNorms()
     return (
 
         <div className="norms_plant">
@@ -35,7 +35,7 @@ export default function SetNorms({id}) {
                 <div className="norms_plant__main_block">
                     {
                         findNorms().norms.map( (elem) =>
-                            <LineNorms key={elem.name} name={elem.name} min={elem.min} max={elem.max} />
+                            <LineNorms key={elem.name} id={objNorm.id} plantId={objNorm.plantId}  objNorms={objNorm.norms} name={elem.name} min={elem.min} max={elem.max} />
 
                         )
                     }

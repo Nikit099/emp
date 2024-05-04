@@ -4,11 +4,12 @@ import pen from '@/public/plant/pen.svg';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { usePlantsStore } from '@/app/store/zustand';
 
-export default function LineNorms({name, min, max}) {
+export default function LineNorms({name, min, max, id, objNorms, plantId}) {
     const [norm, setNorm] = useState('')
     const [castomError, setCastomError] = useState({temperature:'', illumination: '', humidity: '', airHum: ''})
-  
+    const { setCastomNorms, plants, typePlants} = usePlantsStore()
     const { register, handleSubmit, formState: { errors } } = useForm({
         mode: "onChange"
       });
@@ -30,17 +31,33 @@ export default function LineNorms({name, min, max}) {
     }
     if(num2){
         
-    if(Number(num1) > Number(num2)){
+    if(Number(num1) >= Number(num2)){
         setCastomError({...castomError, [name]: 'Первое число должно быть меньше второго' })
     } else{
         setCastomError({...castomError, [name]: '' })
+        const newNorm = objNorms.map(elem => elem.name === name ? {...elem, max: Number(num2), min: Number(num1)} : {...elem})
+        setCastomNorms(id,newNorm )
     }
+    }else{
+        const newNorm = objNorms.map(elem => elem.name === name ? {...elem,  min: Number(num1)} : {...elem})
+        setCastomNorms(id,newNorm )
     }
 
   };
-  const handleError = (errors) => {
-    console.log(errors);
-  };
+  function resetNorm() {
+    let newNorm
+    const typeId = plants.filter(elem => elem.id == plantId)[0].typeId
+    const objRec = typePlants.filter(elem => elem.id == typeId)[0].recomendation[name]
+    if(!objRec.max){
+        newNorm = objNorms.map(elem => elem.name === name ? {...elem,  min: objRec.min} : {...elem})
+
+    }else{
+        newNorm = objNorms.map(elem => elem.name === name ? {...elem, max: objRec.high, min: objRec.low} : {...elem})
+
+    }
+    setCastomNorms(id,newNorm )
+  }
+
   const registerOptions = {
     temperature: {
     maxLength: {
@@ -49,7 +66,7 @@ export default function LineNorms({name, min, max}) {
         },
     pattern: {
         value: /\d\d-\d\d/,
-        message: "Температура должна быть записана как 01-99"
+        message: "Температура может быть по форме 00-99"
       }
     },
     illumination: {
@@ -59,7 +76,7 @@ export default function LineNorms({name, min, max}) {
             },
         pattern: {
             value: /\d\d\d-\d\d\d/,
-            message: "Освещение должно быть записано как 000-000"
+            message: "Освещение может быть по форме 000-999"
           },
         
     },
@@ -84,6 +101,7 @@ export default function LineNorms({name, min, max}) {
           }
     }
   };
+  const handleError = (error) =>{}
     return (
 
         <div className="line">
@@ -91,7 +109,7 @@ export default function LineNorms({name, min, max}) {
         <div className="line__parameter">{
             max ? (min + ' min' + ' - ' + max + ' max') : min + ' min'
         }</div>
-        <div className="line__reset">
+        <div onClick={resetNorm} className="line__reset">
             <Image className="line__reset_img"
                    src={rotate}
                    alt='Отменить'></Image>
