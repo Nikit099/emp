@@ -111,7 +111,7 @@ export default function Chart ({type,
                 <Line data={{
                                 labels: ['1 января', '2 января', '3 января', '4 января', '5 января'],
                                 datasets: [{
-                                    label: 'Освещение',
+                                    label: `${name[type]}`,
                                     data: typeData,
                                     fill: false,
                                     borderColor: 'rgb(73, 133, 83)',

@@ -1,10 +1,14 @@
 import { usePlantsStore } from "@/app/store/zustand";
 
-export default function ProblemsBlocks({problem, name, message, dateStart, dateEnd, plantId }) {
+import "chart.js/auto";
+import { Line } from "react-chartjs-2";
 
-    const {plants} = usePlantsStore();
+export default function ProblemsBlocks({problem, name, message, dateStart, dateEnd, plantId, problemData }) {
+
+    const {plants, data} = usePlantsStore();
 
     const plantName = plants.find(e => e.id == plantId).name;
+    
 
     return (
         <div className="messagebox">
@@ -15,7 +19,31 @@ export default function ProblemsBlocks({problem, name, message, dateStart, dateE
                 <div className="messagebox__graph_title">
                     {name} {dateStart} - {dateEnd}
                 </div>
-                <div className="messagebox__graph"></div>
+                <div className="messagebox__graph">
+                    <Line data={{
+                                    labels: ['1 января', '2 января', '3 января', '4 января'],
+                                    datasets: [{
+                                        label: `Пока не заполнено`,
+                                        data: problemData,
+                                        fill: false,
+                                        borderColor: 'rgb(73, 133, 83)',
+                                        tension: 0.4,
+                                    },],
+                                }}
+                            options={{
+                                responsive: true,
+                                maintainAspectRatio: true,
+                                plugins: {
+                                    legend: {
+                                        display: false,
+                                        labels: {
+                                            //color: 'rgb(255, 99, 132)'
+                                        }
+                                    }
+                                }
+                            }}>
+                    </Line>
+                </div>
             </div>
             <div className="messagebox__message_block">
                 <div className="messagebox__message">

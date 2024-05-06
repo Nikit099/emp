@@ -108,22 +108,19 @@ export default function Groupe({
     /*Удаление группы^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
     const {plants} = usePlantsStore();
     const [searchQuery, setSearchQuery] = useState('');
-    const filteredPlants = plantsId.filter(plant => plant.name.toLowerCase().includes(searchQuery.toLowerCase()));
+    // Фильтрация растений по имени в соответствии с поисковым запросом
+    const filtredPlants = plants.filter(plant =>
+        plantsId.includes(plant.id) && // Фильтрация по plantsId
+        plant.name.toLowerCase().includes(searchQuery.toLowerCase()) // Фильтрация по имени
+    );
+    // Извлечение только идентификаторов отфильтрованных растений
+    const filtredPlantsById = filtredPlants.map(plant => plant.id);
     const handleSearchInputChange = (event) => {
-        const query = event.target.value.toLowerCase();
-        setSearchQuery(query);
-        const filtered = plants.filter(plant => {
-            const plantId = plant.id.toString(); // Преобразовываем id растения в строку для сравнения
-            return plantsId.includes(plantId) && plant.name.toLowerCase().includes(query);
-        });
-        setFilteredPlants(filtered);
+        setSearchQuery(event.target.value);
     };
-    
     
 
     /*Поиск по растениям^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-
-    console.log('filteredPlants:', filteredPlants, "plantsId:", plantsId);
 
     return(
         <>
@@ -181,7 +178,7 @@ export default function Groupe({
                 </div>
                 <>
                 {
-                    plantsId.map((e, index) => <PlantDashboard  key={`${e.id}_${index}`} 
+                    filtredPlantsById.map((e, index) => <PlantDashboard  key={`${e.id}_${index}`} 
                                                                 plantId={e}
                                                                 plantsIdIndex={index}
                                                                 flagGroupe={flagGroupe} 
@@ -195,4 +192,4 @@ export default function Groupe({
             </div>
         </>
     )
-}
+}           

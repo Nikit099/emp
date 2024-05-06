@@ -26,6 +26,8 @@ export const useSearchStore = create(
 )
 export const usePlantsStore = create(
 
+    
+
     (set) => ({
         typePlants: [
             {id: 1,
@@ -196,6 +198,7 @@ export const usePlantsStore = create(
                 img: ''
             },
         ],
+
         data: [
             {
                 id: 89,
@@ -214,8 +217,9 @@ export const usePlantsStore = create(
                 temperatureProblems: [{
                     name: 'Температура',
                     message: 'Это сообщение об уходе за Татьяной',
-                    dateStart: `${new Date().toISOString()}`,
-                    dateEnd: `${new Date().toISOString()}`,
+                    dateStart: `${getTimeString()}`,
+                    dateEnd: `${getTimeString()}`,
+                    problemData: [30, 45, 49, 50],
                                     }],
                 illuminationProblems: [],
                 airHumProblems: [],
@@ -281,19 +285,22 @@ export const usePlantsStore = create(
                 temperatureProblems: [{
                     name: 'Температура',
                     message: 'Это сообщение об уходе за Ниной температура 1',
-                    dateStart: `${new Date().toISOString()}`,
-                    dateEnd: `${new Date().toISOString()}`,
+                    dateStart: `${getTimeString()}`,
+                    dateEnd: `${getTimeString()}`,
+                    problemData: [30, 45, 49, 50],
                                     },{
                     name: 'Температура',
                     message: 'Это сообщение об уходе за Ниной температура 2',
-                    dateStart: `${new Date().toISOString()}`,
-                    dateEnd: `${new Date().toISOString()}`,
+                    dateStart: `${getTimeString()}`,
+                    dateEnd: `${getTimeString()}`,
+                    problemData: [30, 45, 49, 50],
                                     }],
                 illuminationProblems: [{
                     name: 'Освещение',
                     message: 'Это сообщение об уходе за Ниной по освещению 3',
-                    dateStart: `${new Date().toISOString()}`,
-                    dateEnd: `${new Date().toISOString()}`,
+                    dateStart: `${getTimeString()}`,
+                    dateEnd: `${getTimeString()}`,
+                    problemData: [30, 45, 49, 50],
                                 }],
                 airHumProblems: [],
 
@@ -445,7 +452,15 @@ export const usePlantsStore = create(
 
 )
   
-)
+);
+
+function getTimeString() {
+    const currentTime = new Date();
+    const hours = currentTime.getHours().toString().padStart(2, '0');
+    const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+    const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+    return `${hours}:${minutes}:${seconds}`;
+}
 
 export const useGroupe = create(
     

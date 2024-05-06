@@ -81,6 +81,7 @@ export default function Problems ({closeProblems,}) {
                                     dateStart={problem.dateStart}
                                     dateEnd={problem.dateEnd}
                                     plantId={problem.plantId}
+                                    problemData={problem.problemData}
                                 />
                             ))
                         }
