@@ -34,10 +34,7 @@ export default function MyPlantsPlusMenu({serchPlants,
                                                      /> 
                         )
         }
-        {
-            !serchPlants[0] && <h3 className="notPlant">Такого растения не найдено</h3>
-
-        }
+        
         </div>
    </section>
     )

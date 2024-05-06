@@ -227,13 +227,13 @@ export const usePlantsStore = create(
             {
                 id: 78,
                 plantId:9756 ,
-                humidity: 44,
                 daysHum: 4,
                 dateHum: null,
                 daysSpr: null,
                 dateSpr: null,
                 spraing: false,
                 watering: false,
+                humidity: 44,
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
@@ -376,10 +376,10 @@ export const usePlantsStore = create(
             {
                 id: 97356,
                 plantId:9756 ,
-                humidityDay: [32, 54, 52, 62, 26, 63],
-                temperatureDay: [12, 54, 78, 32, 34, 73],
-                illuminationDay: [12, 23, 34, 45, 56, 67],
-                airHumDay: [2, 23, 12, 86, 76, 61],
+                humidityDay: [32, 54, 52, 62, 44, 44],
+                temperatureDay: [12, 54, 78, 32, 22, 22],
+                illuminationDay: [12, 23, 34, 45, 78, 78],
+                airHumDay: [2, 23, 12, 86, 45, 45],
             },
             {
                 id: 97564,
@@ -457,6 +457,9 @@ export const useGroupe = create(
                     plantsId: [], 
                 },
             ],
+            
+            setDashboardGroupes: (newDashboardGroupes) =>
+                set((state) => ({ dashboardGroupes: newDashboardGroupes })),            
             addGroupe: (newGroupe) => set(state => ({
                 dashboardGroupes: [
                     ...state.dashboardGroupes, newGroupe
@@ -503,6 +506,7 @@ export const useGroupe = create(
                         return groupe;
                     }
                 })
-            })),             
+            })),
+                         
         }),    
 );

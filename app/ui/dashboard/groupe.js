@@ -5,7 +5,7 @@ import deleteDashboard from '@/public/dashboard/delete.svg';
 import arrowShowUp from '@/public/dashboard/arrow_show_up.svg';
 
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { usePlantsStore } from '@/app/store/zustand';
 import { useBlock } from '@/app/store/zustand';
@@ -31,14 +31,52 @@ export default function Groupe({
                                 groupeIndex,
                                 }) {
 
-
+                                    
+                                    
+    const {setDashboardGroupes, dashboardGroupes } = useGroupe();
+    
     const [inputValueGroupeName, setInputValueGroupeName] = useState('');
-
+    
     const handleInputChangeGroupeName = (event) => {
         setInputValueGroupeName(event.target.value);
     };                                
-
+    
     /*Нэйминг^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+    function areArraysEqual(arr1, arr2) {
+        if (arr1.length !== arr2.length) {
+            return false;
+        }
+        
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr1[i].id !== arr2[i].id || arr1[i].name !== arr2[i].name) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+    
+
+    useEffect(() => {
+        // Update dashboardGroupes state with the new input value
+        const updatedDashboardGroupes = dashboardGroupes.map((groupe) => {
+            if (groupe.id === groupeId) {
+                return {
+                    ...groupe,
+                    name: inputValueGroupeName,
+                };
+            }
+            return groupe;
+        });
+        
+        // Check if the dashboardGroupes actually changed before updating
+        if (!areArraysEqual(updatedDashboardGroupes, dashboardGroupes)) {
+            setDashboardGroupes(updatedDashboardGroupes); // Use setDashboardGroupes to update the state
+        }
+    }, [inputValueGroupeName, groupeId, dashboardGroupes, setDashboardGroupes]);
+    
+    
+    /*Сохранение имени^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
     const [flagGroupe, setFlagGroupe] = useState(true)
     function changeArrowGroupe() {
@@ -48,13 +86,7 @@ export default function Groupe({
     /*Открытие/закрытие группы^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 
-    const setNameGroupe = useGroupe((state) => state.setNameGroupe);
 
-    const handleSetNameGroupe = (nameGroupe) => {setNameGroupe(nameGroupe)}
-
-    /*Сохранение имени^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-
-    const {addBlock, addGroupe, dashboardGroupes } = useGroupe();
     const currentGroupesIds = dashboardGroupes.map(e => e.id);
     const [currentGroupeId, setCurrentGroupeId] = useState();
     const [isVisiblePlantChoose, setIsVisiblePlantChoose] = useState(false);
@@ -74,6 +106,24 @@ export default function Groupe({
     const { deleteGroupe } = useGroupe();
 
     /*Удаление группы^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+    const {plants} = usePlantsStore();
+    const [searchQuery, setSearchQuery] = useState('');
+    const filteredPlants = plantsId.filter(plant => plant.name.toLowerCase().includes(searchQuery.toLowerCase()));
+    const handleSearchInputChange = (event) => {
+        const query = event.target.value.toLowerCase();
+        setSearchQuery(query);
+        const filtered = plants.filter(plant => {
+            const plantId = plant.id.toString(); // Преобразовываем id растения в строку для сравнения
+            return plantsId.includes(plantId) && plant.name.toLowerCase().includes(query);
+        });
+        setFilteredPlants(filtered);
+    };
+    
+    
+
+    /*Поиск по растениям^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+    console.log('filteredPlants:', filteredPlants, "plantsId:", plantsId);
 
     return(
         <>
@@ -100,8 +150,11 @@ export default function Groupe({
                         />
                         <div className="main__search">
                             <input className="main__search_input"
-                                   
-                                   placeholder="Поиск по растениям" />
+                                   type="text"
+                                   value={searchQuery}
+                                   onChange={handleSearchInputChange}
+                                   placeholder="Поиск по растениям"
+                                    />
                             <Image className="main__search_img" 
                                    src={magnifyingGlass} 
                                    alt='лупа'/>
