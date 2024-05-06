@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import AuthService from "../scripts/api.auth";
 
 export const useCountStore = create(
     persist(
@@ -478,8 +479,49 @@ export const authStore = create(
         isAuth: false,
         isAuthInProgress: false,
         login: async (email, password) => {
-            const response = await fetch(pond)
-            set({ fishies: await response.json() })
+            set({ isAuthInProgress: true })
+            try {
+                const resp = await AuthService.login(email, password);
+                localStorage.setItem("token", resp.data.accessToken);
+                set({ isAuth: true })
+
+          
+               } catch (err) {
+                console.log("login error");
+               } finally {
+                set({ isAuthInProgress: false })
+              } 
           },
+        checkAuth: async() => {
+            set({ isAuthInProgress: true })
+            try {
+                const resp = await AuthService.refresh();
+                localStorage.setItem("token", resp.data.accessToken);
+                set({ isAuth: true })
+
+
+            } catch (err) {
+                console.log("login error");
+            } finally {
+                set({ isAuthInProgress: false })
+
+            } 
+        },
+        logout: async() => {
+            set({ isAuthInProgress: true })
+
+            try {
+            await AuthService.logout();
+            set({ isAuth: false })
+
+            localStorage.removeItem("token");
+            } catch (err) {
+            console.log("logout error");
+            } finally {
+                set({ isAuthInProgress: false })
+
+            } 
+        }
+        
     })
 )

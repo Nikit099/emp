@@ -1,0 +1,123 @@
+
+
+body {
+    margin: 0px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    height: 100dvh;
+
+}
+
+.registration {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 618px;
+    width: 470px;
+    border-radius: 21px;
+    background-color: #efefef;
+    box-shadow: 0px 3px 10px 0px rgb(0,0,0, 0.11);
+}
+
+.registration__title {
+    margin: 0px 0px 56px 0px;
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-weight: 600;
+    
+}
+
+.registration__input-name,
+.registration__input-email,
+.registration__input-password {
+    width: 360px;
+    height: 50px;
+    border-radius: 21px;
+    background: #FEFEFE;    
+    box-shadow: 2px 4px 13px 0px rgba(138, 138, 138, 0.25);
+    border-width: 0px;
+    padding-left: 51px;
+
+    color: #888;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.registration__input-name, 
+.registration__input-email {
+    margin: 0px 0px 29px 0px;
+}
+
+.registration__input-password {
+    margin: 0px 0px 109px 0px;
+}
+
+.registration__button {
+    background-color: #498553;
+    border-radius: 38px;
+    width: 242px;
+    height: 42px;
+    border: 0px;
+
+    color: #fff;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.registration__button-have-account {
+    background-color: #efefef;
+    border-radius: 38px;
+    width: 242px;
+    height: 42px;
+    border: 0px;
+
+    color: #498553;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+@media (max-width:535px) {
+    
+
+    .registration {
+        width: 80vw;
+    }
+
+    .registration__input-name,
+    .registration__input-email,
+    .registration__input-password{
+        width: 50vw;
+    }
+    
+    .registration__input-password{
+        margin: 0px 0px 90px 0px;
+    }
+
+    .registration__button {
+        width: 60vw;
+        padding: 10px;
+    }
+
+    .registration__button-have-account {
+        width: 60vw;
+        padding: 10px;
+    }
+}

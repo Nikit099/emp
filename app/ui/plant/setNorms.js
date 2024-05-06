@@ -8,12 +8,12 @@ import { usePathname } from 'next/navigation';
 import { useState } from "react";
 
 export default function SetNorms({id}) {
-    const castomNorms = usePlantsStore((state) => state.castomNorms);
+    const customNorms = usePlantsStore((state) => state.customNorms);
     const pathname = usePathname()
     
     function findNorms(){
         let objNorm
-        objNorm = castomNorms.find(e => {
+        objNorm = customNorms.find(e => {
             if (e.plantId ==  id){
                 return e
             }
