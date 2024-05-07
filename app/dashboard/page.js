@@ -38,15 +38,14 @@ export default function Dashboard() {
     const [currentGroupeId, setCurrentGroupeId] = useState();
     const [isVisiblePlantChoose, setIsVisiblePlantChoose] = useState(false);
 
-    // const openPlantChoose = (groupeId) => {
-    //     setIsVisiblePlantChoose(true);
-    //     console.log('currentGroupesIds:', currentGroupesIds, 'currentGroupeId:', currentGroupeId)
-    //     setCurrentGroupeId(groupeId)
-    // };
+    const openPlantChoose = (groupeId) => {
+        setIsVisiblePlantChoose(true);
+        setCurrentGroupeId(groupeId)
+    };
 
-    // const closePlantChoose = () => {
-    //     setIsVisiblePlantChoose(false);
-    // };
+    const closePlantChoose = () => {
+        setIsVisiblePlantChoose(false);
+    };
 
     //
 
@@ -106,15 +105,15 @@ export default function Dashboard() {
     <>
     {isVisibleCalendar && <Calendar closeCalendar={closeCalendar}/>}
     {isVisibleProblems && <Problems closeProblems={closeProblems}/>}
-
+    
 
     
-    <div className={ 
+    <div className={isVisiblePlantChoose || 
                     isVisibleProblems || 
                     isVisibleCalendar ? 'body--blured' : 'body'}
-         onClick={() => {isVisiblePlantChoose ? closePlantChoose() : console.log();
-                         isVisibleProblems ? closeProblems() : console.log();
-                         isVisibleCalendar ? closeCalendar() : console.log();}} >
+         onClick={() => {isVisiblePlantChoose ? closePlantChoose() : null;
+                         isVisibleProblems ? closeProblems() : null;
+                         isVisibleCalendar ? closeCalendar() : null;}} >
     <header>
         <div className="header__container">
             <div className="header__back">

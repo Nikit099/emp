@@ -208,6 +208,10 @@ a {
     cursor: pointer;
 }
 
+.main__block_under_sides {
+    display: none;
+}
+
 /*MAIN^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 .dashboard {
@@ -435,6 +439,7 @@ a {
     position: relative;
     display: flex;
     justify-content: center;
+    filter: none !important;
 }
 
 .plantchoose__block {
@@ -447,7 +452,7 @@ a {
     margin: 0px 60px;
     max-width: 1350px;
     width: 90%;
-    min-width: 613px;
+    min-width: 510px;
     height: auto;
     border-radius: 21px;
     background-color: #f8f8f8;
@@ -898,5 +903,48 @@ a {
     .block__castom-radio {
         justify-self: flex-end;
         width: 105px;
+    }
+}
+
+@media (max-width: 715px) {
+    .header__back_arrow {
+        margin: 0 0 0 15px;
+    }
+
+    .header__search_input {
+        margin: 0 15px;
+    }
+
+    .header__search_img {
+        left: 35px;
+    }
+
+    .main__sides .main__add {
+        display: none;
+    }
+    
+    .main__sides .main__show {
+        display: none;
+    }
+
+    .main__sides .main__title {
+        display: none;
+    }
+
+    .main__block_under_sides {
+        display: flex;
+        margin: 0px 10px 15px 10px;
+    }
+
+    .plantchoose__myplants_point-1 {
+        width: 50vw;
+    }
+
+    .plantchoose__myplants_pots__dd-2 {
+        display: none;
+    }
+
+    .dashboard__container {
+        width: 90vw;
     }
 }

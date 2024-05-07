@@ -93,7 +93,6 @@ export default function Groupe({
 
     const openPlantChoose = (groupeId) => {
         setIsVisiblePlantChoose(true);
-        console.log('currentGroupesIds:', currentGroupesIds, 'currentGroupeId:', currentGroupeId)
         setCurrentGroupeId(groupeId)
     };
 
@@ -175,6 +174,29 @@ export default function Groupe({
                                 alt="удалить группу"
                                 onClick={() => deleteGroupe(groupeId)}/>
                     </div>
+                </div>
+                <div className='main__block_under_sides'>
+                    <input
+                        className="main__title"
+                        type="text"
+                        value={inputValueGroupeName}
+                        onChange={handleInputChangeGroupeName}
+                        placeholder='Ваше имя группы'
+                        maxLength={16}
+                    />
+                    <div className="main__add"
+                         onClick={() => openPlantChoose(groupeId)}>
+                        <Image className="main__plus" 
+                                src={plus} 
+                                alt="добавить растение"
+                        />
+                    </div>
+                    <Image className={"main__show"} 
+                            src={ flagGroupe ? arrowShowUp : arrowShowDown } 
+                            alt="развернуть группу" 
+                            onClick={changeArrowGroupe}
+                    />
+
                 </div>
                 <>
                 {
