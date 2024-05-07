@@ -35,7 +35,18 @@ export default function PlantChoose ({closePlantChoose,
     setSearchPlants(results)
         
   }, [search]);
-    
+    //
+
+    const [searchQuery, setSearchQuery] = useState(''); // Состояние для хранения поискового запроса
+
+
+    // Обработчик изменения поискового запроса
+    const handleSearchInputChange = event => {
+        setSearchQuery(event.target.value);
+    };
+
+    //поиск по растениям ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
     return (
 
         
@@ -47,8 +58,11 @@ export default function PlantChoose ({closePlantChoose,
                     <span className="plantchoose__title" >Выбрать растение</span>
                     <div className="plantchoose__search">
                         <input className="plantchoose__search_input"
-                               type="search"
-                               placeholder="Поиск по растениям" />
+                               type="text"
+                               value={searchQuery}
+                               onChange={handleSearchInputChange}
+                               placeholder="Поиск по растениям"
+                                />
                         <Image className="plantchoose__search_img" src={magnifyingGlass} alt='лупа'/>
                     </div>
                 </div>
@@ -65,7 +79,8 @@ export default function PlantChoose ({closePlantChoose,
                                 groupeId={groupeId}
                                 currentGroupeId={currentGroupeId}
                                 getPlantsExceptInDashboard={getPlantsExceptInDashboard}
-                                groupeIndex={groupeIndex}/>
+                                groupeIndex={groupeIndex}
+                                searchQuery={searchQuery}/>
         </div>
     </div>
     </>

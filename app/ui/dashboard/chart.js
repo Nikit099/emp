@@ -1,18 +1,23 @@
 import calendar from '@/public/dashboard/calendar.svg';
-import emojiSick from '@/public/dashboard/emoji_sick.png'
+import emojiSick from '@/public/dashboard/emoji_sick.png';
+import noImage from '@/public/dashboard/no_image.png';
 
 import { usePlantsStore } from '@/app/store/zustand';
 import React, {useState} from 'react';
 import Image from "next/image";
 import "chart.js/auto";
-import { Line, Utils } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 export default function Chart ({type,
                                 plantId,
                                 }) {
 
 
-    const {dayHistory, weekHistory, monthHistory, customNorms} = usePlantsStore();
+    const {dayHistory, 
+            weekHistory, 
+            monthHistory, 
+            customNorms,
+            data,} = usePlantsStore();
 
     const name = {
         illumination: 'Освещение',
@@ -21,19 +26,33 @@ export default function Chart ({type,
         airHum: 'Влажность воздуха',
     };
 
+    
     const [typeSelectedOption, setTypeSelectedOption] = useState('day');
     const typeData = typeSelectedOption === 'day' ? dayHistory.find(e => e.plantId === plantId)?.[`${type}Day`] :
-                     typeSelectedOption === 'week' ? weekHistory.find(e => e.plantId === plantId)?.[`${type}Week`] :
-                     monthHistory.find(e => e.plantId === plantId)?.[`${type}Month`];
-
+    typeSelectedOption === 'week' ? weekHistory.find(e => e.plantId === plantId)?.[`${type}Week`] :
+    monthHistory.find(e => e.plantId === plantId)?.[`${type}Month`];
+    
     const maxDataExtention = (customNorms.find(e => e.plantId == plantId))?.norms.find(e => e.name == type).max
     const minDataExtention = (customNorms.find(e => e.plantId == plantId))?.norms.find(e => e.name == type).min
     const maxData = maxDataExtention ? maxDataExtention : 100;
     const minData = minDataExtention ? minDataExtention : 0;
-
-
+    
     /*Данные чарта^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-                                    
+    
+    
+    const humidityCurrentState = data.filter(e => e.plantId == plantId)[0]?.[`${type}`];
+    
+    /*Отображение эмоции^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+    
+    const parameter = {
+        illumination: 'Lux',
+        temperature: '°C',
+        humidity: '%',
+        airHum: '%',
+    };
+    
+    /*Отображение данных^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+    
     return(
         <>
         <div className="block">
@@ -43,10 +62,13 @@ export default function Chart ({type,
                         {name[type]}
                     </div>
                     <div className="block__parameter">
-                        772Lux
+                        {`${humidityCurrentState}${parameter[type]}`}
                     </div>
                     <div className="block__emotion">
-                        <Image className="" src={emojiSick} alt=""/>
+                        <Image className="" 
+                                src={humidityCurrentState > maxData || humidityCurrentState < minData 
+                                    ? emojiSick : noImage} 
+                                alt="Недовольное лицо"/>
                     </div>
                 </div>
                 <div className="block__header-right">
@@ -89,7 +111,7 @@ export default function Chart ({type,
                 <Line data={{
                                 labels: ['1 января', '2 января', '3 января', '4 января', '5 января'],
                                 datasets: [{
-                                    label: 'Освещение',
+                                    label: `${name[type]}`,
                                     data: typeData,
                                     fill: false,
                                     borderColor: 'rgb(73, 133, 83)',

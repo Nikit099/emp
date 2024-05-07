@@ -59,8 +59,17 @@ export default function Dashboard() {
     const closeProblems = () => {
         setIsVisibleProblems(false);
     };
- 
+    
     /*Отображение проблем^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+    const {data} = usePlantsStore();
+    function handleAddProblems(plantId) {
+        const currentPlant = data.find(e => e.plantId == plantId)
+        const problemsWithTemperature = currentPlant.temperatureProblems[0];
+        console.log(problemsWithTemperature);
+    }
+
+
+    //добавление проблем ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     
     const [isVisibleCalendar, setIsVisibleCalendar] = useState(false);
 
@@ -81,6 +90,14 @@ export default function Dashboard() {
 
     //добавление группы ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     //добавление блока ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const handleSearchInputChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
+    
+    
+    /*Поиск по группам^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
     
     
@@ -88,8 +105,9 @@ export default function Dashboard() {
     return (
     <>
     {isVisibleCalendar && <Calendar closeCalendar={closeCalendar}/>}
-    {isVisibleProblems && <Problems closeProblems={closeProblems}
-                                        />}
+    {isVisibleProblems && <Problems closeProblems={closeProblems}/>}
+
+
     
     <div className={ 
                     isVisibleProblems || 
@@ -108,27 +126,37 @@ export default function Dashboard() {
             </div>
             <div className="header__search">
                 <input className="header__search_input"
-                       type="search"
-                       placeholder="Поиск по группам" />
-                <Image className="header__search_img" src={magnifyingGlass} alt='лупа'/>
+                       type="text"
+                        value={searchQuery}
+                        onChange={handleSearchInputChange}
+                        placeholder="Поиск по группам"
+                         />
+                <Image className="header__search_img" 
+                        src={magnifyingGlass} 
+                        alt='лупа'/>
             </div>
         </div>
     </header>
     <main className=".main">
-        <div className="main__container">
-            {
-                dashboardGroupes.map((e, index) => <Groupe key={e.id} 
-                                                    groupeId={e.id}
-                                                    name={e.name} 
-                                                    plantsId={e.plantsId}
-                                                    groupeIndex={index}   
-                                                    openProblems={openProblems}
-                                                    openCalendar={openCalendar}
-                                                    dashboardGroupes={dashboardGroupes}
-                                                    isVisiblePlantChoose={isVisiblePlantChoose}
-                                                    currentGroupeId={currentGroupeId} />)
-            }
-        </div>
+    <div className="main__container">
+        {dashboardGroupes
+            .filter(group => group.name.toLowerCase().includes(searchQuery.toLowerCase()))
+            .map((e, index) => (
+                <Groupe
+                    key={e.id} 
+                    groupeId={e.id}
+                    name={e.name} 
+                    plantsId={e.plantsId}
+                    groupeIndex={index}   
+                    openProblems={openProblems}
+                    openCalendar={openCalendar}
+                    dashboardGroupes={dashboardGroupes}
+                    isVisiblePlantChoose={isVisiblePlantChoose}
+                    currentGroupeId={currentGroupeId} 
+                />
+            ))}
+    </div>
+
     </main>
     <section className="section">
         <div className="section__container">

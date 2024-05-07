@@ -17,7 +17,6 @@ import { useGroupe, usePlantsStore } from '@/app/store/zustand';
 export default function PlantDashboard ({ flagGroupe,
                                           openCalendar,
                                           openProblems,
-                                          plantsIdIndex,
                                           plantId,
                                           groupeId,
                                         }) {

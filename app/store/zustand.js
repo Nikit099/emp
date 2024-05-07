@@ -27,6 +27,8 @@ export const useSearchStore = create(
 )
 export const usePlantsStore = create(
 
+    
+
     (set) => ({
         typePlants: [
             {id: 1,
@@ -197,26 +199,28 @@ export const usePlantsStore = create(
                 img: ''
             },
         ],
+
         data: [
             {
                 id: 89,
-                plantId:97856 ,
-                humidity: 44,
+                plantId:97856,
                 daysHum: 4,
                 dateHum: null,
                 daysSpr: null,
                 dateSpr: null,
                 spraing: false,
                 watering: false,
+                humidity: 44,
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
                 humidityProblems: [],
                 temperatureProblems: [{
                     name: 'Температура',
-                    message: 'Это сообщение об уходе',
-                    dateStart: `${new Date().toISOString()}`,
-                    dateEnd: `${new Date().toISOString()}`,
+                    message: 'Это сообщение об уходе за Татьяной',
+                    dateStart: `${getTimeString()}`,
+                    dateEnd: `${getTimeString()}`,
+                    problemData: [30, 45, 49, 50],
                                     }],
                 illuminationProblems: [],
                 airHumProblems: [],
@@ -228,13 +232,13 @@ export const usePlantsStore = create(
             {
                 id: 78,
                 plantId:9756 ,
-                humidity: 44,
                 daysHum: 4,
                 dateHum: null,
                 daysSpr: null,
                 dateSpr: null,
                 spraing: false,
                 watering: false,
+                humidity: 44,
                 temperature: 22,
                 illumination: 78,
                 airHum: 45,
@@ -281,11 +285,24 @@ export const usePlantsStore = create(
                 humidityProblems: [],
                 temperatureProblems: [{
                     name: 'Температура',
-                    message: 'Это сообщение об уходе',
-                    dateStart: `${new Date().toISOString()}`,
-                    dateEnd: `${new Date().toISOString()}`,
+                    message: 'Это сообщение об уходе за Ниной температура 1',
+                    dateStart: `${getTimeString()}`,
+                    dateEnd: `${getTimeString()}`,
+                    problemData: [30, 45, 49, 50],
+                                    },{
+                    name: 'Температура',
+                    message: 'Это сообщение об уходе за Ниной температура 2',
+                    dateStart: `${getTimeString()}`,
+                    dateEnd: `${getTimeString()}`,
+                    problemData: [30, 45, 49, 50],
                                     }],
-                illuminationProblems: [],
+                illuminationProblems: [{
+                    name: 'Освещение',
+                    message: 'Это сообщение об уходе за Ниной по освещению 3',
+                    dateStart: `${getTimeString()}`,
+                    dateEnd: `${getTimeString()}`,
+                    problemData: [30, 45, 49, 50],
+                                }],
                 airHumProblems: [],
 
                 
@@ -367,10 +384,10 @@ export const usePlantsStore = create(
             {
                 id: 97356,
                 plantId:9756 ,
-                humidityDay: [32, 54, 52, 62, 26, 63],
-                temperatureDay: [12, 54, 78, 32, 34, 73],
-                illuminationDay: [12, 23, 34, 45, 56, 67],
-                airHumDay: [2, 23, 12, 86, 76, 61],
+                humidityDay: [32, 54, 52, 62, 44, 44],
+                temperatureDay: [12, 54, 78, 32, 22, 22],
+                illuminationDay: [12, 23, 34, 45, 78, 78],
+                airHumDay: [2, 23, 12, 86, 45, 45],
             },
             {
                 id: 97564,
@@ -436,7 +453,15 @@ export const usePlantsStore = create(
 
 )
   
-)
+);
+
+function getTimeString() {
+    const currentTime = new Date();
+    const hours = currentTime.getHours().toString().padStart(2, '0');
+    const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+    const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+    return `${hours}:${minutes}:${seconds}`;
+}
 
 export const useGroupe = create(
     
@@ -448,6 +473,9 @@ export const useGroupe = create(
                     plantsId: [], 
                 },
             ],
+            
+            setDashboardGroupes: (newDashboardGroupes) =>
+                set((state) => ({ dashboardGroupes: newDashboardGroupes })),            
             addGroupe: (newGroupe) => set(state => ({
                 dashboardGroupes: [
                     ...state.dashboardGroupes, newGroupe
