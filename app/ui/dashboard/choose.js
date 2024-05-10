@@ -15,9 +15,7 @@ import { useEffect, useState } from "react";
 
 export default function PlantChoose ({closePlantChoose,
                                         addBlock,
-                                        currentGroupeId,
                                         groupeId,
-                                        getPlantsExceptInDashboard,
                                         groupeIndex,}) {
     
     const plants = usePlantsStore((state) => state.plants);
@@ -51,36 +49,48 @@ export default function PlantChoose ({closePlantChoose,
 
         
     <>
-    <div className="plantchoose__container">
-        <div className="plantchoose__block">
-            <div className="plantchoose__sides">
-                <div className="plantchoose__block_left">
-                    <span className="plantchoose__title" >Выбрать растение</span>
-                    <div className="plantchoose__search">
+    <div className='plantchoose'>
+
+        <div className='plantchoose__blur'>
+            <div className="plantchoose__container">
+                <div className="plantchoose__block">
+                    <div className="plantchoose__sides">
+                        <div className="plantchoose__block_left">
+                            <span className="plantchoose__title" >Выбрать растение</span>
+                            <div className="plantchoose__search">
+                                <input className="plantchoose__search_input"
+                                    type="text"
+                                    value={searchQuery}
+                                    onChange={handleSearchInputChange}
+                                    placeholder="Поиск по растениям"
+                                        />
+                                <Image className="plantchoose__search_img" src={magnifyingGlass} alt='лупа'/>
+                            </div>
+                        </div>
+                        <div className="plantchoose__block_right">
+                            <Image className="plantchoose__delete" 
+                                src={deleteDashboard} 
+                                alt="удалить группу"
+                                onClick={closePlantChoose}/>
+                        </div>
+                    </div>
+                    <div className='plantchoose__under_sides'>
                         <input className="plantchoose__search_input"
-                               type="text"
-                               value={searchQuery}
-                               onChange={handleSearchInputChange}
-                               placeholder="Поиск по растениям"
+                            type="text"
+                            value={searchQuery}
+                            onChange={handleSearchInputChange}
+                            placeholder="Поиск по растениям"
                                 />
                         <Image className="plantchoose__search_img" src={magnifyingGlass} alt='лупа'/>
                     </div>
-                </div>
-                <div className="plantchoose__block_right">
-                    <Image className="plantchoose__delete" 
-                           src={deleteDashboard} 
-                           alt="удалить группу"
-                           onClick={closePlantChoose}/>
+                    <MyPlantsPlusMenu serchPlants={serchPlants}
+                                        closePlantChoose={closePlantChoose}
+                                        addBlock={addBlock}
+                                        groupeId={groupeId}                    
+                                        groupeIndex={groupeIndex}
+                                        searchQuery={searchQuery}/>
                 </div>
             </div>
-            <MyPlantsPlusMenu serchPlants={serchPlants}
-                                closePlantChoose={closePlantChoose}
-                                addBlock={addBlock}
-                                groupeId={groupeId}
-                                currentGroupeId={currentGroupeId}
-                                getPlantsExceptInDashboard={getPlantsExceptInDashboard}
-                                groupeIndex={groupeIndex}
-                                searchQuery={searchQuery}/>
         </div>
     </div>
     </>

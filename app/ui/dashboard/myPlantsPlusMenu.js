@@ -3,12 +3,9 @@ import React, { useState } from 'react';
 import { useGroupe, usePlantsStore } from '@/app/store/zustand';
 
 export default function MyPlantsPlusMenu({
-    serchPlants,
     closePlantChoose,
     addBlock,
     groupeId,
-    currentGroupeId,
-    getPlantsExceptInDashboard,
     groupeIndex,
     searchQuery,
 }) {
@@ -38,7 +35,6 @@ export default function MyPlantsPlusMenu({
                         emotion={e.emotion}
                         closePlantChoose={closePlantChoose}
                         addBlock={addBlock}
-                        currentGroupeId={currentGroupeId}
                     />
                 ))}
             </div>

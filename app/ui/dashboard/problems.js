@@ -1,4 +1,4 @@
-import plus from '@/public/dashboard/plus.svg';
+import closeProblemsSign from '@/public/dashboard/close_problems.svg';
 
 import Image from 'next/image';
 
@@ -57,12 +57,12 @@ export default function Problems ({closeProblems,}) {
                     <div className="side_panel__header">
                         <div className='side_panel__header_left'>
                             <span className="side_panel__title">
-                                Возникшие проблемы
+                                Проблемы
                             </span>
                         </div>
                         <div className='side_panel__header_right'>
                             <Image className='side_panel__header_close'
-                                    src={plus}
+                                    src={closeProblemsSign}
                                     alt='закрыть'
                                     onClick={closeProblems}>
 
@@ -70,7 +70,6 @@ export default function Problems ({closeProblems,}) {
                         </div>
                     </div>
                     <div className='messagebox_wrapper'>
-                        {console.log('plantsWithProblems:', plantsWithProblems, 'problems:', problems)}
                         {
                             problems.map((problem, index) => (
                                 <ProblemsBlocks

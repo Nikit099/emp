@@ -17,12 +17,7 @@ import Link from "next/link";
 
 import magnifyingGlass from '../../public/dashboard/search.svg';
 import arrowBack from '../../public/dashboard/arrow_back.svg';
-import plus from '../../public/dashboard/plus.svg';
-import arrowShowDown from '../../public/dashboard/arrow_show_down.svg';
-import deleteDashboard from '../../public/dashboard/delete.svg';
-import arrowShowUp from '../../public/dashboard/arrow_show_up.svg';
-import calendar from '../../public/dashboard/calendar.svg';
-import emojiSick from '../../public/dashboard/emoji_sick.png';
+import home from '@/public/dashboard/home.svg';
 
 import { usePlantsStore } from '../store/zustand';
 import { useGroupe } from '../store/zustand';
@@ -33,21 +28,7 @@ import usePersist from '../store/usePersist';
 
 export default function Dashboard() {
 
-    const {addBlock, addGroupe, dashboardGroupes } = useGroupe();
-    const currentGroupesIds = dashboardGroupes.map(e => e.id);
-    const [currentGroupeId, setCurrentGroupeId] = useState();
-    const [isVisiblePlantChoose, setIsVisiblePlantChoose] = useState(false);
-
-    const openPlantChoose = (groupeId) => {
-        setIsVisiblePlantChoose(true);
-        setCurrentGroupeId(groupeId)
-    };
-
-    const closePlantChoose = () => {
-        setIsVisiblePlantChoose(false);
-    };
-
-    //
+    const { addGroupe, dashboardGroupes } = useGroupe();
 
     const [isVisibleProblems, setIsVisibleProblems] = useState(false);
 
@@ -98,7 +79,12 @@ export default function Dashboard() {
     
     /*Поиск по группам^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
+    const goBack = () => {
+        window.history.back();
+      };
     
+    /*Кнопка назад^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
     
 
     return (
@@ -108,19 +94,24 @@ export default function Dashboard() {
     
 
     
-    <div className={isVisiblePlantChoose || 
+    <div className={ 
                     isVisibleProblems || 
                     isVisibleCalendar ? 'body--blured' : 'body'}
-         onClick={() => {isVisiblePlantChoose ? closePlantChoose() : null;
+         onClick={() => {
                          isVisibleProblems ? closeProblems() : null;
                          isVisibleCalendar ? closeCalendar() : null;}} >
     <header>
         <div className="header__container">
             <div className="header__back">
-                <Image className="header__back_arrow" src={arrowBack} alt=""/>
+                <Image className="header__back_arrow" 
+                        src={arrowBack} 
+                        alt="назад"
+                        onClick={goBack}/>   
                 <Link className=""
                       href='/'>
                         <div className="header__home_button">Главная</div>
+                        <Image className='header__home_img'
+                                src={home}></Image>
                 </Link>
             </div>
             <div className="header__search">
@@ -150,8 +141,8 @@ export default function Dashboard() {
                     openProblems={openProblems}
                     openCalendar={openCalendar}
                     dashboardGroupes={dashboardGroupes}
-                    isVisiblePlantChoose={isVisiblePlantChoose}
-                    currentGroupeId={currentGroupeId} 
+                    //isVisiblePlantChoose={isVisiblePlantChoose}
+                    //currentGroupeId={currentGroupeId} 
                 />
             ))}
     </div>

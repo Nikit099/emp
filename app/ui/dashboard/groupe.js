@@ -15,18 +15,12 @@ import PlantDashboardPlusMenu from './plantDashboardPlusMenu';
 import PlantChoose from './choose';
 
 
-export default function Groupe({ 
-                                name,
-                                groupeId, 
+export default function Groupe({groupeId, 
                                 plantsId, 
                                 flagBlock, 
                                 changeArrowBlock, 
                                 openProblems,
                                 openCalendar,
-                                groupeBlocks,
-                                dashboardBlocks,
-                                newBlockId,
-                                handleDeleteGroupe,
                                 getPlantsExceptInDashboard,
                                 groupeIndex,
                                 }) {
@@ -87,7 +81,7 @@ export default function Groupe({
 
 
 
-    const currentGroupesIds = dashboardGroupes.map(e => e.id);
+    //const currentGroupesIds = dashboardGroupes.map(e => e.id);
     const [currentGroupeId, setCurrentGroupeId] = useState();
     const [isVisiblePlantChoose, setIsVisiblePlantChoose] = useState(false);
 
@@ -125,7 +119,6 @@ export default function Groupe({
         <>
         {isVisiblePlantChoose && <PlantChoose   closePlantChoose={closePlantChoose} 
                                                 groupeId={groupeId}
-                                                currentGroupeId={currentGroupeId}
                                                 getPlantsExceptInDashboard={getPlantsExceptInDashboard}
                                                 groupeIndex={groupeIndex}
                                                 
@@ -162,17 +155,21 @@ export default function Groupe({
                                    alt="добавить растение"
                                     />
                         </div>
+                        <div className='main__show_background'>
                             <Image className={"main__show"} 
                                    src={ flagGroupe ? arrowShowUp : arrowShowDown } 
                                    alt="развернуть группу" 
                                    onClick={changeArrowGroupe}/>
+                        </div>
                         
                     </div>
                     <div className="main__block_right">
-                        <Image className="main__delete" 
-                                src={deleteDashboard} 
-                                alt="удалить группу"
-                                onClick={() => deleteGroupe(groupeId)}/>
+                        <div className='main__delete_background'>
+                            <Image className="main__delete" 
+                                    src={deleteDashboard} 
+                                    alt="удалить группу"
+                                    onClick={() => deleteGroupe(groupeId)}/>
+                        </div>
                     </div>
                 </div>
                 <div className='main__block_under_sides'>
@@ -191,11 +188,12 @@ export default function Groupe({
                                 alt="добавить растение"
                         />
                     </div>
-                    <Image className={"main__show"} 
-                            src={ flagGroupe ? arrowShowUp : arrowShowDown } 
-                            alt="развернуть группу" 
-                            onClick={changeArrowGroupe}
-                    />
+                    <div className='main__show_background'>
+                        <Image className={"main__show"} 
+                                src={ flagGroupe ? arrowShowUp : arrowShowDown } 
+                                alt="развернуть группу" 
+                                onClick={changeArrowGroupe}/>
+                    </div>
 
                 </div>
                 <>

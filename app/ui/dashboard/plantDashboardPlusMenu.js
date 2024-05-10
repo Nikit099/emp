@@ -7,24 +7,22 @@ import Emotion from "@/app/scripts/emotion";
 export default function PlantDashboardPlusMenu({name, 
                                                 recomendate, 
                                                 typeId, 
-                                                plantId, 
-                                                emotion, 
-                                                closePlantChoose,
+                                                plantId,
                                                 groupeId,
-                                                currentGroupeId,
                                                 
                                                 }) {
      const typePlants = usePlantsStore((state) => state.typePlants);
      
-     const {addBlock, dashboardGroupes} = useGroupe();
-     const currentGroupesIds = dashboardGroupes.map(e => e.id)
+     const {addBlock} = useGroupe();
+
 
     return (
      <div>
         <div className="plantchoose__myplants_point-1" 
-             onClick={() => {addBlock(plantId, currentGroupeId)}}>
+             onClick={() => {addBlock(plantId, groupeId)}}>
             
              <div className="plantchoose__myplants_top"></div>
+             <div className="plantchoose__shadow"></div>
              <Image className="plantchoose__myplants_pots__plant"
                   src={potsPlant}
                   alt="plant" />

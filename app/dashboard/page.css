@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(../../public/Montserrat.ttf);
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url(../../public/Inter.ttf);
+}
+
 a:active, /* активная/посещенная ссылка */
 a:hover,  /* при наведении */
 a {
@@ -49,6 +59,10 @@ a {
     text-align: center;
     justify-content: center;
     cursor: pointer;
+}
+
+.header__home_img {
+    display: none;
 }
 
 .header__search {
@@ -125,7 +139,7 @@ a {
 }
 
 .main__title {
-    max-width: 200px;
+    max-width: 222px;
     font-family: 'Montserrat';
     font-size: 24px;
     color: #555555;
@@ -185,23 +199,49 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #498553;
+    background-color: #F8F8F8;
     border-radius: 12px;
-    min-width: 50px;
-    height: 50px;
+    min-width: 37px;
+    height: 37px;
     margin: 0 0 0 31px;
     cursor: pointer;
 }
 
-.main__plus {}
+.main__plus {
+    color:#498553;
+}
+
+.main__show_background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8F8F8;
+    border-radius: 12px;
+    width: 37px;
+    height: 37px;
+    margin: 0 0 0 27px;
+    cursor: pointer;
+}
 
 .main__show {
-    margin: 0 0 0 20px;
     cursor: pointer;
+    transition: 1s;
 }
 
 .main__block_right {
     display: flex;
+}
+
+.main__delete_background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8F8F8;
+    border-radius: 12px;
+    width: 37px;
+    height: 37px;
+    margin: 0 0 0 27px;
+    cursor: pointer;
 }
 
 .main__delete {
@@ -215,14 +255,19 @@ a {
 /*MAIN^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 .dashboard {
+    opacity: 1;
     align-self: center;
     margin: 0 0 10px 0;
-    transition: 1s;
+    position: relative; 
+    transition: opacity 1s ease; 
 }
 
 .dashboard--hidden {
-    display: none;
-    transition: 1s;
+    opacity: 0;
+    position: absolute; 
+    top: -9999px; 
+    left: -9999px;
+    transition: opacity 1s ease;
 }
 
 .dashboard__container {
@@ -237,6 +282,7 @@ a {
     display: flex; 
     align-items: center; 
     justify-content: space-between;
+    margin-right: 10px;
 }
 
 .dashboard__header_left {
@@ -285,13 +331,36 @@ a {
 
 .calendar {}
 
+.dashboard__show_background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8F8F8;
+    border-radius: 12px;
+    width: 37px;
+    height: 37px;
+    margin: 0 0 0 27px;
+    cursor: pointer;
+}
+
 .dashboard__show {
-    margin: 0 0 0 20px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.dashboard__delete_background {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8F8F8;
+    border-radius: 12px;
+    width: 37px;
+    height: 37px;
     cursor: pointer;
 }
 
 .dashboard__delete {
-    align-self: flex-end;
     cursor: pointer;
 }
 
@@ -303,13 +372,20 @@ a {
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
+    position: relative;
+    transition: opacity 1s ease; 
 }
 
 .dashboard__blocks--hidden {
-    visibility: hidden;
+    display: none;
     max-width: 1300px;
     width: 95vw;
     height: 0px;
+    opacity: 0;
+    position: absolute; 
+    top: -9999px; 
+    left: -9999px;
+    transition: opacity 1s ease;
 }
 
 .block {
@@ -435,6 +511,19 @@ a {
 
 /*ADD^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
+.plantchoose {
+}
+
+.plantchoose__blur {
+    position: absolute;
+    width: 100vw;
+    z-index: 1;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    top: 0;
+    left: 0;
+}
+
 .plantchoose__container {
     position: relative;
     display: flex;
@@ -468,6 +557,10 @@ a {
     
 }
 
+.plantchoose__under_sides {
+    display: none;
+}
+
 .plantchoose__block_left {
     display: flex;
     align-items: center;
@@ -475,8 +568,14 @@ a {
 
 .plantchoose__title {
     font-family: 'Montserrat';
-    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+
     color: #555555;
+
+
     white-space: nowrap;
     margin: 0 0 0 32px;
     border: 0px;
@@ -500,7 +599,7 @@ a {
 .plantchoose__search_input {
     max-width: 389px;
     width: 100%;
-    min-width: 200px;
+    min-width: 300px;
     height: 55px;
     border-radius: 17px;
     background: #FFFFFF;
@@ -575,6 +674,17 @@ a {
     height: 139px;
     border-radius: 16px 0px 95px 0px;
     background: #D7EADD;
+}
+
+.plantchoose__shadow {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.12);
+    filter: blur(5px);
+    border-radius: 20px;
+    top: 180px;
+    left: 55px;
+    width: 79px;
+    height: 14px;
 }
 
 .plantchoose__myplants_pots__plant {
@@ -666,7 +776,6 @@ a {
 }
 
 .side_panel__header_close {
-    transform: rotateZ(45deg);
     cursor: pointer;
 }
 
@@ -923,7 +1032,7 @@ a {
         display: none;
     }
     
-    .main__sides .main__show {
+    .main__sides .main__show_background {
         display: none;
     }
 
@@ -936,15 +1045,407 @@ a {
         margin: 0px 10px 15px 10px;
     }
 
+    .plantchoose__block {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        margin: 0 0 0 0;
+        border-radius: 0;
+        justify-content: flex-start;
+        min-width: 0px;
+    }
+
+    .plantchoose__points {
+        max-height: 90vh;
+        padding: 40px 0 0 0;
+    }
+
+    .plantchoose__sides {
+        margin: 0 0 0 0;
+    }
+
+    .plantchoose__under_sides {
+        display: flex;
+    }
+
     .plantchoose__myplants_point-1 {
-        width: 50vw;
+        width: 52vw;
     }
 
     .plantchoose__myplants_pots__dd-2 {
         display: none;
     }
 
+    .plantchoose__sides .plantchoose__search_input {
+        display: none;
+        height: 25px;
+        border-radius: 8px;
+        padding: 0 0 0 27px;
+    }
+
+    .plantchoose__sides .plantchoose__search_img {
+        display: none;
+        width: 11px;
+        height: 10px;
+        top: 7px;
+        left: 10px;
+    }
+
+    .plantchoose__search_input {
+        height: 30px;
+        width: 219px;
+        min-width: 0px;
+        border-radius: 8px;
+        padding: 0 0 0 27px;
+        margin: 0 0 0 32px;
+    }
+
+    .plantchoose__search_img {
+        width: 11px;
+        height: 10px;
+        top: 59px;
+        left: 40px;
+    }
+
+    .plantchoose__search_input::placeholder {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .plantchoose__title {
+
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 16px;
+        /* identical to box height */
+
+        color: #555555;
+    }
+
+    .plantchoose__delete {
+        width: 40px;
+    }
+
+    .plantchoose__block_left {
+        flex-wrap: wrap;
+    }
+
+    .plantchoose__myplants_pots__dl {
+        left: 0px;
+    }
+
+    .plantchoose__myplants_pots__dt {
+
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        /* identical to box height */
+
+        color: #498553;
+        margin: 0 0 0 10px;
+    }
+
+    .plantchoose__myplants_pots__dd-1 {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #888888;
+        margin: 30px 0 0 10px;
+    }
+
+    .plantchoose__myplants_top {
+        width: 136px;
+        height: 63px;
+        background: #D7EADD;
+        border-radius: 13px 13px 50px 0;
+
+    }
+
+    .plantchoose__shadow {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.12);
+        filter: blur(5px);
+        border-radius: 20px;
+        top: 41px;
+        left: 78px;
+        width: 43px;
+        height: 14px;
+    }
+
+    .plantchoose__myplants_point-1 {
+        height: 94px;
+        width: 137px;
+        margin: 10px 10px;
+    }
+
+    .plantchoose__myplants_pots__plant {
+        width: 106px;
+        height: 106px;
+        top: -50px;
+        left: 50px;
+    }
+
+    .plantchoose__myplants_pots__plant-face {
+        width: 29px;
+        height: 29px;
+        top: 10px;
+        left: 90px;
+    }
+
     .dashboard__container {
+        width: 90vw;
+    }
+
+    .block {
+        width: 85vw;
+        height: 50vw;
+    }
+
+    .block__castom-radio {
+        width: 70px;
+    }
+
+    .block__graph {
+        width: 85vw;
+        height: 40vw;
+    }
+}
+
+@media (max-width: 520px) {
+    .header__home_button {
+        display: none;
+    }
+    
+    .header__home_img {
+        display: block;
+        margin: 0 0 0 15px;
+    }
+
+    .header__search_input {
+        height: 30px;
+        border-radius: 8px;
+        padding: 0 0 0 27px;
+    }
+
+    .header__search_input::placeholder, 
+    .main__search_input::placeholder {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .header__search_img {
+        width: 11px;
+        height: 10px;
+        top: 10px;
+        left: 22px;
+    }
+
+    .main__block {
+        margin: 20px 10px 0 10px;
+        border-radius: 15px;
+    }
+
+    .main__sides {
+        margin: 15px 15px 0 15px;
+    }
+
+    .main__search {
+        margin: 0 0 0 0;
+    }
+
+    .main__search_input {
+        height: 30px;
+        border-radius: 8px;
+        padding: 0 0 0 27px;
+    }
+
+    .main__search_img {
+        width: 11px;
+        height: 10px;
+        left: 7px;
+        top: 10px;
+    }
+    
+    .main__delete {
+        width: 29px;
+        height: 29px;
+    }
+
+    .main__block_under_sides {
+        margin-top: 8px;
+    }
+
+    .main__title {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        margin: 0 0 0 6px;
+    }
+
+    .main__add {
+        min-width: auto;
+        width: 37px;
+        height: 37px;
+        border-radius: 12px;
+        margin: 0 0 0 0px;
+    }
+
+    .main__plus {
+        width: 29px;
+        height: 29px;
+    }
+
+    .main__show {
+        width: 29px;
+        height: 29px;
+    }
+
+    .dashboard__container {
+        padding: 0 0 0 0;
+        border-radius: 15px;
+    }
+
+    .dashboard__header {
+        margin: 0px 12px 0 12px;
+        padding: 10px 0 10px 0;
+    }
+
+    .dashboard__title {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        margin: 0 0 0 6px; 
+    }
+
+    .dashboard__weigh {
+        display: none;
+    }
+
+    .dashboard__button {
+        width: 61px;
+        height: 22px;
+        border-radius: 5px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .dashboard__show {
+        width: 29px;
+        height: 29px;
+    }
+
+    .dashboard__delete {
+        width: 29px;
+        height: 29px;
+    }
+
+    .block__header-left {
+        gap: 5px;
+    }
+
+    .block__title {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .block__parameter {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
+    }
+    
+    .block__castom-radio {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
+
+        width: 48px;
+        height: 18px;
+    }
+
+    .radio-1 {
+        border-bottom-left-radius: 12px;
+    }
+
+    .radio-3 {
+        border-bottom-right-radius: 12px;
+    }
+
+    .block__emotion img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .section__block {
+        border-radius: 15px;
+        height: 35px;
+    }
+
+    .section__title {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .side_panel__container {
+        width: 100vw;
+    }
+
+    .side_panel__header {
+        width: 100vw;
+    }
+
+    .messagebox {
+        margin: 45px 20px 0 20px;
+    }
+
+    .messagebox__graph_block {
+        width: 90vw;
+        height: 55vw;
+    }
+
+    .messagebox__message {
+        width: 90vw;
+    }
+
+    .messagebox__graph {
+        display: flex;
+        justify-content: center;
+    }
+
+    .messagebox__message_title {
+        width: 90vw;
+    }
+
+    .messagebox__hr {
         width: 90vw;
     }
 }

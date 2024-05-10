@@ -203,6 +203,7 @@ export const usePlantsStore = create(
         data: [
             {
                 id: 89,
+                weight: 23,
                 plantId:97856,
                 daysHum: 4,
                 dateHum: null,
@@ -231,6 +232,7 @@ export const usePlantsStore = create(
             },
             {
                 id: 78,
+                weight: 2,
                 plantId:9756 ,
                 daysHum: 4,
                 dateHum: null,
@@ -251,6 +253,7 @@ export const usePlantsStore = create(
             },
             {
                 id: 67,
+                weight: 3,
                 plantId:6345 ,
                 humidity: 44,
                 daysHum: 4,
@@ -271,6 +274,7 @@ export const usePlantsStore = create(
             },
             {
                 id: 56,
+                weight: 1,
                 plantId:13543 ,
                 humidity: 44,
                 daysHum: 4,
@@ -309,6 +313,7 @@ export const usePlantsStore = create(
             },
             {
                 id: 45,
+                weight: 1.4,
                 plantId:55353 ,
                 humidity: 44,
                 daysHum: 4,
@@ -485,21 +490,44 @@ export const useGroupe = create(
                 dashboardGroupes: 
                     state.dashboardGroupes.filter(groupe => groupe.id !== groupeId)
             })),
-            addBlock: (plantId) => set((state) => ({
+            addBlock: (plantId, groupId) => set((state) => ({
                 dashboardGroupes: state.dashboardGroupes.map(groupe => {
-                    // Проверяем, содержится ли plantId уже в plantsId данной группы
-                    if (groupe.plantsId.includes(plantId)) {
-                        // Если содержится, возвращаем группу без изменений
-                        return groupe;
+                    // Проверяем, является ли текущая группа выбранной
+                    if (groupe.id === groupId) {
+                        // Проверяем, содержится ли plantId уже в plantsId данной группы
+                        if (groupe.plantsId.includes(plantId)) {
+                            // Если содержится, возвращаем группу без изменений
+                            return groupe;
+                        } else {
+                            // Если не содержится, добавляем его в массив plantsId группы
+                            return {
+                                ...groupe,
+                                plantsId: [...groupe.plantsId, plantId]
+                            };
+                        }
                     } else {
-                        // Если не содержится, добавляем его в массив plantsId группы
-                        return {
-                            ...groupe,
-                            plantsId: [...groupe.plantsId, plantId]
-                        };
+                        // Если текущая группа не выбрана, возвращаем ее без изменений
+                        return groupe;
                     }
                 })
-            }))
+            })),
+            deleteBlock: (plantId, groupId) => set((state) => ({
+                dashboardGroupes: state.dashboardGroupes.map(groupe => {
+                    // Проверяем, является ли текущая группа выбранной
+                    if (groupe.id === groupId) {
+                        // Фильтруем массив plantsId, оставляя только те plantId, которые не равны заданному plantId
+                        const updatedPlantsId = groupe.plantsId.filter(id => id !== plantId);
+                        // Возвращаем обновленную группу с обновленным массивом plantsId
+                        return {
+                            ...groupe,
+                            plantsId: updatedPlantsId
+                        };
+                    } else {
+                        // Если текущая группа не выбрана, возвращаем ее без изменений
+                        return groupe;
+                    }
+                })
+            })), 
         }),    
 );
 export const authStore = create(

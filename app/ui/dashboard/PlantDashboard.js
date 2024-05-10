@@ -47,6 +47,11 @@ export default function PlantDashboard ({ flagGroupe,
    /*Отображение кнопки проблем ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 
+   const plantWeight = data.filter(e => e.plantId == plant.id)[0].weight;
+
+
+   /*Вес растения ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
    return (
         <>
             <section className={ flagGroupe ? "dashboard" : "dashboard--hidden"}>
@@ -55,7 +60,7 @@ export default function PlantDashboard ({ flagGroupe,
                             <div className="dashboard__header_left">
                                 <span className="dashboard__title">{plantName}</span>
                                 
-                                <span className="dashboard__weigh">23кг</span>
+                                <span className="dashboard__weigh">{`${plantWeight}кг`}</span>
                                 <div>
                                     {(
                                         currentData.humidityProblems.length ||
@@ -64,7 +69,7 @@ export default function PlantDashboard ({ flagGroupe,
                                         currentData.airHumProblems.length
                                         ) ? (
                                             <button className="dashboard__button" onClick={openProblems}>
-                                            Возникшие проблемы!
+                                            Проблемы
                                         </button>
                                     ) : null}
                                 </div>
@@ -72,16 +77,20 @@ export default function PlantDashboard ({ flagGroupe,
                                      onClick={openCalendar}>
                                      <Image className="calendar" src={calendar} alt="календарь"/>
                                     </div> */}
-                                <Image className="dashboard__show" 
-                                        src={ flagBlock ? arrowShowUp : arrowShowDown} 
-                                        alt="свернуть дашборд" 
-                                        onClick={changeArrowBlock}/>
+                                <div className='dashboard__show_background'>
+                                    <Image className="dashboard__show" 
+                                            src={ flagBlock ? arrowShowUp : arrowShowDown} 
+                                            alt="свернуть дашборд" 
+                                            onClick={changeArrowBlock}/>
+                                </div>
                             </div>
                             <div className="dashboard__header_right">
-                                <Image className="dashboard__delete" 
-                                        src={deleteDashboard} 
-                                        alt="удалить дашборд"
-                                        onClick={() => {deleteBlock(plantId, groupeId)}}/>
+                                <div className='dashboard__delete_background'>
+                                    <Image className="dashboard__delete" 
+                                            src={deleteDashboard} 
+                                            alt="удалить дашборд"
+                                            onClick={() => {deleteBlock(plantId, groupeId)}}/>
+                                </div>
                             </div>
                         </div>
                     <div className={flagBlock ? "dashboard__blocks" : "dashboard__blocks--hidden"}>
