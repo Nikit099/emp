@@ -230,6 +230,7 @@ a {
 
 .main__block_right {
     display: flex;
+    align-items: center;
 }
 
 .main__delete_background {
