@@ -12,6 +12,7 @@ import Calendar from '../ui/dashboard/calendar';
 import Groupe from '../ui/dashboard/groupe';
 
 import './page.css';
+import './page.scss';
 import Image from 'next/image';
 import Link from "next/link";
 
@@ -103,10 +104,12 @@ export default function Dashboard() {
     <header>
         <div className="header__container">
             <div className="header__back">
-                <Image className="header__back_arrow" 
-                        src={arrowBack} 
-                        alt="назад"
-                        onClick={goBack}/>   
+                <div className='header__back_arrow_block'>
+                    <Image className="header__back_arrow" 
+                            src={arrowBack} 
+                            alt="назад"
+                            onClick={goBack}/>   
+                </div>
                 <Link className=""
                       href='/'>
                         <div className="header__home_button">Главная</div>

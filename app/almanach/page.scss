@@ -1,0 +1,217 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(../../public/Montserrat.ttf);
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url(../../public/Inter.ttf);
+}
+
+$textColor: #555555;
+$transition: 1s;
+
+@mixin grayCircle {
+    position: absolute;
+    width: 81px;
+    height: 81px;
+    background: rgba(247, 247, 247, 0.48);
+    backdrop-filter: blur(6.5px);
+    border-radius: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+@mixin lowTextFormat {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    text-align: right;
+    color: $textColor;
+}
+
+.wrapper {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    color: #F8F8F8;
+    display: flex;
+}
+
+.left {
+    position: relative;
+    width: 728px;
+    &-block {
+        position: absolute;
+        z-index: -2;
+        width: 683px;
+        height: 100vh;
+        left: 45px;
+        top: 0px;
+        background: linear-gradient(163.17deg, #A9B2B6 3.45%, #9FA9AD 96.02%);
+    }
+    &-plant {
+        position: absolute;
+        z-index: 1;
+        top: 31px;
+    }
+    &-grid {
+        @include grayCircle();
+        top: 20px;
+        left: 54px;
+        z-index: 2;
+        transition: $transition;
+        &:hover {
+            img {
+                filter: invert(16%) 
+                        sepia(22%) 
+                        saturate(5326%) 
+                        hue-rotate(224deg) 
+                        brightness(89%) 
+                        contrast(141%);
+                transition: $transition;
+            }
+        }
+    }
+    &-grid:hover {
+        background-color: #02006C17;
+    }
+    &-grid:active {
+        background-color: #02006C;
+    }
+    &-parameters {
+        position: absolute;
+        width: 535px;
+        height: 121px;
+        left: 119px;
+        top: 870px;
+        background: rgba(207, 207, 207, 0.45);
+        backdrop-filter: blur(37px);
+        border-radius: 34px;
+        z-index: 2;
+        div {
+            @include grayCircle();
+            top: 20px;
+            z-index: 2;
+        }
+    }
+    &-humidity {
+        left: 34px;
+        transition: $transition;
+        &:hover {
+            img {
+                filter: invert(31%) 
+                        sepia(11%) 
+                        saturate(3675%) 
+                        hue-rotate(136deg) 
+                        brightness(95%) 
+                        contrast(96%);
+                transition: $transition;
+            }
+        }
+        
+    }
+    &-humidity:hover {
+        background-color: #05646b17;
+    }
+    &-humidity:active {
+        background-color: #05646b;
+    }
+    &-temperature {
+        left: 163px;
+        transition:$transition;
+        &:hover {
+            img {
+                filter: invert(11%) 
+                        sepia(58%) 
+                        saturate(5277%) 
+                        hue-rotate(353deg) 
+                        brightness(92%) 
+                        contrast(107%);
+                transition: $transition;
+            }
+        }
+    }
+    &-temperature:hover {
+        background-color: #8d090917;
+    }
+    &-temperature:active {
+        background-color: #8d0909;
+    }
+    &-water {
+        left: 292px;
+        transition: $transition;
+        &:hover {
+            img {
+                filter: invert(16%) 
+                        sepia(22%) 
+                        saturate(5326%) 
+                        hue-rotate(224deg) 
+                        brightness(89%) 
+                        contrast(141%);
+                transition: $transition;
+            }
+        }
+    }
+    &-water:hover {
+        background-color: #02006C17;
+    }
+    &-water:active {
+        background-color: #02006C;
+    }
+    &-sunshine {
+        left: 421px;
+        transition: $transition;
+        &:hover {
+            img {
+                filter: invert(57%) 
+                        sepia(16%) 
+                        saturate(6836%) 
+                        hue-rotate(32deg) 
+                        brightness(102%) 
+                        contrast(101%);
+                transition: $transition;
+            }
+        }
+    }
+    &-sunshine:hover {
+        background-color: #A6A60017;
+    }
+    &-sunshine:active {
+        background-color: #a6a600;
+    }
+}
+
+.right {
+    width: 669px;
+    margin: 0 0 0 18px;
+    &-name {
+        @include lowTextFormat();
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 44px;
+        margin: 40px 0 0 0;
+    }
+    &-parameter {
+        @include lowTextFormat();
+        margin: 17px 0 0 0;
+    }
+    &-desc {
+        @include lowTextFormat();
+        margin: 25px 0 0 0;
+    }
+    &-block {
+        display: flex;
+        justify-content: space-between;
+        margin: 42px 0 104px 0;
+        img {
+            border-radius: 15px;
+        }
+    }
+}

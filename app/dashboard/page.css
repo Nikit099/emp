@@ -40,9 +40,19 @@ a {
     align-items: center;
 }
 
+.header__back_arrow_block {
+    transition: all 2s;
+}
+
 .header__back_arrow {
+    position: relative;
     margin: 0 0 0 80px;
     cursor: pointer;
+    transition: transform 2s;
+}
+
+.header__back_arrow:hover {
+    transform: translateX(-10px);
 }
 
 .header__home_button {
@@ -59,6 +69,15 @@ a {
     text-align: center;
     justify-content: center;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.header__home_button:hover {
+    background-color: #569A62;
+}
+
+.header__home_button:active {
+    filter: hue-rotate(180deg);
 }
 
 .header__home_img {
@@ -205,6 +224,15 @@ a {
     height: 37px;
     margin: 0 0 0 31px;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.main__add:hover {
+    background-color: #D7EADD;
+}
+
+.main__add:active {
+    filter: hue-rotate(180deg);
 }
 
 .main__plus {
@@ -221,6 +249,15 @@ a {
     height: 37px;
     margin: 0 0 0 27px;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.main__show_background:hover {
+    background-color: #D7EADD;
+}
+
+.main__show_background:active {
+    filter: hue-rotate(180deg);
 }
 
 .main__show {
@@ -243,6 +280,15 @@ a {
     height: 37px;
     margin: 0 0 0 27px;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.main__delete_background:hover {
+    background-color: #D7EADD;
+}
+
+.main__delete_background:active {
+    filter: hue-rotate(180deg);
 }
 
 .main__delete {
@@ -316,6 +362,15 @@ a {
     border: 0;
     margin: 0px 0px 0px 30px;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.dashboard__button:hover {
+    background-color: #569A62
+}
+
+.dashboard__button:active {
+    filter: hue-rotate(180deg); 
 }
 
 .dashboard__calendar {
@@ -342,6 +397,16 @@ a {
     height: 37px;
     margin: 0 0 0 27px;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.dashboard__show_background:hover {
+    background-color: #E6F1EB;
+    
+}
+
+.dashboard__show_background:active {
+    filter: hue-rotate(180deg); 
 }
 
 .dashboard__show {
@@ -359,6 +424,15 @@ a {
     width: 37px;
     height: 37px;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.dashboard__delete_background:hover {
+    background-color: #E6F1EB;
+}
+
+.dashboard__delete_background:active {
+    filter: hue-rotate(180deg); 
 }
 
 .dashboard__delete {
@@ -500,6 +574,15 @@ a {
     border-radius: 21px;
     background-color: #E6F1EB;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.section__block:hover {
+    background-color: #D7EADD;
+}
+
+.section__block:active {
+    filter: hue-rotate(180deg);
 }
 
 .section__title {
@@ -667,6 +750,15 @@ a {
     border-radius: 20px;
     background: #E9F3ED; 
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.plantchoose__myplants_point-1:hover {
+    filter: hue-rotate(45deg);
+}
+
+.plantchoose__myplants_point-1:active {
+    filter: hue-rotate(180deg);
 }
 
 .plantchoose__myplants_top {
