@@ -1,0 +1,91 @@
+
+.main {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &__block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 37px 10px 0 10px;
+        border-radius: 21px;
+        background-color: $mainBlockColor;
+    }
+    &__sides {
+        display: flex;
+        justify-content: space-between;
+        margin: 15px 10px 15px 10px; 
+    }
+    &__block_left {
+        display: flex;
+        align-items: center;
+    }
+    &__title {
+        max-width: 222px;
+        font-family: 'Montserrat';
+        font-size: 24px;
+        color: $mainText;
+        white-space: nowrap;
+        margin: 0 0 0 32px;
+        background-color:$mainBlockColor;
+        border: 0px;
+        &::placeholder {
+            color: $placeholderText
+        }
+        &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+    &__search {
+        @include search();
+        margin: 0 0 0 32px;
+    }
+    &__search_input {
+        @include searchInput();
+        max-width: 389px;
+        min-width: 200px;
+        &::placeholder {
+            @include searchPlaceholder();
+        }
+    }
+    &__search_img {
+        position: absolute;
+        top: 19px;
+        left: 20px;
+    }
+    &__add {
+        @include mainBtnBackground();
+        margin: 0 0 0 31px;
+    }
+    &__plus {
+        color: $bigButton;
+    }
+    &__show_background {
+        @include mainBtnBackground();
+        margin: 0 0 0 27px;
+
+    }
+    &__show {
+        cursor: pointer;
+        transition: $buttonTransition;
+    }
+    &__block_right {
+        display: flex;
+        align-items: center;
+    }
+    &__delete_background {
+        @include mainBtnBackground();
+        width: 37px;
+        margin: 0 0 0 27px;
+    }
+    &__delete {
+        cursor: pointer;
+    }
+    &__block_under_sides {
+        display: none;
+    }
+
+}

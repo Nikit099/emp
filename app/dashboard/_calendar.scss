@@ -1,0 +1,101 @@
+.calendar {
+    &__container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        z-index: 1;
+    }
+    &__block {
+        position: fixed;
+        top: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 37px 10px 0 10px;
+        max-width: 1350px;
+        width: 100%;
+        min-width: 613px;
+        height: auto;
+        border-radius: 21px;
+        background-color: $backgroundColor;
+    }
+    &__sides {
+        display: flex;
+        justify-content: space-between;
+    
+        margin: 15px 10px 15px 10px;
+    }
+    &__block_left {
+        display: flex;
+        align-items: center;
+    }
+    &__title {
+        font-family: $mainFont;
+        font-size: 24px;
+        color: $mainText;
+        white-space: nowrap;
+        margin: 0 0 0 32px;
+        border: 0px;
+        &::placeholder {
+            color:$placeholderText;
+        }
+        &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+    
+    &__buttons_block {
+        position: relative;
+        display: flex;
+        margin: 0 0 0 32px;
+    }
+    &__block__radio {
+        display: flex;
+        gap: 20px;
+    }
+    &__block__radio input {
+        z-index: 2;
+        display: none;
+    }
+    &__block__castom-radio {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        cursor: pointer;
+        width: 105px;
+        height: 50px;
+        border-radius: 11px;
+        
+        background-color: $hoverBigButton;
+        
+        font-family: $secondFont;
+        font-size: 16px;
+        
+        color: $backgroundColor;
+    }
+    &__block__radio input:checked + &__block__castom-radio {
+        display: flex;
+        background-color: $bigButton;
+    }
+    &__button_ical {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $bigButton;
+        color: $backgroundColor;
+        border-radius: 12px;
+        min-width: 50px;
+        height: 50px;
+        margin: 0 0 0 31px;
+        padding: 0 10px;
+        cursor: pointer;
+    }
+    &__block_right {
+        display: flex;
+    }
+    &__delete {
+        cursor: pointer;
+    } 
+}

@@ -1,0 +1,200 @@
+
+.plantchoose {
+    &__blur {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        backdrop-filter: blur(5px);
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    
+    &__container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        filter: none !important;
+    }
+    
+    &__block {
+        z-index: 1;
+        position: fixed;
+        top: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0px 60px;
+        max-width: 1350px;
+        width: 90%;
+        min-width: 510px;
+        height: auto;
+        border-radius: 21px;
+        background-color: $white;
+        box-shadow: 0px 4px 14.1px rgba(0, 0, 0, 0.25);
+    
+    }
+    
+    &__sides {
+        display: flex;
+        justify-content: space-between;
+        margin: 15px 10px 15px 10px;
+    }
+    
+    &__under_sides {
+        display: none;
+    }
+    
+    &__block_left {
+        display: flex;
+        align-items: center;
+    }
+    
+    &__title {
+        font-family: $mainFont;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        color: $mainText;
+        white-space: nowrap;
+        margin: 0 0 0 32px;
+        border: 0px;
+        &::placeholder {
+            color:$placeholderText;
+        }
+        
+        &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+
+    &__search {
+        @include search();
+        margin: 0 0 0 32px;
+    }
+    
+    &__search_input {
+        @include searchInput();
+        max-width: 389px;
+        min-width: 300px;
+        &::placeholder {
+            @include searchPlaceholder();    
+        }
+    }
+    &__search_img {
+        position: absolute;
+        top: 19px;
+        left: 20px;
+    }
+    
+    &__block_right {
+        display: flex;
+    }
+    
+    &__delete {
+        cursor: pointer;
+        &:active {
+            filter: hue-rotate(180deg);
+        }
+    }
+    
+    /*PLANT CHOOSE^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+    
+    &__pots {
+    
+    }
+    
+    &__points {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-height: 60vh;
+        overflow: auto;
+    }
+    
+    &__myplants_points {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 14px;
+        
+    }
+    
+    &__myplants_point-1 {
+        position: relative;
+        width: 412px;
+        height: 228px;
+        margin: 20px 20px;
+        border-radius: 20px;
+        background: #E9F3ED; 
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+            filter: hue-rotate(45deg);
+        }
+        
+        &:active {
+            filter: hue-rotate(180deg);
+        }
+    }
+    
+    &__myplants_top {
+        position: absolute;
+        width: 195px;
+        height: 139px;
+        border-radius: 16px 0px 95px 0px;
+        background: $btnHoverBackground;
+    }
+    
+    &__shadow {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.12);
+        filter: blur(5px);
+        border-radius: 20px;
+        top: 180px;
+        left: 55px;
+        width: 79px;
+        height: 14px;
+    }
+    
+    &__myplants_pots__plant {
+        position: absolute;
+        z-index: 1;
+        top: 8px;
+        left: -6px;
+    }
+    
+    &__myplants_pots__plant-face{
+        position: absolute;
+        z-index: 2;
+        top: 128px;
+        left: 74px;
+    }
+    
+    &__myplants_pots__dl {
+        position: absolute;
+        top:22px;
+        left:212px;
+        margin: 0px;
+    }
+    
+    &__myplants_pots__dt {
+        @include ddText;
+        color: $bigButton;
+        font-family: $mainFont;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 7px;
+    }
+    
+    &__myplants_pots__dd-1 {
+        @include ddText;
+    }
+    
+    &__myplants_pots__dd-2 {
+        @include ddText;
+    }
+}

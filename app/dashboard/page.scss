@@ -1,12 +1,18 @@
-@font-face {
-    font-family: "Montserrat";
-    src: url(../../public/Montserrat.ttf);
-}
+@import '../vars';
+@import '../mixins';
+@import '../fonts';
 
-@font-face {
-    font-family: "Inter";
-    src: url(../../public/Inter.ttf);
-}
+
+@import './header';
+@import './main';
+@import './dashboard';
+@import './section';
+@import './plantchoose';
+@import './sidePanel';
+@import './calendar';
+
+
+
 
 a:active, /* активная/посещенная ссылка */
 a:hover,  /* при наведении */
@@ -14,14 +20,11 @@ a {
   text-decoration: none;
 }
 
-$backgroundColor: #F8F8f8;
-$arrowTransition: 2s;
-
 @mixin bodyStyle {
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
-    color: #F8F8F8;
+    color: $backgroundColor;
 }
 
 .body {
@@ -34,41 +37,3 @@ $arrowTransition: 2s;
     }
 }
 
-.header {
-    &__container {
-        display: flex;
-        margin: 23px auto 0px auto;
-    }
-    &__back {
-        display: flex;
-        align-items: center;
-    }
-    &__back_arrow {
-        &_block {
-            transition: all $arrowTransition;
-        }
-        position: relative;
-        margin: 0 0 0 80px;
-        cursor: pointer;
-        transition: transform $arrowTransition;
-        &:hover {
-            transform: translateX(-10px);
-        }
-    }
-    &__home_button {
-        display: flex;
-        font-family: 'Inter';
-        color: #FCFDFC;
-        width: 119px;
-        height: 39px;
-        border-radius: 15px;
-        background-color: #498553;
-        border: 0;
-        margin: 0px 0px 0px 30px;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: 0.5s;
-    }
-}

@@ -1,40 +1,9 @@
-@font-face {
-    font-family: "Montserrat";
-    src: url(../../public/Montserrat.ttf);
-}
+@import '../vars';
+@import '../mixins';
+@import '../fonts';
 
-@font-face {
-    font-family: "Inter";
-    src: url(../../public/Inter.ttf);
-}
+@import './almanachChoose';
 
-$textColor: #555555;
-$transition: 1s;
-
-@mixin grayCircle {
-    position: absolute;
-    width: 81px;
-    height: 81px;
-    background: rgba(247, 247, 247, 0.48);
-    backdrop-filter: blur(6.5px);
-    border-radius: 100px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    cursor: pointer;
-}
-
-@mixin lowTextFormat {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 34px;
-    text-align: right;
-    color: $textColor;
-}
 
 .wrapper {
     max-width: 1440px;
@@ -68,6 +37,7 @@ $transition: 1s;
         z-index: 2;
         transition: $transition;
         &:hover {
+            background-color: #02006C17;
             img {
                 filter: invert(16%) 
                         sepia(22%) 
@@ -78,12 +48,9 @@ $transition: 1s;
                 transition: $transition;
             }
         }
-    }
-    &-grid:hover {
-        background-color: #02006C17;
-    }
-    &-grid:active {
-        background-color: #02006C;
+        &:active {
+            background-color: #02006C;
+        }
     }
     &-parameters {
         position: absolute;
@@ -105,6 +72,7 @@ $transition: 1s;
         left: 34px;
         transition: $transition;
         &:hover {
+            background-color: #05646b17;
             img {
                 filter: invert(31%) 
                         sepia(11%) 
@@ -115,18 +83,17 @@ $transition: 1s;
                 transition: $transition;
             }
         }
+        &:active {
+            background-color: #05646b;
+        }
+
         
-    }
-    &-humidity:hover {
-        background-color: #05646b17;
-    }
-    &-humidity:active {
-        background-color: #05646b;
     }
     &-temperature {
         left: 163px;
         transition:$transition;
         &:hover {
+            background-color: #8d090917;
             img {
                 filter: invert(11%) 
                         sepia(58%) 
@@ -137,17 +104,16 @@ $transition: 1s;
                 transition: $transition;
             }
         }
+        &:active {
+            background-color: #8d0909;
+        }
     }
-    &-temperature:hover {
-        background-color: #8d090917;
-    }
-    &-temperature:active {
-        background-color: #8d0909;
-    }
+    
     &-water {
         left: 292px;
         transition: $transition;
         &:hover {
+            background-color: #02006C17;
             img {
                 filter: invert(16%) 
                         sepia(22%) 
@@ -158,17 +124,16 @@ $transition: 1s;
                 transition: $transition;
             }
         }
+        &:active {
+            background-color: #02006C;
+        }
     }
-    &-water:hover {
-        background-color: #02006C17;
-    }
-    &-water:active {
-        background-color: #02006C;
-    }
+    
     &-sunshine {
         left: 421px;
         transition: $transition;
         &:hover {
+            background-color: #A6A60017;
             img {
                 filter: invert(57%) 
                         sepia(16%) 
@@ -179,13 +144,11 @@ $transition: 1s;
                 transition: $transition;
             }
         }
+        &:active {
+            background-color: #a6a600;
+        }
     }
-    &-sunshine:hover {
-        background-color: #A6A60017;
-    }
-    &-sunshine:active {
-        background-color: #a6a600;
-    }
+    
 }
 
 .right {
@@ -201,10 +164,13 @@ $transition: 1s;
     &-parameter {
         @include lowTextFormat();
         margin: 17px 0 0 0;
+        font-family: $secondFont;
+
     }
     &-desc {
         @include lowTextFormat();
         margin: 25px 0 0 0;
+        font-family: $secondFont;
     }
     &-block {
         display: flex;

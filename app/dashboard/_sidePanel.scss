@@ -1,0 +1,106 @@
+
+
+.side_panel {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1; 
+    &__container {
+        position: fixed;
+        box-sizing: border-box;
+        background-color: $backgroundColor;
+        width: 443px;
+        height: 100vh;
+        top: 0px;
+        right: 0px;
+    }
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 58px;
+        width: 444px;
+        background-color: $hoverBigButton;
+        color:$backgroundColor;
+        font-family: $secondFont;
+        font-size: 24px;
+    }
+    &__header_right {
+        margin: 0 10px 0 0 ;
+    }
+    &__header_close {
+        cursor: pointer;
+    }
+    &__title {
+        margin: 0 0 0 17px;
+    }
+}
+
+.messagebox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 45px 0 0 15px;
+    &_wrapper {
+        overflow: auto;
+        height: 100%;
+    }
+    &__plant_name {
+        max-width: 200px;
+        font-family: $mainFont;
+        font-size: 24px;
+        color: $mainText;
+        white-space: nowrap;
+        margin: 0 0 10px 0px;
+        border: 0px;
+    }
+    &__graph_block {
+        width: 396px;
+        height: 228px;
+        background: $backgroundColor;
+        box-shadow: 0px 1px 9.4px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+    }
+    &__graph_title {
+        font-family: $secondFont;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: $mainText;
+        margin: 10px 0 0 10px;
+    }
+    &__message_block {
+        font-family: $secondFont;
+        font-size: 14px;
+        color: $mainText;
+        margin: 25px 0 0 0;
+    }
+    &__message {    
+        width: 348px;
+        height: 92px;
+        background: $backgroundColor;
+        box-shadow: 0px 1px 9.4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+    }
+    &__message_title {
+        width: 348px;
+        height: 27px;
+        background: $mainBlockColor;
+        border-radius: 10px 10px 0px 0px;
+        padding: 10px 10px 0 10px;
+    }
+    &__message_description {
+        padding: 10px 0 0 10px;
+    }
+    &__hr {
+        width: 400px;
+        height: 6px;
+        background: $btnHoverBackground;
+        border-radius: 10px;
+        margin: 50px 0 0 0;
+    }
+}

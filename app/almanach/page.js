@@ -8,6 +8,7 @@ import temperature from '@/public/almanach/temperature.svg';
 import sunshine from '@/public/almanach/sunshine.svg';
 import water from '@/public/almanach/water.svg';
 
+import AlmanachChoose from '../ui/almanach/almanachChoose';
 import './page.scss';
 
 export default function Almanach ({}) {
@@ -15,6 +16,7 @@ export default function Almanach ({}) {
     
     return (
     <>
+        <AlmanachChoose/>
         <div className='wrapper'>
             <aside className='left'>
                 <div className='left-block'></div>

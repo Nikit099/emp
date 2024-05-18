@@ -1,0 +1,55 @@
+
+.header {
+    &__container {
+        display: flex;
+        margin: 23px auto 0px auto;
+    }
+    &__back {
+        display: flex;
+        align-items: center;
+    }
+    &__back_arrow {
+        &_block {
+            transition: all $arrowTransition;
+        }
+        position: relative;
+        margin: 0 0 0 80px;
+        cursor: pointer;
+        transition: transform $arrowTransition;
+        &:hover {
+            transform: translateX(-10px);
+        }
+    }
+    &__home_button {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+
+        @include bigButton();
+        width: 119px;
+        height: 39px;
+    }
+    &__home_img {
+        display: none;
+    }
+    &__search {
+        @include search();
+        width: 100%;
+    }
+    &__search_input {
+        @include searchInput();
+        max-width: 568px;
+        min-width: 200px;
+        margin: 0 15px 0 177px;
+        &::placeholder {
+            @include searchPlaceholder();
+        }       
+    }
+    &__search_img {
+        position: absolute;
+        top: 19px;
+        left: 195px;  
+    }
+
+}

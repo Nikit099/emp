@@ -1,0 +1,75 @@
+.almanach-choose {
+    position: relative;
+    &__container {
+        position: absolute;
+        width: 325px;
+        height: 100vh;
+        background-color: $backgroundColor;
+        display: fixed;
+        z-index: 3;
+    }
+    &__search {
+        @include search();
+        width: 100%;
+    }
+    &__search_input {
+        @include searchInput();
+        max-width: 300px;
+        min-width: 200px;
+        margin: 10px 10px 0 10px;
+        &::placeholder {
+            @include searchPlaceholder();
+        }       
+    }
+    &__search_img {
+        position: absolute;
+        top: 29px;
+        left: 29px;  
+    }
+}
+
+.plants{
+    &__plant {
+        margin: 44px 0 0 26px;
+    }
+    &__block {
+        position: relative;
+        background: $mainBlockColor;
+        border-radius: 10px;
+        width: 270px;
+        height: 206px;
+    }
+    &__top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 270px;
+        height: 125px;
+        background: $btnHoverBackground;
+        border-radius: 13px 10px 45px 0px;
+    }
+    &__img {
+        position: absolute;
+        top: -44px;
+        left: 109px;
+    }
+    &__title {
+        position: absolute;
+        top: 42px;
+        left: 12px;
+        font-family: $mainFont;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        color: $bigButton;
+    }
+    &__desc {
+        position: absolute;
+        top: 141px;
+        left: 12px;
+        @include ddText();
+        font-size: 16px;
+        line-height: 19px;
+    }
+}
