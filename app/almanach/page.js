@@ -8,13 +8,16 @@ import temperature from '@/public/almanach/temperature.svg';
 import sunshine from '@/public/almanach/sunshine.svg';
 import water from '@/public/almanach/water.svg';
 
+import AlmanachChoose from '../ui/almanach/almanachChoose';
 import './page.scss';
+import RealHeader from '../ui/main/realHeader';
 
 export default function Almanach ({}) {
     
     
     return (
     <>
+    <RealHeader/>
         <div className='wrapper'>
             <aside className='left'>
                 <div className='left-block'></div>
@@ -38,6 +41,51 @@ export default function Almanach ({}) {
                 </div>
             </aside>
             <aside className='right'>
+                <div className='right-name'>Драцена</div>
+                <div className='right-parameter'>Температура</div>
+                <div className='right-desc'>Название топика будут слать, думаю можно сделать в твоей же интеграции, может даже доработки не будет, если у нас не записаны в коде какие топики могут слать
+в целом да, можно в той же спеке описать, только в комментах оставить пометку, что запись/чтение из топиков "новые_топики" в рамках </div>
+                <div className='right-block'>
+                    <div className='right-block-img'>
+                        <Image src={blockPlant}></Image>
+                    </div>
+                    <div className='right-block-img'>
+                        <Image src={blockPlant}></Image>
+                    </div>
+                    <div className='right-block-img'>
+                        <Image src={blockPlant}></Image>
+                    </div>
+                </div>
+                <div className='right-name'>Драцена</div>
+                <div className='right-parameter'>Температура</div>
+                <div className='right-desc'>Название топика будут слать, думаю можно сделать в твоей же интеграции, может даже доработки не будет, если у нас не записаны в коде какие топики могут слать
+в целом да, можно в той же спеке описать, только в комментах оставить пометку, что запись/чтение из топиков "новые_топики" в рамках </div>
+                <div className='right-block'>
+                    <div className='right-block-img'>
+                        <Image src={blockPlant}></Image>
+                    </div>
+                    <div className='right-block-img'>
+                        <Image src={blockPlant}></Image>
+                    </div>
+                    <div className='right-block-img'>
+                        <Image src={blockPlant}></Image>
+                    </div>
+                </div>
+                <div className='right-name'>Драцена</div>
+                <div className='right-parameter'>Температура</div>
+                <div className='right-desc'>Название топика будут слать, думаю можно сделать в твоей же интеграции, может даже доработки не будет, если у нас не записаны в коде какие топики могут слать
+в целом да, можно в той же спеке описать, только в комментах оставить пометку, что запись/чтение из топиков "новые_топики" в рамках </div>
+                <div className='right-block'>
+                    <div className='right-block-img'>
+                        <Image src={blockPlant}></Image>
+                    </div>
+                    <div className='right-block-img'>
+                        <Image src={blockPlant}></Image>
+                    </div>
+                    <div className='right-block-img'>
+                        <Image src={blockPlant}></Image>
+                    </div>
+                </div>
                 <div className='right-name'>Драцена</div>
                 <div className='right-parameter'>Температура</div>
                 <div className='right-desc'>Название топика будут слать, думаю можно сделать в твоей же интеграции, может даже доработки не будет, если у нас не записаны в коде какие топики могут слать

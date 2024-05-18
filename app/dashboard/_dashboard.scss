@@ -1,0 +1,185 @@
+.dashboard{
+    opacity: 1;
+    align-self: center;
+    margin: 0 0 10px 0;
+    position: relative; 
+    transition: opacity 1s ease; 
+    &--hidden {
+        opacity: 0;
+        position: absolute; 
+        top: -9999px; 
+        left: -9999px;
+        transition: opacity 1s ease;
+    }
+    &__container {
+        max-width: 1300px;
+        width: 95vw;
+        background-color: $btnHoverBackground;
+        border-radius: 17px;
+        padding: 13px 0 13px 0;  
+    }
+    &__header {
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between;
+        margin-right: 10px;
+    }
+    &__header_left {
+        display: flex;
+        align-items: center;
+    }
+    &__title {
+        font-family: $mainFont;
+        font-size: 24px;
+        color: $mainText;
+        white-space: nowrap;
+        margin: 0 0 0 32px;
+    }
+    &__weigh {
+        font-family: $mainFont;
+        cursor: pointer;
+        margin: 0 0 0 10px;
+        color: $mainText;
+    }
+    &__button {
+        @include bigButton();
+        width: 166px;
+        height: 39px;
+    }
+    // &__calendar {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     background-color: #498553;
+    //     border-radius: 12px;
+    //     min-width: 50px;
+    //     height: 50px;
+    //     margin: 0 0 0 32px;
+    //     cursor: pointer;
+    // }
+    &__show_background {
+        @include mainBtnBackground();
+        width: 37px;
+        margin: 0 0 0 27px;
+        &:hover {
+            background-color: $mainBlockColor;
+        }
+    }
+    &__show {
+        cursor: pointer;
+        transition: $buttonTransition;
+    }
+    &__delete_background {
+        @include mainBtnBackground();
+        width: 37px;
+        &:hover {
+            background-color: $mainBlockColor;
+        }
+    }
+    &__delete {
+        cursor: pointer;
+    }
+    &__blocks {
+        margin: 17px 0 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: center;
+        position: relative;
+        transition: opacity 1s ease; 
+        &--hidden {
+            display: none;
+            max-width: 1300px;
+            width: 95vw;
+            height: 0px;
+            opacity: 0;
+            position: absolute; 
+            top: -9999px; 
+            left: -9999px;
+            transition: opacity 1s ease;
+        }
+    }
+    
+}
+
+.block {
+    background-color: $white;
+    border-radius: 8px;
+    width: 583px;
+    height: auto;
+    box-shadow: 0px 4px 10.1px rgba(0, 0, 0, 0.2);
+    &__header  {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &__header-left {
+        display: flex;
+        gap: 20px;  
+    }
+    &__title {
+        font-family: $secondFont;
+        color: $mainText;
+        align-self: center;
+        margin: 0 0 0 14px;
+    }
+    &__parameter {
+        font-family: $mainFont;
+        color: $bigButton;
+        align-self: center;
+    }
+    &__emotion {
+        align-self: center;
+    }
+    &__header-right{
+        padding: 0 15px 0 0;
+    }
+    &__radio {
+        display: flex;
+    }
+    &__radio input {
+        z-index: 2;
+        display: none;
+    }
+    .radio-1 {
+        border-bottom-left-radius: 20px;
+    }
+    .radio-2 {
+        
+    }
+    .radio-3 {
+        border-bottom-right-radius: 20px;
+    }
+    &__castom-radio {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        cursor: pointer;
+        width: 105px;
+        height: 35px;
+        
+        background-color: $mainBlockColor;
+        
+        font-family: $secondFont;
+        font-size: 16px;
+        
+        color: $mainText;
+        transition: $buttonTransition;
+        &:hover {
+            background-color: #f1f8f4;
+        }
+    }
+    &__radio input:checked + .block__castom-radio {
+        display: flex;
+        background-color: $btnHoverBackground;
+        transition: $buttonTransition;
+    }
+    &__graph {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        margin: 15px 10px;
+    }
+}
