@@ -5,6 +5,7 @@ export default function RealHeader ({}) {
     
     return (
     <>
+    <div className='real-header__wrapper'>
         <header className='real-header'>
             <nav className='real-header__nav'>
                 <ul>
@@ -25,7 +26,9 @@ export default function RealHeader ({}) {
                     </li>
                 </ul>
             </nav>
+            <hr></hr>
         </header>
+    </div>
     </>
     );
 }

@@ -6,16 +6,21 @@
 
 
 .wrapper {
+    display: flex;
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
-    color: #F8F8F8;
-    display: flex;
+    color: $backgroundColor;
+    padding: 120px 0 0 0;
 }
 
 .left {
-    position: relative;
+    position: fixed;
     width: 728px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: end;
     &-block {
         position: absolute;
         z-index: -2;
@@ -29,6 +34,7 @@
         position: absolute;
         z-index: 1;
         top: 31px;
+        left: 0px;
     }
     &-grid {
         @include grayCircle();
@@ -53,15 +59,14 @@
         }
     }
     &-parameters {
-        position: absolute;
         width: 535px;
         height: 121px;
-        left: 119px;
-        top: 870px;
+        margin: 0 0 140px 40px;
         background: rgba(207, 207, 207, 0.45);
         backdrop-filter: blur(37px);
         border-radius: 34px;
         z-index: 2;
+        
         div {
             @include grayCircle();
             top: 20px;
@@ -152,8 +157,10 @@
 }
 
 .right {
+    overflow: auto;
     width: 669px;
-    margin: 0 0 0 18px;
+    height: 100dvh;
+    margin: 0 0 0 800px;
     &-name {
         @include lowTextFormat();
         font-weight: 500;
