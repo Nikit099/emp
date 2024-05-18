@@ -163,7 +163,6 @@
 .right {
     position: sticky;
     width: 669px;
-    height: 100dvh;
     margin: 0 0 0 800px;
     &-name {
         @include lowTextFormat();
