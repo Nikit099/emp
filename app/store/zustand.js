@@ -520,7 +520,7 @@ export const useGroupe = create(
                         // Возвращаем обновленную группу с обновленным массивом plantsId
                         return {
                             ...groupe,
-                            plantsId: updatedPlantsId
+                            plantSsId: updatedPlantsId
                         };
                     } else {
                         // Если текущая группа не выбрана, возвращаем ее без изменений
