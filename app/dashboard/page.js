@@ -11,7 +11,6 @@ import Problems from '../ui/dashboard/problems';
 import Calendar from '../ui/dashboard/calendar';
 import Groupe from '../ui/dashboard/groupe';
 
-import './page.css';
 import './page.scss';
 import Image from 'next/image';
 import Link from "next/link";

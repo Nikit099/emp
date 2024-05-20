@@ -181,13 +181,18 @@
         @include lowTextFormat();
         margin: 25px 0 0 0;
         font-family: $secondFont;
+        font-size: 2vw;
+        line-height: 2vw;
     }
     &-block {
         display: flex;
         justify-content: space-between;
+        gap: 10px;
         margin: 42px 0 104px 0;
         img {
             border-radius: 15px;
+            width: 11vw;
+            height: 11vw;
         }
     }
 }

@@ -10,7 +10,6 @@ import Image from "next/image";
 import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
-import '@/app/dashboard/page.css';
 import { useGroupe, usePlantsStore } from '@/app/store/zustand';
 
 
@@ -77,11 +76,11 @@ export default function PlantDashboard ({ flagGroupe,
                                      onClick={openCalendar}>
                                      <Image className="calendar" src={calendar} alt="календарь"/>
                                     </div> */}
-                                <div className='dashboard__show_background'>
-                                    <Image className="dashboard__show" 
-                                            src={ flagBlock ? arrowShowUp : arrowShowDown} 
-                                            alt="свернуть дашборд" 
-                                            onClick={changeArrowBlock}/>
+                                <div className='dashboard__show_background'
+                                    onClick={changeArrowBlock}>
+                                    <svg className={`dashboard__show ${flagBlock ? 'rotated' : ''}`} width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M27.1304 12.3787L27.1305 12.3785C27.8302 11.6788 27.8302 10.5444 27.1305 9.84472C26.4308 9.14503 25.2964 9.14503 24.5967 9.84472L24.9503 10.1983L24.5967 9.84472L16.1078 18.3336C15.7987 18.6428 15.2974 18.6428 14.9882 18.3336L6.40253 9.74791C5.70284 9.04822 4.56842 9.04822 3.86873 9.74791C3.16905 10.4476 3.16905 11.582 3.86873 12.2817L12.4512 20.8641C14.1592 22.5722 16.9284 22.5728 18.6372 20.8653L27.1304 12.3787Z" fill="#498553" stroke="#498553"/>
+                                    </svg>
                                 </div>
                             </div>
                             <div className="dashboard__header_right">

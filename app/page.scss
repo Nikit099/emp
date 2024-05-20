@@ -2,4 +2,10 @@
 @import './vars';
 @import './mixins';
 
-@import './realHeader'
+@import './realHeader';
+
+a:active, /* активная/посещенная ссылка */
+a:hover,  /* при наведении */
+a {
+  text-decoration: none;
+}

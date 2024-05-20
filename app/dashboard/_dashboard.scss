@@ -67,7 +67,10 @@
     }
     &__show {
         cursor: pointer;
-        transition: $buttonTransition;
+        transition: $transition;
+    }
+    &__show.rotated {
+        transform: rotate(180deg);
     }
     &__delete_background {
         @include mainBtnBackground();
