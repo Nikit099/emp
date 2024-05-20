@@ -14,6 +14,7 @@ import usePersist from "./store/usePersist";
 import { useEffect, useState } from "react";
 import Emotion from "./scripts/emotion";
 import Link from "next/link";
+import RealHeader from "./ui/main/realHeader";
 
 export default function Main() {
   const plants = usePlantsStore((state) => state.plants);
@@ -37,43 +38,33 @@ useEffect(() => {
 
   return (
     <>
-    <div className="wrapper_main">
-          <header className="header">
-               <div className="search-header">
-                    <Image className="magnifying-glass"
-                         src={magnifyyingGlass} 
-                         alt="лупа"/>
-                         <Search handleChange={handleChange} placeholder={'Найти'} stl={'search_main'} />
+    <RealHeader/>
+    <div className="wrapper">
 
-               
+          <div className="wrapper_main">
+               <div className="header">
+                    <div className="search-header">
+                         <Image className="magnifying-glass"
+                              src={magnifyyingGlass} 
+                              alt="лупа"/>
+                              <Search handleChange={handleChange} placeholder={'Найти'} stl={'search_main'} />
+                    </div>
+                    <Link href={'/choose'}>
+                    <button className="header__button">
+                         <Image className="plus"
+                              src={plus}
+                              alt="plus"/>
+                         <div>Растение</div>
+                    </button>
+                    </Link>
                </div>
-               <div className="slider-main">
-                    <Image className="sad-face"
-                         src={sadFace}
-                         alt="sad face"/>
-                    <div className="slider-background"
-                         alt="slider background"></div>
-                    <Image className="smile-face"
-                         src={smileFace}
-                         alt="smile face"/>
-               </div>
-               <Link href={'/choose'}>
-               <button className="header__button">
-                    <Image className="plus"
-                         src={plus}
-                         alt="plus"/>
-                    <Image className="branch"
-                         src={branch}
-                         alt="branch"/>
-               </button>
-               </Link>
-          </header>
-          <main className="main_main">
-          {
-               plants.map(e => e.alert === true ).includes(true) && <AlertPlants plants={plants} serchPlants={serchPlants}/>
-          }
-               <MyPlants serchPlants={serchPlants}/>
-          </main>
+               <main className="main_main">
+               {
+                    plants.map(e => e.alert === true ).includes(true) && <AlertPlants plants={plants} serchPlants={serchPlants}/>
+               }
+                    <MyPlants serchPlants={serchPlants}/>
+               </main>
+          </div>
     </div>
     </>
   );

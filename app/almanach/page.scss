@@ -6,6 +6,10 @@
 
 
 .wrapper {
+    background-color: $backgroundColor;
+}
+
+.sides-container {
     display: flex;
     max-width: 1440px;
     width: 100%;
@@ -27,7 +31,7 @@
         width: 683px;
         height: 100vh;
         left: 45px;
-        top: 0px;
+        top: -8px;
         background: linear-gradient(163.17deg, #A9B2B6 3.45%, #9FA9AD 96.02%);
     }
     &-plant {
@@ -157,9 +161,8 @@
 }
 
 .right {
-    overflow: auto;
+    position: sticky;
     width: 669px;
-    height: 100dvh;
     margin: 0 0 0 800px;
     &-name {
         @include lowTextFormat();

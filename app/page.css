@@ -1,10 +1,14 @@
+.wrapper {
+    background-color: #F8F8F8;
+}
 
 .wrapper_main {
     margin: 0px auto;
     padding: 0px 60px;
     max-width: 1138px;
-    background-color: #F8F8F8;
+    height: 100vh;
 }
+
 
 /*
 *,
@@ -15,10 +19,17 @@
 */
 
 .header {
+    position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    z-index: 10;
+    top: 25px;
+    left: 800px;
+    max-width: 571px;
+    width: 100%;
+    min-width: 10px;
 }
 
 .search-header {
@@ -46,44 +57,32 @@
     box-shadow: 2px 4px 13px 0px rgba(138, 138, 138, 0.25);
     color: #888888;
     padding-left: 47px;
+    z-index: 6;
 }
 
-.slider-main {
+.header__button { 
+    position: relative;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
-}
-
-.sad-face {
-    margin-right: 7px;
-}
-
-.smile-face {
-    margin-left: 7px;
-}
-
-.slider-background {
-    width: 327px;
-    height: 26px;
-    flex-shrink: 0;
-    border-radius: 21px;
-    background: #D7EADD;
-}
-
-.header__button {
-    position: relative;
-    width: 77px;
-    height: 77px;
-    flex-shrink: 0;
-    border-radius: 48px;
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
     background: #498553;
     border-width: 0px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 21px;
+    color: #D7EADD;
 }
 
 .plus {
-    position: absolute;
-    top: 38px;
-    left: 17px;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px 0 0;
 }
 
 .branch {
@@ -351,7 +350,7 @@
 
 .pots .points .point-1 {
     position: relative;
-    width: 554px;
+    width: 500px;
     height: 216px;
     flex-shrink: 0;
     border-radius: 20px 13px 13px 13px;
@@ -456,17 +455,6 @@
     width: 28px;
     height: 28px;
     flex-shrink: 0;
-}
-
-.pots .points .point-1 .graf {
-    position: absolute;
-    top: 149px;
-    left: 212px;
-    width: 315px;
-    height: 47px;
-    flex-shrink: 0;
-    border-radius: 15px;
-    background: #D7EADD;
 }
 
 .pots .points .point-2 {
@@ -709,6 +697,20 @@
     background: #D7EADD;
 }
 
+@media (max-width: 1400px) {
+    .header {
+        width: 10%;
+    }
+
+    .header__button {
+        position: fixed;
+        bottom: 100px;
+        right: 100px;
+        z-index: 2;
+
+    }
+ }
+
 @media (max-width: 1154px) {
     .arrow-right {
         left: -60px;
@@ -759,27 +761,15 @@
     }
 
     .search-header {
-        display: flex;
+        /* display: flex;
         min-width: 40vw;
         max-width: 100%;
-        margin-right: 10px;
+        margin-right: 10px; */
     }
      .search {
-        max-width: 100%;
+        /* max-width: 100%; */
     }
 
-    .slider-main {
-        display: flex;
-        justify-content: center;
-        margin-right: 10px;
-        min-width: 10vw;
-        max-width: 100%;
-    }
-
-    .slider-background {
-        min-width: 10vw;
-        max-width: 50%;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -795,10 +785,6 @@
 @media (max-width: 566px) {
     .header {
         justify-content: center;
-    }
-    
-    .slider-main {
-        display: none;
     }
 
     .header__button {
@@ -1315,6 +1301,7 @@
     display: flex;
     transition-duration: 400ms;
     transition-timing-function: ease;
+    margin: 100px 0 0 0;
 }
 .mContainer{
     width: 1050px;
