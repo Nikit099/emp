@@ -26,7 +26,9 @@ export default function Almanach () {
         <>
             {showAlmanachChoose && <AlmanachChoose />}
             <RealHeader />
-            <div className={showAlmanachChoose ? 'wrapper--blured' : 'wrapper'}>
+            <div className={showAlmanachChoose ? 'wrapper--blured' : 'wrapper'}
+                 onClick={() => {
+                    showAlmanachChoose ? handleAlmanachChoose() : null;}}>
                 <div className='sides-container'>
                     <aside className='left'>
                         <div className='left-block'></div>

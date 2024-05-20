@@ -1,15 +1,16 @@
 
 import Image from 'next/image';
 
+import React, { forwardRef } from 'react';
+
 import magnifyingGlass from '../../../public/dashboard/search.svg';
 import plant from '../../../public/almanach/plant.png';
 
-export default function AlmanachChoose ({}) {
-    
+export default function AlmanachChoose ({ref}) {   
 
     return (
         <>
-            <aside className="almanach-choose">
+            <aside className="almanach-choose" ref={ref}>
                 <div className='almanach-choose__container'>
                     <div className="almanach-choose__search">
                         <input className="almanach-choose__search_input"
