@@ -13,8 +13,7 @@ instance.interceptors.request.use(
       return config
     }
   )
-  
-  // создаем перехватчик ответов
+// создаем перехватчик ответов
 // который в случае невалидного accessToken попытается его обновить
 // и переотправить запрос с обновленным accessToken
 instance.interceptors.response.use(
