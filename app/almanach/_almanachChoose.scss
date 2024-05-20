@@ -1,12 +1,12 @@
 .almanach-choose {
     position: relative;
     &__container {
-        position: absolute;
+        position: fixed;
+        top: 113px;
         width: 325px;
         height: 100vh;
         background-color: $backgroundColor;
-        display: fixed;
-        z-index: 3;
+        z-index: 6;
     }
     &__search {
         @include search();
@@ -29,6 +29,9 @@
 }
 
 .plants{
+    overflow: auto;
+    height: 100dvh;
+    padding: 0 0 206px 0;
     &__plant {
         margin: 44px 0 0 26px;
     }

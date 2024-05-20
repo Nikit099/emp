@@ -30,6 +30,69 @@ export default function AlmanachChoose ({}) {
                                 <div className='plants__desc'>Пара слов о темпераменте</div>
                             </div>
                         </div>
+                        <div className='plants__plant'>
+                            <div className='plants__block'>
+                                <div className='plants__top'></div>
+                                <Image className='plants__img'
+                                        src={plant}></Image>
+                                <div className='plants__title'>Dracena Fr.</div>
+                                <div className='plants__desc'>Пара слов о темпераменте</div>
+                            </div>
+                        </div>
+                        <div className='plants__plant'>
+                            <div className='plants__block'>
+                                <div className='plants__top'></div>
+                                <Image className='plants__img'
+                                        src={plant}></Image>
+                                <div className='plants__title'>Dracena Fr.</div>
+                                <div className='plants__desc'>Пара слов о темпераменте</div>
+                            </div>
+                        </div>
+                        <div className='plants__plant'>
+                            <div className='plants__block'>
+                                <div className='plants__top'></div>
+                                <Image className='plants__img'
+                                        src={plant}></Image>
+                                <div className='plants__title'>Dracena Fr.</div>
+                                <div className='plants__desc'>Пара слов о темпераменте</div>
+                            </div>
+                        </div>
+                        <div className='plants__plant'>
+                            <div className='plants__block'>
+                                <div className='plants__top'></div>
+                                <Image className='plants__img'
+                                        src={plant}></Image>
+                                <div className='plants__title'>Dracena Fr.</div>
+                                <div className='plants__desc'>Пара слов о темпераменте</div>
+                            </div>
+                        </div>
+                        <div className='plants__plant'>
+                            <div className='plants__block'>
+                                <div className='plants__top'></div>
+                                <Image className='plants__img'
+                                        src={plant}></Image>
+                                <div className='plants__title'>Dracena Fr.</div>
+                                <div className='plants__desc'>Пара слов о темпераменте</div>
+                            </div>
+                        </div>
+                        <div className='plants__plant'>
+                            <div className='plants__block'>
+                                <div className='plants__top'></div>
+                                <Image className='plants__img'
+                                        src={plant}></Image>
+                                <div className='plants__title'>Dracena Fr.</div>
+                                <div className='plants__desc'>Пара слов о темпераменте</div>
+                            </div>
+                        </div>
+                        <div className='plants__plant'>
+                            <div className='plants__block'>
+                                <div className='plants__top'></div>
+                                <Image className='plants__img'
+                                        src={plant}></Image>
+                                <div className='plants__title'>Dracena Fr.</div>
+                                <div className='plants__desc'>Пара слов о темпераменте</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </aside>

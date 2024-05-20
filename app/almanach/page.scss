@@ -7,6 +7,10 @@
 
 .wrapper {
     background-color: $backgroundColor;
+    &--blured {
+        filter: blur(3px);
+        position: fixed;
+    }
 }
 
 .sides-container {
