@@ -131,9 +131,9 @@
         border-radius: 20px;
         background: #E9F3ED; 
         cursor: pointer;
-        transition: 0.5s;
+        transition: 0.1s;
         &:hover {
-            filter: hue-rotate(45deg);
+            box-shadow: $shadow;
         }
         
         &:active {

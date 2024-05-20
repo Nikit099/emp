@@ -1,99 +1,48 @@
 
 import Image from 'next/image';
 
-import React, { forwardRef } from 'react';
+import React, { useState } from 'react';
 
 import magnifyingGlass from '../../../public/dashboard/search.svg';
-import plant from '../../../public/almanach/plant.png';
+import AlmanachPlant from './almanachPlant';
+import { usePlantsStore } from '@/app/store/zustand';
 
-export default function AlmanachChoose ({ref}) {   
+export default function AlmanachChoose ({handleAlmanachChoose}) {   
+
+const { typePlants } = usePlantsStore();
+const [searchQuery, setSearchQuery] = useState('');
+
+const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+};
+
+const filteredPlants = typePlants.filter((plant) =>
+    plant.type.toLowerCase().includes(searchQuery.toLowerCase())
+);
+
+ /*Поиск по растениям^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
 
     return (
         <>
-            <aside className="almanach-choose" ref={ref}>
+            <aside className="almanach-choose" >
                 <div className='almanach-choose__container'>
                     <div className="almanach-choose__search">
                         <input className="almanach-choose__search_input"
                                 type="text"
                                 placeholder="Поиск по растениям"
+                                value={searchQuery}
+                                onChange={handleSearchChange}
                         />
                         <Image className="almanach-choose__search_img" 
                                 src={magnifyingGlass} 
                                 alt='лупа'/>
                     </div>
                     <div className='plants'>
-                        <div className='plants__plant'>
-                            <div className='plants__block'>
-                                <div className='plants__top'></div>
-                                <Image className='plants__img'
-                                        src={plant}></Image>
-                                <div className='plants__title'>Dracena Fr.</div>
-                                <div className='plants__desc'>Пара слов о темпераменте</div>
-                            </div>
-                        </div>
-                        <div className='plants__plant'>
-                            <div className='plants__block'>
-                                <div className='plants__top'></div>
-                                <Image className='plants__img'
-                                        src={plant}></Image>
-                                <div className='plants__title'>Dracena Fr.</div>
-                                <div className='plants__desc'>Пара слов о темпераменте</div>
-                            </div>
-                        </div>
-                        <div className='plants__plant'>
-                            <div className='plants__block'>
-                                <div className='plants__top'></div>
-                                <Image className='plants__img'
-                                        src={plant}></Image>
-                                <div className='plants__title'>Dracena Fr.</div>
-                                <div className='plants__desc'>Пара слов о темпераменте</div>
-                            </div>
-                        </div>
-                        <div className='plants__plant'>
-                            <div className='plants__block'>
-                                <div className='plants__top'></div>
-                                <Image className='plants__img'
-                                        src={plant}></Image>
-                                <div className='plants__title'>Dracena Fr.</div>
-                                <div className='plants__desc'>Пара слов о темпераменте</div>
-                            </div>
-                        </div>
-                        <div className='plants__plant'>
-                            <div className='plants__block'>
-                                <div className='plants__top'></div>
-                                <Image className='plants__img'
-                                        src={plant}></Image>
-                                <div className='plants__title'>Dracena Fr.</div>
-                                <div className='plants__desc'>Пара слов о темпераменте</div>
-                            </div>
-                        </div>
-                        <div className='plants__plant'>
-                            <div className='plants__block'>
-                                <div className='plants__top'></div>
-                                <Image className='plants__img'
-                                        src={plant}></Image>
-                                <div className='plants__title'>Dracena Fr.</div>
-                                <div className='plants__desc'>Пара слов о темпераменте</div>
-                            </div>
-                        </div>
-                        <div className='plants__plant'>
-                            <div className='plants__block'>
-                                <div className='plants__top'></div>
-                                <Image className='plants__img'
-                                        src={plant}></Image>
-                                <div className='plants__title'>Dracena Fr.</div>
-                                <div className='plants__desc'>Пара слов о темпераменте</div>
-                            </div>
-                        </div>
-                        <div className='plants__plant'>
-                            <div className='plants__block'>
-                                <div className='plants__top'></div>
-                                <Image className='plants__img'
-                                        src={plant}></Image>
-                                <div className='plants__title'>Dracena Fr.</div>
-                                <div className='plants__desc'>Пара слов о темпераменте</div>
-                            </div>
-                        </div>
+                        {filteredPlants.map((e, index) => <AlmanachPlant key={`${e.id}_${index}`}
+                                                                     name={e.type}
+                                                                     desc={e.title}
+                                                                     handleAlmanachChoose={handleAlmanachChoose}/>)}
                     </div>
                 </div>
             </aside>
