@@ -40,6 +40,7 @@ const filteredPlants = typePlants.filter((plant) =>
                     </div>
                     <div className='plants'>
                         {filteredPlants.map((e, index) => <AlmanachPlant key={`${e.id}_${index}`}
+                                                                     id={e.id}
                                                                      name={e.type}
                                                                      desc={e.title}
                                                                      handleAlmanachChoose={handleAlmanachChoose}/>)}

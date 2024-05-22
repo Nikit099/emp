@@ -3,12 +3,16 @@ import Image from 'next/image';
 
 import blockPlant from '@/public/almanach/block-plants.png';
 
-export default function AlmanachDesc ({}) {   
+export default function AlmanachDesc ({humDesc,
+                                        tempDesc,
+                                        illumDesc,
+                                        airHumDesc,
+}) {   
 
     return (
         <>
-            <div className='right-parameter'>Температура</div>
-            <div className='right-desc'>Название топика будут слать, думаю можно сделать в твоей же интеграции, может даже доработки не будет, если у нас не записаны в коде какие топики могут слать в целом да, можно в той же спеке описать, только в комментах оставить пометку, что запись/чтение из топиков "новые_топики" в рамках </div>
+            <div className='right-parameter ' id='airHumDesc'>Влажность воздуха</div>
+            <div className='right-desc'>{airHumDesc}</div>
             <div className='right-block'>
                 <div className='right-block-img'>
                     <Image src={blockPlant}></Image>
@@ -19,7 +23,46 @@ export default function AlmanachDesc ({}) {
                 <div className='right-block-img'>
                     <Image src={blockPlant}></Image>
                 </div>
-            </div>        
+            </div>
+            <div className='right-parameter' id='tempDesc'>Температура</div>
+            <div className='right-desc'>{tempDesc}</div>
+            <div className='right-block'>
+                <div className='right-block-img'>
+                    <Image src={blockPlant}></Image>
+                </div>
+                <div className='right-block-img'>
+                    <Image src={blockPlant}></Image>
+                </div>
+                <div className='right-block-img'>
+                    <Image src={blockPlant}></Image>
+                </div>
+            </div>  
+            <div className='right-parameter' id='humDesc'>Полив</div>
+            <div className='right-desc'>{humDesc}</div>
+            <div className='right-block'>
+                <div className='right-block-img'>
+                    <Image src={blockPlant}></Image>
+                </div>
+                <div className='right-block-img'>
+                    <Image src={blockPlant}></Image>
+                </div>
+                <div className='right-block-img'>
+                    <Image src={blockPlant}></Image>
+                </div>
+            </div>  
+            <div className='right-parameter' id='illumDesc'>Освещенность</div>
+            <div className='right-desc'>{illumDesc}</div>
+            <div className='right-block'>
+                <div className='right-block-img'>
+                    <Image src={blockPlant}></Image>
+                </div>
+                <div className='right-block-img'>
+                    <Image src={blockPlant}></Image>
+                </div>
+                <div className='right-block-img'>
+                    <Image src={blockPlant}></Image>
+                </div>
+            </div>          
         </>
     )
 }

@@ -33,6 +33,7 @@ a {
     &--blured {
         @include bodyStyle();
         filter: blur(5px);
+        height: 100vh;
         overflow: hidden;
     }
 }

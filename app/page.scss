@@ -3,9 +3,10 @@
 @import './mixins';
 
 @import './realHeader';
+@import './realHeaderSidePanel';
 
-a:active, /* активная/посещенная ссылка */
-a:hover,  /* при наведении */
+a:active, 
+a:hover,  
 a {
   text-decoration: none;
 }

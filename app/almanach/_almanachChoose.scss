@@ -86,3 +86,11 @@
         width: 250px;
     }
 }
+
+@media (max-width: 760px) {
+    .almanach-choose {
+        &__container {
+            top: 71px;
+        }
+    }
+}

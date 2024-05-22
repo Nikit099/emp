@@ -5,17 +5,17 @@ import React, {  } from 'react';
 
 import plant from '../../../public/almanach/plant.png';
 
-export default function AlmanachPlant ({name,
+export default function AlmanachPlant ({id,
+                                        name,
                                         desc,
-                                        handleAlmanachChoose,
-}) {   
+                                        handleAlmanachChoose,}) {   
 
     return (
         <>
 
             <div className='plants__plant'>
                 <div className='plants__block'
-                     onClick={handleAlmanachChoose}>
+                     onClick={() => handleAlmanachChoose(id)}>
                     <div className='plants__top'></div>
                     <Image className='plants__img'
                             src={plant}></Image>
