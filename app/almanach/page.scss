@@ -186,8 +186,8 @@
         @include lowTextFormat();
         margin: 25px 0 0 0;
         font-family: $secondFont;
-        font-size: 2vw;
-        line-height: 2vw;
+        font-size: 17px;
+        line-height: 26px;
     }
     &-block {
         display: flex;
@@ -240,6 +240,7 @@
         &-parameter {
             text-align: left;
             font-size: 23px;
+            font-weight: 600;
         }
         &-desc {
             text-align: left;
@@ -333,16 +334,18 @@
     .left {
         z-index: 1;
         &-parameters {
-            top: 757px;
+            position: fixed;
+            top: 90vh;
             height: 72px;
-            width: 80vw;
+            width: 340px;
             background: rgba(247, 247, 247, 0.48);
             -webkit-backdrop-filter: blur(6.5px);
             backdrop-filter: blur(6.5px);
         }
         &-grid {
+            position: fixed;
+            top: 77vh;
             left: 26px;
-            top: 665px; 
         }
         &-water {
             left: 12px;
@@ -359,6 +362,31 @@
         &-sunshine {
             left: 271px;
             top: 10px
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .left {
+        &-parameters {
+            left: 0;
+            width: 100vw;
+            border-radius: 0px; 
+        }
+        &-grid {
+            
+        }
+        &-water {
+            left: 5vw;
+        }
+        &-temperature {
+            left: 29vw;
+        }
+        &-humidity {
+            left: 54vw;
+        }        
+        &-sunshine {
+            left: 80vw;
         }
     }
 }
