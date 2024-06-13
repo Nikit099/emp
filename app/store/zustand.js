@@ -417,7 +417,7 @@ export const usePlantsStore = create(
                 name: 'Nina',
                 typeId: 1,
                 recomendate: "Растению очень жарко, поставте в морозилку",
-                alert: true,
+                alert: false,
                 emotion: "fair",
                 img: ''
             },
@@ -426,7 +426,7 @@ export const usePlantsStore = create(
                 name: 'Vasia',
                 typeId: 2,
                 recomendate: "Полейте через 2 часа",
-                alert: true,
+                alert: false,
                 emotion: "good",
                 img: ''
             },
