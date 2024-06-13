@@ -47,8 +47,6 @@ export default function Choose() {
         }
         incPlant(newPlant)
       }
-      const {  inc, dec } = useCountStore();
-      const count = usePersist(useCountStore, (state) => state.count);
     return (
         
         <div className="container">
