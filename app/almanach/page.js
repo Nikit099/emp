@@ -70,7 +70,7 @@ export default function Almanach () {
                         </div>
                     </aside>
                     <aside className='right'>
-                        <div className='right-name'>Драцена</div>
+                        <div className='right-name'>{currentPlant.type}</div>
                         {<AlmanachDesc humDesc={currentPlant.recomendation.humidity.desc}
                                         tempDesc={currentPlant.recomendation.temperature.desc}
                                         illumDesc={currentPlant.recomendation.illumination.desc}
