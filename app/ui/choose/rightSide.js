@@ -4,13 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-export default function RightSide({choosedPlant, createPlant, typeId}) {
+export default function RightSide({choosedPlant, createPlant, typeId, handleIsVisible, isVisible}) {
 
 
 
     return (
 
-            <main className="main_choose">
+            <main className={`main__choose ${isVisible ? '' : 'hidden'}`}>
                         
             <Image
                     src={plantLarge}
@@ -18,7 +18,7 @@ export default function RightSide({choosedPlant, createPlant, typeId}) {
                     alt={`plant`}
             />
                 <header className="main__header">
-                    <button className="button-back">
+                    <button className="button-back" onClick={handleIsVisible}>
                     <Image
                     src={arrowLeft}
                     className="header_arrow-left"

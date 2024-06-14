@@ -49,10 +49,17 @@ export default function Choose() {
         }
         incPlant(newPlant)
       }
+
+        const [isVisible, setIsVisible] = useState(true);
+
+        const handleIsVisible = () => {
+            setIsVisible(!isVisible);
+        };
+
     return (
         
         <div className="container">
-            <aside className="aside">
+            <aside className={`aside ${isVisible ? 'hidden' : ''}`}>
                 <header className="aside__header">
                 <Image
                     src={magnifyyingGlass}
@@ -67,7 +74,7 @@ export default function Choose() {
                     {
                         
                         serchTypePlants.map(e => 
-                        <PlantCard chooseClick={chooseClick} choosedId={choosedId} key={e.id} id={e.id} title={e.title} type={e.type} />
+                        <PlantCard chooseClick={chooseClick} choosedId={choosedId} key={e.id} id={e.id} title={e.title} type={e.type} handleIsVisible={handleIsVisible}/>
                         )
 
                     }
@@ -75,7 +82,7 @@ export default function Choose() {
 
                 </div>
             </aside>
-            <RightSide  typeId={choosedId} createPlant={createPlant} choosedPlant={choosedPlant} />
+            <RightSide  typeId={choosedId} createPlant={createPlant} choosedPlant={choosedPlant} handleIsVisible={handleIsVisible} isVisible={isVisible}/>
         </div>
     ) 
     }
