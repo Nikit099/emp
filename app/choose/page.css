@@ -198,8 +198,8 @@ aside > * {
     left: 481px;
 }
 
-.main_choose {
-    width: 667px;
+.main__choose {
+    /* width: 667px; */
     background: #E9F3ED;
     max-height: 100dvh;
     overflow-y: hidden;
@@ -778,6 +778,7 @@ aside > * {
     .plant-large {
         left: 0vw;
     }
+    
 }
 
 @media screen and (min-width: 937px)
