@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function AlPlant({name, recomendate, emotion, id}) {
     return (
      <Link
-     href={`/${id}/plant`}>
+     href={`/`}>
 <div className="point-1">
                     <div className="dot"></div>
                     <div className="top-rectangl"></div>
