@@ -7,10 +7,9 @@ import Emotion from "@/app/scripts/emotion";
 
 export default function Plant({name, recomendate, typeId, id, emotion}) {
      const typePlants = usePlantsStore((state) => state.typePlants);
-     
     return (
      <Link
-     href={`/${id}/plant`}>
+     href={window.innerWidth >= 658 ?  `/${id}/plant` : '/'}>
         <div className="point-1">
             
              <div className="top"></div>

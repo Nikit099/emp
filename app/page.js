@@ -14,7 +14,7 @@ import usePersist from "./store/usePersist";
 import { useEffect, useState } from "react";
 import Emotion from "./scripts/emotion";
 import Link from "next/link";
-import RealHeader from "./ui/main/realHeader";
+import RealHeader from "./ui/realHeader";
 
 export default function Main() {
   const plants = usePlantsStore((state) => state.plants);

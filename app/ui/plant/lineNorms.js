@@ -123,7 +123,7 @@ export default function LineNorms({name, min, max, id, objNorms, plantId}) {
                     placeholder="От - До"></input>
               
             </form>
-            {errors[name] && errors[name].message || castomError[name]}
+            <div className='error_message'>{errors[name] && errors[name].message || castomError[name]}</div>
         </div>
     </div>
     ) 

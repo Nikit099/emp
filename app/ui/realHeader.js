@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
 
-import '../../../app/page.scss';
+import '../../app/page.scss';
 import Link from "next/link";
-import RealHeaderSidePanel from './realHeaderSidePanel';
+import RealHeaderSidePanel from './main/realHeaderSidePanel';
 
 export default function RealHeader ({}) {
     

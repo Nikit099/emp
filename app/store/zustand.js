@@ -612,6 +612,75 @@ export const usePlantsStore = create(
             },
             {
                 id: 4363,
+                plantId: 55353,
+                norms: [{
+                        name: 'temperature',
+                        max: 29,
+                        min: 10,
+                    },
+                     {
+                        name: 'illumination',
+                        max: 19,
+                        min: 20,
+                    },
+                     {
+                        name:'humidity',
+                        min: 64
+                    },
+                    {
+                        name: 'airHum',
+                        min: 85
+                    }
+                ]
+            },
+            {
+                id: 4363,
+                plantId: 13543,
+                norms: [{
+                        name: 'temperature',
+                        max: 29,
+                        min: 10,
+                    },
+                     {
+                        name: 'illumination',
+                        max: 19,
+                        min: 20,
+                    },
+                     {
+                        name:'humidity',
+                        min: 64
+                    },
+                    {
+                        name: 'airHum',
+                        min: 85
+                    }
+                ]
+            },
+            {
+                id: 4363,
+                plantId: 97856,
+                norms: [{
+                        name: 'temperature',
+                        max: 29,
+                        min: 10,
+                    },
+                     {
+                        name: 'illumination',
+                        max: 19,
+                        min: 20,
+                    },
+                     {
+                        name:'humidity',
+                        min: 64
+                    },
+                    {
+                        name: 'airHum',
+                        min: 85
+                    }
+                ]
+            },
+            {
+                id: 4363,
                 plantId: 6345,
                 norms: [{
                         name: 'temperature',
@@ -655,6 +724,22 @@ export const usePlantsStore = create(
             {
                 id: 92756,
                 plantId: 6345,
+                humidityDay: [32, 54, 52, 62, 26, 63],
+                temperatureDay: [12, 54, 78, 32, 34, 73],
+                illuminationDay: [12, 23, 34, 45, 56, 67],
+                airHumDay: [2, 23, 12, 86, 76, 61],
+            },
+            {
+                id: 92756,
+                plantId: 13543,
+                humidityDay: [32, 54, 52, 62, 26, 63],
+                temperatureDay: [12, 54, 78, 32, 34, 73],
+                illuminationDay: [12, 23, 34, 45, 56, 67],
+                airHumDay: [2, 23, 12, 86, 76, 61],
+            },
+            {
+                id: 92756,
+                plantId: 55353,
                 humidityDay: [32, 54, 52, 62, 26, 63],
                 temperatureDay: [12, 54, 78, 32, 34, 73],
                 illuminationDay: [12, 23, 34, 45, 56, 67],
@@ -762,7 +847,7 @@ export const useGroupe = create(
                         const updatedPlantsId = groupe.plantsId.filter(id => id !== plantId);
                         return {
                             ...groupe,
-                            plantSsId: updatedPlantsId
+                            plantsId: updatedPlantsId
                         };
                     } else {
                         return groupe;
