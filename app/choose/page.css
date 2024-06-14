@@ -8,6 +8,10 @@
     src: url(../fonts/Montserrat.ttf);
 } */
 
+.hidden {
+    display: none;
+}
+
 html {
     margin: 0px auto;
 }
@@ -455,7 +459,6 @@ aside > * {
     }
 
     .aside {
-        display: none;
         margin: 0px 0px 0px 0px;
     }
 
