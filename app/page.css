@@ -783,6 +783,16 @@
 }
 
 @media (max-width: 566px) {
+    .sliderMain {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .window {
+        
+    }
+
     .header {
         justify-content: center;
     }
@@ -796,7 +806,7 @@
     }
 
     .search-header {
-        margin: 0px;
+        display: none;
     }
 
     .graf{
@@ -1297,7 +1307,7 @@
 }   
 .sliderMain{
     display: flex;
-    gap: 49px;
+    /* gap: 49px; */
     display: flex;
     transition-duration: 400ms;
     transition-timing-function: ease;
@@ -1309,7 +1319,7 @@
 .window{
     height: 100%;
     width: 100%;
-    padding: 25px 11px 20px 25px;
+    /* padding: 25px 11px 20px 25px; */
 
     overflow: hidden;
 }

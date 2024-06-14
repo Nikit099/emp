@@ -104,7 +104,6 @@ aside > * {
     background: #D3E7DB;
     position: relative;
     margin-top: 35px;
-    width: 569px;
     height: 216px;
     border-radius: 13px;
     cursor: pointer;
@@ -117,6 +116,14 @@ aside > * {
     border-radius: 16px 16px 95px 0px;
 
 }
+
+.choosedPlant_card dl {
+    position: absolute;
+    top: 29px;
+    left: 212px;
+    margin: 0px;
+}
+
 .plant-cart:hover .top{
     transition: 0.2s;
     background: #BFDFC9;
@@ -170,6 +177,7 @@ aside > * {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    width: 300px;
 }
 
 .plant-cart .fire {
@@ -190,8 +198,8 @@ aside > * {
     left: 481px;
 }
 
-.main_choose {
-    width: 667px;
+.main__choose {
+    /* width: 667px; */
     background: #E9F3ED;
     max-height: 100dvh;
     overflow-y: hidden;
@@ -770,6 +778,7 @@ aside > * {
     .plant-large {
         left: 0vw;
     }
+    
 }
 
 @media screen and (min-width: 937px)

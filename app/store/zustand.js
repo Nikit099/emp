@@ -407,7 +407,7 @@ export const usePlantsStore = create(
                 id: 55353,
                 name: 'Kolya',
                 typeId: 2,
-                recomendate: "Kolya немыслимо холодно, поставьте на зажженую плиту листьями вниз",
+                recomendate: "Kolya холодно, поставьте в теплое место",
                 alert: true,
                 emotion: "coold",
                 img: ''
@@ -417,7 +417,7 @@ export const usePlantsStore = create(
                 name: 'Nina',
                 typeId: 1,
                 recomendate: "Растению очень жарко, поставте в морозилку",
-                alert: true,
+                alert: false,
                 emotion: "fair",
                 img: ''
             },
@@ -426,7 +426,7 @@ export const usePlantsStore = create(
                 name: 'Vasia',
                 typeId: 2,
                 recomendate: "Полейте через 2 часа",
-                alert: true,
+                alert: false,
                 emotion: "good",
                 img: ''
             },
