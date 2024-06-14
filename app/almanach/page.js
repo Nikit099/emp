@@ -12,7 +12,7 @@ import water from '@/public/almanach/water.svg';
 
 import AlmanachChoose from '../ui/almanach/almanachChoose';
 import './page.scss';
-import RealHeader from '../ui/main/realHeader';
+import RealHeader from '../ui/realHeader';
 import AlmanachDesc from '../ui/almanach/almanachDesc';
 import { usePlantsStore } from '../store/zustand';
 

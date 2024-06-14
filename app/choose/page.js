@@ -12,6 +12,8 @@ import {  useSearchStore } from "../store/zustand";
 
 
 export default function Choose() {
+    // const { data: plants, isLoading, error } = useFetchPlants();
+    // const { mutate: createPlant } = useCreatePlant();
     const search = usePersist(useSearchStore, (state) => state.search);
 
     

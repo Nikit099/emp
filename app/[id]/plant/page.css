@@ -202,7 +202,11 @@
 .line__input_block {
     position: relative;
 }
-
+.error_message{
+    color: red;
+    font-size: 10px;
+    position: absolute;
+}
 .line__pen {
     position: absolute;
     top: 5px;
