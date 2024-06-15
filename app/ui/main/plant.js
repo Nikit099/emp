@@ -9,7 +9,7 @@ export default function Plant({name, recomendate, typeId, id, emotion}) {
      const typePlants = usePlantsStore((state) => state.typePlants);
     return (
      <Link
-     href={window.innerWidth >= 658 ?  `/${id}/plant` : '/'}>
+     href={`/`}>
         <div className="point-1">
             
              <div className="top"></div>

@@ -31,7 +31,7 @@ export default function RealHeader ({}) {
                     </li>
                     <div className='real-header__dot'></div>
                     <li>
-                        <Link href={'/setting'}>Настройки</Link>
+                        <Link href={'/'}>Настройки</Link>
                     </li>
                     <div className='real-header__dot'></div>
                     <li>
