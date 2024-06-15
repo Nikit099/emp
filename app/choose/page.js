@@ -59,7 +59,7 @@ export default function Choose() {
     return (
         
         <div className="container">
-            <aside className={`aside ${isVisible ? '' : 'hidden'}`}>
+            <aside className={`aside ${isVisible ? '' : 'aside--hidden'}`}>
                 <header className="aside__header">
                 <Image
                     src={magnifyyingGlass}
