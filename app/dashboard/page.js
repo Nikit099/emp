@@ -101,7 +101,9 @@ export default function Dashboard() {
          onClick={() => {
                          isVisibleProblems ? closeProblems() : null;
                          isVisibleCalendar ? closeCalendar() : null;}} >
-    <RealHeader></RealHeader>
+    <RealHeader>
+            
+    </RealHeader>
     {/* <header>
         <div className="header__container">
             <div className="header__back">
