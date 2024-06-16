@@ -40,8 +40,8 @@ export const usePlantsStore = create(
              width: 200,
              height: 200,
              img_big: '/plants_imgs_big/cactus.png',
-             bigWidth: 772,
-             bigHeight: 1393,
+             bigWidth: 672,
+             bigHeight: 1293,
              title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз.",
              recomendation: {
                 humidity: {
@@ -120,8 +120,8 @@ export const usePlantsStore = create(
             width: 200,
             height: 200,
             img_big: '/plants_imgs_big/peper.png',
-            bigWidth: 848,
-            bigHeight: 879,
+            bigWidth: 748,
+            bigHeight: 779,
             title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз.",
             recomendation: {
                humidity: {
