@@ -39,13 +39,15 @@ export default function Choose() {
       }
 
       function createPlant(typeId){
+        
+        let img =  typePlants.filter(e => e.id === typeId)[0].img
         const newPlant = {
             id: Date.now(),
             name: 'Kira',
             typeId: typeId,
-            recomendate: `У ааа всё хорошо`,
+            recomendate: `Пока, у kira всё хорошо`,
             alert: false,
-            img: ''
+            img: img
         }
         incPlant(newPlant)
       }
@@ -74,7 +76,7 @@ export default function Choose() {
                     {
                         
                         serchTypePlants.map(e => 
-                        <PlantCard chooseClick={chooseClick} choosedId={choosedId} key={e.id} id={e.id} title={e.title} type={e.type} handleIsVisible={handleIsVisible}/>
+                        <PlantCard chooseClick={chooseClick} img={e.img} choosedId={choosedId} key={e.id} id={e.id} title={e.title} type={e.type} handleIsVisible={handleIsVisible}/>
                         )
 
                     }

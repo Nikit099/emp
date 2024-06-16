@@ -11,12 +11,17 @@ export default function RightSide({choosedPlant, createPlant, typeId, handleIsVi
     return (
 
             <main className={`main__choose ${isVisible ? 'main__choose--hidden' : ''}`}>
-                        
-            <Image
-                    src={plantLarge}
+
+                 {
+                    choosedPlant && <Image
+                    src={choosedPlant.img}
+                    width={300}
+                    height={250}
                     className="plant-large"
                     alt={`plant`}
             />
+                 }       
+            
                 <header className="main__header">
                     <button className="button-back" onClick={handleIsVisible}>
                     <Image

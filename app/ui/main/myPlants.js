@@ -13,6 +13,7 @@ export default function MyPlants({serchPlants, closePlantChoose}) {
             serchPlants.map( (e) => 
             !e.alert && <Plant key={e.id} 
                                         id={e.id} 
+                                        img={e.img}
                                         recomendate={e.recomendate} 
                                         name={e.name} 
                                         typeId={e.typeId} 

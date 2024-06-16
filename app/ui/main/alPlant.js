@@ -7,7 +7,7 @@ import fire from "@/public/main/fire.svg"
 import drops from "@/public/main/drops.svg"
 import battery from "@/public/main/battery.svg"
 import sunrise from "@/public/main/sunrise.svg"
-export default function AlPlant({name, recomendate, emotion, id}) {
+export default function AlPlant({name, recomendate, img, emotion, id}) {
     return (
      <Link
      href={`/`}>
@@ -19,7 +19,9 @@ export default function AlPlant({name, recomendate, emotion, id}) {
                         <dd className="point__dd">{recomendate}</dd>
                     </dl>
                     <Image className="notify__plant"
-                         src={notifyPlant} 
+                         src={img} 
+                         width={220}
+                         height={220}
                          alt="plant"/ >
                     <Image className="plant-face-sick" 
                          src={plantFaceSick}
@@ -28,7 +30,7 @@ export default function AlPlant({name, recomendate, emotion, id}) {
                          alt="snow" 
                          src={snow}/>
                     <div className="icons">
-                         
+
                     <Image className="fire" 
                   src={fire} 
                   alt="fire" />

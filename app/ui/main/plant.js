@@ -9,7 +9,7 @@ import Link from "next/link";
 import { usePlantsStore } from "@/app/store/zustand";
 import Emotion from "@/app/scripts/emotion";
 
-export default function Plant({name, recomendate, typeId, id, emotion}) {
+export default function Plant({name, recomendate, typeId, img, id, emotion}) {
      const typePlants = usePlantsStore((state) => state.typePlants);
     return (
      <Link
@@ -18,8 +18,11 @@ export default function Plant({name, recomendate, typeId, id, emotion}) {
             
              <div className="top"></div>
              <Image className="pots__plant"
-                  src={potsPlant}
-                  alt="plant" />
+                  src={img}
+                  alt="plant" 
+                  width={220}
+                  height={220}
+                  />
              <Image className="pots__plant-face" 
                   src={potsSmileFace} 
                   alt="plant face" />
