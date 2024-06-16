@@ -23,7 +23,6 @@ export default function SetNorms({id}) {
     const objNorm = findNorms()
     return (
 
-        <div className="norms_plant">
         <div className="norms_plant__container_mob">
            
                 <div className="norms_plant__title_block">
@@ -32,7 +31,7 @@ export default function SetNorms({id}) {
                            src={questionCircle}
                            alt='Дополнительная информация'></Image>
                 </div>
-                <div className="norms_plant__main_block">
+                <div className="norms_plant__main_block_mob">
                     {
                         findNorms().norms.map( (elem) =>
                             <LineNorms key={elem.name} id={objNorm.id} plantId={objNorm.plantId}  objNorms={objNorm.norms} name={elem.name} min={elem.min} max={elem.max} />
@@ -45,7 +44,6 @@ export default function SetNorms({id}) {
                 </div>
             
         </div>
-    </div>
 
     ) 
     }

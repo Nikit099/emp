@@ -37,7 +37,7 @@ export default function Chart({id}) {
     {
         dayPlant && <>
         
-        <div className="footer_plant__left_title_block">
+        <div className="footer_plant__left_title_block_mob">
                                     <span className="footer_plant__left_title" >История ухода</span>
                                     <Link href={'/dashboard'}><button className="footer_plant__left_button">Подробнее</button> </Link> 
                                 </div>

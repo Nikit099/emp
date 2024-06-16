@@ -10,7 +10,7 @@ import sunrise from "@/public/main/sunrise.svg"
 export default function AlPlant({name, recomendate, img, emotion, id}) {
     return (
      <Link
-     href={`/`}>
+     href={`/${id}/plant`}>
 <div className="point-1">
                     <div className="dot"></div>
                     <div className="top-rectangl"></div>

@@ -104,11 +104,14 @@ export default function LineNorms({name, min, max, id, objNorms, plantId}) {
   const handleError = (error) =>{}
     return (
 
-        <div className="line">
-        <div className="line__title_mob">{name}</div>
+        <div className="line_mob">
+            <div className='line_data'>
+            <div className="line__title_mob">{name}</div>
         <div className="line__parameter">{
             max ? (min + ' min' + ' - ' + max + ' max') : min + ' min'
         }</div>
+            </div>
+        
             <Image onClick={resetNorm} className="line__reset_img"
                    src={rotate}
                    alt='Отменить'></Image>

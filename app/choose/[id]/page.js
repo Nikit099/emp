@@ -52,7 +52,11 @@ export default function Choose() {
     }
     // console.log(getUrlID());
 const id = getUrlID()
-    
+const [isVisible, setIsVisible] = useState(true);
+
+const handleIsVisible = () => {
+    setIsVisible(!isVisible);
+};
    
     const [filterPlant, setFilterPlant] = useState()
     useEffect(() => {
@@ -62,8 +66,9 @@ const id = getUrlID()
 
     return (
         
+       
         <div className="container">
-            <aside className="aside">
+            <aside className={`aside ${isVisible ? '' : 'aside--hidden'}`}>
                 <header className="aside__header">
                 <Image
                     src={magnifyyingGlass}
@@ -75,7 +80,7 @@ const id = getUrlID()
                     <button onClick={dec}> Минусик </button> */}
                 </header>
                 <div className="aside__plant-carts">
-                    {
+                {
                         
                         serchTypePlants.map(e => 
                         <PlantCard chooseClick={chooseClick} choosedId={choosedId} key={e.id} id={e.id} title={e.title} type={e.type} />
@@ -88,5 +93,6 @@ const id = getUrlID()
             </aside>
             <RightSide  plantId={id}  choosedId={choosedId} choosedPlant={choosedPlant} />
         </div>
+        
     ) 
     }
