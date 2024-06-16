@@ -42,7 +42,10 @@ export default function Almanach () {
                 <div className='sides-container'>
                     <aside className='left'>
                         <div className='left-block'></div>
-                        <Image className='left-plant' src={plantAlmanach} alt=''></Image>
+                        <Image className='left-plant' src={currentPlant.img_big} 
+                                                      alt=''
+                                                      width={currentPlant.bigWidth}
+                                                      height={currentPlant.bigHeight}></Image>
                         <div className='left-grid' onClick={() => handleAlmanachChoose(selectedPlantId)}>
                             <Image src={grid} alt=''></Image>
                         </div>

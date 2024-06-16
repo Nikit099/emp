@@ -25,9 +25,12 @@ export const useSearchStore = create(
         }
       )
 )
+
+const bigWidth = 1000;
+const bigHeight = 1000;
+
 export const usePlantsStore = create(
 
-    
 
     (set) => ({
         typePlants: [
@@ -36,6 +39,9 @@ export const usePlantsStore = create(
              img: '/plants_imgs/cactus.png',
              width: 200,
              height: 200,
+             img_big: '/plants_imgs_big/cactus.png',
+             bigWidth: 772,
+             bigHeight: 1393,
              title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз.",
              recomendation: {
                 humidity: {
@@ -73,6 +79,9 @@ export const usePlantsStore = create(
                 img: '/plants_imgs/croton.png',
                 width: 200,
                 height: 200,
+                img_big: '/plants_imgs_big/kroton.png',
+                bigWidth: 790,
+                bigHeight: 790,
                 title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз.",
                 recomendation: {
                    humidity: {
@@ -110,6 +119,9 @@ export const usePlantsStore = create(
             img: '/plants_imgs/peperomia.png',
             width: 200,
             height: 200,
+            img_big: '/plants_imgs_big/peper.png',
+            bigWidth: 848,
+            bigHeight: 879,
             title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз.",
             recomendation: {
                humidity: {
@@ -147,6 +159,9 @@ export const usePlantsStore = create(
                 img: '/plants_imgs/sansevieria.png',
                 width: 200,
                 height: 200,
+                img_big: '/plants_imgs_big/sans.png',
+                bigWidth: 401,
+                bigHeight: 931,
                 title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз.",
                 recomendation: {
                    humidity: {
@@ -184,6 +199,9 @@ export const usePlantsStore = create(
                 img: '/plants_imgs/spathiphyllum.png',
                 width: 200,
                 height: 200,
+                img_big: '/plants_imgs_big/spat.png',
+                bigWidth: 708,
+                bigHeight: 925,
                 title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз.",
                 recomendation: {
                    humidity: {
@@ -221,6 +239,9 @@ export const usePlantsStore = create(
                 img: '/plants_imgs/scindapsus.png',
                 width: 200,
                 height: 200,
+                img_big: '/plants_imgs_big/scin.png',
+                bigWidth: 728,
+                bigHeight: 606,
                 title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз.",
                 recomendation: {
                    humidity: {
@@ -258,6 +279,9 @@ export const usePlantsStore = create(
                 img: '/plants_imgs/ficus_benjamina.png',
                 width: 200,
                 height: 200,
+                img_big: '/plants_imgs_big/fic.png',
+                bigWidth: 513,
+                bigHeight: 832,
                 title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз.",
                 recomendation: {
                    humidity: {
@@ -295,6 +319,9 @@ export const usePlantsStore = create(
                 img: '/plants_imgs/philodendron.png',
                 width: 200,
                 height: 200,
+                img_big: '/plants_imgs_big/filo.png',
+                bigWidth: 600,
+                bigHeight: 800,
                 title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз.",
                 recomendation: {
                    humidity: {
@@ -332,6 +359,9 @@ export const usePlantsStore = create(
                 img: '/plants_imgs/clorofitum.png',
                 width: 200,
                 height: 200,
+                img_big: '/plants_imgs_big/chlor.png',
+                bigWidth: 950,
+                bigHeight: 950,
                 title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз.",
                 recomendation: {
                    humidity: {
@@ -369,6 +399,9 @@ export const usePlantsStore = create(
                 img: '/plants_imgs/dracena.png',
                 width: 200,
                 height: 200,
+                img_big: '/plants_imgs_big/dracena.png',
+                bigWidth: 700,
+                bigHeight: 700,
                 title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз.",
                 recomendation: {
                    humidity: {
