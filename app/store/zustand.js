@@ -462,7 +462,7 @@ export const usePlantsStore = create(
                 recomendate: "Полейте через 2 часа",
                 alert: false,
                 emotion: "good",
-                img: '/plants_imgs_big/cactus.png'
+                img: '/plants_imgs_big/chlor.png'
             },
             {
                 id: 9756,
@@ -480,7 +480,7 @@ export const usePlantsStore = create(
                 recomendate: "Полейте через 3 часа",
                 alert: false,
                 emotion: "good",
-                img: '/plants_imgs_big/cactus.png'
+                img: '/plants_imgs_big/filo.png'
             },
         ],
 
