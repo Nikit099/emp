@@ -14,9 +14,9 @@ export default function RightSide({choosedPlant, createPlant, typeId, handleIsVi
 
                  {
                     choosedPlant && <Image
-                    src={choosedPlant.img}
-                    width={300}
-                    height={250}
+                    src={choosedPlant.img_big}
+                    width={450}
+                    height={450}
                     className="plant-large"
                     alt={`plant`}
             />
