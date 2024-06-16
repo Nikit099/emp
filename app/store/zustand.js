@@ -443,7 +443,7 @@ export const usePlantsStore = create(
                 recomendate: "Kolya холодно, поставьте в теплое место",
                 alert: true,
                 emotion: "coold",
-                img: '/plants_imgs_big/croton.png'
+                img: '/plants_imgs_big/kroton.png'
                
             },
             {
