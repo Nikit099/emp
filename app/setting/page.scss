@@ -4,13 +4,13 @@
 
 .settings {
     background-color: $backgroundColor;
-    &__container {
-        height: 100vh;
-    }
+    overflow-x: hidden;
+   
     &__block {
         position: relative;
         left: 13%;
         padding: 150px 0 0 0;
+        width: 100%;
     }
     &__person {
         display: flex;

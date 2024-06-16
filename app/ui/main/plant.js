@@ -13,7 +13,7 @@ export default function Plant({name, recomendate, typeId, img, id, emotion}) {
      const typePlants = usePlantsStore((state) => state.typePlants);
     return (
      <Link
-     href={`/`}>
+     href={`/${id}/plant`}>
         <div className="point-1">
             
              <div className="top"></div>
