@@ -479,7 +479,7 @@ export const usePlantsStore = create(
                 recomendate: "Полейте через 3 часа",
                 alert: false,
                 emotion: "good",
-                img: ''
+                img: '/plants_imgs_big/cactus.png'
             },
         ],
 
