@@ -15,22 +15,38 @@ import SetNorms from './mobilePlantUi/setNorms';
 import HeadPlant from './mobilePlantUi/headPlant';
 import { usePlantsStore } from '@/app/store/zustand';
 import { useEffect, useLayoutEffect, useState } from 'react';
-export default function MobilePlant({id}) {
+export default function MobilePlant({id, }) {
 const {changeName, plants} = usePlantsStore()
+const [namePlant, setNamePlant] = useState('')
 const [plant, setPlant] = useState()
 useLayoutEffect(() => {
     const getPlant = plants.filter(e => e.id == id )
     setPlant(getPlant[0])
   }, []);
 
+  function submitNamePlant(e) {
+    e.preventDefault()
+    if(namePlant){
+        setPlant({...plant, name: namePlant})
+        changeName(namePlant, id)
+        setNamePlant('')
+    }
+   
     
+}
     return (
 <div className="wrapper_mobile_plant">
+<div className='wrapper_mob_green'></div>
+                
+                <Link href={'/'}>
+                        
                 <div className="mobile__back">
                     <Image className="mobile__back_img"
                            src={arrowBack}
                            alt='Назад'></Image>
                 </div>
+                        
+                        </Link>
                 {
                     plant && <>
                     <div className="header_plant__title">
@@ -62,7 +78,7 @@ useLayoutEffect(() => {
                             </div>
                         </div>
                         <div className="mobile__buttons">
-                            <Seeds  id={id}/>
+                            <Seeds namePlant={namePlant} submitNamePlant={submitNamePlant} setNamePlant={setNamePlant}  id={id}/>
                         </div>
                     </div>
                 </div>

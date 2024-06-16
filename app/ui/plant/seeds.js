@@ -17,9 +17,11 @@ export default function Seeds({namePlant, submitNamePlant, setNamePlant, id}) {
                         alt='Редактировать'></Image>
                     <input onChange={(e) => setNamePlant(e.target.value)} value={namePlant} className="footer_plant__right_bottom_input"
                         placeholder="Введите новое имя питомца"></input>
-                    <Image className="footer_plant__right_check"
+                    <button type='submit' className='footer_plant_submit'>
+                   <Image className="footer_plant__right_check"
                         src={checkCircle}
                         alt='Подтверждение'></Image>
+                   </button>
                 </form>
             </div>
             <div className="footer_plant__right_bottom_plant_type">

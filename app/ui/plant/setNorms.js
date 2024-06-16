@@ -7,7 +7,7 @@ import { usePlantsStore } from "@/app/store/zustand";
 import { usePathname } from 'next/navigation';
 import { useState } from "react";
 
-export default function SetNorms({id}) {
+export default function SetNorms({id,plant}) {
     const customNorms = usePlantsStore((state) => state.customNorms);
     const pathname = usePathname()
     
@@ -46,7 +46,9 @@ export default function SetNorms({id}) {
             </div>
             <div className="norms_plant__right">
                 <Image className="norms_plant__plant"
-                       src={plant}
+                       src={plant.img}
+                       width={400}
+                       height={400}
                        alt='Растение'></Image>
             </div>
         </div>

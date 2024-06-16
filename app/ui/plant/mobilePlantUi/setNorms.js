@@ -24,8 +24,8 @@ export default function SetNorms({id}) {
     return (
 
         <div className="norms_plant">
-        <div className="norms_plant__container">
-            <div className="norms_plant__left">
+        <div className="norms_plant__container_mob">
+           
                 <div className="norms_plant__title_block">
                     <span className="norms_plant__title">Нормы</span>
                     <Image className="norms_plant__title_img"
@@ -43,7 +43,6 @@ export default function SetNorms({id}) {
                   
                     
                 </div>
-            </div>
             
         </div>
     </div>

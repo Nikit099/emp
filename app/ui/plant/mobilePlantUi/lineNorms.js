@@ -105,26 +105,24 @@ export default function LineNorms({name, min, max, id, objNorms, plantId}) {
     return (
 
         <div className="line">
-        <div className="line__title">{name}</div>
+        <div className="line__title_mob">{name}</div>
         <div className="line__parameter">{
             max ? (min + ' min' + ' - ' + max + ' max') : min + ' min'
         }</div>
-        <div onClick={resetNorm} className="line__reset">
-            <Image className="line__reset_img"
+            <Image onClick={resetNorm} className="line__reset_img"
                    src={rotate}
                    alt='Отменить'></Image>
-        </div>
-        <div className="line__input_block">
-            <form onSubmit={handleSubmit(handleSubminForm, handleError)} className="line__form">
+            <form onSubmit={handleSubmit(handleSubminForm, handleError)} className="line__form_mob">
                 {/* <Image className="line__pen"
                        src={pen}
                        alt='Редактировать'></Image> */}
-                <input name={name} {...register(`${name}`, registerOptions[name] )} className="line__input"  type="text"
+                <input name={name} {...register(`${name}`, registerOptions[name] )} className="line__input_mob"  type="text"
                     placeholder="От - До"></input>
               
             </form>
             <div className='error_message'>{errors[name] && errors[name].message || castomError[name]}</div>
-        </div>
+
+        
     </div>
     ) 
     }

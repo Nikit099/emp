@@ -36,14 +36,10 @@ export default function HeadPlant({ id}) {
                                 </div>
                             </div>
                         </div>
-                        <Link href={'/'}>
-                        <div className="header_plant__right">
-                            <Image className="header_plant__arrow_block"
-                                   src={arrowLeftCircle}
-                                   alt='Назад'></Image>
-                        </div></Link>
+                        
                     </div>
                     }
+                    
                 </div>
     ) 
     }

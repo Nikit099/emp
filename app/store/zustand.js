@@ -443,7 +443,8 @@ export const usePlantsStore = create(
                 recomendate: "Kolya холодно, поставьте в теплое место",
                 alert: true,
                 emotion: "coold",
-                img: '/plants_imgs/scindapsus.png'
+                img: '/plants_imgs_big/croton.png'
+               
             },
             {
                 id: 13543,
@@ -452,7 +453,7 @@ export const usePlantsStore = create(
                 recomendate: "Растению очень жарко, поставте в морозилку",
                 alert: false,
                 emotion: "fair",
-                img: '/plants_imgs/croton.png'
+                img: '/plants_imgs_big/scin.png'
             },
             {
                 id: 6345,
@@ -461,7 +462,7 @@ export const usePlantsStore = create(
                 recomendate: "Полейте через 2 часа",
                 alert: false,
                 emotion: "good",
-                img: '/plants_imgs/cactus.png'
+                img: '/plants_imgs_big/cactus.png'
             },
             {
                 id: 9756,
@@ -470,16 +471,16 @@ export const usePlantsStore = create(
                 recomendate: "Полейте через 3 часа",
                 alert: false,
                 emotion: "good",
-                img: '/plants_imgs/dracena.png'
+                img: '/plants_imgs_big/dracena.png'
             },
             {
                 id: 97856,
                 name: 'Tanya',
-                typeId: 3,
+                typeId: 9,
                 recomendate: "Полейте через 3 часа",
                 alert: false,
                 emotion: "good",
-                img: '/plants_imgs/clorofitum.png'
+                img: '/plants_imgs_big/chlor.png'
             },
         ],
 
