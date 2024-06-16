@@ -4,6 +4,9 @@ export default function MyPlants({serchPlants, closePlantChoose}) {
     
     return (
         <section className="pots">
+            {
+                 serchPlants[0] && <h3 className="myPlantsTitile">Мои растения</h3>
+            }
         
         <div className="points">
         {

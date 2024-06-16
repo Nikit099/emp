@@ -3,9 +3,14 @@ import React, { useState } from 'react';
 
 import '../../app/page.scss';
 import Link from "next/link";
-import RealHeaderSidePanel from './main/realHeaderSidePanel';
+import magnifyyingGlass from "@/public/main/magnifying-glass.svg"
+import Search from "./search";
+import plus from "@/public/main/plus.svg"
 
-export default function RealHeader ({}) {
+import RealHeaderSidePanel from './main/realHeaderSidePanel';
+import Image from 'next/image';
+
+export default function RealHeader ({main, handleChange}) {
     
     const [showSidePanel, setSidePanel] = useState(false);
 
@@ -53,6 +58,27 @@ export default function RealHeader ({}) {
                     </svg>
                 </ul>
             </nav>
+            {
+                main &&
+                    <div className="search-header">
+                         <Image className="magnifying-glass"
+                              src={magnifyyingGlass} 
+                              alt="лупа"/>
+                              <Search handleChange={handleChange}  placeholder={'Найти'} stl={'search_main'} />
+                    </div>
+                   
+            }
+            {
+                main &&
+                <Link href={'/choose'}>
+                <button className="header__button">
+                     <Image className="plus"
+                          src={plus}
+                          alt="plus"/>
+                     <div>Растение</div>
+                </button>
+                </Link>
+            }
             <hr></hr>
         </header>
     </div>

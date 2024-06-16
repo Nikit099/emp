@@ -1,6 +1,10 @@
 import Image from "next/image";
 import potsSmileFace from "@/public/main/pots-smile-face.svg"
 import potsPlant from "@/public/main/pots-plant.svg"
+import fire from "@/public/main/fire.svg"
+import drops from "@/public/main/drops.svg"
+import battery from "@/public/main/battery.svg"
+import sunrise from "@/public/main/sunrise.svg"
 import Link from "next/link";
 import { usePlantsStore } from "@/app/store/zustand";
 import Emotion from "@/app/scripts/emotion";
@@ -25,18 +29,19 @@ export default function Plant({name, recomendate, typeId, id, emotion}) {
                   <dd className="pots__dd-2">{recomendate}</dd>
              </dl>
              <div className="icons">
-                  {/* <img className="fire"
-                       src="./media/fire.svg"
-                       alt="fire"></img>
-                  <img className="sunrise"
-                       src="./media/sunrise.svg"
-                       alt="sunrise"></img>
-                  <img className="drops"
-                       src="./media/drops.svg"
-                       alt="drops"></img>
-                  <img className="battery"
-                       src="./media/battery.svg"
-                       alt="battery"></img> */}
+             <Image className="fire" 
+                  src={fire} 
+                  alt="fire" />
+                  
+                  <Image className="sunrise"
+                       src={sunrise}
+                       alt="sunrise"></Image>
+                  <Image className="drops"
+                       src={drops}
+                       alt="drops"></Image>
+                  <Image className="battery"
+                       src={battery}
+                       alt="battery"></Image>
              </div>
              <div className="graf"></div>
         </div>

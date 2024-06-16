@@ -9,6 +9,10 @@
     position: fixed;
     background-color: $backgroundColor;
     z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 94px;
+    width: 100vw;
     &__nav {
         ul {
             display: flex;
@@ -21,7 +25,7 @@
             color: $placeholderText;  
             list-style-type: none;
             gap: 26px;  
-            margin: 43px 0 43px 94px;
+            margin: 43px 0 39px 94px;
         }
         li {
             cursor: pointer;
@@ -56,20 +60,23 @@
         margin: 10px 0 0 0;
     }
     hr {
-        display: block;           
+        position: absolute;           
         height: 3px;              
-        border: none;             
         border-top: 3px solid #ccc;           
-        padding: 0;
         width: 100vw;
+        top: 103px
     }
     
 }
 
 @media (max-width: 760px) {
     .real-header__nav {
+  
         ul {
+            display: flex;
+            width: 100vw;
             justify-content: space-between;
+            padding-right: 50px;
             margin: 21px 0 21px 8vw;
         }
         li {
@@ -90,7 +97,15 @@
             }
         }
     }
+    
+    
     .real-header__dot {
         display: none;
+    }
+    .real-header{
+        hr {
+        
+            top: 68px
+        }
     }
 }
