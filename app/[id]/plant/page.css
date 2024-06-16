@@ -665,30 +665,48 @@
 
     .norms_plant__title_block {
         margin-bottom: 15px;
+        
     }
 
     .norms_plant__title {
         font-family: 'Montserrat';
-        font-style: normal;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 20px;
         line-height: 17px;
-        /* identical to box height */
         display: flex;
         align-items: center;
 
-        color: #000000;
+        color: #1c1c1c;
     }
 
     .norms_plant__title_img {
-        width: 12px;
-        height: 12px;
+        width: 16px;
+        height: 16px;
     }
-
-    .norms_plant__main_block {
+    .norms_plant__main_block_mob{
+        display: flex;
+        flex-direction: column;
         gap: 5px;
+        
     }
-
+    
+    .line_mob{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 5px;
+        
+    }
+    .footer_plant__left_title_block_mob{
+        display: flex;
+        gap: 30px;
+    }
+    .line_data{
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        font-size: 16px;
+        align-items: center;
+    }
     .line__title {
         font-family: 'Inter';
         font-style: normal;
@@ -718,8 +736,10 @@
     .line__title_mob{
         font-family: 'Inter';
         font-weight: 500;
-
         color: #555555;   
+
+    }
+    .norms_plant__title_mob{
 
     }
 

@@ -2,25 +2,28 @@ import plantLarge from "@/public/choose/plant-large.png"
 import arrowLeft from "@/public/choose/arrow-left.svg"
 import Image from "next/image";
 import Link from "next/link";
-import { usePlantsStore } from "@/app/store/zustand";
 
 
-export default function RightSide({choosedPlant, choosedId, plantId}) {
+export default function RightSide({choosedPlant, createPlant, typeId, handleIsVisible, isVisible}) {
 
-    const {  changeTypePlant } = usePlantsStore();
 
 
     return (
 
-            <main className="main_choose">
-                        
-            <Image
-                    src={plantLarge}
+            <main className={`main__choose ${isVisible ? 'main__choose--hidden' : ''}`}>
+
+                 {
+                    choosedPlant && <Image
+                    src={choosedPlant.img_big}
+                    width={450}
+                    height={450}
                     className="plant-large"
                     alt={`plant`}
             />
+                 }       
+            
                 <header className="main__header">
-                    <button className="button-back">
+                    <button className="button-back" onClick={handleIsVisible}>
                     <Image
                     src={arrowLeft}
                     className="header_arrow-left"
@@ -75,8 +78,8 @@ export default function RightSide({choosedPlant, choosedId, plantId}) {
                         {
                              
                             choosedPlant ?
-                            <Link href={`/${plantId}/plant`} > 
-                            <button onClick={() => changeTypePlant( choosedId, plantId)} className="choosedB">
+                            <Link href='/' > 
+                            <button onClick={() => createPlant( typeId)} className="choosedB">
                             <p className="choosedP">Подтвердить выбор</p>
                             </button>
                             </Link>
