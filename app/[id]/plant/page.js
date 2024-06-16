@@ -36,10 +36,11 @@ useEffect(() => {
 
 function submitNamePlant(e) {
     e.preventDefault()
-    setPlant({...plant, name: namePlant})
-    changeName(namePlant, id)
-    setNamePlant('')
-    
+    if(namePlant){
+        setPlant({...plant, name: namePlant})
+        changeName(namePlant, id)
+        setNamePlant('')
+    }
 }
 
     return (
@@ -53,7 +54,7 @@ function submitNamePlant(e) {
                     <div className="circle_3"></div>
                 </div>
                 <HeadPlant plant={plant} id={id}/>
-                <SetNorms id={id}/>
+                <SetNorms plant={plant} id={id}/>
                 <div className="footer_plant__wrapper">
                     <div className="footer_plant">
                         <div className="footer_plant__container">
@@ -65,7 +66,7 @@ function submitNamePlant(e) {
                     </div>
                 </div>
             </div>
-            <MobilePlant  id={id}/>
+            <MobilePlant namePlant={namePlant} submitNamePlant={submitNamePlant} setNamePlant={setNamePlant} plant={plant}  id={id}/>
     </>
     )
 }
