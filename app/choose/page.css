@@ -37,6 +37,9 @@ body {
     position: absolute;
     display: flex;
     justify-content:space-between;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .aside {
@@ -193,7 +196,7 @@ body {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    width: 300px;
+    width: 80%;
 }
 
 .plant-cart .fire {
@@ -313,7 +316,8 @@ body {
     font-weight: 500;
     line-height: normal;
     letter-spacing: 0.35px;
-    margin-left: 0px;    
+    margin-left: 0px;   
+    width: 80%; 
 }
 .mom{
     color: black
@@ -741,6 +745,7 @@ body {
         font-style: normal;
         font-weight: 500;
         line-height: normal;
+        width: 80%;
     }
 
     .span-hide {

@@ -480,7 +480,7 @@ export const usePlantsStore = create(
                 recomendate: "Полейте через 3 часа",
                 alert: false,
                 emotion: "good",
-                img: '/plants_imgs/clorofitum.png'
+                img: '/plants_imgs_big/cactus.png'
             },
         ],
 
