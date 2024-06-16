@@ -3,24 +3,26 @@
     display: flex;
     position: fixed;
     height: 100vh;
-    width: 300px;
+    width: 250px;
     right: 0px;
+    justify-content: center;
     box-shadow: $shadow;
     background-color: $backgroundColor;
     z-index: 6;
     &__cross {
         position: absolute;
-        top: 0px;
-        left: 0px;
+        top: 10px;
+        left: 10px;
         cursor: pointer;
         transition: $buttonTransition;
         &:hover{
-            filter: invert(54%) sepia(12%) saturate(8%) hue-rotate(350deg) brightness(97%) contrast(86%);
+            scale: 1.1;
         }
     }
     &__nav {
         ul {
             display: flex;
+            margin-top: 50px;
             flex-direction: column;
             text-align: center;
             font-family: $mainFont;
@@ -31,7 +33,6 @@
             color: $placeholderText;  
             list-style-type: none;
             gap: 26px;  
-            margin: 43px 0 43px 94px;
         }
         li {
             cursor: pointer;
@@ -54,8 +55,8 @@
         
     }
     &__hr {
-        width: 120px;
-        height: 3px;
+        width: 170px;
+        height: 2px;
         background-color: hsl(0, 0%, 85%);
         margin: 10px 0 0 0;
     }

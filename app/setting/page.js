@@ -16,26 +16,26 @@ export default function Settings ({}) {
         <div className='settings'>
             <div className='settings__container'>
                 <div className='settings__block'>
-                    <div className='settings__person'>
                         <div className='settings__photo'>
                             <Image src={tongue}></Image>
                         </div>
-                        <div className='settings__name'>
-                            <input></input>
-                            <Image src={edit}></Image>
-                        </div>
-                    </div>
+                       
                     <div className='settings__login-block'>
+                    <div className='settings__name'>
+                    <div className='settings__name-title'>Имя</div>
+                            <div className='setting_name_block'><input value={'Костя Воронин'}></input>
+                            <Image src={edit}></Image></div>
+                        </div>
                         <div className='settings__login-title'>Логин</div>
                         <div className='settings__login'>
-                            <input></input>
+                            <input />
                             <Image src={edit}></Image>
                         </div>
                     </div>
                     <div className='settings__pas-block'>
                         <div className='settings__pas-title'>Пароль</div>
                         <div className='settings__pas'>
-                            <input></input>
+                            <input/>
                             <Image src={edit}></Image> 
                         </div>
                     </div>

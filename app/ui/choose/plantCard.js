@@ -2,13 +2,15 @@ import plantSmall from "@/public/choose/plant-small.png"
 import Image from "next/image";
 
 
-export default function PlantCard ({type, title, chooseClick, id, choosedId, handleIsVisible}) {
+export default function PlantCard ({type, title, img, chooseClick, id, choosedId, handleIsVisible}) {
 
     return (
     <div onClick={() => {chooseClick(id), handleIsVisible()}} className={id === choosedId ? 'choosedPlant_card' : 'plant-cart '}>
         <div className="top"></div>
         <Image
-            src={plantSmall}
+            src={img}
+            width={200}
+            height={200}
             className="plant-small"
             alt={`plant-small`}
             />

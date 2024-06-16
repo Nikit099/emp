@@ -30,6 +30,7 @@ export default function Seeds({namePlant, submitNamePlant, setNamePlant, id}) {
                 <button>Удалить растение</button>   
                 </Link>
             </div>
+            
         </div>
     ) 
     }

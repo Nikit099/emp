@@ -3,8 +3,11 @@ import notifyPlant from "@/public/main/notify-plant.svg"
 import snow from "@/public/main/snow.svg"
 import plantFaceSick from "@/public/main/plant-face-sick.svg"
 import Link from "next/link";
-
-export default function AlPlant({name, recomendate, emotion, id}) {
+import fire from "@/public/main/fire.svg"
+import drops from "@/public/main/drops.svg"
+import battery from "@/public/main/battery.svg"
+import sunrise from "@/public/main/sunrise.svg"
+export default function AlPlant({name, recomendate, img, emotion, id}) {
     return (
      <Link
      href={`/`}>
@@ -16,7 +19,9 @@ export default function AlPlant({name, recomendate, emotion, id}) {
                         <dd className="point__dd">{recomendate}</dd>
                     </dl>
                     <Image className="notify__plant"
-                         src={notifyPlant} 
+                         src={img} 
+                         width={220}
+                         height={220}
                          alt="plant"/ >
                     <Image className="plant-face-sick" 
                          src={plantFaceSick}
@@ -25,18 +30,20 @@ export default function AlPlant({name, recomendate, emotion, id}) {
                          alt="snow" 
                          src={snow}/>
                     <div className="icons">
-                         {/* <img className="battery"
-                              src="./media/battery.svg" 
-                              alt="battery"/>
-                         <img className="fire"
-                              src="./media/fire.svg" 
-                              alt="fire"/>
-                         <img className="sunrise"
-                              src="./media/sunrise.svg" 
-                              alt="sunrise"/>
-                         <img className="drops"
-                              src="./media/drops.svg" 
-                              alt="drops"/> */}
+
+                    <Image className="fire" 
+                  src={fire} 
+                  alt="fire" />
+                  
+                  <Image className="sunrise"
+                       src={sunrise}
+                       alt="sunrise"></Image>
+                  <Image className="drops"
+                       src={drops}
+                       alt="drops"></Image>
+                  <Image className="battery"
+                       src={battery}
+                       alt="battery"></Image>
                     </div>
                </div>
                </Link>

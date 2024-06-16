@@ -65,7 +65,7 @@ function submitNamePlant(e) {
                     </div>
                 </div>
             </div>
-            <MobilePlant/>
+            <MobilePlant  id={id}/>
     </>
     )
 }
