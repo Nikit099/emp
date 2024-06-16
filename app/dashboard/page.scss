@@ -21,7 +21,6 @@ a {
 }
 
 @mixin bodyStyle {
-    max-width: 1440px;
     width: 100%;
     margin: 0 auto;
     color: $backgroundColor;
@@ -65,6 +64,12 @@ a {
     }
 }
 
+@media (max-width: 757px) {
+    .main__container {
+        padding: 70px 0 0 0;
+    }
+}
+
 @media (max-width: 715px) {
     .header__back_arrow {
         margin: 0 0 0 15px;
@@ -99,7 +104,7 @@ a {
         width: 100vw;
         height: 100vh;
         position: absolute;
-        margin: 0 0 0 0;
+        margin: 70px 0 0 0;
         border-radius: 0;
         justify-content: flex-start;
         min-width: 0px;

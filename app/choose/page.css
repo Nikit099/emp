@@ -37,6 +37,9 @@ body {
     position: absolute;
     display: flex;
     justify-content:space-between;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .aside {
@@ -193,7 +196,7 @@ body {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    width: 300px;
+    width: 80%;
 }
 
 .plant-cart .fire {
@@ -313,7 +316,8 @@ body {
     font-weight: 500;
     line-height: normal;
     letter-spacing: 0.35px;
-    margin-left: 0px;    
+    margin-left: 0px;   
+    width: 80%; 
 }
 .mom{
     color: black
@@ -528,6 +532,24 @@ body {
 
 @media (max-width: 930px) {
 
+    .choosedPlant_card dl {
+        position: absolute;
+        top: 14px;
+        left: 105px;
+        margin: 0px;
+    }
+
+    .choosedPlant_card dd {
+        margin-left: 0px;
+        color: #6A6D6C;
+        font-family: "Inter";
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        width: 100%;
+    }
+
     .container {
         align-items: center;
         justify-content: center;
@@ -734,13 +756,25 @@ body {
         margin: 0px 0px 12px 0px;
     }
 
-    .titlePlant {
+    .choosedPlant_card {
+        width: 280px;
+        height: 107px;
+    }
+
+    .choosedPlant_card .top {
+        width: 86px;
+        height: 76px;
+        border-radius: 14px 0px 95px 0px;
+    }
+
+    .plant-cart dd {
         color: #6A6D6C;
         font-family: Inter;
-        font-size: 10px;
+        font-size: 11px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
+        width: 100%;
     }
 
     .span-hide {

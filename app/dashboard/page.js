@@ -23,6 +23,7 @@ import { usePlantsStore } from '../store/zustand';
 import { useGroupe } from '../store/zustand';
 import { useBlock } from '../store/zustand';
 import usePersist from '../store/usePersist';
+import RealHeader from '../ui/realHeader';
 
 
 
@@ -100,7 +101,10 @@ export default function Dashboard() {
          onClick={() => {
                          isVisibleProblems ? closeProblems() : null;
                          isVisibleCalendar ? closeCalendar() : null;}} >
-    <header>
+    <RealHeader>
+            
+    </RealHeader>
+    {/* <header>
         <div className="header__container">
             <div className="header__back">
                 <div className='header__back_arrow_block'>
@@ -128,7 +132,7 @@ export default function Dashboard() {
                         alt='лупа'/>
             </div>
         </div>
-    </header>
+    </header> */}
     <main className=".main">
     <div className="main__container">
         {dashboardGroupes

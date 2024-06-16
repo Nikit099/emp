@@ -228,6 +228,7 @@
 
 .point-1 .icons .battery {
     margin-right: 60px;
+    margin-left: 9px;
 }
 
 .point-1 .icons .fire {
@@ -437,8 +438,8 @@
     display: flex;
     flex-direction: row;
     gap: 27px;
-    top: 110px;
-    left: 334px;
+    top: 157px;
+    left: 258px;
 }
 
 .pots .points .point-1 .icons .fire {
@@ -460,6 +461,7 @@
     width: 28px;
     height: 28px;
     flex-shrink: 0;
+    margin-right: 8px;
 }
 
 .pots .points .point-1 .icons .battery {
@@ -467,6 +469,7 @@
     width: 28px;
     height: 28px;
     flex-shrink: 0;
+    margin-left: 8px;
 }
 
 .pots .points .point-2 {
@@ -734,7 +737,7 @@
     }
 
     .pots .points .point-1{
-        width: 700px;
+        
     }
 
     .pots .points .point-1 .icons {

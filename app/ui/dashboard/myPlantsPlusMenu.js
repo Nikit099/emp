@@ -27,6 +27,7 @@ export default function MyPlantsPlusMenu({
                 {filteredPlants?.map(e => (
                     <PlantDashboardPlusMenu
                         key={e.id}
+                        img={e.img}
                         plantId={e.id}
                         groupeId={groupeId}
                         recomendate={e.recomendate}

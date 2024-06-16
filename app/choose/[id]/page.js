@@ -63,6 +63,12 @@ const handleIsVisible = () => {
         setFilterPlant(plants.filter(e => e.id == id)[0])
     }, [])
 
+    const [isVisible, setIsVisible] = useState(true);
+
+        const handleIsVisible = () => {
+            setIsVisible(!isVisible);
+        };
+
 
     return (
         
@@ -83,7 +89,7 @@ const handleIsVisible = () => {
                 {
                         
                         serchTypePlants.map(e => 
-                        <PlantCard chooseClick={chooseClick} choosedId={choosedId} key={e.id} id={e.id} title={e.title} type={e.type} />
+                        <PlantCard chooseClick={chooseClick} img={e.img} choosedId={choosedId} key={e.id} id={e.id} title={e.title} type={e.type} handleIsVisible={handleIsVisible}/>
                         )
 
                     }
@@ -91,7 +97,7 @@ const handleIsVisible = () => {
 
                 </div>
             </aside>
-            <RightSide  plantId={id}  choosedId={choosedId} choosedPlant={choosedPlant} />
+            <RightSide  typeId={choosedId} choosedPlant={choosedPlant} handleIsVisible={handleIsVisible} isVisible={isVisible}/>
         </div>
         
     ) 

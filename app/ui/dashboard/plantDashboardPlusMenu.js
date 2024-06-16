@@ -9,11 +9,13 @@ export default function PlantDashboardPlusMenu({name,
                                                 typeId, 
                                                 plantId,
                                                 groupeId,
-                                                
+                                                img,
                                                 }) {
      const typePlants = usePlantsStore((state) => state.typePlants);
      
      const {addBlock} = useGroupe();
+
+     
 
 
     return (
@@ -24,11 +26,13 @@ export default function PlantDashboardPlusMenu({name,
              <div className="plantchoose__myplants_top"></div>
              <div className="plantchoose__shadow"></div>
              <Image className="plantchoose__myplants_pots__plant"
-                  src={potsPlant}
+                  src={img}
+                  width={200}
+                  height={200}
                   alt="plant" />
-             <Image className="plantchoose__myplants_pots__plant-face" 
-                  src={potsSmileFace} 
-                  alt="plant face" />
+             {/* <Image className="plantchoose__myplants_pots__plant-face" 
+               //    src={potsSmileFace} 
+                  alt="plant face" /> */}
              <dl className="plantchoose__myplants_pots__dl">
                   <dt className="plantchoose__myplants_pots__dt">{name}</dt>
                   <dd className="plantchoose__myplants_pots__dd-1">
