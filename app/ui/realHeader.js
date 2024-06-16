@@ -9,11 +9,12 @@ import plus from "@/public/main/plus.svg"
 
 import RealHeaderSidePanel from './main/realHeaderSidePanel';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function RealHeader ({main, handleChange}) {
     
     const [showSidePanel, setSidePanel] = useState(false);
-
+    const pathname = usePathname()
 
     const handleSidePanel = () => {
         setSidePanel(!showSidePanel);
@@ -36,15 +37,26 @@ export default function RealHeader ({main, handleChange}) {
                     </li>
                     <div className='real-header__dot'></div>
                     <li>
-                        <Link href={'/'}>Настройки</Link>
+                        <Link href={'/setting'}>Настройки</Link>
                     </li>
                     <div className='real-header__dot'></div>
                     <li>
                         <Link href={'/dashboard'}>Статистика</Link>
                     </li>
-                    <li>
+                    {
+                        pathname.includes('/setting') ? <li>
+                        <Link href={'#'}>Настройки</Link>
+                    </li> : pathname.includes('/almanach') ?  <li>
+                        <Link href={'#'}>Альманах</Link>
+                    </li> : !pathname[1] ? <li>
                         <Link href={'#'}>Главная</Link>
-                    </li>
+                    </li> : <></>
+                    }
+                    
+                    
+                    {/* <li>
+                        <Link href={'#'}>Главная</Link>
+                    </li> */}
                     <svg className='real-header__menu_svg' 
                          onClick={handleSidePanel}
                          width="21" 

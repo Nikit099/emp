@@ -8,6 +8,7 @@ import { usePlantsStore, useSearchStore } from "@/app/store/zustand";
 import usePersist from "./store/usePersist";
 import { useEffect, useState } from "react";
 import RealHeader from "./ui/realHeader";
+import { usePathname } from "next/navigation";
 
 export default function Main() {
   const plants = usePlantsStore((state) => state.plants);
@@ -27,7 +28,7 @@ useEffect(() => {
 }, [search]);
 
 
-
+const pathname = usePathname()
 
   return (
     <div className="contMain">
