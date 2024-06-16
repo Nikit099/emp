@@ -8,8 +8,20 @@
     src: url(../fonts/Montserrat.ttf);
 } */
 
-.hidden {
-    display: none;
+.aside--hidden {
+    overflow: auto;
+    height: 100dvh;
+    margin: 0px 30px 0px 2vw;
+    padding-left: 50px;
+    padding-right: 20px;
+    direction: rtl;
+}
+
+.main__choose--hidden {
+    background: #E9F3ED;
+    max-height: 100dvh;
+    overflow-y: hidden;
+  
 }
 
 html {
@@ -27,7 +39,7 @@ body {
     justify-content:space-between;
 }
 
-/* aside {
+.aside {
     overflow: auto;
     height: 100dvh;
     margin: 0px 30px 0px 2vw;
@@ -36,7 +48,7 @@ body {
     direction: rtl;
 } */
 
-aside > * {
+.aside > * {
     direction: ltr;
 }
 
@@ -450,6 +462,15 @@ aside > * {
 }
 
 @media (max-width: 1000px) {
+
+    .aside--hidden {
+        display: none;
+    }
+
+    .main__choose--hidden {
+        display: none;
+    }
+
     .container {
         position: absolute;
         display: flex;
@@ -479,7 +500,6 @@ aside > * {
         border-width: 0;
 
     }
-
 
     .header_arrow-left {
         display: inline-block;

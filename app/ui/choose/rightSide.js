@@ -10,7 +10,7 @@ export default function RightSide({choosedPlant, createPlant, typeId, handleIsVi
 
     return (
 
-            <main className={`main__choose ${isVisible ? '' : 'hidden'}`}>
+            <main className={`main__choose ${isVisible ? 'main__choose--hidden' : ''}`}>
                         
             <Image
                     src={plantLarge}
