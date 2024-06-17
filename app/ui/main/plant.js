@@ -11,6 +11,7 @@ import Emotion from "@/app/scripts/emotion";
 
 export default function Plant({name, recomendate, typeId, img, id, emotion}) {
      const typePlants = usePlantsStore((state) => state.typePlants);
+     const typePlant = typePlants.filter(elem => elem.id === typeId)[0]
     return (
      <Link
      href={`/${id}/plant`}>
@@ -20,13 +21,13 @@ export default function Plant({name, recomendate, typeId, img, id, emotion}) {
              <Image className="pots__plant"
                   src={img}
                   alt="plant" 
-                  width={220}
-                  height={220}
+                  width={typePlant.bigWidth - (typePlant.bigWidth * 70 / 100)}
+                  height={typePlant.bigHeight - (typePlant.bigHeight * 70 / 100)}
                   />
             
              <dl className="pots__dl">
                   <dt className="pots__dt">{name}</dt>
-                  <dd className="pots__dd-1">{typePlants.filter(elem => elem.id === typeId)[0].type}</dd>
+                  <dd className="pots__dd-1">{typePlant.type}</dd>
                   <dd className="pots__dd-2">{recomendate}</dd>
              </dl>
              <div className="icons">

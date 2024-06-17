@@ -384,16 +384,11 @@
 .pots .points .point-1 .pots__plant {
     position: absolute;
     z-index: 1;
-    top: 8px;
-    left: -6px;
+    top: 0px;
+    left: 0px;
 }
 
-.pots .points .point-1 .pots__plant-face{
-    position: absolute;
-    z-index: 2;
-    top: 128px;
-    left: 74px;
-}
+
 
 .pots .points .point-1 .pots__dl {
     position: absolute;

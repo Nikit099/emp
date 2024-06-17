@@ -36,7 +36,7 @@ export default function AlertPlants({serchPlants, plants}) {
                <Carusel offset={offset} >
           {
             serchPlants.map( (e) => 
-            e.alert && <AlPlant img={e.img} key={e.id} id={e.id} recomendate={e.recomendate} name={e.name}  emotion={e.emotion} /> 
+            e.alert && <AlPlant typeId={e.typeId} img={e.img} key={e.id}  id={e.id} recomendate={e.recomendate} name={e.name}  emotion={e.emotion} /> 
         )
         
         }</Carusel>

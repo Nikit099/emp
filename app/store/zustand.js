@@ -449,7 +449,7 @@ export const usePlantsStore = create(
             {
                 id: 55353,
                 name: 'Kolya',
-                typeId: 2,
+                typeId: 1,
                 recomendate: "Kolya холодно, поставьте в теплое место",
                 alert: true,
                 emotion: "coold",
@@ -459,7 +459,7 @@ export const usePlantsStore = create(
             {
                 id: 13543,
                 name: 'Nina',
-                typeId: 1,
+                typeId: 6,
                 recomendate: "Растению очень жарко, поставте в морозилку",
                 alert: false,
                 emotion: "fair",
@@ -468,7 +468,7 @@ export const usePlantsStore = create(
             {
                 id: 6345,
                 name: 'Vasia',
-                typeId: 2,
+                typeId: 9,
                 recomendate: "Полейте через 2 часа",
                 alert: false,
                 emotion: "good",
@@ -477,7 +477,7 @@ export const usePlantsStore = create(
             {
                 id: 9756,
                 name: 'Frosya',
-                typeId: 4,
+                typeId: 10,
                 recomendate: "Полейте через 3 часа",
                 alert: false,
                 emotion: "good",
@@ -486,7 +486,7 @@ export const usePlantsStore = create(
             {
                 id: 97856,
                 name: 'Tanya',
-                typeId: 9,
+                typeId: 8,
                 recomendate: "Полейте через 3 часа",
                 alert: false,
                 emotion: "good",

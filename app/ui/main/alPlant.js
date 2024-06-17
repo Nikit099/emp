@@ -7,7 +7,11 @@ import fire from "@/public/main/fire.svg"
 import drops from "@/public/main/drops.svg"
 import battery from "@/public/main/battery.svg"
 import sunrise from "@/public/main/sunrise.svg"
-export default function AlPlant({name, recomendate, img, emotion, id}) {
+import { usePlantsStore } from "@/app/store/zustand";
+export default function AlPlant({name, recomendate, img,typeId, emotion, id}) {
+    
+     const typePlants = usePlantsStore((state) => state.typePlants);
+     const typePlant = typePlants.filter(elem => elem.id === typeId)[0]
     return (
      <Link
      href={`/${id}/plant`}>
@@ -20,15 +24,11 @@ export default function AlPlant({name, recomendate, img, emotion, id}) {
                     </dl>
                     <Image className="notify__plant"
                          src={img} 
-                         width={220}
-                         height={220}
+                         width={typePlant.bigWidth - (typePlant.bigWidth * 80 / 100)}
+                         height={typePlant.bigHeight - (typePlant.bigHeight * 80 / 100)}
                          alt="plant"/ >
-                    <Image className="plant-face-sick" 
-                         src={plantFaceSick}
-                         alt="plant face sick"/ >
-                    <Image className="snow"
-                         alt="snow" 
-                         src={snow}/>
+                   
+                    
                     <div className="icons">
 
                     <Image className="fire" 
