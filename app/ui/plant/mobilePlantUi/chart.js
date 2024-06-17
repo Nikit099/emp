@@ -33,20 +33,19 @@ export default function Chart({id}) {
     }
    
     return (
-<div className="footer_plant__left">
+<div className="footer_plant__left_mob">
     {
         dayPlant && <>
         
         <div className="footer_plant__left_title_block_mob">
-                                    <span className="footer_plant__left_title" >История ухода</span>
-                                    <Link href={'/dashboard'}><button className="footer_plant__left_button">Подробнее</button> </Link> 
+                                    <span className="footer_plant__left_title_mob" >История ухода</span>
+                                    <Link className="footer_plant__left_button" href={'/dashboard'}><button >Подробнее</button> </Link> 
                                 </div>
                                 <div className="footer_plant__left_radio_block">
-                                    <form className="footer_plant__left_radio_form">
-                                        {nameForm.map(e => <FortmChart changeChart={changeChart} key={e.key} keyPf={e.key} name={e.name}/>)}
+                                    <form className="footer_plant__left_radio_form_mob">
+                                        {nameForm.map(e => <FortmChart changeChart={changeChart} key={e.key} keyPf={e.key} choice={e.choice} name={e.name}/>)}
                                     </form>
                                 </div>
-                                <div className="footer_plant__graph_block">
                                 <Line data={{
                                         labels: ['1 января', '2 января', '3 января', '4 января', '5 января', '6 zdf'],
                                         datasets: [{
@@ -57,6 +56,8 @@ export default function Chart({id}) {
                                         }],
                                             }}
                                         options={{
+                                            width: "600",
+                                            height: "250",
                                             responsive: true,
                                             maintainAspectRatio: true,
                                             plugins: {
@@ -70,7 +71,7 @@ export default function Chart({id}) {
                                         }}>
                                 </Line>
                                     
-                                </div></>
+                                </>
     }
                             </div>
     ) 

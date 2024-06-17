@@ -43,7 +43,7 @@ export default function Chart({id}) {
                                 </div>
                                 <div className="footer_plant__left_radio_block">
                                     <form className="footer_plant__left_radio_form">
-                                        {nameForm.map(e => <FortmChart changeChart={changeChart} key={e.key} keyPf={e.key} name={e.name}/>)}
+                                        {nameForm.map(e => <FortmChart changeChart={changeChart} key={e.key} choice={e.choice} keyPf={e.key} name={e.name}/>)}
                                     </form>
                                 </div>
                                 <div className="footer_plant__graph_block">

@@ -14,7 +14,6 @@ export default function PlantCard ({type, title, img, chooseClick, id, choosedId
             className="plant-small"
             alt={`plant-small`}
             />
-            <img src="./media/plant-small.png" alt="" className="plant-small"/>
         <dl>
             <dt className="typePlant">{type}</dt>
             <dd className="titlePlant">{title}</dd>

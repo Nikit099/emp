@@ -29,7 +29,6 @@ export default function RightSide({choosedPlant, createPlant, typeId, handleIsVi
                     className="header_arrow-left"
                     alt={`arrow-left`}
                     />
-                        <img className="header_arrow-left" src="./media/arrow-left.svg" alt="arrow" />
                     </button>
                     <div className="top-green-block"></div>
                     <dl>

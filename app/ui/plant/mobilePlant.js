@@ -36,7 +36,7 @@ useLayoutEffect(() => {
 }
     return (
 <div className="wrapper_mobile_plant">
-<div className='wrapper_mob_green'></div>
+<div className='footer_plant__wrapper_mob'></div>
                 
                 <Link href={'/'}>
                         
@@ -57,8 +57,9 @@ useLayoutEffect(() => {
                         <Image className="norms_plant__plant"
                                    src={plant.img}
                                    alt='Растение'
-                                   width={500}
-                                   height={600}></Image>
+                                   width={273}
+                                   height={274}
+                                   ></Image>
                     </div>
                     <div className="top_mobile_plant__right">
                       <HeadPlant id={id} plant={plant}/>
