@@ -1,0 +1,188 @@
+
+
+.main-header__wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.main-header {
+    position: fixed;
+    background-color: $backgroundColor;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 94px;
+    width: 100vw;
+    &__nav {
+        ul {
+            display: flex;
+            flex-direction: row;
+            font-family: $mainFont;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
+            color: $placeholderText;  
+            list-style-type: none;
+            gap: 26px;  
+            margin: 43px 0 39px 94px;
+        }
+        li {
+            cursor: pointer;
+            transition: $buttonTransition;
+            &:nth-last-child(-n + 3) {
+                display: none;
+            }        
+            &:hover {
+                color: $bigButton;
+            }
+            a {
+                text-decoration: none; 
+                color: inherit; 
+                &:hover, &:focus, &:active {
+                    text-decoration: none; 
+                    color: inherit; 
+                }
+                &:focus {
+                    color: $hoverBigButton;
+                }
+            }
+        }
+        svg {
+            display: none;
+        }
+    }
+    &__dot {
+        width: 7px;
+        height: 7px;
+        background-color: hsl(0, 0%, 85%);
+        border-radius: 50%;
+        margin: 10px 0 0 0;
+    }
+    hr {
+        position: absolute;           
+        height: 3px;              
+        border-top: 3px solid #ccc;           
+        width: 100vw;
+        top: 103px
+    }
+    &__search-header {
+        display: none;
+    }
+    
+}
+
+@media (max-width: 1050px) {
+
+    .main-header__nav {
+  
+        ul {
+            display: flex;
+            width: 100vw;
+            justify-content: space-between;
+            padding-right: 50px;
+            margin: 17px 0 21px 8vw;
+        }
+        li {
+            &:nth-child(-n + 7) {
+                display: none;
+            }
+            &:nth-last-child(-n + 3) {
+                display: block;
+            } 
+        }
+        svg {
+            display: block;
+            margin: 0 8vw 0 0;
+            cursor: pointer;
+            transition: $buttonTransition;
+            &:hover {
+                filter: invert(47%) sepia(23%) saturate(747%) hue-rotate(78deg) brightness(92%) contrast(94%);
+            }
+        }
+    }
+    
+    
+    .main-header__dot {
+        display: none;
+    }
+    .main-header{
+        &__magnifying-glass {
+            position: absolute;
+            top: 9px;
+            left: 16px;
+        }
+        &__search-header {
+            display: block;
+            position: relative;
+        }
+        &__search-header input{
+        }
+        hr {
+        
+            top: 68px
+        }
+    }
+    .search_main {
+        display: unset;
+        @include searchInput;
+        height: 35px;
+    }
+}
+
+@media (max-width: 760px) {
+    .main-header__nav {
+  
+        ul {
+            display: flex;
+            width: 100vw;
+            justify-content: space-between;
+            padding-right: 50px;
+            margin: 21px 0 21px 8vw;
+        }
+        li {
+            &:nth-child(-n + 7) {
+                display: none;
+            }
+            &:nth-last-child(-n + 2) {
+                display: block;
+            } 
+        }
+        svg {
+            display: block;
+            margin: 0 8vw 0 0;
+            cursor: pointer;
+            transition: $buttonTransition;
+            &:hover {
+                filter: invert(47%) sepia(23%) saturate(747%) hue-rotate(78deg) brightness(92%) contrast(94%);
+            }
+        }
+    }
+    
+    
+    .main-header__dot {
+        display: none;
+    }
+    .main-header{
+        hr {
+        
+            top: 68px
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .main-header__nav {
+  
+        
+        li {
+            &:nth-child(-n + 7) {
+                display: none;
+            }
+            &:nth-last-child(-n + 3) {
+                display: none;
+            } 
+        }
+        
+    }
+}
