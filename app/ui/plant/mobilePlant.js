@@ -57,13 +57,11 @@ useLayoutEffect(() => {
                         <Image className="norms_plant__plant"
                                    src={plant.img}
                                    alt='Растение'
-                                   width={273}
-                                   height={274}
+                                   width={244}
+                                   height={244}
                                    ></Image>
                     </div>
-                    <div className="top_mobile_plant__right">
                       <HeadPlant id={id} plant={plant}/>
-                    </div>
                 </div></>
                 }
                 <div className="bottom_mobile_plant">

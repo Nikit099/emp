@@ -12,12 +12,11 @@ export default function HeadPlant({ id}) {
         setFilterData(data.filter(e => e.plantId == id)[0])
     }, [])
     return (
+<>
 
-       <div className="header_plant">
+        <div className="header_plant">
                     {
-                        filterData && <div className="header_plant__container">
-                        <div className="header_plant__left">
-                            <div className="header_plant__parameters">
+                        filterData &&  <>
                                 <div className="parameter">
                                     <span className="parameter__title">Температура воздуха</span>
                                     <span className="parameter__parameter">{filterData.temperature} C</span>
@@ -34,12 +33,12 @@ export default function HeadPlant({ id}) {
                                     <span className="parameter__title">Освещение</span>
                                     <span className="parameter__parameter">{filterData.illumination}Lux</span>
                                 </div>
-                            </div>
-                        </div>
                         
-                    </div>
+                    </>
                     }
                     
                 </div>
+                </>
     ) 
+    
     }

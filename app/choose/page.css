@@ -594,6 +594,11 @@ body {
         top: 66px;
         left: 219px;
     }
+    .header_plant__container_mob{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 
     .main__header dt {
         color: #A1A7A4;
