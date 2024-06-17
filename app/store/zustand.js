@@ -453,7 +453,7 @@ export const usePlantsStore = create(
                 recomendate: "Kolya холодно, поставьте в теплое место",
                 alert: true,
                 emotion: "coold",
-                img: '/plants_imgs_big/kroton.png'
+                img: '/plants_imgs_big_emo/cactus.png'
                
             },
             {
@@ -463,7 +463,7 @@ export const usePlantsStore = create(
                 recomendate: "Растению очень жарко, поставте в морозилку",
                 alert: false,
                 emotion: "fair",
-                img: '/plants_imgs_big/scin.png'
+                img: '/plants_imgs_big_emo/scin.png'
             },
             {
                 id: 6345,
@@ -472,7 +472,7 @@ export const usePlantsStore = create(
                 recomendate: "Полейте через 2 часа",
                 alert: false,
                 emotion: "good",
-                img: '/plants_imgs_big/chlor.png'
+                img: '/plants_imgs_big_emo/chlor.png'
             },
             {
                 id: 9756,
@@ -481,7 +481,7 @@ export const usePlantsStore = create(
                 recomendate: "Полейте через 3 часа",
                 alert: false,
                 emotion: "good",
-                img: '/plants_imgs_big/dracena.png'
+                img: '/plants_imgs_big_emo/dracena.png'
             },
             {
                 id: 97856,
@@ -490,7 +490,7 @@ export const usePlantsStore = create(
                 recomendate: "Полейте через 3 часа",
                 alert: false,
                 emotion: "good",
-                img: '/plants_imgs_big/filo.png'
+                img: '/plants_imgs_big_emo/filo.png'
             },
         ],
 

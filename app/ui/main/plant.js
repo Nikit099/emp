@@ -23,9 +23,7 @@ export default function Plant({name, recomendate, typeId, img, id, emotion}) {
                   width={220}
                   height={220}
                   />
-             <Image className="pots__plant-face" 
-                  src={potsSmileFace} 
-                  alt="plant face" />
+            
              <dl className="pots__dl">
                   <dt className="pots__dt">{name}</dt>
                   <dd className="pots__dd-1">{typePlants.filter(elem => elem.id === typeId)[0].type}</dd>
