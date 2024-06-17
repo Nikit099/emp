@@ -2,39 +2,37 @@ import plantLarge from "@/public/choose/plant-large.png"
 import arrowLeft from "@/public/choose/arrow-left.svg"
 import Image from "next/image";
 import Link from "next/link";
+import { usePlantsStore } from "@/app/store/zustand";
 
 
-export default function RightSide({choosedPlant, createPlant, typeId, handleIsVisible, isVisible}) {
+export default function RightSide({choosedPlant,isVisible, setIsVisible, choosedId, plantId}) {
 
+    const {  changeTypePlant } = usePlantsStore();
 
 
     return (
 
-            <main className={`main__choose ${isVisible ? 'main__choose--hidden' : ''}`}>
+        <main className={`main__choose ${isVisible ? 'main__choose--hidden' : ''}`}>
 
-                 {
-                    choosedPlant && <Image
-                    src={choosedPlant.img_big}
-                    width={450}
-                    height={450}
-                    className="plant-large"
-                    alt={`plant`}
-            />
-                 }       
-            
+        {
+           choosedPlant && <Image
+           src={choosedPlant.img_big}
+           width={450}
+           height={450}
+           className="plant-large"
+           alt={`plant`}
+   />
+        }       
                 <header className="main__header">
-                    <button className="button-back" onClick={handleIsVisible}>
-                    <Image
+                    <button className="button-back">
+                    <Image onClick={() => setIsVisible(true)}
                     src={arrowLeft}
                     className="header_arrow-left"
                     alt={`arrow-left`}
                     />
-                        <img className="header_arrow-left" src="./media/arrow-left.svg" alt="arrow" />
                     </button>
                     <div className="top-green-block"></div>
                     <dl>
-                        <dt className="main__header--hide">Size</dt>
-                        <dd className="main__header--hide">Small</dd>
                         <dt>Humidity</dt>
                         <dd>64%</dd>
                         <dt>Light</dt>
@@ -78,8 +76,8 @@ export default function RightSide({choosedPlant, createPlant, typeId, handleIsVi
                         {
                              
                             choosedPlant ?
-                            <Link href='/' > 
-                            <button onClick={() => createPlant( typeId)} className="choosedB">
+                            <Link href={`/${plantId}/plant`} > 
+                            <button onClick={() => changeTypePlant( choosedId, plantId)} className="choosedB">
                             <p className="choosedP">Подтвердить выбор</p>
                             </button>
                             </Link>

@@ -52,11 +52,7 @@ export default function Choose() {
     }
     // console.log(getUrlID());
 const id = getUrlID()
-const [isVisible, setIsVisible] = useState(true);
 
-const handleIsVisible = () => {
-    setIsVisible(!isVisible);
-};
    
     const [filterPlant, setFilterPlant] = useState()
     useEffect(() => {
@@ -97,7 +93,7 @@ const handleIsVisible = () => {
 
                 </div>
             </aside>
-            <RightSide  typeId={choosedId} choosedPlant={choosedPlant} handleIsVisible={handleIsVisible} isVisible={isVisible}/>
+            <RightSide  typeId={choosedId} plantId={id} choosedPlant={choosedPlant} setIsVisible={setIsVisible} handleIsVisible={handleIsVisible} isVisible={isVisible}/>
         </div>
         
     ) 

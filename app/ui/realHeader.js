@@ -50,7 +50,10 @@ export default function RealHeader ({main, handleChange}) {
                         <Link href={'#'}>Альманах</Link>
                     </li> : !pathname[1] ? <li>
                         <Link href={'#'}>Главная</Link>
-                    </li> : <></>
+                    </li> : pathname.includes('/dashboard') ?
+                    <li>
+                    <Link href={'/dashboard'}>Статистика</Link>
+                </li> : <></>
                     }
                     
                     

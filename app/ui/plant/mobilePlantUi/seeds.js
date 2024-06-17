@@ -25,10 +25,10 @@ export default function Seeds({namePlant, submitNamePlant, setNamePlant, id}) {
                 </form>
             </div>
             <div className="footer_plant__right_bottom_plant_type">
-            <Link href={`/choose/${id}`}> <button>Смена вида растения</button> </Link>
+            <Link className='btnLinkTypeChange' href={`/choose/${id}`}> <button>Смена вида растения</button> </Link>
             </div>
             <div onClick={() => deletPlant(id)} className="footer_plant__right_bottom_delete">
-            <Link href={`/`}>
+            <Link className='btnLinkDeletePlant' href={`/`}>
                 <button>Удалить растение</button>   
                 </Link>
             </div>
