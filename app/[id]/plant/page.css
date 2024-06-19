@@ -191,7 +191,8 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: calc(10px + 1vmin);
+
     line-height: 17px;
     color: #498553;
 }
@@ -237,6 +238,7 @@
 
 .norms_plant__right {
     position: relative;
+    top: 120px
 }
 .wrapper_mob_green{
    position: absolute;
@@ -577,7 +579,7 @@
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
+        font-size: calc(12px + 1vmin);
         line-height: 12px;
 
         color: #A1A7A4;
@@ -588,7 +590,7 @@
         font-family: 'Inter';
         font-style: normal;
         font-weight: 500;
-        font-size: 16px;
+        font-size: calc(10px + 1vmin);
         line-height: 15px;
 
         color: #498553;
@@ -605,14 +607,17 @@
     }
 
     .header_plant__title {
-        margin: 0 0 25px 0;
+    position: relative;
+    top: 20px;
+    display: flex;
+    justify-content: center;
     }
     .footer_plant__left_radio_form_mob{
         display: flex;
-        gap: 20px;
+        gap: calc(2px + 1vmin);
     }
     .radio_form__left_radio_mob{
-        font-size: 14px;
+        font-size: calc(10px + 0.5vmin);
         cursor: pointer;
         text-align: center;
     }
@@ -621,7 +626,7 @@
         text-align: center;
 
         border-bottom: #498553 solid 2px;
-    font-size: 14px;
+    font-size:  calc(10px + 0.5vmin);
 
     }
     .header_plant{
@@ -633,16 +638,12 @@
         gap: 40px;
     }
     .header_plant__title span {
-        font-family: 'Montserrat';
-        font-style: normal;
+        font-family: 'Inter';
         font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        /* identical to box height */
+        font-size: calc(18px + 1vmin);
         display: flex;
         align-items: center;
-
-        color: #000000;
+        color: #555555;
     }
 
     .footer_plant__right_bottom_input_block {
@@ -659,6 +660,7 @@
 
     .top_mobile_plant__left{
         position: relative;
+        top: 100px;
     }   
     .footer_plant__right_bottom_pen {
         width: 20px;
@@ -707,7 +709,7 @@
     .norms_plant__title {
         font-family: 'Montserrat';
         font-weight: 600;
-        font-size: 20px;
+        font-size: calc(12px + 2vmin);
         line-height: 17px;
         display: flex;
         align-items: center;
@@ -740,7 +742,7 @@
         display: flex;
         flex-direction: column;
         gap: 7px;
-        font-size: 16px;
+        font-size: calc(10px + 1vmin);
         align-items: center;
     }
     .line__title {
@@ -854,7 +856,7 @@
         font-family: 'Montserrat';
         font-style: normal;
         font-weight: 600;
-        font-size: 18px;
+        font-size:calc(12px + 2vmin);
         line-height: 17px;
         /* identical to box height */
         display: flex;

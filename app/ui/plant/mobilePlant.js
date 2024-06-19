@@ -14,16 +14,23 @@ import Chart from './mobilePlantUi/chart';
 import SetNorms from './mobilePlantUi/setNorms';
 import HeadPlant from './mobilePlantUi/headPlant';
 import { usePlantsStore } from '@/app/store/zustand';
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 export default function MobilePlant({id, }) {
-const {changeName, plants} = usePlantsStore()
+const {changeName, plants, typePlants} = usePlantsStore()
 const [namePlant, setNamePlant] = useState('')
 const [plant, setPlant] = useState()
-useLayoutEffect(() => {
+const [typePlant, setTypePlant] = useState()
+useEffect(() => {
     const getPlant = plants.filter(e => e.id == id )
     setPlant(getPlant[0])
   }, []);
-
+useEffect(()=>{
+    if (plant){
+        const typePlant = typePlants.filter(elem => elem.id === plant.typeId)[0]
+        setTypePlant(typePlant)
+    }
+   
+}, [plant])
   function submitNamePlant(e) {
     e.preventDefault()
     if(namePlant){
@@ -48,7 +55,7 @@ useLayoutEffect(() => {
                         
                         </Link>
                 {
-                    plant && <>
+                    typePlant &&  <>
                     <div className="header_plant__title">
                             <span>{plant.name}</span>
                         </div>
@@ -57,8 +64,8 @@ useLayoutEffect(() => {
                         <Image className="norms_plant__plant"
                                    src={plant.img}
                                    alt='Растение'
-                                   width={244}
-                                   height={244}
+                                   width={typePlant.bigWidth - (typePlant.bigWidth * 70 / 100)}
+                                   height={typePlant.bigHeight - (typePlant.bigHeight * 70 / 100)}
                                    ></Image>
                     </div>
                       <HeadPlant id={id} plant={plant}/>

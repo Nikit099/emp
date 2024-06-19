@@ -38,16 +38,15 @@ export default function Choose() {
         setChoosedId(id)
       }
 
-      function createPlant(typeId){
+      function createPlant(plant){
         
-        let img =  typePlants.filter(e => e.id === typeId)[0].img
         const newPlant = {
             id: Date.now(),
             name: 'Kira',
-            typeId: typeId,
+            typeId: plant.id,
             recomendate: `Пока, у kira всё хорошо`,
             alert: false,
-            img: img
+            img: plant.imgBigEmo
         }
         incPlant(newPlant)
       }
