@@ -781,7 +781,6 @@
 @media (max-width: 566px) {
     .sliderMain {
         display: flex;
-        flex-direction: column;
         gap: 0px;
     }
 
@@ -1302,9 +1301,11 @@
     }
 }   
 .sliderMain{
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 80vw;;
     display: flex;
-    /* gap: 49px; */
-    display: flex;
+    gap: 49px;
     transition-duration: 400ms;
     transition-timing-function: ease;
     margin: 100px 0 0 0;

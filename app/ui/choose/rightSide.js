@@ -2,7 +2,7 @@ import plantLarge from "@/public/choose/plant-large.png"
 import arrowLeft from "@/public/choose/arrow-left.svg"
 import Image from "next/image";
 import Link from "next/link";
-
+let scale = 50
 
 export default function RightSide({choosedPlant, createPlant, typeId, handleIsVisible, isVisible}) {
 
@@ -15,8 +15,8 @@ export default function RightSide({choosedPlant, createPlant, typeId, handleIsVi
                  {
                     choosedPlant && <Image
                     src={choosedPlant.img_big}
-                    width={450}
-                    height={450}
+                    width={choosedPlant.bigWidth - (choosedPlant.bigWidth * scale / 100)}
+                    height={choosedPlant.bigHeight - (choosedPlant.bigHeight * scale / 100)}
                     className="plant-large"
                     alt={`plant`}
             />
@@ -74,11 +74,12 @@ export default function RightSide({choosedPlant, createPlant, typeId, handleIsVi
                             <img src="./media/sunrise.svg" alt="sunrise" className="sunrise"/>
                             <img src="./media/drops.svg" alt="drops" className="drops"/> */}
                         </div>
+                        <div>
                         {
                              
                             choosedPlant ?
                             <Link href='/' > 
-                            <button onClick={() => createPlant( typeId)} className="choosedB">
+                            <button onClick={() => createPlant( choosedPlant)} className="choosedB">
                             <p className="choosedP">Подтвердить выбор</p>
                             </button>
                             </Link>
@@ -88,7 +89,13 @@ export default function RightSide({choosedPlant, createPlant, typeId, handleIsVi
                             <p className="noChoosedP">Необходимо выбрать растение</p>
                             </button>
                         }
-                        
+                       
+                    </div>
+                    {/* <Link href='/' > 
+                            <button className="closeChooce">
+                            <p className="CloseChooceP">Выйти</p>
+                            </button>
+                            </Link> */}
                     </div>
                 </footer>
             </main>

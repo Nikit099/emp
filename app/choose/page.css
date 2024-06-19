@@ -250,7 +250,6 @@ body {
     position: absolute;
     z-index: 1;
     top: 65px;
-    left: 660px;
 
 }
 
@@ -429,7 +428,6 @@ body {
 
     .plant-large {
         left: 45vw;
-        height: 450px;
     }
 
     .top-green-block {
@@ -459,7 +457,6 @@ body {
     }
     
     .plant-large {
-        height: 450px;
         top: 100px;
     
     }
@@ -583,8 +580,6 @@ body {
     }
     
     .plant-large {
-        height: 250px;
-        width: 250px;
         left: 30vw;
     }
     
@@ -817,7 +812,12 @@ body {
         z-index: 3;
     }
 }
-
+.closeChooce{
+    position: relative;
+    /* bottom: 40px; */
+    border: none;
+    margin: none;
+}
 @media screen and (max-width: 750px) {
     .plant-large {
         left: 25vw;
@@ -877,7 +877,6 @@ body {
 
     .plant-large{
         top: -20px;
-        height: 450px;
     }
 
 }
