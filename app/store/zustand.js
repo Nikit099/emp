@@ -40,8 +40,8 @@ export const usePlantsStore = create(
              width: 200,
              height: 200,
              img_big: '/plants_imgs_big/cactus.png',
-             bigWidth: 672,
-             bigHeight: 1293,
+             bigWidth: 572,
+             bigHeight: 1093,
              imgBigEmo: '/plants_imgs_big_emo/cactus.png',
              title: "Драцена феноменальное растение, всегда поможет вам в нужную минуту, снимет спазмы и боль, кроме того, способно развить у вас крапиноз.",
              recomendation: {
@@ -453,7 +453,7 @@ export const usePlantsStore = create(
                 recomendate: "Kolya холодно, поставьте в теплое место",
                 alert: true,
                 emotion: "coold",
-                img: '/plants_imgs_big_emo/cactus.png'
+                img: '/plants_imgs_big_emo/fic.png'
                
             },
             {
