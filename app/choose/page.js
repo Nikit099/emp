@@ -6,84 +6,93 @@ import PlantCard from "../ui/choose/plantCard";
 import RightSide from "../ui/choose/rightSide";
 import magnifyyingGlass from "@/public/choose/magnifying-glass.svg"
 import Image from "next/image";
-import { useCountStore, usePlantsStore } from '../store/zustand';
+import { usePlantsStore } from '../store/zustand';
 import usePersist from '../store/usePersist';
-import {  useSearchStore } from "../store/zustand";
-
+import { useSearchStore } from "../store/zustand";
 
 export default function Choose() {
-    // const { data: plants, isLoading, error } = useFetchPlants();
-    // const { mutate: createPlant } = useCreatePlant();
     const search = usePersist(useSearchStore, (state) => state.search);
-
-    
     const setSearch = useSearchStore((state) => state.setSearch);
-    const {  typePlants, incPlant } = usePlantsStore();
-    const [serchTypePlants, setSearchTypePlants] = useState(typePlants)
-    const [choosedPlant, setChoosedPlant] = useState('')
-    const [choosedId, setChoosedId] = useState(null)
+    const { typePlants, incPlant } = usePlantsStore();
+    const [searchTypePlants, setSearchTypePlants] = useState(typePlants);
+    const [choosedPlant, setChoosedPlant] = useState('');
+    const [choosedId, setChoosedId] = useState(null);
+    const [isVisible, setIsVisible] = useState(true);
+    const [plantName, setPlantName] = useState('');
+
     function handleChange(value) {
-        setSearch(value)
+        setSearch(value);
     }
+
     useEffect(() => {
         const results = typePlants.filter(elem =>
             elem.type.toLowerCase().includes(search)
         );
-        setSearchTypePlants(results)
-            
-      }, [search]);
-      function chooseClick(id) {
-        const plant = serchTypePlants.find(item => item.id === id)
-        setChoosedPlant(plant)
-        setChoosedId(id)
-      }
+        setSearchTypePlants(results);
+    }, [search]);
 
-      function createPlant(plant){
-        
+    function chooseClick(id) {
+        const plant = searchTypePlants.find(item => item.id === id);
+        setChoosedPlant(plant);
+        setChoosedId(id);
+    }
+
+    function createPlant(plant) {
         const newPlant = {
             id: Date.now(),
-            name: 'Kira',
+            name: plantName,
             typeId: plant.id,
-            recomendate: `Пока, у kira всё хорошо`,
+            recommendate: `Пока, у ${plantName} всё хорошо`,
             alert: false,
             img: plant.imgBigEmo
         }
-        incPlant(newPlant)
-      }
+        incPlant(newPlant);
+    }
 
-        const [isVisible, setIsVisible] = useState(true);
+    const handleIsVisible = () => {
+        setIsVisible(!isVisible);
+    };
 
-        const handleIsVisible = () => {
-            setIsVisible(!isVisible);
-        };
+    const handlePlantNameChange = (newPlantName) => {
+        setPlantName(newPlantName);
+    };
 
     return (
-        
         <div className="container">
             <aside className={`aside ${isVisible ? '' : 'aside--hidden'}`}>
                 <header className="aside__header">
-                <Image
-                    src={magnifyyingGlass}
-                    className="aside__magnifying-glass"
-                    alt={`magnifyying-glass`} />
-                    <Search stl={'search'} handleChange={handleChange}  placeholder={"Тип растения"}/>
-                    {/* <div className='mom'>{count}</div>
-                    <button onClick={inc}> Плюсик </button>
-                    <button onClick={dec}> Минусик </button> */}
+                    <Image
+                        src={magnifyyingGlass}
+                        className="aside__magnifying-glass"
+                        alt="magnifying-glass"
+                    />
+                    <Search stl={'search'} handleChange={handleChange} placeholder={"Тип растения"} />
                 </header>
-                <div className="aside__plant-carts">
+                <div className="aside__plant-cards">
                     {
-                        
-                        serchTypePlants.map(e => 
-                        <PlantCard chooseClick={chooseClick} img={e.img} choosedId={choosedId} key={e.id} id={e.id} title={e.title} type={e.type} handleIsVisible={handleIsVisible}/>
+                        searchTypePlants.map(e =>
+                            <PlantCard
+                                chooseClick={chooseClick}
+                                img={e.img}
+                                choosedId={choosedId}
+                                key={e.id}
+                                id={e.id}
+                                title={e.title}
+                                type={e.type}
+                                handleIsVisible={handleIsVisible}
+                            />
                         )
-
                     }
-                    
-
                 </div>
             </aside>
-            <RightSide  typeId={choosedId} createPlant={createPlant} choosedPlant={choosedPlant} handleIsVisible={handleIsVisible} isVisible={isVisible}/>
+            <RightSide
+                typeId={choosedId}
+                createPlant={createPlant}
+                choosedPlant={choosedPlant}
+                handleIsVisible={handleIsVisible}
+                isVisible={isVisible}
+                onPlantNameChange={handlePlantNameChange}
+            />
         </div>
-    ) 
-    }
+    )
+}
