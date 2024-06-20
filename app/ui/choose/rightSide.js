@@ -90,12 +90,21 @@ export default function RightSide({choosedPlant, createPlant, typeId, handleIsVi
                             </button>
                         }
                        
-                    </div>
-                    {/* <Link href='/' > 
-                            <button className="closeChooce">
-                            <p className="CloseChooceP">Выйти</p>
+                        </div>
+                        {
+                        choosedPlant ?
+                        <Link href='/' > 
+                            <button className="closeChooce--color">
+                                <p className="CloseChooceP--color">Главная</p>
                             </button>
-                            </Link> */}
+                        </Link>
+                        :
+                        <Link href='/' > 
+                            <button className="closeChooce">
+                                <p className="CloseChooceP">Главная</p>
+                            </button>
+                        </Link>
+                        }
                     </div>
                 </footer>
             </main>

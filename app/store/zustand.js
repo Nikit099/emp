@@ -80,7 +80,7 @@ export const usePlantsStore = create(
                 img: '/plants_imgs/croton.png',
                 width: 200,
                 height: 200,
-                img_big: '/plants_imgs_big/kroton.png',
+                img_big: '/plants_imgs_big/croton.png',
                 bigWidth: 700,
                 bigHeight: 700,
                 imgBigEmo: '/plants_imgs_big_emo/kroton.png',
