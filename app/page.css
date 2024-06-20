@@ -4,7 +4,7 @@
 
 .wrapper_main {
     margin: 0px auto;
-    padding: 0px 60px;
+    padding: 140px 60px 0px 60px;
     max-width: 1138px;
     height: 100%;
 }
@@ -766,6 +766,13 @@
 
    
 
+}
+
+@media (max-width: 1149px) {
+    .wrapper_main {
+        padding: 110px 60px 0px 60px;
+    }
+    
 }
 
 @media screen and (max-width: 768px) {

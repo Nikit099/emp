@@ -44,7 +44,9 @@ export default function RightSide({choosedPlant, createPlant, typeId, handleIsVi
                 </header>
                 <footer className="main__footer">
                     <div className="bottom-white-block">
-                        
+                        <div class='bottom-white-block__input'>
+                            <input type="text" placeholder="Имя растения"></input>
+                        </div>
                            {
                             choosedPlant ?
                             <dl> 
