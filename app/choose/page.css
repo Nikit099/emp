@@ -619,6 +619,16 @@ body {
         left: 90px;
     }
 
+    .closeChooce {
+        left: 14vw;
+        top: 440px;
+    }
+
+    .closeChooce--color {
+        left: 14vw;
+        top: 440px;
+    }
+
 }
 
 @media (max-width: 930px) {
@@ -726,6 +736,8 @@ body {
         border-radius: 60px 60px 0px 0px;
     }
 
+    
+
     .bottom-white-block dl {
         top: 70px;
         left: 20px;
@@ -795,6 +807,18 @@ body {
         font-weight: 600;
         line-height: normal;
         margin: 8px;
+    }
+
+    .closeChooce {
+        left: 66px;
+        top: 290px;
+        height: 25px;
+    }
+
+    .closeChooce--color {
+        left: 66px;
+        top: 290px;
+        height: 25px;
     }
 
     .aside {
@@ -914,13 +938,15 @@ body {
     }
 
     .bottom-white-block__input {
-        left: 6vw;
-        width: 193px;
-        height: 30px;  
+        left: 151px;
+        top: 66px;
+        width: 133px;
+        height: 30px
     }
 
     .bottom-white-block__input input {
         height: 30px;
+        width: 100px;
     }
 }
 

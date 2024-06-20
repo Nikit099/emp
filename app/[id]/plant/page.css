@@ -199,6 +199,7 @@
 
 .line__reset {
     cursor: pointer;
+    margin: 0 0 0 40px;
 }
 
 .line__input_block {
