@@ -382,6 +382,39 @@ body {
     line-height: normal;
 }
 
+.closeChooce {
+    position: absolute;
+    background-color: #10591e;
+    border-radius: 38px;
+    width: 180px;
+    height: 38px;
+    border: 0px;
+    top: 474px;
+    left: 237px;
+    cursor: pointer;
+    transition: 2s;
+    color: #ffffff;
+}
+
+.closeChooce--color {
+    position: absolute;
+    background-color: #BFDFC9;
+    border-radius: 38px;
+    width: 180px;
+    height: 38px;
+    border: 0px;
+    top: 474px;
+    left: 237px;
+    cursor: pointer;
+    transition: 2s;
+    color: #201d1d;
+}
+
+.closeChooce:hover {
+    background-color: #457c4e;
+    transition: 2s;
+}
+
 
 @media (max-width:1420px) {
 
@@ -446,13 +479,29 @@ body {
         left: 7vw
     }
 
-    .bottom-white-block button {
+    .choosedB {
         width: 30vw;
+    }
+
+    .noChoosedB {
+        width: 30vw;
+    }
+
+    .closeChooce {
+        left: 16.5vw;
+    }
+
+    .closeChooce--color {
+        left: 16.5vw
     }
 }
 
 @media (max-width: 1223px) {
-    .bottom-white-block button {
+    .choosedB {
+        width: 28vw;
+    }
+
+    .noChoosedB {
         width: 28vw;
     }
     
@@ -520,7 +569,12 @@ body {
         margin: 145px 0px 0px 0px;
     }
 
-    .bottom-white-block button {
+    .choosedB {
+        top: 30dvh;
+        left: 90px;
+    }
+
+    .noChoosedB {
         top: 30dvh;
         left: 90px;
     }
@@ -580,7 +634,8 @@ body {
     }
     
     .plant-large {
-        left: 30vw;
+        left: calc(-30px + 30vw);
+        top: 1px;
     }
     
    
@@ -679,7 +734,7 @@ body {
         height: 18px;
     }
 
-    .bottom-white-block button {
+    .choosedB {
         position: absolute;
         top: 248px;
         left: 42px;
@@ -687,7 +742,15 @@ body {
         height: 30.977px;
     }
 
-    .bottom-white-block button p {
+    .noChoosedB {
+        position: absolute;
+        top: 248px;
+        left: 42px;
+        width: 235px;
+        height: 30.977px;
+    }
+
+    .choosedB p {
         text-align: center;
         font-size: 12px;
         font-style: normal;
@@ -812,33 +875,28 @@ body {
         z-index: 3;
     }
 }
-.closeChooce{
-    position: relative;
-    /* bottom: 40px; */
-    border: none;
-    margin: none;
-}
+
 @media screen and (max-width: 750px) {
     .plant-large {
-        left: 25vw;
+        left: calc(-30px + 25vw);;
     }
 }
 
 @media screen and (max-width: 580px) {
     .plant-large {
-        left: 15vw;
+        left: calc(-30px + 15vw);
     }
 }
 
 @media screen and (max-width: 430px) {
     .plant-large {
-        left: 8vw;
+        left: calc(-30px + 8vw);
     }
 }
 
 @media screen and (max-width: 350px) {
     .plant-large {
-        left: 0vw;
+        left: calc(-30px + 0vw);
     }
     
 }
@@ -871,7 +929,11 @@ body {
         top: 90px;
     }
 
-    .bottom-white-block button {
+    .choosedB {
+        top: 35vh;
+    }
+
+    .noChoosedB {
         top: 35vh;
     }
 
