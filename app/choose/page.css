@@ -502,6 +502,7 @@ body {
 
     .plant-large {
         left: 45vw;
+        top: 41px;
     }
 
     .top-green-block {
@@ -551,8 +552,7 @@ body {
     }
     
     .plant-large {
-        top: 100px;
-    
+        top: 41px;
     }
     .bottom-white-block__input {
         left: 19vw;   
@@ -609,7 +609,7 @@ body {
     }
 
     .plant-large {
-        top: 100px;
+        top: 40px;
         left: 20vw;
     }
 
@@ -692,8 +692,10 @@ body {
     }
     
     .plant-large {
-        left: calc(-30px + 30vw);
-        top: 1px;
+        width: 300px;
+        height: 300px;
+        left: 211px;
+        top: 32px;
     }
     
     .main__header dl {
@@ -1028,7 +1030,7 @@ body {
     }
 
     .plant-large{
-        top: 50px;
+        top: 0px;
     }
 
 }
