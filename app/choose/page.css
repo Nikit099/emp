@@ -438,7 +438,7 @@ body {
     left: 237px;
     cursor: pointer;
     transition: 2s;
-    color: #201d1d;
+    color: #10591e;
 }
 
 .closeChooce:hover {
@@ -1004,15 +1004,23 @@ body {
     }
 
     .choosedB {
-        top: 35vh;
+        top: 27vh;
     }
 
     .noChoosedB {
         top: 35vh;
     }
 
+    .closeChooce {
+        top: 37vh;
+    }
+
+    .closeChooce--color {
+        top: 37vh;
+    }
+
     .plant-large{
-        top: -20px;
+        top: 50px;
     }
 
 }
