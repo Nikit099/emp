@@ -21,8 +21,8 @@ export default function Plant({name, recomendate, typeId, img, id, emotion}) {
              <Image className="pots__plant"
                   src={img}
                   alt="plant" 
-                  width={typePlant.bigWidth - (typePlant.bigWidth * 70 / 100)}
-                  height={typePlant.bigHeight - (typePlant.bigHeight * 70 / 100)}
+                  width={typePlant.bigWidth - (typePlant.bigWidth * 72 / 100)}
+                  height={typePlant.bigHeight - (typePlant.bigHeight * 72 / 100)}
                   />
             
              <dl className="pots__dl">

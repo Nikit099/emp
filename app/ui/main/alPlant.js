@@ -24,8 +24,8 @@ export default function AlPlant({name, recomendate, img,typeId, emotion, id}) {
                     </dl>
                     <Image className="notify__plant"
                          src={img} 
-                         width={typePlant.bigWidth - (typePlant.bigWidth * 80 / 100)}
-                         height={typePlant.bigHeight - (typePlant.bigHeight * 80 / 100)}
+                         width={typePlant.bigWidth - (typePlant.bigWidth * 74 / 100)}
+                         height={typePlant.bigHeight - (typePlant.bigHeight * 74 / 100)}
                          alt="plant"/ >
                    
                     

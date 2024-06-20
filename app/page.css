@@ -1301,8 +1301,8 @@
     }
 }   
 .sliderMain{
-    overflow-x: auto;
-    overflow-y: hidden;
+    /* overflow-x: auto; */
+    /* overflow-y: hidden; */
     width: 80vw;;
     display: flex;
     gap: 49px;

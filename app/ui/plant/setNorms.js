@@ -6,7 +6,7 @@ import LineNorms from "./lineNorms";
 import { usePlantsStore } from "@/app/store/zustand";
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from "react";
-let scale = 47
+let scale = 40
 export default function SetNorms({id,plant}) {
     const {customNorms,  typePlants} = usePlantsStore()
     const [typePlant, setTypePlant] = useState()
