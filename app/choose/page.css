@@ -317,6 +317,14 @@ body {
     line-height: 20px;
     color: #7E7E7E;
     height: 50px;
+    outline: none;
+    border: none;
+    
+}
+
+.bottom-white-block__input input:focus {
+    outline: none;
+    border: 0px;
 }
 
 .bottom-white-block dl {
@@ -1008,7 +1016,7 @@ body {
     }
 
     .noChoosedB {
-        top: 35vh;
+        top: 27vh;
     }
 
     .closeChooce {

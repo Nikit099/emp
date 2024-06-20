@@ -43,7 +43,9 @@ export default function RightSide({choosedPlant,isVisible, setIsVisible, choosed
                 </header>
                 <footer className="main__footer">
                     <div className="bottom-white-block">
-                        
+                    <div class='bottom-white-block__input'>
+                            <input type="text" placeholder="Имя растения"></input>
+                        </div>
                            {
                             choosedPlant ?
                             <dl> 
@@ -87,7 +89,20 @@ export default function RightSide({choosedPlant,isVisible, setIsVisible, choosed
                             <p className="noChoosedP">Необходимо выбрать растение</p>
                             </button>
                         }
-                        
+                        {
+                        choosedPlant ?
+                        <Link href='/' > 
+                            <button className="closeChooce--color">
+                                <p className="CloseChooceP--color">Главная</p>
+                            </button>
+                        </Link>
+                        :
+                        <Link href='/' > 
+                            <button className="closeChooce">
+                                <p className="CloseChooceP">Главная</p>
+                            </button>
+                        </Link>
+                        }
                     </div>
                 </footer>
             </main>
