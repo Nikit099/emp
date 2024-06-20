@@ -249,7 +249,7 @@ body {
 .plant-large {
     position: absolute;
     z-index: 1;
-    top: 65px;
+    top: 90px;
 
 }
 
@@ -506,7 +506,7 @@ body {
     }
     
     .plant-large {
-        top: 100px;
+        top: 65px;
     
     }
 }
@@ -937,9 +937,7 @@ body {
         top: 35vh;
     }
 
-    .plant-large{
-        top: -20px;
-    }
+   
 
 }
 
