@@ -7,12 +7,10 @@ import { useState } from "react";
 let scale = 50;
 
 export default function RightSide({ choosedPlant, createPlant, typeId, handleIsVisible, isVisible, onPlantNameChange }) {
-    const [plantName, setPlantName] = useState('');
+  
 
-    const handleInputChange = (event) => {
-        const newPlantName = event.target.value;
-        setPlantName(newPlantName);
-        onPlantNameChange(newPlantName);
+    const handleInputChange = (value) => {
+        onPlantNameChange(value);
     };
 
     return (
@@ -54,7 +52,7 @@ export default function RightSide({ choosedPlant, createPlant, typeId, handleIsV
                             type="text"
                             placeholder="Имя растения"
                             value={plantName}
-                            onChange={handleInputChange}
+                            onChange={(event) => handleInputChange(event.target.value)}
                         />
                     </div>
                     {

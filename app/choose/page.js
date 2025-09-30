@@ -42,7 +42,7 @@ export default function Choose() {
             id: Date.now(),
             name: plantName,
             typeId: plant.id,
-            recommendate: `Пока, у ${plantName} всё хорошо`,
+            recomendate: `Пока, у ${plantName} всё хорошо`,
             alert: false,
             img: plant.imgBigEmo
         }
